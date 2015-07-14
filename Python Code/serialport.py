@@ -5,17 +5,19 @@ import math
 
 
 class MPortOpenError(Exception):
+
     pass
 
 
 class MPort(object):
 
-    def __init__(self, port, baudrate, packet_size=15):
+    def __init__(self, port, baudrate=9600, packet_size=15):
 
         try:
             self.port = serial.Serial(port=port, baudrate=baudrate, timeout=0.0, stopbits=serial.STOPBITS_TWO)
         except serial.SerialException:
             raise MPortOpenError("COMM{0} could not be opened".format(port + 1))
+
         self.port.setRTS(False)
         self.data = bytearray()
         self.packet_size = packet_size
@@ -42,6 +44,7 @@ class MPort(object):
             self.port.setRTS(False)
 
     def send_data(self, data):
+
         length = len(data)
         number_packets = int(math.ceil(length / self.packet_size))
 
@@ -60,6 +63,10 @@ class MPort(object):
         buffer = self.data[0:]
         del self.data[0:]
         return buffer
+
+    def open(self):
+
+        self.port.open()
 
     def close(self):
 
