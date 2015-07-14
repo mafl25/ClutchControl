@@ -1,0 +1,361 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F13K22 ]
+[d frameptr 4065 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"44 D:\Documents\CCcode\TorqueGriper.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"5 D:\Documents\CCcode\TorqueGriper.X\serialprotocol.c
+[v _setTimer3 setTimer3 `(v  1 s 0 setTimer3 ]
+"24
+[v _serialSetUp serialSetUp `(v  1 e 0 0 ]
+"61
+[v _sendChar sendChar `(v  1 e 0 0 ]
+"67
+[v _sendData sendData `(v  1 e 0 0 ]
+"75
+[v _receiveData receiveData `(i  1 e 2 0 ]
+[s S143 . 1 `uc 1 ANSELH 1 0 :4:0 
+]
+"896 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S145 . 1 `uc 1 ANS8 1 0 :1:0 
+`uc 1 ANS9 1 0 :1:1 
+`uc 1 ANS10 1 0 :1:2 
+`uc 1 ANS11 1 0 :1:3 
+]
+[s S150 . 1 `uc 1 ANSEL8 1 0 :1:0 
+`uc 1 ANSEL9 1 0 :1:1 
+`uc 1 ANSEL10 1 0 :1:2 
+`uc 1 ANSEL11 1 0 :1:3 
+]
+[u S155 . 1 `S143 1 . 1 0 `S145 1 . 1 0 `S150 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES155  1 e 1 @3967 ]
+[s S209 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"1429
+[s S469 . 1 `uc 1 AN4 1 0 :1:0 
+`uc 1 AN5 1 0 :1:1 
+`uc 1 AN6 1 0 :1:2 
+`uc 1 AN7 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 AN8 1 0 :1:6 
+`uc 1 AN9 1 0 :1:7 
+]
+[s S477 . 1 `uc 1 C12INP 1 0 :1:0 
+`uc 1 C12IN1M 1 0 :1:1 
+`uc 1 C12IN2M 1 0 :1:2 
+`uc 1 C12IN3M 1 0 :1:3 
+`uc 1 C12OUT 1 0 :1:4 
+]
+[s S483 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 P1D 1 0 :1:2 
+`uc 1 P1C 1 0 :1:3 
+`uc 1 P1B 1 0 :1:4 
+`uc 1 P1A 1 0 :1:5 
+`uc 1 SS 1 0 :1:6 
+`uc 1 SDO 1 0 :1:7 
+]
+[s S491 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_SS 1 0 :1:6 
+]
+[s S494 . 1 `uc 1 C2INP 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 PGM 1 0 :1:3 
+`uc 1 C2OUT 1 0 :1:4 
+`uc 1 CCP1 1 0 :1:5 
+`uc 1 nSS 1 0 :1:6 
+]
+[s S501 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S504 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S507 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S510 . 1 `S209 1 . 1 0 `S469 1 . 1 0 `S477 1 . 1 0 `S483 1 . 1 0 `S491 1 . 1 0 `S494 1 . 1 0 `S501 1 . 1 0 `S504 1 . 1 0 `S507 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES510  1 e 1 @3970 ]
+[s S245 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1772
+[s S251 . 1 `uc 1 LB0 1 0 :1:0 
+]
+[s S253 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+]
+[s S256 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LB2 1 0 :1:2 
+]
+[s S259 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LB3 1 0 :1:3 
+]
+[s S262 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LB4 1 0 :1:4 
+]
+[s S265 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LB5 1 0 :1:5 
+]
+[s S268 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LB6 1 0 :1:6 
+]
+[s S271 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S274 . 1 `S245 1 . 1 0 `S251 1 . 1 0 `S253 1 . 1 0 `S256 1 . 1 0 `S259 1 . 1 0 `S262 1 . 1 0 `S265 1 . 1 0 `S268 1 . 1 0 `S271 1 . 1 0 ]
+[v _LATBbits LATBbits `VES274  1 e 1 @3978 ]
+[s S172 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"2147
+[s S178 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S184 . 1 `S172 1 . 1 0 `S178 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES184  1 e 1 @3987 ]
+[s S200 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"2282
+[u S218 . 1 `S200 1 . 1 0 `S209 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES218  1 e 1 @3988 ]
+[s S113 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TMR3IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BCLIF 1 0 :1:3 
+`uc 1 EEIF 1 0 :1:4 
+`uc 1 C2IF 1 0 :1:5 
+`uc 1 C1IF 1 0 :1:6 
+`uc 1 OSCFIF 1 0 :1:7 
+]
+"2840
+[s S122 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIF 1 0 :1:6 
+]
+[u S125 . 1 `S113 1 . 1 0 `S122 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES125  1 e 1 @4001 ]
+"3077
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+[s S314 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3118
+[s S323 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S326 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S329 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S332 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S335 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S337 . 1 `S314 1 . 1 0 `S323 1 . 1 0 `S326 1 . 1 0 `S329 1 . 1 0 `S332 1 . 1 0 `S335 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES337  1 e 1 @4011 ]
+"3286
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+[s S368 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3346
+[s S377 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S380 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S383 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S386 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S389 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S392 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S395 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S397 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[s S400 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S403 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S405 . 1 `S368 1 . 1 0 `S377 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 `S386 1 . 1 0 `S389 1 . 1 0 `S392 1 . 1 0 `S395 1 . 1 0 `S397 1 . 1 0 `S400 1 . 1 0 `S403 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES405  1 e 1 @4012 ]
+"3583
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"3594
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3605
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"3616
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
+[s S53 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T3SYNC 1 0 :1:2 
+]
+"3661
+[s S56 . 1 `uc 1 TMR3ON 1 0 :1:0 
+`uc 1 TMR3CS 1 0 :1:1 
+`uc 1 nT3SYNC 1 0 :1:2 
+`uc 1 T3CCP1 1 0 :1:3 
+`uc 1 T3CKPS 1 0 :2:4 
+`uc 1 . 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S64 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T3SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T3CKPS0 1 0 :1:4 
+`uc 1 T3CKPS1 1 0 :1:5 
+]
+[s S70 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RD163 1 0 :1:7 
+]
+[s S73 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN3 1 0 :1:3 
+]
+[s S76 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 T3RD16 1 0 :1:7 
+]
+[u S79 . 1 `S53 1 . 1 0 `S56 1 . 1 0 `S64 1 . 1 0 `S70 1 . 1 0 `S73 1 . 1 0 `S76 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES79  1 e 1 @4017 ]
+"3736
+[v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
+"3742
+[v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
+"3898
+[v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
+"7327
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"3 D:\Documents\CCcode\TorqueGriper.X\serialprotocol.c
+[v _timer3Time timer3Time `ui  1 s 2 timer3Time ]
+"44 D:\Documents\CCcode\TorqueGriper.X\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+[s S34 receiveBuffer 17 `[16]uc 1 buffer 16 0 `uc 1 length 1 16 ]
+"48
+[v main@data data `S34  1 a 17 15 ]
+"49
+[v main@i i `i  1 a 2 13 ]
+"59
+} 0
+"24 D:\Documents\CCcode\TorqueGriper.X\serialprotocol.c
+[v _serialSetUp serialSetUp `(v  1 e 0 0 ]
+{
+[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
+[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
+[v serialSetUp@brgh_bit brgh_bit `uc  1 p 1 4 ]
+"25
+[v serialSetUp@spbrg16 spbrg16 `ui  1 p 2 5 ]
+"27
+[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 7 ]
+"44
+} 0
+"5
+[v _setTimer3 setTimer3 `(v  1 s 0 setTimer3 ]
+{
+[v setTimer3@turnOn turnOn `uc  1 a 1 wreg ]
+[v setTimer3@turnOn turnOn `uc  1 a 1 wreg ]
+[v setTimer3@TMR3Pair TMR3Pair `ui  1 p 2 0 ]
+[v setTimer3@turnOn turnOn `uc  1 a 1 3 ]
+"11
+} 0
+"67
+[v _sendData sendData `(v  1 e 0 0 ]
+{
+"69
+[v sendData@i i `i  1 a 2 6 ]
+"67
+[v sendData@string string `*.39uc  1 p 2 1 ]
+[v sendData@length length `i  1 p 2 3 ]
+"73
+} 0
+"61
+[v _sendChar sendChar `(v  1 e 0 0 ]
+{
+[v sendChar@character character `uc  1 a 1 wreg ]
+[v sendChar@character character `uc  1 a 1 wreg ]
+[v sendChar@character character `uc  1 a 1 0 ]
+"65
+} 0
+"75
+[v _receiveData receiveData `(i  1 e 2 0 ]
+{
+"79
+[v receiveData@i i `i  1 a 2 6 ]
+"80
+[v receiveData@size size `i  1 a 2 4 ]
+"78
+[v receiveData@character character `uc  1 a 1 3 ]
+[s S34 receiveBuffer 17 `[16]uc 1 buffer 16 0 `uc 1 length 1 16 ]
+"75
+[v receiveData@buffer buffer `*.39S34  1 p 2 0 ]
+"112
+} 0
