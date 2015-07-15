@@ -33,10 +33,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S143 . . . ]
 "2840
 [v _PIR2bits `VS143 ~T0 @X0 0 e@4001 ]
-"3742
-[v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
-"3736
-[v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
+"3730
+[v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
 "880
 [s S39 :4 `uc 1 ]
 [n S39 . ANSELH ]
@@ -178,7 +176,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTAbits `VS168 ~T0 @X0 0 e@4012 ]
 "3583
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"3594
+"34 serialprotocol.h
+[s S373 `uc -> 16 `i `uc 1 ]
+[n S373 receiveBuffer buffer length ]
+"3594 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "1369
 [s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -214,9 +215,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTCbits `VS66 ~T0 @X0 0 e@3970 ]
 "7327
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"34 serialprotocol.h
-[s S373 `uc -> 16 `i `uc 1 ]
-[n S373 receiveBuffer buffer length ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3756,8 +3754,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.h: 44: void toggleReceiver(unsigned char toggle);
 [; ;serialprotocol.h: 45: void sendChar(unsigned char toggle);
 [; ;serialprotocol.h: 46: void sendData(unsigned char *string, int length);
-[; ;serialprotocol.h: 47: int receiveChar(unsigned char timeoutOn);
-[; ;serialprotocol.h: 48: int receiveData(struct receiveBuffer *SBuffer);
+[; ;serialprotocol.h: 47: int receiveData(struct receiveBuffer *SBuffer);
 "3 serialprotocol.c
 [v _timer3Time `ui ~T0 @X0 1 s ]
 [; ;serialprotocol.c: 3: static unsigned int timer3Time;
@@ -3802,244 +3799,243 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 [e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 376  ]
 {
-[; ;serialprotocol.c: 16: TMR3H = timer3Time >> 8;
+[; ;serialprotocol.c: 16: TMR3 = timer3Time;
 "16
-[e = _TMR3H -> >> _timer3Time -> 8 `i `uc ]
-[; ;serialprotocol.c: 17: TMR3L = timer3Time;
+[e = _TMR3 -> _timer3Time `us ]
+[; ;serialprotocol.c: 17: T3CONbits.TMR3ON = 0x01;
 "17
-[e = _TMR3L -> _timer3Time `uc ]
-[; ;serialprotocol.c: 18: T3CONbits.TMR3ON = 0x01;
-"18
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-"19
+"18
 }
-[; ;serialprotocol.c: 19: } else {
+[; ;serialprotocol.c: 18: } else {
 [e $U 377  ]
 [e :U 376 ]
 {
-[; ;serialprotocol.c: 20: T3CONbits.TMR3ON = 0x00;
-"20
+[; ;serialprotocol.c: 19: T3CONbits.TMR3ON = 0x00;
+"19
 [e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
-"21
+"20
 }
 [e :U 377 ]
+[; ;serialprotocol.c: 20: }
 [; ;serialprotocol.c: 21: }
-[; ;serialprotocol.c: 22: }
-"22
+"21
 [e :UE 375 ]
 }
-"24
+"23
 [v _serialSetUp `(v ~T0 @X0 1 ef3`uc`uc`ui ]
-"26
+"25
 {
-[; ;serialprotocol.c: 24: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.c: 25: unsigned int spbrg16)
-[; ;serialprotocol.c: 26: {
+[; ;serialprotocol.c: 23: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
+[; ;serialprotocol.c: 24: unsigned int spbrg16)
+[; ;serialprotocol.c: 25: {
 [e :U _serialSetUp ]
-"24
+"23
 [v _brg16_bit `uc ~T0 @X0 1 r1 ]
 [v _brgh_bit `uc ~T0 @X0 1 r2 ]
-"25
+"24
 [v _spbrg16 `ui ~T0 @X0 1 r3 ]
-"26
+"25
 [f ]
-[; ;serialprotocol.c: 27: ANSELHbits.ANS9 = 0;
-"27
+[; ;serialprotocol.c: 26: ANSELHbits.ANS9 = 0;
+"26
 [e = . . _ANSELHbits 1 1 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 28: ANSELHbits.ANS11 = 0;
-"28
+[; ;serialprotocol.c: 27: ANSELHbits.ANS11 = 0;
+"27
 [e = . . _ANSELHbits 1 3 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 30: TRISBbits.RB5 = 1;
-"30
+[; ;serialprotocol.c: 29: TRISBbits.RB5 = 1;
+"29
 [e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 31: TRISBbits.RB7 = 0;
-"31
+[; ;serialprotocol.c: 30: TRISBbits.RB7 = 0;
+"30
 [e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 32: TRISBbits.RB6 = 0;
-"32
+[; ;serialprotocol.c: 31: TRISBbits.RB6 = 0;
+"31
 [e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 33: TRISCbits.RC7 = 1;
-"33
+[; ;serialprotocol.c: 32: TRISCbits.RC7 = 1;
+"32
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 35: BAUDCON = (brg16_bit) ? 0x08 : 0x00;
-"35
+[; ;serialprotocol.c: 34: BAUDCON = (brg16_bit) ? 0x08 : 0x00;
+"34
 [e = _BAUDCON -> ? != -> _brg16_bit `i -> -> -> 0 `i `uc `i : -> 8 `i -> 0 `i `uc ]
-[; ;serialprotocol.c: 36: TXSTA = (brgh_bit) ? 0x24: 0x20;
-"36
+[; ;serialprotocol.c: 35: TXSTA = (brgh_bit) ? 0x24: 0x20;
+"35
 [e = _TXSTA -> ? != -> _brgh_bit `i -> -> -> 0 `i `uc `i : -> 36 `i -> 32 `i `uc ]
-[; ;serialprotocol.c: 37: SPBRGH = spbrg16 >> 8;
-"37
+[; ;serialprotocol.c: 36: SPBRGH = spbrg16 >> 8;
+"36
 [e = _SPBRGH -> >> _spbrg16 -> 8 `i `uc ]
-[; ;serialprotocol.c: 38: SPBRG = spbrg16;
-"38
+[; ;serialprotocol.c: 37: SPBRG = spbrg16;
+"37
 [e = _SPBRG -> _spbrg16 `uc ]
-[; ;serialprotocol.c: 39: RCSTA = 0x90;
-"39
+[; ;serialprotocol.c: 38: RCSTA = 0x90;
+"38
 [e = _RCSTA -> -> 144 `i `uc ]
-[; ;serialprotocol.c: 41: setTimer3(0x00, 65360);
-"41
+[; ;serialprotocol.c: 40: setTimer3(0x00, 65360);
+"40
 [e ( _setTimer3 (2 , -> -> 0 `i `uc -> -> 65360 `l `ui ]
-[; ;serialprotocol.c: 43: LATBbits.LATB6 = 1;
-"43
+[; ;serialprotocol.c: 42: LATBbits.LATB6 = 1;
+"42
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 44: }
-"44
+[; ;serialprotocol.c: 43: }
+"43
 [e :UE 378 ]
 }
-"46
+"45
 [v _toggleSerialPort `(v ~T0 @X0 1 ef1`uc ]
-"47
-{
-[; ;serialprotocol.c: 46: void toggleSerialPort(unsigned char toggle)
-[; ;serialprotocol.c: 47: {
-[e :U _toggleSerialPort ]
 "46
+{
+[; ;serialprotocol.c: 45: void toggleSerialPort(unsigned char toggle)
+[; ;serialprotocol.c: 46: {
+[e :U _toggleSerialPort ]
+"45
 [v _toggle `uc ~T0 @X0 1 r1 ]
-"47
+"46
 [f ]
-[; ;serialprotocol.c: 48: RCSTAbits.SPEN = toggle != 0 ? 1 : 0;
-"48
+[; ;serialprotocol.c: 47: RCSTAbits.SPEN = toggle != 0 ? 1 : 0;
+"47
 [e = . . _RCSTAbits 0 7 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[; ;serialprotocol.c: 49: }
-"49
+[; ;serialprotocol.c: 48: }
+"48
 [e :UE 379 ]
 }
-"51
+"50
 [v _toggleTransmitter `(v ~T0 @X0 1 ef1`uc ]
-"52
-{
-[; ;serialprotocol.c: 51: void toggleTransmitter(unsigned char toggle)
-[; ;serialprotocol.c: 52: {
-[e :U _toggleTransmitter ]
 "51
+{
+[; ;serialprotocol.c: 50: void toggleTransmitter(unsigned char toggle)
+[; ;serialprotocol.c: 51: {
+[e :U _toggleTransmitter ]
+"50
 [v _toggle `uc ~T0 @X0 1 r1 ]
-"52
+"51
 [f ]
-[; ;serialprotocol.c: 53: TXSTAbits.TXEN = toggle != 0 ? 1 : 0;
-"53
+[; ;serialprotocol.c: 52: TXSTAbits.TXEN = toggle != 0 ? 1 : 0;
+"52
 [e = . . _TXSTAbits 0 5 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[; ;serialprotocol.c: 54: }
-"54
+[; ;serialprotocol.c: 53: }
+"53
 [e :UE 380 ]
 }
-"56
+"55
 [v _toggleReceiver `(v ~T0 @X0 1 ef1`uc ]
-"57
-{
-[; ;serialprotocol.c: 56: void toggleReceiver(unsigned char toggle)
-[; ;serialprotocol.c: 57: {
-[e :U _toggleReceiver ]
 "56
+{
+[; ;serialprotocol.c: 55: void toggleReceiver(unsigned char toggle)
+[; ;serialprotocol.c: 56: {
+[e :U _toggleReceiver ]
+"55
 [v _toggle `uc ~T0 @X0 1 r1 ]
-"57
+"56
 [f ]
-[; ;serialprotocol.c: 58: RCSTAbits.CREN = toggle != 0 ? 1 : 0;
-"58
+[; ;serialprotocol.c: 57: RCSTAbits.CREN = toggle != 0 ? 1 : 0;
+"57
 [e = . . _RCSTAbits 0 4 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[; ;serialprotocol.c: 59: }
-"59
+[; ;serialprotocol.c: 58: }
+"58
 [e :UE 381 ]
 }
-"61
+"60
 [v _sendChar `(v ~T0 @X0 1 ef1`uc ]
-"62
-{
-[; ;serialprotocol.c: 61: void sendChar(unsigned char character)
-[; ;serialprotocol.c: 62: {
-[e :U _sendChar ]
 "61
+{
+[; ;serialprotocol.c: 60: void sendChar(unsigned char character)
+[; ;serialprotocol.c: 61: {
+[e :U _sendChar ]
+"60
 [v _character `uc ~T0 @X0 1 r1 ]
-"62
+"61
 [f ]
-[; ;serialprotocol.c: 63: while(!TXSTAbits.TRMT);
-"63
+[; ;serialprotocol.c: 62: while(!TXSTAbits.TRMT);
+"62
 [e $U 383  ]
 [e :U 384 ]
 [e :U 383 ]
 [e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 384  ]
 [e :U 385 ]
-[; ;serialprotocol.c: 64: TXREG = character;
-"64
+[; ;serialprotocol.c: 63: TXREG = character;
+"63
 [e = _TXREG _character ]
-[; ;serialprotocol.c: 65: }
-"65
+[; ;serialprotocol.c: 64: }
+"64
 [e :UE 382 ]
 }
-"67
+"66
 [v _sendData `(v ~T0 @X0 1 ef2`*uc`i ]
-"68
-{
-[; ;serialprotocol.c: 67: void sendData(unsigned char *string, int length)
-[; ;serialprotocol.c: 68: {
-[e :U _sendData ]
 "67
+{
+[; ;serialprotocol.c: 66: void sendData(unsigned char *string, int length)
+[; ;serialprotocol.c: 67: {
+[e :U _sendData ]
+"66
 [v _string `*uc ~T0 @X0 1 r1 ]
 [v _length `i ~T0 @X0 1 r2 ]
-"68
+"67
 [f ]
-"69
+"68
 [v _i `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 69: int i;
-[; ;serialprotocol.c: 71: for (i = 0; i < length; i++)
-"71
+[; ;serialprotocol.c: 68: int i;
+[; ;serialprotocol.c: 70: for (i = 0; i < length; i++)
+"70
 {
 [e = _i -> 0 `i ]
 [e $U 390  ]
-"72
-[e :U 387 ]
-[; ;serialprotocol.c: 72: sendChar(string[i]);
-[e ( _sendChar (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
 "71
+[e :U 387 ]
+[; ;serialprotocol.c: 71: sendChar(string[i]);
+[e ( _sendChar (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
+"70
 [e ++ _i -> 1 `i ]
 [e :U 390 ]
 [e $ < _i _length 387  ]
 [e :U 388 ]
-"72
+"71
 }
-[; ;serialprotocol.c: 73: }
-"73
+[; ;serialprotocol.c: 72: }
+"72
 [e :UE 386 ]
 }
+"74
+[v _receiveData `(i ~T0 @X0 1 ef1`*S373 ]
 "75
-[v _receiveChar `(i ~T0 @X0 1 ef1`uc ]
-"76
 {
-[; ;serialprotocol.c: 75: int receiveChar(unsigned char timeoutOn)
-[; ;serialprotocol.c: 76: {
-[e :U _receiveChar ]
+[; ;serialprotocol.c: 74: int receiveData(struct receiveBuffer *buffer)
+[; ;serialprotocol.c: 75: {
+[e :U _receiveData ]
+"74
+[v _buffer `*S373 ~T0 @X0 1 r1 ]
 "75
-[v _timeoutOn `uc ~T0 @X0 1 r1 ]
-"76
 [f ]
 "77
-[v _character `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 77: int character;
-[; ;serialprotocol.c: 79: if (RCSTAbits.OERR) {
+[v _character `uc ~T0 @X0 1 a ]
+"78
+[v _i `i ~T0 @X0 1 a ]
+[; ;serialprotocol.c: 77: int8_t character;
+[; ;serialprotocol.c: 78: int i = 0;
+[e = _i -> 0 `i ]
 "79
+[v _size `i ~T0 @X0 1 a ]
+[; ;serialprotocol.c: 79: int size = 0;
+[e = _size -> 0 `i ]
+[; ;serialprotocol.c: 81: if (RCSTAbits.OERR) {
+"81
 [e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 392  ]
 {
-[; ;serialprotocol.c: 80: sendChar('R');
-"80
-[e ( _sendChar (1 -> -> 82 `ui `uc ]
-[; ;serialprotocol.c: 81: RCSTAbits.CREN = 0;
-"81
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 82: RCSTAbits.CREN = 1;
+[; ;serialprotocol.c: 82: RCSTAbits.CREN = 0;
 "82
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;serialprotocol.c: 83: RCSTAbits.CREN = 1;
 "83
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"84
 }
 [e :U 392 ]
-[; ;serialprotocol.c: 83: }
-[; ;serialprotocol.c: 85: character = RCREG;
-"85
-[e = _character -> _RCREG `i ]
+[; ;serialprotocol.c: 84: }
 [; ;serialprotocol.c: 86: character = RCREG;
 "86
-[e = _character -> _RCREG `i ]
-[; ;serialprotocol.c: 87: character = -1;
+[e = _character _RCREG ]
+[; ;serialprotocol.c: 87: character = RCREG;
 "87
-[e = _character -U -> 1 `i ]
+[e = _character _RCREG ]
 [; ;serialprotocol.c: 89: if (PORTCbits.RC7 == 0) {
 "89
 [e $ ! == -> . . _PORTCbits 0 7 `i -> 0 `i 393  ]
@@ -4047,194 +4043,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.c: 90: LATBbits.LATB6 = 0;
 "90
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 91: toggleTimer3(timeoutOn);
-"91
-[e ( _toggleTimer3 (1 _timeoutOn ]
-[; ;serialprotocol.c: 93: while (!RCIF && PORTCbits.RC7 == 0 && PIR2bits.TMR3IF == 0);
-"93
+[; ;serialprotocol.c: 92: while (!RCIF);
+"92
 [e $U 394  ]
 [e :U 395 ]
 [e :U 394 ]
-[e $ && && ! _RCIF == -> . . _PORTCbits 0 7 `i -> 0 `i == -> . . _PIR2bits 0 1 `i -> 0 `i 395  ]
+[e $ ! _RCIF 395  ]
 [e :U 396 ]
-[; ;serialprotocol.c: 95: if (RCIF)
+[; ;serialprotocol.c: 93: size = RCREG;
+"93
+[e = _size -> _RCREG `i ]
+[; ;serialprotocol.c: 95: if (size < 16 && size > 0) {
 "95
-[e $ ! _RCIF 397  ]
-[; ;serialprotocol.c: 96: character = RCREG;
-"96
-[e = _character -> _RCREG `i ]
-[e $U 398  ]
-"97
-[e :U 397 ]
-[; ;serialprotocol.c: 97: else if (PORTCbits.RC7 == 1)
-[e $ ! == -> . . _PORTCbits 0 7 `i -> 1 `i 399  ]
-[; ;serialprotocol.c: 98: character = -2;
-"98
-[e = _character -U -> 2 `i ]
-[e $U 400  ]
-"99
-[e :U 399 ]
-[; ;serialprotocol.c: 99: else if (PIR2bits.TMR3IF == 1)
-[e $ ! == -> . . _PIR2bits 0 1 `i -> 1 `i 401  ]
-[; ;serialprotocol.c: 100: character = -3;
-"100
-[e = _character -U -> 3 `i ]
-[e :U 401 ]
-"102
-[e :U 400 ]
-[e :U 398 ]
-[; ;serialprotocol.c: 102: LATBbits.LATB6 = 1;
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 103: if (character != -2 && character != -3) {
-"103
-[e $ ! && != _character -U -> 2 `i != _character -U -> 3 `i 402  ]
+[e $ ! && < _size -> 16 `i > _size -> 0 `i 397  ]
 {
-[; ;serialprotocol.c: 104: toggleTimer3(timeoutOn);
-"104
-[e ( _toggleTimer3 (1 _timeoutOn ]
-[; ;serialprotocol.c: 105: while (PORTCbits.RC7 == 0 && PIR2bits.TMR3IF == 0);
-"105
-[e $U 403  ]
-[e :U 404 ]
-[e :U 403 ]
-[e $ && == -> . . _PORTCbits 0 7 `i -> 0 `i == -> . . _PIR2bits 0 1 `i -> 0 `i 404  ]
-[e :U 405 ]
-"106
-}
+[; ;serialprotocol.c: 96: while (i < size) {
+"96
+[e $U 398  ]
+[e :U 399 ]
+{
+[; ;serialprotocol.c: 97: while (!RCIF);
+"97
+[e $U 401  ]
 [e :U 402 ]
-"107
+[e :U 401 ]
+[e $ ! _RCIF 402  ]
+[e :U 403 ]
+[; ;serialprotocol.c: 98: buffer->buffer[i] = RCREG;
+"98
+[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux _RCREG ]
+[; ;serialprotocol.c: 99: i++;
+"99
+[e ++ _i -> 1 `i ]
+"100
+}
+[e :U 398 ]
+"96
+[e $ < _i _size 399  ]
+[e :U 400 ]
+"101
+}
+[e :U 397 ]
+[; ;serialprotocol.c: 100: }
+[; ;serialprotocol.c: 101: }
+[; ;serialprotocol.c: 103: LATBbits.LATB6 = 1;
+"103
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;serialprotocol.c: 104: while (PORTCbits.RC7 == 0);
+"104
+[e $U 404  ]
+[e :U 405 ]
+[e :U 404 ]
+[e $ == -> . . _PORTCbits 0 7 `i -> 0 `i 405  ]
+[e :U 406 ]
+"105
 }
 [e :U 393 ]
-[; ;serialprotocol.c: 106: }
-[; ;serialprotocol.c: 107: }
-[; ;serialprotocol.c: 109: toggleTimer3(0x00);
-"109
-[e ( _toggleTimer3 (1 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 110: return character;
+[; ;serialprotocol.c: 105: }
+[; ;serialprotocol.c: 107: buffer->length = i;
+"107
+[e = . *U _buffer 1 -> _i `uc ]
+[; ;serialprotocol.c: 108: buffer->buffer[i] = 0;
+"108
+[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> -> 0 `i `uc ]
+[; ;serialprotocol.c: 110: return i;
 "110
-[e ) _character ]
+[e ) _i ]
 [e $UE 391  ]
 [; ;serialprotocol.c: 111: }
 "111
 [e :UE 391 ]
-}
-"113
-[v _receiveData `(i ~T0 @X0 1 ef1`*S373 ]
-"114
-{
-[; ;serialprotocol.c: 113: int receiveData(struct receiveBuffer *buffer)
-[; ;serialprotocol.c: 114: {
-[e :U _receiveData ]
-"113
-[v _buffer `*S373 ~T0 @X0 1 r1 ]
-"114
-[f ]
-"116
-[v _character `uc ~T0 @X0 1 a ]
-"117
-[v _i `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 116: int8_t character;
-[; ;serialprotocol.c: 117: int i = 0;
-[e = _i -> 0 `i ]
-"118
-[v _size `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 118: int size = 0;
-[e = _size -> 0 `i ]
-[; ;serialprotocol.c: 120: if (RCSTAbits.OERR) {
-"120
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 407  ]
-{
-[; ;serialprotocol.c: 121: RCSTAbits.CREN = 0;
-"121
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 122: RCSTAbits.CREN = 1;
-"122
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"123
-}
-[e :U 407 ]
-[; ;serialprotocol.c: 123: }
-[; ;serialprotocol.c: 125: character = RCREG;
-"125
-[e = _character _RCREG ]
-[; ;serialprotocol.c: 126: character = RCREG;
-"126
-[e = _character _RCREG ]
-[; ;serialprotocol.c: 128: if (PORTCbits.RC7 == 0) {
-"128
-[e $ ! == -> . . _PORTCbits 0 7 `i -> 0 `i 408  ]
-{
-[; ;serialprotocol.c: 129: LATBbits.LATB6 = 0;
-"129
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 131: while (!RCIF);
-"131
-[e $U 409  ]
-[e :U 410 ]
-[e :U 409 ]
-[e $ ! _RCIF 410  ]
-[e :U 411 ]
-[; ;serialprotocol.c: 132: size = RCREG;
-"132
-[e = _size -> _RCREG `i ]
-[; ;serialprotocol.c: 134: if (size < 16 && size > 0) {
-"134
-[e $ ! && < _size -> 16 `i > _size -> 0 `i 412  ]
-{
-[; ;serialprotocol.c: 135: while (i < size) {
-"135
-[e $U 413  ]
-[e :U 414 ]
-{
-[; ;serialprotocol.c: 136: while (!RCIF);
-"136
-[e $U 416  ]
-[e :U 417 ]
-[e :U 416 ]
-[e $ ! _RCIF 417  ]
-[e :U 418 ]
-[; ;serialprotocol.c: 137: buffer->buffer[i] = RCREG;
-"137
-[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux _RCREG ]
-[; ;serialprotocol.c: 138: i++;
-"138
-[e ++ _i -> 1 `i ]
-"139
-}
-[e :U 413 ]
-"135
-[e $ < _i _size 414  ]
-[e :U 415 ]
-"140
-}
-[e :U 412 ]
-[; ;serialprotocol.c: 139: }
-[; ;serialprotocol.c: 140: }
-[; ;serialprotocol.c: 142: LATBbits.LATB6 = 1;
-"142
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 143: while (PORTCbits.RC7 == 0);
-"143
-[e $U 419  ]
-[e :U 420 ]
-[e :U 419 ]
-[e $ == -> . . _PORTCbits 0 7 `i -> 0 `i 420  ]
-[e :U 421 ]
-"144
-}
-[e :U 408 ]
-[; ;serialprotocol.c: 144: }
-[; ;serialprotocol.c: 146: buffer->length = i;
-"146
-[e = . *U _buffer 1 -> _i `uc ]
-[; ;serialprotocol.c: 147: buffer->buffer[i] = 0;
-"147
-[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 149: return i;
-"149
-[e ) _i ]
-[e $UE 406  ]
-[; ;serialprotocol.c: 150: }
-"150
-[e :UE 406 ]
 }

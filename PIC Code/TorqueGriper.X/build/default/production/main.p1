@@ -1,18 +1,48 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"6248 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6258
+[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S331 . RBIF INT0F T0IF RBIE INT0E T0IE PEIE GIE ]
+"6268
+[s S332 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S332 . . GIEL GIEH ]
+"6273
+[s S333 :6 `uc 1 :1 `uc 1 ]
+[n S333 . . PIE ]
+"6247
+[u S329 `S330 1 `S331 1 `S332 1 `S333 1 ]
+[n S329 . . . . . ]
+"6278
+[v _INTCONbits `VS329 ~T0 @X0 0 e@4082 ]
+"5813
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"5807
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"45 serialprotocol.h
+[v _sendChar `(v ~T0 @X0 0 ef1`uc ]
 [p mainexit ]
-"40 serialprotocol.h
-[v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
 [v F3845 `(v ~T0 @X0 1 tf1`ul ]
 "161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v __delay `JF3845 ~T0 @X0 0 e ]
 [p i __delay ]
+"40 serialprotocol.h
+[v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+"5738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S312 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S312 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"5746
+[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S313 . T0PS0 T0PS1 T0PS2 ]
+"5737
+[u S311 `S312 1 `S313 1 ]
+[n S311 . . . ]
+"5752
+[v _T0CONbits `VS311 ~T0 @X0 0 e@4053 ]
 "34 serialprotocol.h
 [s S373 `uc -> 16 `i `uc 1 ]
 [n S373 receiveBuffer buffer length ]
-"47
-[v _receiveData `(i ~T0 @X0 0 ef1`*S373 ]
-"46
-[v _sendData `(v ~T0 @X0 0 ef2`*uc`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3585,51 +3615,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BBSIZ=OFF ]
 "36
 [p x XINST=OFF ]
-"44
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[; ;main.c: 44: int main() {
-[e :U _main ]
-[f ]
-[; ;main.c: 45: serialSetUp(1, 1, 0x04);
-"45
-[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 4 `i `ui ]
-[; ;main.c: 46: _delay((unsigned long)((1)*(20000000/4000.0)));
+[v F3876 `(v ~T0 @X0 1 tf ]
 "46
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"48
-[v _data `S373 ~T0 @X0 1 a ]
-"49
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 48: struct receiveBuffer data;
-[; ;main.c: 49: int i = 0;
-[e = _i -> 0 `i ]
-[; ;main.c: 51: while (1) {
-"51
-[e :U 376 ]
+[v _com_link `IF3876 ~T0 @X0 1 e ]
+"47
 {
-[; ;main.c: 53: i = receiveData(&data);
+[; ;main.c: 46: void interrupt com_link(void)
+[; ;main.c: 47: {
+[e :U _com_link ]
+[f ]
+[; ;main.c: 48: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
+"48
+[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 375  ]
+{
+[; ;main.c: 49: TMR0H = 65340 >> 8;
+"49
+[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
+[; ;main.c: 50: TMR0L = 65340;
+"50
+[e = _TMR0L -> -> 65340 `l `uc ]
+[; ;main.c: 51: INTCONbits.TMR0IF = 0;
+"51
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 52: sendChar(0x55);
+"52
+[e ( _sendChar (1 -> -> 85 `i `uc ]
+[; ;main.c: 53: sendChar(0xDD);
 "53
-[e = _i ( _receiveData (1 &U _data ]
-[; ;main.c: 55: if (i)
+[e ( _sendChar (1 -> -> 221 `i `uc ]
+[; ;main.c: 54: sendChar(0x00);
+"54
+[e ( _sendChar (1 -> -> 0 `i `uc ]
 "55
-[e $ ! != _i -> 0 `i 378  ]
-[; ;main.c: 56: sendData(data.buffer, data.length);
-"56
-[e ( _sendData (2 , &U . _data 0 -> . _data 1 `i ]
-[e :U 378 ]
-"57
 }
 [e :U 375 ]
-"51
-[e $U 376  ]
-[e :U 377 ]
-[; ;main.c: 57: }
-[; ;main.c: 58: return (0);
-"58
-[e ) -> 0 `i ]
-[e $UE 374  ]
-[; ;main.c: 59: }
-"59
+[; ;main.c: 55: }
+[; ;main.c: 56: }
+"56
 [e :UE 374 ]
+}
+"58
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[; ;main.c: 58: int main() {
+[e :U _main ]
+[f ]
+[; ;main.c: 59: _delay((unsigned long)((1)*(20000000/4000.0)));
+"59
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 60: serialSetUp(1, 1, 0x81);
+"60
+[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 129 `i `ui ]
+[; ;main.c: 62: T0CONbits.PSA = 0;
+"62
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 63: T0CONbits.T0PS = 0x06;
+"63
+[e = . . _T0CONbits 0 0 -> -> 6 `i `uc ]
+[; ;main.c: 64: T0CONbits.T0CS = 0;
+"64
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 65: T0CONbits.T08BIT = 0;
+"65
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 66: INTCONbits.TMR0IF = 0;
+"66
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 67: INTCONbits.TMR0IE = 1;
+"67
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 68: INTCONbits.GIE = 1;
+"68
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 69: TMR0H = 65340 >> 8;
+"69
+[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
+[; ;main.c: 70: TMR0L = 65340;
+"70
+[e = _TMR0L -> -> 65340 `l `uc ]
+[; ;main.c: 71: T0CONbits.TMR0ON = 1;
+"71
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"75
+[v _data `S373 ~T0 @X0 1 a ]
+"76
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 75: struct receiveBuffer data;
+[; ;main.c: 76: int i = 0;
+[e = _i -> 0 `i ]
+[; ;main.c: 78: while (1) {
+"78
+[e :U 378 ]
+{
+"84
+}
+[e :U 377 ]
+"78
+[e $U 378  ]
+[e :U 379 ]
+[; ;main.c: 84: }
+[; ;main.c: 85: return (0);
+"85
+[e ) -> 0 `i ]
+[e $UE 376  ]
+[; ;main.c: 86: }
+"86
+[e :UE 376 ]
 }

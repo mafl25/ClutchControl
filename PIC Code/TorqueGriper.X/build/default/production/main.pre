@@ -4777,20 +4777,42 @@ int receiveData(struct receiveBuffer *SBuffer);
 #pragma config BBSIZ = OFF
 #pragma config XINST = OFF
 
-# 44
+# 46
+void interrupt com_link(void)
+{
+if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
+TMR0H = 65340 >> 8;
+TMR0L = 65340;
+INTCONbits.TMR0IF = 0;
+sendChar(0x55);
+sendChar(0xDD);
+sendChar(0x00);
+}
+}
+
 int main() {
-serialSetUp(1, 1, 0x04);
 _delay((unsigned long)((1)*(20000000/4000.0)));
+serialSetUp(1, 1, 0x81);
+
+T0CONbits.PSA = 0;
+T0CONbits.T0PS = 0x06;
+T0CONbits.T0CS = 0;
+T0CONbits.T08BIT = 0;
+INTCONbits.TMR0IF = 0;
+INTCONbits.TMR0IE = 1;
+INTCONbits.GIE = 1;
+TMR0H = 65340 >> 8;
+TMR0L = 65340;
+T0CONbits.TMR0ON = 1;
+
+
 
 struct receiveBuffer data;
 int i = 0;
 
 while (1) {
 
-i = receiveData(&data);
-
-if (i)
-sendData(data.buffer, data.length);
+# 84
 }
 return (0);
 }

@@ -41,19 +41,46 @@
 #define BACKWARD LATCbits.LATC4 
 #define TRIS_BACKWARD TRISCbits.RC4 
 
+#define TMR0VAL 65340
+
+void interrupt com_link(void)        // interrupt function 
+ {
+    if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){                                     
+        TMR0H = TMR0VAL >> 8;
+        TMR0L = TMR0VAL;
+        INTCONbits.TMR0IF = 0;
+        sendChar(0x55);
+        sendChar(0xDD);
+        sendChar(0x00);
+    }
+}
+
 int main() {
-    serialSetUp(BRG16_ON, BRGH_ON, 0x04);
     __delay_ms(1);
+    serialSetUp(BRG16_ON, BRGH_ON, 0x81);
+    
+    T0CONbits.PSA = 0;
+    T0CONbits.T0PS = 0x06;
+    T0CONbits.T0CS = 0;
+    T0CONbits.T08BIT = 0;
+    INTCONbits.TMR0IF = 0;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.GIE = 1;
+    TMR0H = TMR0VAL >> 8;
+    TMR0L = TMR0VAL;
+    T0CONbits.TMR0ON = 1;
+    
+        
     
     struct receiveBuffer data;
     int i = 0;
     
     while (1) {
         
-        i = receiveData(&data);
+        /*i = receiveData(&data);
         
         if (i)
-            sendData(data.buffer, data.length);
+            sendData(data.buffer, data.length);*/
     }
     return (0);
 }

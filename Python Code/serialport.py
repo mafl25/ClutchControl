@@ -11,12 +11,13 @@ class MPortOpenError(Exception):
 
 class MPort(object):
 
-    def __init__(self, port, baudrate=9600, packet_size=15):
+    def __init__(self, port, baudrate=9600, packet_size=15, timeout=0.0):
 
         try:
-            self.port = serial.Serial(port=port, baudrate=baudrate, timeout=0.0, stopbits=serial.STOPBITS_TWO)
+            self.port = serial.Serial(port=port, baudrate=baudrate, stopbits=serial.STOPBITS_TWO,
+                                      timeout=timeout)
         except serial.SerialException:
-            raise MPortOpenError("COMM{0} could not be opened".format(port + 1))
+            raise MPortOpenError("COM{0} could not be opened".format(port + 1))
 
         self.port.setRTS(False)
         self.data = bytearray()
@@ -55,9 +56,12 @@ class MPort(object):
             else:
                 self.send_packet(data[start_index:])
 
-    def read_data(self):
+    def read_data(self, num_bytes):
 
-        number = self.port.inWaiting()
+        if num_bytes < 1:
+            number = self.port.inWaiting()
+        else:
+            number = num_bytes
         buffer = self.port.read(number)
         self.data.extend(buffer)
         buffer = self.data[0:]

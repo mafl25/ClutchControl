@@ -4748,7 +4748,6 @@ void toggleTransmitter(unsigned char toggle);
 void toggleReceiver(unsigned char toggle);
 void sendChar(unsigned char toggle);
 void sendData(unsigned char *string, int length);
-int receiveChar(unsigned char timeoutOn);
 int receiveData(struct receiveBuffer *SBuffer);
 
 # 3 "serialprotocol.c"
@@ -4765,8 +4764,7 @@ timer3Time = TMR3Pair;
 static void toggleTimer3(unsigned char toggle) {
 PIR2bits.TMR3IF = 0;
 if (toggle) {
-TMR3H = timer3Time >> 8;
-TMR3L = timer3Time;
+TMR3 = timer3Time;
 T3CONbits.TMR3ON = 0x01;
 } else {
 T3CONbits.TMR3ON = 0x00;
@@ -4822,44 +4820,6 @@ int i;
 
 for (i = 0; i < length; i++)
 sendChar(string[i]);
-}
-
-int receiveChar(unsigned char timeoutOn)
-{
-int character;
-
-if (RCSTAbits.OERR) {
-sendChar('R');
-RCSTAbits.CREN = 0;
-RCSTAbits.CREN = 1;
-}
-
-character = RCREG;
-character = RCREG;
-character = -1;
-
-if (PORTCbits.RC7 == 0) {
-LATBbits.LATB6 = 0;
-toggleTimer3(timeoutOn);
-
-while (!RCIF && PORTCbits.RC7 == 0 && PIR2bits.TMR3IF == 0);
-
-if (RCIF)
-character = RCREG;
-else if (PORTCbits.RC7 == 1)
-character = -2;
-else if (PIR2bits.TMR3IF == 1)
-character = -3;
-
-LATBbits.LATB6 = 1;
-if (character != -2 && character != -3) {
-toggleTimer3(timeoutOn);
-while (PORTCbits.RC7 == 0 && PIR2bits.TMR3IF == 0);
-}
-}
-
-toggleTimer3(0x00);
-return character;
 }
 
 int receiveData(struct receiveBuffer *buffer)

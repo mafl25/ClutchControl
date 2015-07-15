@@ -13,8 +13,7 @@ static void setTimer3(unsigned char turnOn, unsigned int TMR3Pair) {
 static void toggleTimer3(unsigned char toggle) {
     PIR2bits.TMR3IF = 0;
     if (toggle) {
-        TMR3H = timer3Time >> 8;
-        TMR3L = timer3Time;
+        TMR3 = timer3Time;
         T3CONbits.TMR3ON = 0x01;
     } else {
         T3CONbits.TMR3ON = 0x00;

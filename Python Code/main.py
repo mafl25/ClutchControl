@@ -1,33 +1,24 @@
 __author__ = 'Manuel'
 
-import serialport
+# import serialport
 # from tkinter import *
+import pic18f13k22 as PIC
 import sys
 
 
 def main():
 
+    pic = PIC.PIC18F13K22()
     try:
-        port = serialport.MPort(port=3, baudrate=1000000)
-    except serialport.MPortOpenError as error:
+        pic.open_connection(3, baudrate=38400)
+    except PIC.ErrorConnection as error:
         print(error)
         return -1
 
     while 1:
-        input_string = input("What do you want to send: ")
-        if input_string == "Exit":
-            break
-        elif input_string == "Hex":
-            input_string = input("introduce hex: ")
-            data = bytearray.fromhex(input_string)
-            port.send_data(data)
-        elif input_string == "p":
-            print(port.read_data())
-        else:
-            data = bytearray(input_string, encoding="utf-8")
-            port.send_data(data)
+        pic.print_pic()
 
-    port.close()
+    pic.close_connection()
     return 0
 
 return_value = main()
