@@ -1,7 +1,6 @@
 __author__ = 'Manuel'
 
-# import serialport
-# from tkinter import *
+
 import pic18f13k22 as PIC
 import sys
 
@@ -14,9 +13,6 @@ def main():
     except PIC.ErrorConnection as error:
         print(error)
         return -1
-
-    while 1:
-        pic.print_pic()
 
     pic.close_connection()
     return 0

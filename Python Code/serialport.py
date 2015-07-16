@@ -4,22 +4,19 @@ import serial
 import math
 
 
-class MPortOpenError(Exception):
-
+class SerialException(Exception):
     pass
 
 
-class MPort(object):
+class MPort(serial.Serial):
 
-    def __init__(self, port, baudrate=9600, packet_size=15, timeout=0.0):
+    def __init__(self, packet_size, *args, **kwargs):
 
         try:
-            self.port = serial.Serial(port=port, baudrate=baudrate, stopbits=serial.STOPBITS_TWO,
-                                      timeout=timeout)
-        except serial.SerialException:
-            raise MPortOpenError("COM{0} could not be opened".format(port + 1))
-
-        self.port.setRTS(False)
+            serial.Serial.__init__(self, *args, **kwargs)
+        except serial.SerialException as error:
+            raise SerialException(error.args)
+        self.setRTS(False)
         self.data = bytearray()
         self.packet_size = packet_size
 
@@ -34,15 +31,15 @@ class MPort(object):
             packet[0] = size
             packet.extend(data)
 
-            self.port.setRTS(True)
-            while not self.port.getCTS():  # Waits until the MCU is ready to receive data
+            self.setRTS(True)
+            while not self.getCTS():  # Waits until the MCU is ready to receive data
                 pass
 
-            self.port.write(packet)
+            self.write(packet)
 
-            while self.port.getCTS():  # Waits until the MCU received the data
+            while self.getCTS():  # Waits until the MCU received the data
                 pass
-            self.port.setRTS(False)
+            self.setRTS(False)
 
     def send_data(self, data):
 
@@ -56,25 +53,6 @@ class MPort(object):
             else:
                 self.send_packet(data[start_index:])
 
-    def read_data(self, num_bytes):
-
-        if num_bytes < 1:
-            number = self.port.inWaiting()
-        else:
-            number = num_bytes
-        buffer = self.port.read(number)
-        self.data.extend(buffer)
-        buffer = self.data[0:]
-        del self.data[0:]
-        return buffer
-
-    def open(self):
-
-        self.port.open()
-
-    def close(self):
-
-        self.port.close()
 
 
 
