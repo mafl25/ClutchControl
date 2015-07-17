@@ -100,6 +100,8 @@ class StartPage(tk.Frame):
         on_off_label = tk.Label(self, font=SMALL_FONT, textvariable=self.on_off_line, width=30,
                                 height=2, justify=tk.LEFT)
         on_off_label.grid(row=2, column=2, sticky=tk.W, pady=10, padx=10)
+        on_off_label.after(20, update_on_off, on_off_label, self)  # Runs this function every 20 ms
+        # What's the point of it being a method? Couldn't I have done this from other widget?
 
         # Open/Close Button
         self.open_close = tk.StringVar()
@@ -126,7 +128,7 @@ class StartPage(tk.Frame):
             port_sel = self.com.get()
             if port_sel.startswith("COM"):
                 try:
-                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=50,
+                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=1000,
                                              packet_size=self.p_size.get())
                 except ErrorConnection as error:
                     print(error)
@@ -152,3 +154,10 @@ class StartPage(tk.Frame):
             for open_ports in com_ports:
                 self.com_menu['menu'].add_command(label=open_ports[0], command=tk._setit(self.com, open_ports[0]))
 
+
+def update_on_off(label, parent):  # Analyze more this function later
+    if parent.pic.online:
+        parent.on_off_line.set("PIC Online")
+    else:
+        parent.on_off_line.set("PIC Offline")
+    label.after(20, update_on_off, label, parent)  # Have to call it again to kee it running

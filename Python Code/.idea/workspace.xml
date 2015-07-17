@@ -2,43 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1a865e-5039-4153-84d1-99390671f0bc" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.pre" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.pre" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.cmf" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.elf" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.hxl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.map" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.mum" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.obj" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.rlf" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.sdb" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.sym" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\memoryfile.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.elf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.elf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.obj" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.rlf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.rlf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-default.mk" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-default.mk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-genesis.properties" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-genesis.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.cmf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.cmf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hex" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hxl" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hxl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.lst" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.map" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.mum" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.mum" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sdb" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sym" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sym" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/configurations.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui.py" afterPath="$PROJECT_DIR$/gui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/main.c" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/main.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.pre" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/memoryfile.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/memoryfile.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pic18f13k22.py" afterPath="$PROJECT_DIR$/pic18f13k22.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -65,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/pic18f13k22.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="e#23#46#0" expanded="true" />
               </folding>
@@ -76,8 +40,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38812786">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.42694065">
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
               <folding>
                 <element signature="e#24#49#0" expanded="true" />
               </folding>
@@ -89,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/gui.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+              <caret line="130" column="100" selection-start-line="130" selection-start-column="100" selection-end-line="130" selection-end-column="100" />
               <folding>
                 <element signature="e#23#43#0" expanded="true" />
               </folding>
@@ -113,8 +77,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/serialport.py" />
-        <option value="$PROJECT_DIR$/pic18f13k22.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/pic18f13k22.py" />
         <option value="$PROJECT_DIR$/gui.py" />
       </list>
     </option>
@@ -151,7 +115,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -173,6 +136,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,7 +389,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26614174" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26614174" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -482,6 +446,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pic18f13k22.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+          <folding>
+            <element signature="e#23#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pic18f13k22.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -730,7 +724,7 @@
     <entry file="file://$PROJECT_DIR$/pic18f13k22.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="e#23#46#0" expanded="true" />
           </folding>
@@ -740,7 +734,7 @@
     <entry file="file://$PROJECT_DIR$/gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+          <caret line="130" column="100" selection-start-line="130" selection-start-column="100" selection-end-line="130" selection-end-column="100" />
           <folding>
             <element signature="e#23#43#0" expanded="true" />
           </folding>
@@ -749,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38812786">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.42694065">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
           <folding>
             <element signature="e#24#49#0" expanded="true" />
           </folding>

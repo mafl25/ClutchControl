@@ -72,6 +72,7 @@ class PIC18F13K22:
     def close_connection(self):
 
         self._running = False
+        self.online = False
         if self.port.isOpen():
             while self._t.is_alive():
                 pass
