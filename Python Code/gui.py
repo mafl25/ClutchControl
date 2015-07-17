@@ -3,6 +3,7 @@ __author__ = 'Manuel'
 import tkinter as tk
 from tkinter import ttk
 import serial.tools.list_ports as ports
+from pic18f13k22 import ErrorConnection
 
 
 LARGE_FONT = ("Verdana", 12)
@@ -11,9 +12,11 @@ SMALL_FONT = ("Verdana", 8)
 
 class WindowGUI(tk.Tk):  # This is the base that will help use add frames easily.
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, pic, *args, **kwargs):
 
         tk.Tk.__init__(self, *args, **kwargs)  # I could use super() instead of tk.Tk
+
+        self.pic = pic
 
         tk.Tk.iconbitmap(self, default="clutch.ico")
         tk.Tk.wm_title(self, "Clutch Control")
@@ -32,7 +35,7 @@ class WindowGUI(tk.Tk):  # This is the base that will help use add frames easily
 
             self.frames[F] = frame  # I add frame to the dictionary, StartPage is the key.
 
-            frame.grid(row=0, column=0, sticky="nsew")
+            frame.grid(row=0, column=0, sticky="nw")
             # Can I use self.frames[StartPage].grid(row=0, column=0, sticky="nsew") instead?
 
         self.show_frame(StartPage)  # What is this?
@@ -48,6 +51,9 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
 
         tk.Frame.__init__(self, parent)
+        self.config(borderwidth=1, relief=tk.RIDGE)
+
+        self.pic = controller.pic
 
         label1 = tk.Label(self, text="PIC Connection", font=LARGE_FONT)
         label1.grid(row=0, columnspan=2, sticky=(tk.W + tk.E), pady=10, padx=10)
@@ -75,17 +81,25 @@ class StartPage(tk.Frame):
 
         # Packet Size entry
         self.p_size = tk.IntVar()
-        self.p_size.set(15)
+        self.p_size.set(self.pic.p_size)
         p_size_entry = ttk.Entry(self, width=15, justify=tk.CENTER, textvariable=self.p_size)
         p_size_entry.grid(row=3, column=1)
 
         label4 = tk.Label(self, text="Choose Packet Size", font=LARGE_FONT)
         label4.grid(row=3, column=0, sticky=tk.W, pady=10, padx=10)
 
+        # Warning label
         self.warning = tk.StringVar()
-        warning_label = tk.Label(self, text="", font=SMALL_FONT, textvariable=self.warning, width=30,
+        warning_label = tk.Label(self, font=SMALL_FONT, textvariable=self.warning, width=30,
                                  height=2, justify=tk.LEFT)
         warning_label.grid(row=4, column=0, sticky=tk.W, pady=10, padx=10)
+
+        # Online/Offline label
+        self.on_off_line = tk.StringVar()
+        self.on_off_line.set("PIC Offline")
+        on_off_label = tk.Label(self, font=SMALL_FONT, textvariable=self.on_off_line, width=30,
+                                height=2, justify=tk.LEFT)
+        on_off_label.grid(row=2, column=2, sticky=tk.W, pady=10, padx=10)
 
         # Open/Close Button
         self.open_close = tk.StringVar()
@@ -98,25 +112,34 @@ class StartPage(tk.Frame):
         # Gets the value of the packet size
         try:
             size = self.p_size.get()
-            if 0 < size <= 15:
+            if 0 < size <= self.pic.p_size:
                 self.warning.set("")
             else:
-                self.warning.set("Value of the packet size must be an\ninteger between 1 and 15.")
+                self.warning.set("Value of the packet size must be an\ninteger between 1 and {0}."
+                                 .format(self.pic.p_size))
+                return -1
         except ValueError:
-            self.warning.set("Please enter an integer between 1\nand 15 in the \"Packet Size\" entry.")
+            self.warning.set("Please enter an integer between 1\nand {0} in the \"Packet Size\" entry."
+                             .format(self.pic.p_size))
 
-        # Change later
-        # Open or closes the connection with the pic.
         if self.open_close.get() == "Open Port":
             port_sel = self.com.get()
             if port_sel.startswith("COM"):
-                print(port_sel)
+                try:
+                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=50,
+                                             packet_size=self.p_size.get())
+                except ErrorConnection as error:
+                    print(error)
+                    return -1
                 self.open_close.set("Close Port")
             else:
                 print("No Port Selected")  # Fluff while I get the real thing.
+
         else:
-            print("Port Closed")
+            self.pic.close_connection()
             self.open_close.set("Open Port")
+
+        return 0
 
     def com_pressed(self, event):  # Updates the list of COM ports
 
@@ -129,6 +152,3 @@ class StartPage(tk.Frame):
             for open_ports in com_ports:
                 self.com_menu['menu'].add_command(label=open_ports[0], command=tk._setit(self.com, open_ports[0]))
 
-
-app = WindowGUI()
-app.mainloop()  # I can do this because WindowGui inherits Tk

@@ -2,7 +2,7 @@ __author__ = 'Manuel'
 
 import serialport as sp
 import time
-# import threading
+from threading import Thread
 # from queue import Queue
 
 
@@ -13,32 +13,37 @@ class ErrorConnection(Exception):
 
 class PIC18F13K22:
 
-    def __init__(self):
+    def __init__(self, packet_size):
 
         self.port = None
+        self._t = None
         self.online = False
+        self._running = False
+        self.p_size = packet_size
 
-    def open_connection(self, port, baudrate=9600, packet_size=15, disconnect=50):
+    def open_connection(self, port, packet_size, baudrate=9600, disconnect=50):
 
-        if packet_size > 15:
+        if packet_size > self.p_size:
             raise ErrorConnection("Packet size too big")
         try:
             self.port = sp.MPort(packet_size=packet_size, port=port, baudrate=baudrate, timeout=0.0)
         except sp.SerialException as error:
             raise ErrorConnection(error.args)
 
-        self.connect_pic(disconnect)
+        self._t = Thread(target=self._connect_pic, args=(disconnect,), daemon=True)
+        self._running = True
+        self._t.start()
 
-    def connect_pic(self, disconnect):
+    def _connect_pic(self, disconnect):
 
         received_data = bytearray()
         flag = False
 
-        while True:
+        while self._running:
 
             start_time = time.monotonic()
             n_bytes = self.port.inWaiting()
-            while n_bytes <= 3:
+            while n_bytes <= 3 and self._running:
                 n_bytes = self.port.inWaiting()
                 end_time = time.monotonic()
                 time_dif = (end_time - start_time) * 1000
@@ -66,7 +71,13 @@ class PIC18F13K22:
 
     def close_connection(self):
 
-        self.port.close()
+        self._running = False
+        if self.port.isOpen():
+            while self._t.is_alive():
+                pass
+            self.port.close()
+
+    # def set_pwm(self, value):
 
 
 def cut_packet(received_data):
@@ -75,12 +86,12 @@ def cut_packet(received_data):
 
     if length >= 3:
         if received_data[0] == 0x55 and received_data[1] == 0xDD:
-            # print("Before: ", received_data)
             end_data = received_data[2] + 3
             if length >= end_data:
-                # print("After: ", received_data[0:end_data])
+                if len(received_data[3:end_data]) > 0:
+                    message = received_data[3:end_data]
+                    print(message)
                 received_data = received_data[end_data:]
-                # print("Rest: ", received_data)
         else:
             received_data = received_data[1:]
 

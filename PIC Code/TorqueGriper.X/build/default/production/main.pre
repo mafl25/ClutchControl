@@ -4778,17 +4778,7 @@ int receiveData(struct receiveBuffer *SBuffer);
 #pragma config XINST = OFF
 
 # 46
-void interrupt com_link(void)
-{
-if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-TMR0H = 65340 >> 8;
-TMR0L = 65340;
-INTCONbits.TMR0IF = 0;
-sendChar(0x55);
-sendChar(0xDD);
-sendChar(0x00);
-}
-}
+void interrupt com_link(void);
 
 int main() {
 _delay((unsigned long)((1)*(20000000/4000.0)));
@@ -4812,8 +4802,29 @@ int i = 0;
 
 while (1) {
 
-# 84
+# 74
 }
 return (0);
 }
 
+void interrupt com_link(void)
+{
+static int count = 0;
+if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
+TMR0H = 65340 >> 8;
+TMR0L = 65340;
+INTCONbits.TMR0IF = 0;
+sendChar(0x55);
+sendChar(0xDD);
+count++;
+if (count > 200) {
+sendChar(0x02);
+sendChar(0x6D);
+sendChar(0x6F);
+count = 0;
+} else {
+sendChar(0x00);
+}
+
+}
+}

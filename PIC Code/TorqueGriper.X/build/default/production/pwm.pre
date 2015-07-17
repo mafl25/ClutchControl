@@ -1,5 +1,5 @@
 
-# 1 "serialprotocol.c"
+# 1 "pwm.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4731,132 +4731,83 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 31 "serialprotocol.h"
-typedef char int8_t;
-typedef unsigned char uint8_t;
+# 27 "pwm.h"
+typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
+typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
 
-struct receiveBuffer
+void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+unsigned char outputs);
+void setPulseWidth(unsigned int width);
+void selectOutput(unsigned char outputs);
+
+void pmwHalfBridgeSetUp();
+void pmwFullBridgeSetUp();
+
+# 3 "pwm.c"
+void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+unsigned char outputs)
 {
-unsigned char buffer[16];
-char length;
-};
+T2CONbits.TMR2ON = 1;
 
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16);
-void toggleSerialPort(unsigned char toggle);
-void toggleTransmitter(unsigned char toggle);
-void toggleReceiver(unsigned char toggle);
-void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
-int receiveData(struct receiveBuffer *SBuffer);
-
-# 3 "serialprotocol.c"
-static unsigned int timer3Time;
-
-static void setTimer3(unsigned char turnOn, unsigned int TMR3Pair) {
-T3CONbits.RD16 = 0x01;
-T3CONbits.T3CKPS = 0x00;
-T3CONbits.TMR3CS = 0x00;
-T3CONbits.TMR3ON = (turnOn) ? 1 : 0;
-timer3Time = TMR3Pair;
+switch (scaler) {
+case TMRP_1:
+T2CONbits.T2CKPS = 0x00;
+break;
+case TMRP_4:
+T2CONbits.T2CKPS = 0x01;
+break;
+case TMRP_16:
+T2CONbits.T2CKPS = 0x11;
 }
 
-static void toggleTimer3(unsigned char toggle) {
-PIR2bits.TMR3IF = 0;
-if (toggle) {
-TMR3 = timer3Time;
-T3CONbits.TMR3ON = 0x01;
-} else {
-T3CONbits.TMR3ON = 0x00;
-}
+CCP1CONbits.P1M = 0x00;
+
+switch (polarity) {
+case PACH_PBDH:
+CCP1CONbits.CCP1M = 0b1100;
+break;
+case PACH_PBDL:
+CCP1CONbits.CCP1M = 0b1101;
+break;
+case PACL_PBDH:
+CCP1CONbits.CCP1M = 0b1110;
+break;
+case PACL_PBDL:
+CCP1CONbits.CCP1M = 0b1111;
 }
 
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16)
+PSTRCONbits.STRSYNC = 1;
+
+if (outputs & 0x01) {
+LATCbits.LATC5 = 0;
+TRISCbits.RC5 = 0;
+}
+if (outputs & 0x02) {
+LATCbits.LATC4 = 0;
+TRISCbits.RC4 = 0;
+}
+if (outputs & 0x04) {
+LATCbits.LATC3 = 0;
+TRISCbits.RC3 = 0;
+}
+if (outputs & 0x08) {
+LATCbits.LATC2 = 0;
+TRISCbits.RC2 = 0;
+}
+
+PR2 = valuePR2;
+}
+
+void setPulseWidth(unsigned int width)
 {
-ANSELHbits.ANS9 = 0;
-ANSELHbits.ANS11 = 0;
-
-TRISBbits.RB5 = 1;
-TRISBbits.RB7 = 0;
-TRISBbits.RB6 = 0;
-TRISCbits.RC7 = 1;
-
-BAUDCON = (brg16_bit) ? 0x08 : 0x00;
-TXSTA = (brgh_bit) ? 0x24: 0x20;
-SPBRGH = spbrg16 >> 8;
-SPBRG = spbrg16;
-RCSTA = 0x90;
-
-setTimer3(0x00, 65360);
-
-LATBbits.LATB6 = 1;
+CCP1CONbits.DC1B = width;
+CCPR1L = width >> 2;
 }
 
-void toggleSerialPort(unsigned char toggle)
+void selectOutput(unsigned char outputs)
 {
-RCSTAbits.SPEN = toggle != 0 ? 1 : 0;
-}
-
-void toggleTransmitter(unsigned char toggle)
-{
-TXSTAbits.TXEN = toggle != 0 ? 1 : 0;
-}
-
-void toggleReceiver(unsigned char toggle)
-{
-RCSTAbits.CREN = toggle != 0 ? 1 : 0;
-}
-
-void sendChar(unsigned char character)
-{
-while(!TXSTAbits.TRMT);
-TXREG = character;
-}
-
-void sendData(unsigned char *string, int length)
-{
-int i;
-
-for (i = 0; i < length; i++)
-sendChar(string[i]);
-}
-
-int receiveData(struct receiveBuffer *buffer)
-{
-
-int8_t character;
-int i = 0;
-int size = 0;
-
-if (RCSTAbits.OERR) {
-RCSTAbits.CREN = 0;
-RCSTAbits.CREN = 1;
-}
-
-character = RCREG;
-character = RCREG;
-
-if (PORTCbits.RC7 == 0) {
-LATBbits.LATB6 = 0;
-
-while (!RCIF);
-size = RCREG;
-
-if (size < 16 && size > 0) {
-while (i < size) {
-while (!RCIF);
-buffer->buffer[i] = RCREG;
-i++;
-}
-}
-
-LATBbits.LATB6 = 1;
-while (PORTCbits.RC7 == 0);
-}
-
-buffer->length = i;
-buffer->buffer[i] = 0;
-
-return i;
+PSTRCONbits.STRA = (outputs & 0x01) ? 1 : 0;
+PSTRCONbits.STRB = (outputs & 0x02) ? 1 : 0;
+PSTRCONbits.STRC = (outputs & 0x04) ? 1 : 0;
+PSTRCONbits.STRD = (outputs & 0x08) ? 1 : 0;
 }

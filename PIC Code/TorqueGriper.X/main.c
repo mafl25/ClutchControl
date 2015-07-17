@@ -43,17 +43,7 @@
 
 #define TMR0VAL 65340
 
-void interrupt com_link(void)        // interrupt function 
- {
-    if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){                                     
-        TMR0H = TMR0VAL >> 8;
-        TMR0L = TMR0VAL;
-        INTCONbits.TMR0IF = 0;
-        sendChar(0x55);
-        sendChar(0xDD);
-        sendChar(0x00);
-    }
-}
+void interrupt com_link(void);
 
 int main() {
     __delay_ms(1);
@@ -85,3 +75,24 @@ int main() {
     return (0);
 }
 
+void interrupt com_link(void)        // interrupt function 
+ {
+    static int count = 0;
+    if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){                                     
+        TMR0H = TMR0VAL >> 8;
+        TMR0L = TMR0VAL;
+        INTCONbits.TMR0IF = 0;
+        sendChar(0x55);
+        sendChar(0xDD);
+        count++;
+        if (count > 200) {
+            sendChar(0x02);
+            sendChar(0x6D);
+            sendChar(0x6F);
+            count = 0;
+        } else {
+            sendChar(0x00);
+        }
+        
+    }
+}
