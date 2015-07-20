@@ -15,11 +15,16 @@ class PIC18F13K22:
 
     def __init__(self, packet_size):
 
+        # COM port stuff
         self.port = None
         self._t = None
         self.online = False
         self._running = False
+        self._online_flag = False
         self.p_size = packet_size
+
+        # PWM stuff
+        self.pwm_outputs = ("P1A", "P1B", "P1C", "P1D")  # Make this a Dictionary
 
     def open_connection(self, port, packet_size, baudrate=9600, disconnect=50):
 
@@ -37,7 +42,7 @@ class PIC18F13K22:
     def _connect_pic(self, disconnect):
 
         received_data = bytearray()
-        flag = False
+        self._online_flag = False
 
         while self._running:
 
@@ -47,27 +52,18 @@ class PIC18F13K22:
                 n_bytes = self.port.inWaiting()
                 end_time = time.monotonic()
                 time_dif = (end_time - start_time) * 1000
-                if time_dif > disconnect and flag:
-                    flag = False
+                if time_dif > disconnect and self._online_flag:
+                    self._online_flag = False
                     self.online = False
-                    print("PIC Offline")
 
-            if not flag:
-                print("PIC Online")
-                flag = True
-                self.online = True
-                del received_data[0:]
-                self.port.flushInput()
-
-            if flag:
-                received_data.extend(self.port.read(n_bytes))
-                received_data = cut_packet(received_data)
-                while len(received_data) >= 3:
-                    # Check if the packet is complete
-                    if received_data[0] == 0x55 and received_data[1] == 0xDD:
-                        if (received_data[2] + 3) > len(received_data):
-                            break
-                    received_data = cut_packet(received_data)
+            received_data.extend(self.port.read(n_bytes))
+            received_data = self.cut_packet(received_data)
+            while len(received_data) >= 3:
+                # Check if the packet is complete
+                if received_data[0] == 0x55 and received_data[1] == 0xDD:
+                    if (received_data[2] + 3) > len(received_data):
+                        break
+                received_data = self.cut_packet(received_data)
 
     def close_connection(self):
 
@@ -80,20 +76,27 @@ class PIC18F13K22:
 
     # def set_pwm(self, value):
 
+    def cut_packet(self, received_data):
 
-def cut_packet(received_data):
+        length = len(received_data)
 
-    length = len(received_data)
+        if length >= 3:
+            if received_data[0] == 0x55 and received_data[1] == 0xDD:
 
-    if length >= 3:
-        if received_data[0] == 0x55 and received_data[1] == 0xDD:
-            end_data = received_data[2] + 3
-            if length >= end_data:
-                if len(received_data[3:end_data]) > 0:
-                    message = received_data[3:end_data]
-                    print(message)
-                received_data = received_data[end_data:]
-        else:
-            received_data = received_data[1:]
+                if not self._online_flag:
+                    self._online_flag = True
+                    self.online = True
+                    del received_data[0:]
+                    self.port.flushInput()
+                    return received_data
 
-    return received_data
+                end_data = received_data[2] + 3
+                if length >= end_data:
+                    if len(received_data[3:end_data]) > 0:
+                        message = received_data[3:end_data]
+                        print(message)
+                    received_data = received_data[end_data:]
+            else:
+                received_data = received_data[1:]
+
+        return received_data
