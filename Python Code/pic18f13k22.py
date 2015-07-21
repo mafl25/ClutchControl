@@ -25,6 +25,10 @@ class PIC18F13K22:
 
         # PWM stuff
         self.pwm_outputs = ("P1A", "P1B", "P1C", "P1D")  # Make this a Dictionary
+        self.pwm_single_mode = ("P1A, P1C active-high; P1B, P1D active-high",
+                                "P1A, P1C active-high; P1B, P1D active-low",
+                                "P1A, P1C active-low; P1B, P1D active-high",
+                                "P1A, P1C active-low; P1B, P1D active-low")
 
     def open_connection(self, port, packet_size, baudrate=9600, disconnect=50):
 
@@ -74,7 +78,18 @@ class PIC18F13K22:
                 pass
             self.port.close()
 
-    # def set_pwm(self, value):
+    def set_pwm(self, value):
+        low = value % 4
+        high = (value - low) // 4
+        self.port.send_data([0xAC, high, low])
+
+    def pwm_select_output(self, selection, toggle):  # Need to secure later
+        outputs_dict = {"P1A": 1, "P1B": 2, "P1C": 4, "P1D": 8}
+        out = outputs_dict[selection]
+        if toggle:
+            self.port.send_data([0xAA, out])
+        else:
+            self.port.send_data([0xAB, out])
 
     def cut_packet(self, received_data):
 

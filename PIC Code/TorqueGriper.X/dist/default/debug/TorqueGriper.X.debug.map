@@ -3,14 +3,14 @@ Microchip MPLAB XC8 Compiler V1.34 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
-  -h+dist/default/production\TorqueGriper.X.production.sym \
-  --cmf=dist/default/production\TorqueGriper.X.production.cmf -z -Q18F13K22 \
-  -oC:\Users\Manuel\AppData\Local\Temp\s5fc.6 \
-  -Mdist/default/production/TorqueGriper.X.production.map -E1 -ver=XC8 \
-  -ASTACK=060h-0ffh -pstack=STACK -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
-  -ASMALLCONST=0100h-01FFhx31 -AMEDIUMCONST=0100h-01FFFh -ACOMRAM=01h-05Fh \
+  -h+dist/default/debug\TorqueGriper.X.debug.sym \
+  --cmf=dist/default/debug\TorqueGriper.X.debug.cmf -z -Q18F13K22 \
+  -oC:\Users\Manuel\AppData\Local\Temp\s3tg.6 \
+  -Mdist/default/debug/TorqueGriper.X.debug.map -E1 -ver=XC8 \
+  -ASTACK=060h-0ffh -pstack=STACK -ACODE=00h-01DFFh -ACONST=00h-01DFFh \
+  -ASMALLCONST=0100h-01FFhx29 -AMEDIUMCONST=0100h-01DFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-0FFh -ABIGRAM=01h-0FFh -ARAM=060h-0FFh -ABANK0=060h-0FFh \
-  -ASFR=0F60h-0FFFh \
+  -ASFR=0F60h-0FFCh \
   -preset_vec=00h,intcode=08h,intcodelo,powerup,init,end_init \
   -pramtop=0100h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
   -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
@@ -20,8 +20,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Manuel\AppData\Local\Temp\s5fc.obj \
-  dist/default/production\TorqueGriper.X.production.obj 
+  C:\Users\Manuel\AppData\Local\Temp\s3tg.obj \
+  dist/default/debug\TorqueGriper.X.debug.obj 
 
 Object code version is 3.11
 
@@ -33,24 +33,24 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Manuel\AppData\Local\Temp\s5fc.obj
+C:\Users\Manuel\AppData\Local\Temp\s3tg.obj
                 end_init                             9C       9C        4        4       0
-                reset_vec                             0        0        4        0       0
+                reset_vec                             0        0        6        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/default/production\TorqueGriper.X.production.obj
+dist/default/debug\TorqueGriper.X.debug.obj
                 intcode                               8        8       94        4       0
-                text8                               41C      41C        E        4       0
-                text6                               2BA      2BA       9A        4       0
-                text5                               15C      15C       BC        4       0
-                text4                               218      218       A2        4       0
-                text3                               3B8      3B8       2C        4       0
-                text2                               354      354       64        4       0
-                text1                               3E4      3E4       2A        4       0
-                cstackCOMRAM                          1        1       30        1       1
-                bssCOMRAM                            31       31        2        1       1
-                cinit                               40E      40E        E        4       0
-                text0                                A0       A0       BC        4       0
+                text8                               3FE      3FE        E        4       0
+                text6                               29C      29C       9A        4       0
+                text5                                A0       A0       BC        4       0
+                text4                               15C      15C       A2        4       0
+                text3                               39A      39A       2C        4       0
+                text2                               336      336       64        4       0
+                text1                               3C6      3C6       2A        4       0
+                cstackCOMRAM                          1        1       2F        1       1
+                bssCOMRAM                            30       30        2        1       1
+                cinit                               3F0      3F0        E        4       0
+                text0                               1FE      1FE       9E        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -58,16 +58,16 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                             9C       9C        4         0
                 intcode                               8        8       94         0
-                reset_vec                             0        0        4         0
-                text8                               41C      41C        E         0
-                text6                               2BA      2BA       9A         0
-                text5                               15C      15C       BC         0
-                text4                               218      218       A2         0
-                text3                               3B8      3B8       2C         0
-                text2                               354      354       64         0
-                text1                               3E4      3E4       2A         0
-                cinit                               40E      40E        E         0
-                text0                                A0       A0       BC         0
+                reset_vec                             0        0        6         0
+                text8                               3FE      3FE        E         0
+                text6                               29C      29C       9A         0
+                text5                                A0       A0       BC         0
+                text4                               15C      15C       A2         0
+                text3                               39A      39A       2C         0
+                text2                               336      336       64         0
+                text1                               3C6      3C6       2A         0
+                cinit                               3F0      3F0        E         0
+                text0                               1FE      1FE       9E         0
 
         CLASS   CONST          
 
@@ -76,8 +76,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       30         1
-                bssCOMRAM                            31       31        2         1
+                cstackCOMRAM                          1        1       2F         1
+                bssCOMRAM                            30       30        2         1
 
         CLASS   ABS1           
 
@@ -103,9 +103,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000032  000033         1       1  COMRAM  
-                intcode                        000008  000422  00042A         4       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
+                cstackCOMRAM                   000001  000031  000032         1       1  COMRAM  
+                intcode                        000008  000404  00040C         4       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -114,17 +114,17 @@ UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
         BANK0            000060-0000FF               A0
-        BIGRAM           000033-0000FF               CD
-        CODE             000004-000007                4
-                         00042A-001FFF             1BD6
-        COMRAM           000033-00005F               2D
-        CONST            000004-000007                4
-                         00042A-001FFF             1BD6
+        BIGRAM           000032-0000FF               CE
+        CODE             000006-000007                2
+                         00040C-001DFF             19F4
+        COMRAM           000032-00005F               2E
+        CONST            000006-000007                2
+                         00040C-001DFF             19F4
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      00042A-001FFF             1BD6
+        MEDIUMCONST      00040C-001DFF             19F4
         RAM              000060-0000FF               A0
-        SFR              000F60-000FFF               A0
-        SMALLCONST       00042A-001FFF              100
+        SFR              000F60-000FFC               9D
+        SMALLCONST       00040C-001DFF              100
         STACK            000060-0000FF               A0
 
                                   Symbol Table
@@ -216,12 +216,12 @@ __Hramtop                    ramtop       000100
 __Hrbit                      rbit         000000
 __Hrbss                      rbss         000000
 __Hrdata                     rdata        000000
-__Hreset_vec                 reset_vec    000004
+__Hreset_vec                 reset_vec    000006
 __Hrparam                    rparam       000000
 __Hsfr                       sfr          000000
 __Hsmallconst                smallconst   000000
 __Hspace_0                   (abs)        30000E
-__Hspace_1                   (abs)        000033
+__Hspace_1                   (abs)        000032
 __Hspace_2                   (abs)        000000
 __Hstack                     stack        000000
 __Hstruct                    struct       000000
@@ -297,7 +297,7 @@ __Ltext5                     text5        000000
 __Ltext6                     text6        000000
 __Ltext8                     text8        000000
 __S0                         (abs)        30000E
-__S1                         (abs)        000033
+__S1                         (abs)        000032
 __S2                         (abs)        000000
 ___inthi_sp                  stack        000000
 ___intlo_sp                  stack        000000
@@ -306,30 +306,30 @@ ___rparam_used               (abs)        000001
 ___sp                        stack        000000
 __accesstop                  (abs)        000060
 __activetblptr               (abs)        000002
-__end_of__initialization     cinit        000412
+__end_of__initialization     cinit        0003F4
 __end_of_com_link            intcode      00009C
-__end_of_main                text0        00015C
-__end_of_pmwSingleModeSetUp  text6        000354
-__end_of_receiveData         text5        000218
-__end_of_selectOutput        text4        0002BA
-__end_of_sendChar            text8        00042A
-__end_of_serialSetUp         text2        0003B8
-__end_of_setPulseWidth       text1        00040E
-__end_of_setTimer3           text3        0003E4
-__initialization             cinit        00040E
+__end_of_main                text0        00029C
+__end_of_pmwSingleModeSetUp  text6        000336
+__end_of_receiveData         text5        00015C
+__end_of_selectOutput        text4        0001FE
+__end_of_sendChar            text8        00040C
+__end_of_serialSetUp         text2        00039A
+__end_of_setPulseWidth       text1        0003F0
+__end_of_setTimer3           text3        0003C6
+__initialization             cinit        0003F0
 __mediumconst                mediumconst  000000
-__pbssCOMRAM                 bssCOMRAM    000031
-__pcinit                     cinit        00040E
+__pbssCOMRAM                 bssCOMRAM    000030
+__pcinit                     cinit        0003F0
 __pcstackCOMRAM              cstackCOMRAM 000001
 __pintcode                   intcode      000008
-__ptext0                     text0        0000A0
-__ptext1                     text1        0003E4
-__ptext2                     text2        000354
-__ptext3                     text3        0003B8
-__ptext4                     text4        000218
-__ptext5                     text5        00015C
-__ptext6                     text6        0002BA
-__ptext8                     text8        00041C
+__ptext0                     text0        0001FE
+__ptext1                     text1        0003C6
+__ptext2                     text2        000336
+__ptext3                     text3        00039A
+__ptext4                     text4        00015C
+__ptext5                     text5        0000A0
+__ptext6                     text6        00029C
+__ptext8                     text8        0003FE
 __ramtop                     ramtop       000100
 __size_of_com_link           (abs)        000000
 __size_of_main               (abs)        000000
@@ -342,24 +342,24 @@ __size_of_setPulseWidth      (abs)        000000
 __size_of_setTimer3          (abs)        000000
 __smallconst                 smallconst   000000
 _com_link                    intcode      000008
-_main                        text0        0000A0
-_pmwSingleModeSetUp          text6        0002BA
-_receiveData                 text5        00015C
-_selectOutput                text4        000218
-_sendChar                    text8        00041C
-_serialSetUp                 text2        000354
+_main                        text0        0001FE
+_pmwSingleModeSetUp          text6        00029C
+_receiveData                 text5        0000A0
+_selectOutput                text4        00015C
+_sendChar                    text8        0003FE
+_serialSetUp                 text2        000336
 _serialSetUp$708             cstackCOMRAM 000018
 _serialSetUp$709             cstackCOMRAM 00001A
-_setPulseWidth               text1        0003E4
-_setTimer3                   text3        0003B8
-_timer3Time                  bssCOMRAM    000031
-end_of_initialization        cinit        000412
+_setPulseWidth               text1        0003C6
+_setTimer3                   text3        00039A
+_timer3Time                  bssCOMRAM    000030
+end_of_initialization        cinit        0003F4
 intlevel0                    text         000000
 intlevel1                    text         000000
 intlevel2                    text         000000
 intlevel3                    text         000000
-main@data                    cstackCOMRAM 000020
-main@i                       cstackCOMRAM 00001E
+main@data                    cstackCOMRAM 00001F
+main@i                       cstackCOMRAM 00001D
 pmwSingleModeSetUp@outputs   cstackCOMRAM 000012
 pmwSingleModeSetUp@polarity  cstackCOMRAM 000013
 pmwSingleModeSetUp@scaler    cstackCOMRAM 000011
@@ -380,7 +380,7 @@ setTimer3@turnOn             cstackCOMRAM 000013
 stackhi                      (abs)        0000FF
 stacklo                      (abs)        000060
 start                        init         00009C
-start_initialization         cinit        00040E
+start_initialization         cinit        0003F0
 
 
 FUNCTION INFORMATION:
@@ -391,8 +391,8 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  data           17   31[COMRAM] struct receiveBuffer
-  i               2   29[COMRAM] int 
+  data           17   30[COMRAM] struct receiveBuffer
+  i               2   28[COMRAM] int 
  Return value:  Size  Location     Type
                   2   22[None  ] int 
  Registers used:
@@ -404,9 +404,9 @@ FUNCTION INFORMATION:
  Data sizes:     COMRAM   BANK0
       Params:         0       0
       Locals:        19       0
-      Temps:          2       0
-      Totals:        21       0
-Total ram usage:       21 bytes
+      Temps:          1       0
+      Totals:        20       0
+Total ram usage:       20 bytes
  Hardware stack levels required when called:    4
  This function calls:
 		_pmwSingleModeSetUp
@@ -611,7 +611,7 @@ Total ram usage:        4 bytes
 
  *************** function _com_link *****************
  Defined at:
-		line 89 in file "main.c"
+		line 88 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -674,28 +674,28 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 serialprotocol.c
-		_serialSetUp   		CODE           	0354	0000	101
-		_receiveData   		CODE           	015C	0000	189
-		_setTimer3     		CODE           	03B8	0000	45
-		_sendChar      		CODE           	041C	0000	15
+		_serialSetUp   		CODE           	0336	0000	101
+		_receiveData   		CODE           	00A0	0000	189
+		_setTimer3     		CODE           	039A	0000	45
+		_sendChar      		CODE           	03FE	0000	15
 
 serialprotocol.c estimated size: 350
 
 pwm.c
-		_pmwSingleModeS		CODE           	02BA	0000	155
-		_selectOutput  		CODE           	0218	0000	163
-		_setPulseWidth 		CODE           	03E4	0000	43
+		_pmwSingleModeS		CODE           	029C	0000	155
+		_selectOutput  		CODE           	015C	0000	163
+		_setPulseWidth 		CODE           	03C6	0000	43
 
 pwm.c estimated size: 361
 
 shared
-		__initializatio		CODE           	040E	0000	5
+		__initializatio		CODE           	03F0	0000	5
 
 shared estimated size: 5
 
 main.c
-		_main          		CODE           	00A0	0000	189
+		_main          		CODE           	01FE	0000	159
 		_com_link      		CODE           	0008	0000	149
 
-main.c estimated size: 338
+main.c estimated size: 308
 

@@ -2,6 +2,7 @@ __author__ = 'Manuel'
 
 import serial
 import math
+import time
 
 
 class SerialException(Exception):
@@ -36,12 +37,13 @@ class MPort(serial.Serial):
                 pass
 
             self.write(packet)
+            print(packet)
 
             while self.getCTS():  # Waits until the MCU received the data
                 pass
             self.setRTS(False)
 
-    def send_data(self, data):
+    def send_data(self, data):  # Add timeout
 
         length = len(data)
         number_packets = int(math.ceil(length / self.packet_size))

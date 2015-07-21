@@ -7,7 +7,7 @@
 
 #include <xc.h>
 #include "serialprotocol.h"
-//#include "pwm.h"
+#include "pwm.h"
 
 // CONFIG1H
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
@@ -49,7 +49,10 @@ int main() {
     __delay_ms(1);
     serialSetUp(BRG16_ON, BRGH_ON, 0x81);
     
-    T0CONbits.PSA = 0;
+    pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, OUT_C | OUT_B);
+    setPulseWidth(0);
+    
+    /*T0CONbits.PSA = 0;
     T0CONbits.T0PS = 0x06;
     T0CONbits.T0CS = 0;
     T0CONbits.T08BIT = 0;
@@ -58,7 +61,7 @@ int main() {
     INTCONbits.GIE = 1;
     TMR0H = TMR0VAL >> 8;
     TMR0L = TMR0VAL;
-    T0CONbits.TMR0ON = 1;
+    T0CONbits.TMR0ON = 1;*/
     
         
     
@@ -67,32 +70,30 @@ int main() {
     
     while (1) {
         
-        /*i = receiveData(&data);
+        i = receiveData(&data);
         
-        if (i)
-            sendData(data.buffer, data.length);*/
+        
+        if (i) {
+            if (data.buffer[0] == 0xAA) {
+                selectOutput(data.buffer[1], 1); 
+            } else if (data.buffer[0] == 0xAB) {
+                selectOutput(data.buffer[1], 0);
+            } else if (data.buffer[0] == 0xAC) {
+                setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
+            }
+        }
     }
     return (0);
 }
 
 void interrupt com_link(void)        // interrupt function 
  {
-    static int count = 0;
     if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){                                     
         TMR0H = TMR0VAL >> 8;
         TMR0L = TMR0VAL;
         INTCONbits.TMR0IF = 0;
         sendChar(0x55);
         sendChar(0xDD);
-        count++;
-        if (count > 200) {
-            sendChar(0x02);
-            sendChar(0x6D);
-            sendChar(0x6F);
-            count = 0;
-        } else {
-            sendChar(0x00);
-        }
-        
+        sendChar(0x00);
     }
 }

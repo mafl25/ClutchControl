@@ -30,7 +30,7 @@ typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
 void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
         unsigned char outputs);
 void setPulseWidth(unsigned int width);
-void selectOutput(unsigned char outputs);
+void selectOutput(unsigned char outputs, unsigned char toggle);
 
 void pmwHalfBridgeSetUp();//For Later
 void pmwFullBridgeSetUp();//For Later

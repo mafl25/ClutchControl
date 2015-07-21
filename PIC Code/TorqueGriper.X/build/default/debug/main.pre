@@ -4811,10 +4811,9 @@ i = receiveData(&data);
 if (i) {
 if (data.buffer[0] == 0xAA) {
 selectOutput(data.buffer[1], 1);
+setPulseWidth(520);
 } else if (data.buffer[0] == 0xAB) {
 selectOutput(data.buffer[1], 0);
-} else if (data.buffer[0] == 0xAC) {
-setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
 }
 }
 }

@@ -60,10 +60,23 @@ void setPulseWidth(unsigned int width)
     CCPR1L = width >> 2;
 }
 
-void selectOutput(unsigned char outputs) 
+void selectOutput(unsigned char outputs, unsigned char toggle) 
 {
-    PSTRCONbits.STRA = (outputs & OUT_A) ? 1 : 0;
-    PSTRCONbits.STRB = (outputs & OUT_B) ? 1 : 0;
-    PSTRCONbits.STRC = (outputs & OUT_C) ? 1 : 0;
-    PSTRCONbits.STRD = (outputs & OUT_D) ? 1 : 0;
+    switch (outputs){
+        case 0:
+            PSTRCON = 0xF0;
+            break;
+        case OUT_A:
+            PSTRCONbits.STRA = (toggle) ? 1 : 0;
+            break;
+        case OUT_B:
+            PSTRCONbits.STRB = (toggle) ? 1 : 0;
+            break;
+        case OUT_C:
+            PSTRCONbits.STRC = (toggle) ? 1 : 0;
+            break;
+        case OUT_D:
+            PSTRCONbits.STRD = (toggle) ? 1 : 0;
+            break;
+    }
 }

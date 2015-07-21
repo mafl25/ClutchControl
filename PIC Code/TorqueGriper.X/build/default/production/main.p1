@@ -6,18 +6,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "40 serialprotocol.h
 [v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"5738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S312 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S312 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"5746
-[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S313 . T0PS0 T0PS1 T0PS2 ]
-"5737
-[u S311 `S312 1 `S313 1 ]
-[n S311 . . . ]
-"5752
-[v _T0CONbits `VS311 ~T0 @X0 0 e@4053 ]
-"6248
+"52 main.c
+[c E3874 0 1 2 3 .. ]
+[n E3874 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
+[c E3880 0 1 2 .. ]
+[n E3880 . TMRP_1 TMRP_4 TMRP_16  ]
+"30 pwm.h
+[v _pmwSingleModeSetUp `(v ~T0 @X0 0 ef4`E3874`uc`E3880`uc ]
+"32
+[v _setPulseWidth `(v ~T0 @X0 0 ef1`ui ]
+"34 serialprotocol.h
+[s S373 `uc -> 16 `i `uc 1 ]
+[n S373 receiveBuffer buffer length ]
+"47
+[v _receiveData `(i ~T0 @X0 0 ef1`*S373 ]
+"33 pwm.h
+[v _selectOutput `(v ~T0 @X0 0 ef2`uc`uc ]
+"6248 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "6258
@@ -38,10 +43,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
 "5807
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-"34 serialprotocol.h
-[s S373 `uc -> 16 `i `uc 1 ]
-[n S373 receiveBuffer buffer length ]
-"45
+"45 serialprotocol.h
 [v _sendChar `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3583,6 +3585,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.h: 45: void sendChar(unsigned char toggle);
 [; ;serialprotocol.h: 46: void sendData(unsigned char *string, int length);
 [; ;serialprotocol.h: 47: int receiveData(struct receiveBuffer *SBuffer);
+[; ;pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
+[; ;pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
+[; ;pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+[; ;pwm.h: 31: unsigned char outputs);
+[; ;pwm.h: 32: void setPulseWidth(unsigned int width);
+[; ;pwm.h: 33: void selectOutput(unsigned char outputs, unsigned char toggle);
+[; ;pwm.h: 35: void pmwHalfBridgeSetUp();
+[; ;pwm.h: 36: void pmwFullBridgeSetUp();
 "13 main.c
 [p x FOSC=HS ]
 "14
@@ -3628,133 +3638,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 50: serialSetUp(1, 1, 0x81);
 "50
 [e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 129 `i `ui ]
-[; ;main.c: 52: T0CONbits.PSA = 0;
+[; ;main.c: 52: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
 "52
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 53: T0CONbits.T0PS = 0x06;
+[e ( _pmwSingleModeSetUp (4 , , , . `E3874 0 -> -> 254 `i `uc . `E3880 0 -> | -> 4 `i -> 2 `i `uc ]
+[; ;main.c: 53: setPulseWidth(0);
 "53
-[e = . . _T0CONbits 0 0 -> -> 6 `i `uc ]
-[; ;main.c: 54: T0CONbits.T0CS = 0;
-"54
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 55: T0CONbits.T08BIT = 0;
-"55
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 56: INTCONbits.TMR0IF = 0;
-"56
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 57: INTCONbits.TMR0IE = 1;
-"57
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 58: INTCONbits.GIE = 1;
-"58
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 59: TMR0H = 65340 >> 8;
-"59
-[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
-[; ;main.c: 60: TMR0L = 65340;
-"60
-[e = _TMR0L -> -> 65340 `l `uc ]
-[; ;main.c: 61: T0CONbits.TMR0ON = 1;
-"61
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"65
-[v _data `S373 ~T0 @X0 1 a ]
-"66
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 65: struct receiveBuffer data;
-[; ;main.c: 66: int i = 0;
-[e = _i -> 0 `i ]
-[; ;main.c: 68: while (1) {
+[e ( _setPulseWidth (1 -> -> 0 `i `ui ]
 "68
+[v _data `S373 ~T0 @X0 1 a ]
+"69
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 68: struct receiveBuffer data;
+[; ;main.c: 69: int i = 0;
+[e = _i -> 0 `i ]
+[; ;main.c: 71: while (1) {
+"71
 [e :U 376 ]
 {
-"74
+[; ;main.c: 73: i = receiveData(&data);
+"73
+[e = _i ( _receiveData (1 &U _data ]
+[; ;main.c: 76: if (i) {
+"76
+[e $ ! != _i -> 0 `i 378  ]
+{
+[; ;main.c: 77: if (data.buffer[0] == 0xAA) {
+"77
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 170 `i 379  ]
+{
+[; ;main.c: 78: selectOutput(data.buffer[1], 1);
+"78
+[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 1 `i `uc ]
+"79
+}
+[; ;main.c: 79: } else if (data.buffer[0] == 0xAB) {
+[e $U 380  ]
+[e :U 379 ]
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 171 `i 381  ]
+{
+[; ;main.c: 80: selectOutput(data.buffer[1], 0);
+"80
+[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 0 `i `uc ]
+"81
+}
+[; ;main.c: 81: } else if (data.buffer[0] == 0xAC) {
+[e $U 382  ]
+[e :U 381 ]
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 172 `i 383  ]
+{
+[; ;main.c: 82: setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
+"82
+[e ( _setPulseWidth (1 -> | << -> *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 2 `i -> *U + &U . _data 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i `ui ]
+"83
+}
+[e :U 383 ]
+"84
+[e :U 382 ]
+[e :U 380 ]
+}
+[e :U 378 ]
+"85
 }
 [e :U 375 ]
-"68
+"71
 [e $U 376  ]
 [e :U 377 ]
-[; ;main.c: 74: }
-[; ;main.c: 75: return (0);
-"75
+[; ;main.c: 83: }
+[; ;main.c: 84: }
+[; ;main.c: 85: }
+[; ;main.c: 86: return (0);
+"86
 [e ) -> 0 `i ]
 [e $UE 374  ]
-[; ;main.c: 76: }
-"76
+[; ;main.c: 87: }
+"87
 [e :UE 374 ]
 }
-[v F3876 `(v ~T0 @X0 1 tf ]
-"78
-[v _com_link `IF3876 ~T0 @X0 1 e ]
-"79
+[v F3899 `(v ~T0 @X0 1 tf ]
+"89
+[v _com_link `IF3899 ~T0 @X0 1 e ]
+"90
 {
-[; ;main.c: 78: void interrupt com_link(void)
-[; ;main.c: 79: {
+[; ;main.c: 89: void interrupt com_link(void)
+[; ;main.c: 90: {
 [e :U _com_link ]
 [f ]
-"80
-[v F3883 `i ~T0 @X0 1 s count ]
-[i F3883
--> 0 `i
-]
-[; ;main.c: 80: static int count = 0;
-[; ;main.c: 81: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-"81
-[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 379  ]
-{
-[; ;main.c: 82: TMR0H = 65340 >> 8;
-"82
-[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
-[; ;main.c: 83: TMR0L = 65340;
-"83
-[e = _TMR0L -> -> 65340 `l `uc ]
-[; ;main.c: 84: INTCONbits.TMR0IF = 0;
-"84
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 85: sendChar(0x55);
-"85
-[e ( _sendChar (1 -> -> 85 `i `uc ]
-[; ;main.c: 86: sendChar(0xDD);
-"86
-[e ( _sendChar (1 -> -> 221 `i `uc ]
-[; ;main.c: 87: count++;
-"87
-[e ++ F3883 -> 1 `i ]
-[; ;main.c: 88: if (count > 200) {
-"88
-[e $ ! > F3883 -> 200 `i 380  ]
-{
-[; ;main.c: 89: sendChar(0x02);
-"89
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;main.c: 90: sendChar(0x6D);
-"90
-[e ( _sendChar (1 -> -> 109 `i `uc ]
-[; ;main.c: 91: sendChar(0x6F);
+[; ;main.c: 91: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
 "91
-[e ( _sendChar (1 -> -> 111 `i `uc ]
-[; ;main.c: 92: count = 0;
-"92
-[e = F3883 -> 0 `i ]
-"93
-}
-[; ;main.c: 93: } else {
-[e $U 381  ]
-[e :U 380 ]
+[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 385  ]
 {
-[; ;main.c: 94: sendChar(0x00);
+[; ;main.c: 92: TMR0H = 65340 >> 8;
+"92
+[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
+[; ;main.c: 93: TMR0L = 65340;
+"93
+[e = _TMR0L -> -> 65340 `l `uc ]
+[; ;main.c: 94: INTCONbits.TMR0IF = 0;
 "94
-[e ( _sendChar (1 -> -> 0 `i `uc ]
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 95: sendChar(0x55);
 "95
-}
-[e :U 381 ]
+[e ( _sendChar (1 -> -> 85 `i `uc ]
+[; ;main.c: 96: sendChar(0xDD);
+"96
+[e ( _sendChar (1 -> -> 221 `i `uc ]
+[; ;main.c: 97: sendChar(0x00);
 "97
-}
-[e :U 379 ]
-[; ;main.c: 95: }
-[; ;main.c: 97: }
-[; ;main.c: 98: }
+[e ( _sendChar (1 -> -> 0 `i `uc ]
 "98
-[e :UE 378 ]
+}
+[e :U 385 ]
+[; ;main.c: 98: }
+[; ;main.c: 99: }
+"99
+[e :UE 384 ]
 }

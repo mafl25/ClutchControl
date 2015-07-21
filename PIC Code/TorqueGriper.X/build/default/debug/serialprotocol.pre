@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "serialprotocol.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4750,85 +4750,113 @@ void sendChar(unsigned char toggle);
 void sendData(unsigned char *string, int length);
 int receiveData(struct receiveBuffer *SBuffer);
 
-# 27 "pwm.h"
-typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
+# 3 "serialprotocol.c"
+static unsigned int timer3Time;
 
-void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-unsigned char outputs);
-void setPulseWidth(unsigned int width);
-void selectOutput(unsigned char outputs, unsigned char toggle);
-
-void pmwHalfBridgeSetUp();
-void pmwFullBridgeSetUp();
-
-
-# 13 "main.c"
-#pragma config FOSC = HS
-#pragma config PLLEN = OFF
-#pragma config PCLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 19
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config HFOFST = ON
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = OFF
-#pragma config XINST = OFF
-
-# 46
-void interrupt com_link(void);
-
-int main() {
-_delay((unsigned long)((1)*(20000000/4000.0)));
-serialSetUp(1, 1, 0x81);
-
-pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
-setPulseWidth(0);
-
-# 68
-struct receiveBuffer data;
-int i = 0;
-
-while (1) {
-
-i = receiveData(&data);
-
-
-if (i) {
-if (data.buffer[0] == 0xAA) {
-selectOutput(data.buffer[1], 1);
-} else if (data.buffer[0] == 0xAB) {
-selectOutput(data.buffer[1], 0);
-} else if (data.buffer[0] == 0xAC) {
-setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
-}
-}
-}
-return (0);
+static void setTimer3(unsigned char turnOn, unsigned int TMR3Pair) {
+T3CONbits.RD16 = 0x01;
+T3CONbits.T3CKPS = 0x00;
+T3CONbits.TMR3CS = 0x00;
+T3CONbits.TMR3ON = (turnOn) ? 1 : 0;
+timer3Time = TMR3Pair;
 }
 
-void interrupt com_link(void)
+static void toggleTimer3(unsigned char toggle) {
+PIR2bits.TMR3IF = 0;
+if (toggle) {
+TMR3 = timer3Time;
+T3CONbits.TMR3ON = 0x01;
+} else {
+T3CONbits.TMR3ON = 0x00;
+}
+}
+
+void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
+unsigned int spbrg16)
 {
-if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-TMR0H = 65340 >> 8;
-TMR0L = 65340;
-INTCONbits.TMR0IF = 0;
-sendChar(0x55);
-sendChar(0xDD);
-sendChar(0x00);
+ANSELHbits.ANS9 = 0;
+ANSELHbits.ANS11 = 0;
+
+TRISBbits.RB5 = 1;
+TRISBbits.RB7 = 0;
+TRISBbits.RB6 = 0;
+TRISCbits.RC7 = 1;
+
+BAUDCON = (brg16_bit) ? 0x08 : 0x00;
+TXSTA = (brgh_bit) ? 0x24: 0x20;
+SPBRGH = spbrg16 >> 8;
+SPBRG = spbrg16;
+RCSTA = 0x90;
+
+setTimer3(0x00, 65360);
+
+LATBbits.LATB6 = 1;
 }
+
+void toggleSerialPort(unsigned char toggle)
+{
+RCSTAbits.SPEN = toggle != 0 ? 1 : 0;
+}
+
+void toggleTransmitter(unsigned char toggle)
+{
+TXSTAbits.TXEN = toggle != 0 ? 1 : 0;
+}
+
+void toggleReceiver(unsigned char toggle)
+{
+RCSTAbits.CREN = toggle != 0 ? 1 : 0;
+}
+
+void sendChar(unsigned char character)
+{
+while(!TXSTAbits.TRMT);
+TXREG = character;
+}
+
+void sendData(unsigned char *string, int length)
+{
+int i;
+
+for (i = 0; i < length; i++)
+sendChar(string[i]);
+}
+
+int receiveData(struct receiveBuffer *buffer)
+{
+
+int8_t character;
+int i = 0;
+int size = 0;
+
+if (RCSTAbits.OERR) {
+RCSTAbits.CREN = 0;
+RCSTAbits.CREN = 1;
+}
+
+character = RCREG;
+character = RCREG;
+
+if (PORTCbits.RC7 == 0) {
+LATBbits.LATB6 = 0;
+
+while (!RCIF);
+size = RCREG;
+
+if (size < 16 && size > 0) {
+while (i < size) {
+while (!RCIF);
+buffer->buffer[i] = RCREG;
+i++;
+}
+}
+
+LATBbits.LATB6 = 1;
+while (PORTCbits.RC7 == 0);
+}
+
+buffer->length = i;
+buffer->buffer[i] = 0;
+
+return i;
 }

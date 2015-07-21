@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\TorqueGriper.X.production.hex">
+  <executable name="dist/default/debug\TorqueGriper.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>8192</length>
-      <used>1062</used>
-      <free>7130</free>
+      <used>1034</used>
+      <free>7158</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>256</length>
-      <used>50</used>
-      <free>206</free>
+      <used>49</used>
+      <free>207</free>
     </memory>
   </executable>
 </project>
