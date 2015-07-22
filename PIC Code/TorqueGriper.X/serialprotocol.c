@@ -23,8 +23,8 @@ static void toggleTimer3(unsigned char toggle) {
 void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit, 
         unsigned int spbrg16) //Use Excel file to get the right values
 {
-    ANSELHbits.ANS9 = 0; //Set CTS to digital.
-    ANSELHbits.ANS11 = 0; //Set RX to digital.
+    CTS_AN = 0; //Set CTS to digital.
+    RX_AN = 0; //Set RX to digital.
     
     TRIS_RX = 1; //RX input
     TRIS_TX = 0; //TX output
@@ -37,7 +37,7 @@ void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
     SPBRG = spbrg16;
     RCSTA = 0x90;
     
-    setTimer3(0x00, 65360);
+    //setTimer3(0x00, 65360);
     
     RTS = INACTIVE;
 }

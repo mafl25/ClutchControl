@@ -1,9 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "5 pwm.c
-[c E3852 0 1 2 3 .. ]
-[n E3852 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
-[c E3858 0 1 2 .. ]
-[n E3858 . TMRP_1 TMRP_4 TMRP_16  ]
+[c E3874 0 1 2 3 .. ]
+[n E3874 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
+[c E3880 0 1 2 .. ]
+[n E3880 . TMRP_1 TMRP_4 TMRP_16  ]
 "5159 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [s S275 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S275 . T2CKPS TMR2ON T2OUTPS ]
@@ -2964,13 +2964,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ancomp.h: 91: void Open_ancomp1(unsigned char config);
 [; ;ancomp.h: 92: void Close_ancomp2( void );
 [; ;ancomp.h: 93: void Open_ancomp2(unsigned char config);
-[; ;spi.h: 584: void OpenSPI( unsigned char sync_mode,
-[; ;spi.h: 585: unsigned char bus_mode,
-[; ;spi.h: 586: unsigned char smp_phase );
-[; ;spi.h: 588: signed char WriteSPI( unsigned char data_out );
-[; ;spi.h: 590: void getsSPI( unsigned char *rdptr, unsigned char length );
-[; ;spi.h: 592: void putsSPI( unsigned char *wrptr );
-[; ;spi.h: 594: unsigned char ReadSPI( void );
+[; ;TorqueGriperSecondPIC.X\spi.h: 28: enum spi_mode {MM_FOSC4, MM_FOSC16, MM_FOSC64, MM_TMR22, SM_SS, SM_NSS};
+[; ;TorqueGriperSecondPIC.X\spi.h: 29: enum spi_clk_pol {IDLE_LOW, IDLE_HIGH};
+[; ;TorqueGriperSecondPIC.X\spi.h: 30: enum spi_trans_sel {IDLE_ACTIVE, ACTIVE_IDLE};
+[; ;TorqueGriperSecondPIC.X\spi.h: 31: enum spi_sampling {MIDDLE, END};
+[; ;TorqueGriperSecondPIC.X\spi.h: 33: struct spi_receive_buffer
+[; ;TorqueGriperSecondPIC.X\spi.h: 34: {
+[; ;TorqueGriperSecondPIC.X\spi.h: 35: unsigned char buffer[30];
+[; ;TorqueGriperSecondPIC.X\spi.h: 36: int length;
+[; ;TorqueGriperSecondPIC.X\spi.h: 37: };
+[; ;TorqueGriperSecondPIC.X\spi.h: 39: void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
+[; ;TorqueGriperSecondPIC.X\spi.h: 40: enum spi_trans_sel selection, enum spi_sampling sample);
+[; ;TorqueGriperSecondPIC.X\spi.h: 41: unsigned char spi_write(unsigned char data);
+[; ;TorqueGriperSecondPIC.X\spi.h: 42: unsigned char spi_read(void);
+[; ;TorqueGriperSecondPIC.X\spi.h: 43: void send_data_spi(unsigned char *data, char size);
+[; ;TorqueGriperSecondPIC.X\spi.h: 44: void master_receive_data(struct spi_receive_buffer *buffer);
+[; ;TorqueGriperSecondPIC.X\spi.h: 45: void slave_receive_data(struct spi_receive_buffer *buffer);
 [; ;can2510.h: 414: void CAN2510Initialize(  unsigned int configuration,
 [; ;can2510.h: 415: unsigned char brp,
 [; ;can2510.h: 416: unsigned char interruptFlags,
@@ -3617,7 +3626,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm.h: 35: void pmwHalfBridgeSetUp();
 [; ;pwm.h: 36: void pmwFullBridgeSetUp();
 "3 pwm.c
-[v _pmwSingleModeSetUp `(v ~T0 @X0 1 ef4`E3852`uc`E3858`uc ]
+[v _pmwSingleModeSetUp `(v ~T0 @X0 1 ef4`E3874`uc`E3880`uc ]
 "5
 {
 [; ;pwm.c: 3: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
@@ -3625,9 +3634,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm.c: 5: {
 [e :U _pmwSingleModeSetUp ]
 "3
-[v _polarity `E3852 ~T0 @X0 1 r1 ]
+[v _polarity `E3874 ~T0 @X0 1 r1 ]
 [v _valuePR2 `uc ~T0 @X0 1 r2 ]
-[v _scaler `E3858 ~T0 @X0 1 r3 ]
+[v _scaler `E3880 ~T0 @X0 1 r3 ]
 "4
 [v _outputs `uc ~T0 @X0 1 r4 ]
 "5
@@ -3637,103 +3646,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 [; ;pwm.c: 8: switch (scaler) {
 "8
-[e $U 375  ]
+[e $U 376  ]
 {
 [; ;pwm.c: 9: case TMRP_1:
 "9
-[e :U 376 ]
+[e :U 377 ]
 [; ;pwm.c: 10: T2CONbits.T2CKPS = 0x00;
 "10
 [e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
 [; ;pwm.c: 11: break;
 "11
-[e $U 374  ]
+[e $U 375  ]
 [; ;pwm.c: 12: case TMRP_4:
 "12
-[e :U 377 ]
+[e :U 378 ]
 [; ;pwm.c: 13: T2CONbits.T2CKPS = 0x01;
 "13
 [e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
 [; ;pwm.c: 14: break;
 "14
-[e $U 374  ]
+[e $U 375  ]
 [; ;pwm.c: 15: case TMRP_16:
 "15
-[e :U 378 ]
+[e :U 379 ]
 [; ;pwm.c: 16: T2CONbits.T2CKPS = 0x11;
 "16
 [e = . . _T2CONbits 0 0 -> -> 17 `i `uc ]
 "17
 }
 [; ;pwm.c: 17: }
-[e $U 374  ]
+[e $U 375  ]
 "8
-[e :U 375 ]
-[e [\ _scaler , $ . `E3858 0 376
- , $ . `E3858 1 377
- , $ . `E3858 2 378
- 374 ]
+[e :U 376 ]
+[e [\ _scaler , $ . `E3880 0 377
+ , $ . `E3880 1 378
+ , $ . `E3880 2 379
+ 375 ]
 "17
-[e :U 374 ]
+[e :U 375 ]
 [; ;pwm.c: 19: CCP1CONbits.P1M = 0x00;
 "19
 [e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
 [; ;pwm.c: 21: switch (polarity) {
 "21
-[e $U 380  ]
+[e $U 381  ]
 {
 [; ;pwm.c: 22: case PACH_PBDH:
 "22
-[e :U 381 ]
+[e :U 382 ]
 [; ;pwm.c: 23: CCP1CONbits.CCP1M = 0b1100;
 "23
 [e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
 [; ;pwm.c: 24: break;
 "24
-[e $U 379  ]
+[e $U 380  ]
 [; ;pwm.c: 25: case PACH_PBDL:
 "25
-[e :U 382 ]
+[e :U 383 ]
 [; ;pwm.c: 26: CCP1CONbits.CCP1M = 0b1101;
 "26
 [e = . . _CCP1CONbits 0 0 -> -> 13 `i `uc ]
 [; ;pwm.c: 27: break;
 "27
-[e $U 379  ]
+[e $U 380  ]
 [; ;pwm.c: 28: case PACL_PBDH:
 "28
-[e :U 383 ]
+[e :U 384 ]
 [; ;pwm.c: 29: CCP1CONbits.CCP1M = 0b1110;
 "29
 [e = . . _CCP1CONbits 0 0 -> -> 14 `i `uc ]
 [; ;pwm.c: 30: break;
 "30
-[e $U 379  ]
+[e $U 380  ]
 [; ;pwm.c: 31: case PACL_PBDL:
 "31
-[e :U 384 ]
+[e :U 385 ]
 [; ;pwm.c: 32: CCP1CONbits.CCP1M = 0b1111;
 "32
 [e = . . _CCP1CONbits 0 0 -> -> 15 `i `uc ]
 "33
 }
 [; ;pwm.c: 33: }
-[e $U 379  ]
+[e $U 380  ]
 "21
-[e :U 380 ]
-[e [\ _polarity , $ . `E3852 0 381
- , $ . `E3852 1 382
- , $ . `E3852 2 383
- , $ . `E3852 3 384
- 379 ]
+[e :U 381 ]
+[e [\ _polarity , $ . `E3874 0 382
+ , $ . `E3874 1 383
+ , $ . `E3874 2 384
+ , $ . `E3874 3 385
+ 380 ]
 "33
-[e :U 379 ]
+[e :U 380 ]
 [; ;pwm.c: 35: PSTRCONbits.STRSYNC = 1;
 "35
 [e = . . _PSTRCONbits 0 4 -> -> 1 `i `uc ]
 [; ;pwm.c: 37: if (outputs & 0x01) {
 "37
-[e $ ! != & -> _outputs `i -> 1 `i -> 0 `i 385  ]
+[e $ ! != & -> _outputs `i -> 1 `i -> 0 `i 386  ]
 {
 [; ;pwm.c: 38: LATCbits.LATC5 = 0;
 "38
@@ -3743,11 +3752,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
 "40
 }
-[e :U 385 ]
+[e :U 386 ]
 [; ;pwm.c: 40: }
 [; ;pwm.c: 41: if (outputs & 0x02) {
 "41
-[e $ ! != & -> _outputs `i -> 2 `i -> 0 `i 386  ]
+[e $ ! != & -> _outputs `i -> 2 `i -> 0 `i 387  ]
 {
 [; ;pwm.c: 42: LATCbits.LATC4 = 0;
 "42
@@ -3757,11 +3766,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
 "44
 }
-[e :U 386 ]
+[e :U 387 ]
 [; ;pwm.c: 44: }
 [; ;pwm.c: 45: if (outputs & 0x04) {
 "45
-[e $ ! != & -> _outputs `i -> 4 `i -> 0 `i 387  ]
+[e $ ! != & -> _outputs `i -> 4 `i -> 0 `i 388  ]
 {
 [; ;pwm.c: 46: LATCbits.LATC3 = 0;
 "46
@@ -3771,11 +3780,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
 "48
 }
-[e :U 387 ]
+[e :U 388 ]
 [; ;pwm.c: 48: }
 [; ;pwm.c: 49: if (outputs & 0x08) {
 "49
-[e $ ! != & -> _outputs `i -> 8 `i -> 0 `i 388  ]
+[e $ ! != & -> _outputs `i -> 8 `i -> 0 `i 389  ]
 {
 [; ;pwm.c: 50: LATCbits.LATC2 = 0;
 "50
@@ -3785,14 +3794,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 "52
 }
-[e :U 388 ]
+[e :U 389 ]
 [; ;pwm.c: 52: }
 [; ;pwm.c: 54: PR2 = valuePR2;
 "54
 [e = _PR2 _valuePR2 ]
 [; ;pwm.c: 55: }
 "55
-[e :UE 373 ]
+[e :UE 374 ]
 }
 "57
 [v _setPulseWidth `(v ~T0 @X0 1 ef1`ui ]
@@ -3813,7 +3822,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _CCPR1L -> >> _width -> 2 `i `uc ]
 [; ;pwm.c: 61: }
 "61
-[e :UE 389 ]
+[e :UE 390 ]
 }
 "63
 [v _selectOutput `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3829,68 +3838,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;pwm.c: 65: switch (outputs){
 "65
-[e $U 392  ]
+[e $U 393  ]
 {
 [; ;pwm.c: 66: case 0:
 "66
-[e :U 393 ]
+[e :U 394 ]
 [; ;pwm.c: 67: PSTRCON = 0xF0;
 "67
 [e = _PSTRCON -> -> 240 `i `uc ]
 [; ;pwm.c: 68: break;
 "68
-[e $U 391  ]
+[e $U 392  ]
 [; ;pwm.c: 69: case 0x01:
 "69
-[e :U 394 ]
+[e :U 395 ]
 [; ;pwm.c: 70: PSTRCONbits.STRA = (toggle) ? 1 : 0;
 "70
 [e = . . _PSTRCONbits 0 0 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
 [; ;pwm.c: 71: break;
 "71
-[e $U 391  ]
+[e $U 392  ]
 [; ;pwm.c: 72: case 0x02:
 "72
-[e :U 395 ]
+[e :U 396 ]
 [; ;pwm.c: 73: PSTRCONbits.STRB = (toggle) ? 1 : 0;
 "73
 [e = . . _PSTRCONbits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
 [; ;pwm.c: 74: break;
 "74
-[e $U 391  ]
+[e $U 392  ]
 [; ;pwm.c: 75: case 0x04:
 "75
-[e :U 396 ]
+[e :U 397 ]
 [; ;pwm.c: 76: PSTRCONbits.STRC = (toggle) ? 1 : 0;
 "76
 [e = . . _PSTRCONbits 0 2 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
 [; ;pwm.c: 77: break;
 "77
-[e $U 391  ]
+[e $U 392  ]
 [; ;pwm.c: 78: case 0x08:
 "78
-[e :U 397 ]
+[e :U 398 ]
 [; ;pwm.c: 79: PSTRCONbits.STRD = (toggle) ? 1 : 0;
 "79
 [e = . . _PSTRCONbits 0 3 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
 [; ;pwm.c: 80: break;
 "80
-[e $U 391  ]
+[e $U 392  ]
 "81
 }
 [; ;pwm.c: 81: }
-[e $U 391  ]
+[e $U 392  ]
 "65
-[e :U 392 ]
-[e [\ _outputs , $ -> -> 0 `i `uc 393
- , $ -> -> 1 `i `uc 394
- , $ -> -> 2 `i `uc 395
- , $ -> -> 4 `i `uc 396
- , $ -> -> 8 `i `uc 397
- 391 ]
+[e :U 393 ]
+[e [\ _outputs , $ -> -> 0 `i `uc 394
+ , $ -> -> 1 `i `uc 395
+ , $ -> -> 2 `i `uc 396
+ , $ -> -> 4 `i `uc 397
+ , $ -> -> 8 `i `uc 398
+ 392 ]
 "81
-[e :U 391 ]
+[e :U 392 ]
 [; ;pwm.c: 82: }
 "82
-[e :UE 390 ]
+[e :UE 391 ]
 }

@@ -3,7 +3,28 @@
 [d edition pro ]
 [d chip 18F13K22 ]
 [d frameptr 4065 ]
-"52 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+"91 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+[e E3059 spi_mode `uc
+MM_FOSC4 0
+MM_FOSC16 1
+MM_FOSC64 2
+MM_TMR22 3
+SM_SS 4
+SM_NSS 5
+]
+[e E3066 spi_clk_pol `uc
+IDLE_LOW 0
+IDLE_HIGH 1
+]
+[e E3069 spi_trans_sel `uc
+IDLE_ACTIVE 0
+ACTIVE_IDLE 1
+]
+[e E3072 spi_sampling `uc
+MIDDLE 0
+END 1
+]
+"5 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
 [e E3874 . `uc
 PACH_PBDH 0
 PACH_PBDL 1
@@ -15,18 +36,35 @@ TMRP_1 0
 TMRP_4 1
 TMRP_16 2
 ]
-"5 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[e E3852 . `uc
-PACH_PBDH 0
-PACH_PBDL 1
-PACL_PBDH 2
-PACL_PBDL 3
+"19 D:\Documents\ClutchControl\PIC Code/TorqueGriperSecondPIC.X/spi.c
+[e E3059 spi_mode `uc
+MM_FOSC4 0
+MM_FOSC16 1
+MM_FOSC64 2
+MM_TMR22 3
+SM_SS 4
+SM_NSS 5
 ]
-[e E3858 . `uc
-TMRP_1 0
-TMRP_4 1
-TMRP_16 2
+[e E3066 spi_clk_pol `uc
+IDLE_LOW 0
+IDLE_HIGH 1
 ]
+[e E3069 spi_trans_sel `uc
+IDLE_ACTIVE 0
+ACTIVE_IDLE 1
+]
+[e E3072 spi_sampling `uc
+MIDDLE 0
+END 1
+]
+"4
+[v _reassemble_packet reassemble_packet `(v  1 s 0 reassemble_packet ]
+"17
+[v _set_spi set_spi `(v  1 e 0 0 ]
+"45
+[v _spi_write spi_write `(uc  1 e 1 0 ]
+"90
+[v _slave_receive_data slave_receive_data `(v  1 e 0 0 ]
 "63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
 "88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
@@ -49,40 +87,54 @@ TMRP_16 2
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"48 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+"49 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
 [v _main main `(i  1 e 2 0 ]
-"89
+"105
 [v _com_link com_link `II(v  1 e 0 0 ]
-"3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _pmwSingleModeSetUp pmwSingleModeSetUp `(v  1 e 0 0 ]
-"57
-[v _setPulseWidth setPulseWidth `(v  1 e 0 0 ]
-"63
-[v _selectOutput selectOutput `(v  1 e 0 0 ]
-"5 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _setTimer3 setTimer3 `(v  1 s 0 setTimer3 ]
-"23
+"23 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
 [v _serialSetUp serialSetUp `(v  1 e 0 0 ]
 "60
 [v _sendChar sendChar `(v  1 e 0 0 ]
-"74
-[v _receiveData receiveData `(i  1 e 2 0 ]
-[s S237 . 1 `uc 1 ANSELH 1 0 :4:0 
+[v i2_sendChar sendChar `(v  1 e 0 0 ]
+[s S230 . 1 `uc 1 ANSEL 1 0 :8:0 
 ]
-"896 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S239 . 1 `uc 1 ANS8 1 0 :1:0 
+"785 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S232 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+`uc 1 ANS5 1 0 :1:5 
+`uc 1 ANS6 1 0 :1:6 
+`uc 1 ANS7 1 0 :1:7 
+]
+[s S241 . 1 `uc 1 ANSEL0 1 0 :1:0 
+`uc 1 ANSEL1 1 0 :1:1 
+`uc 1 ANSEL2 1 0 :1:2 
+`uc 1 ANSEL3 1 0 :1:3 
+`uc 1 ANSEL4 1 0 :1:4 
+`uc 1 ANSEL5 1 0 :1:5 
+`uc 1 ANSEL6 1 0 :1:6 
+`uc 1 ANSEL7 1 0 :1:7 
+]
+[u S250 . 1 `S230 1 . 1 0 `S232 1 . 1 0 `S241 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES250  1 e 1 @3966 ]
+[s S275 . 1 `uc 1 ANSELH 1 0 :4:0 
+]
+"896
+[s S277 . 1 `uc 1 ANS8 1 0 :1:0 
 `uc 1 ANS9 1 0 :1:1 
 `uc 1 ANS10 1 0 :1:2 
 `uc 1 ANS11 1 0 :1:3 
 ]
-[s S244 . 1 `uc 1 ANSEL8 1 0 :1:0 
+[s S282 . 1 `uc 1 ANSEL8 1 0 :1:0 
 `uc 1 ANSEL9 1 0 :1:1 
 `uc 1 ANSEL10 1 0 :1:2 
 `uc 1 ANSEL11 1 0 :1:3 
 ]
-[u S249 . 1 `S237 1 . 1 0 `S239 1 . 1 0 `S244 1 . 1 0 ]
-[v _ANSELHbits ANSELHbits `VES249  1 e 1 @3967 ]
-[s S303 . 1 `uc 1 RC0 1 0 :1:0 
+[u S287 . 1 `S275 1 . 1 0 `S277 1 . 1 0 `S282 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES287  1 e 1 @3967 ]
+[s S341 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -92,7 +144,7 @@ TMRP_16 2
 `uc 1 RC7 1 0 :1:7 
 ]
 "1429
-[s S563 . 1 `uc 1 AN4 1 0 :1:0 
+[s S607 . 1 `uc 1 AN4 1 0 :1:0 
 `uc 1 AN5 1 0 :1:1 
 `uc 1 AN6 1 0 :1:2 
 `uc 1 AN7 1 0 :1:3 
@@ -100,13 +152,13 @@ TMRP_16 2
 `uc 1 AN8 1 0 :1:6 
 `uc 1 AN9 1 0 :1:7 
 ]
-[s S571 . 1 `uc 1 C12INP 1 0 :1:0 
+[s S615 . 1 `uc 1 C12INP 1 0 :1:0 
 `uc 1 C12IN1M 1 0 :1:1 
 `uc 1 C12IN2M 1 0 :1:2 
 `uc 1 C12IN3M 1 0 :1:3 
 `uc 1 C12OUT 1 0 :1:4 
 ]
-[s S577 . 1 `uc 1 . 1 0 :2:0 
+[s S621 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 P1D 1 0 :1:2 
 `uc 1 P1C 1 0 :1:3 
 `uc 1 P1B 1 0 :1:4 
@@ -114,60 +166,28 @@ TMRP_16 2
 `uc 1 SS 1 0 :1:6 
 `uc 1 SDO 1 0 :1:7 
 ]
-[s S585 . 1 `uc 1 . 1 0 :6:0 
+[s S629 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_SS 1 0 :1:6 
 ]
-[s S588 . 1 `uc 1 C2INP 1 0 :1:0 
+[s S632 . 1 `uc 1 C2INP 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 PGM 1 0 :1:3 
 `uc 1 C2OUT 1 0 :1:4 
 `uc 1 CCP1 1 0 :1:5 
 `uc 1 nSS 1 0 :1:6 
 ]
-[s S595 . 1 `uc 1 . 1 0 :1:0 
+[s S639 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 ]
-[s S598 . 1 `uc 1 . 1 0 :2:0 
+[s S642 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S601 . 1 `uc 1 . 1 0 :1:0 
+[s S645 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S604 . 1 `S303 1 . 1 0 `S563 1 . 1 0 `S571 1 . 1 0 `S577 1 . 1 0 `S585 1 . 1 0 `S588 1 . 1 0 `S595 1 . 1 0 `S598 1 . 1 0 `S601 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES604  1 e 1 @3970 ]
-[s S339 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 LATB4 1 0 :1:4 
-`uc 1 LATB5 1 0 :1:5 
-`uc 1 LATB6 1 0 :1:6 
-`uc 1 LATB7 1 0 :1:7 
-]
-"1772
-[s S345 . 1 `uc 1 LB0 1 0 :1:0 
-]
-[s S347 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 LB1 1 0 :1:1 
-]
-[s S350 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 LB2 1 0 :1:2 
-]
-[s S353 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 LB3 1 0 :1:3 
-]
-[s S356 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 LB4 1 0 :1:4 
-]
-[s S359 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 LB5 1 0 :1:5 
-]
-[s S362 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 LB6 1 0 :1:6 
-]
-[s S365 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 LB7 1 0 :1:7 
-]
-[u S368 . 1 `S339 1 . 1 0 `S345 1 . 1 0 `S347 1 . 1 0 `S350 1 . 1 0 `S353 1 . 1 0 `S356 1 . 1 0 `S359 1 . 1 0 `S362 1 . 1 0 `S365 1 . 1 0 ]
-[v _LATBbits LATBbits `VES368  1 e 1 @3978 ]
-[s S841 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S648 . 1 `S341 1 . 1 0 `S607 1 . 1 0 `S615 1 . 1 0 `S621 1 . 1 0 `S629 1 . 1 0 `S632 1 . 1 0 `S639 1 . 1 0 `S642 1 . 1 0 `S645 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES648  1 e 1 @3970 ]
+[s S377 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -177,47 +197,47 @@ TMRP_16 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1884
-[s S850 . 1 `uc 1 LC0 1 0 :1:0 
+[s S386 . 1 `uc 1 LC0 1 0 :1:0 
 ]
-[s S852 . 1 `uc 1 . 1 0 :1:0 
+[s S388 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 ]
-[s S855 . 1 `uc 1 . 1 0 :2:0 
+[s S391 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LC2 1 0 :1:2 
 ]
-[s S858 . 1 `uc 1 . 1 0 :3:0 
+[s S394 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LC3 1 0 :1:3 
 ]
-[s S861 . 1 `uc 1 . 1 0 :4:0 
+[s S397 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LC4 1 0 :1:4 
 ]
-[s S864 . 1 `uc 1 . 1 0 :5:0 
+[s S400 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LC5 1 0 :1:5 
 ]
-[s S867 . 1 `uc 1 . 1 0 :6:0 
+[s S403 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LC6 1 0 :1:6 
 ]
-[s S870 . 1 `uc 1 . 1 0 :7:0 
+[s S406 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S873 . 1 `S841 1 . 1 0 `S850 1 . 1 0 `S852 1 . 1 0 `S855 1 . 1 0 `S858 1 . 1 0 `S861 1 . 1 0 `S864 1 . 1 0 `S867 1 . 1 0 `S870 1 . 1 0 ]
-[v _LATCbits LATCbits `VES873  1 e 1 @3979 ]
-[s S266 . 1 `uc 1 . 1 0 :4:0 
+[u S409 . 1 `S377 1 . 1 0 `S386 1 . 1 0 `S388 1 . 1 0 `S391 1 . 1 0 `S394 1 . 1 0 `S397 1 . 1 0 `S400 1 . 1 0 `S403 1 . 1 0 `S406 1 . 1 0 ]
+[v _LATCbits LATCbits `VES409  1 e 1 @3979 ]
+[s S304 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TRISB4 1 0 :1:4 
 `uc 1 TRISB5 1 0 :1:5 
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2147
-[s S272 . 1 `uc 1 . 1 0 :4:0 
+[s S310 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RB4 1 0 :1:4 
 `uc 1 RB5 1 0 :1:5 
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S278 . 1 `S266 1 . 1 0 `S272 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES278  1 e 1 @3987 ]
-[s S294 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S316 . 1 `S304 1 . 1 0 `S310 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES316  1 e 1 @3987 ]
+[s S332 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -227,9 +247,9 @@ TMRP_16 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "2282
-[u S312 . 1 `S294 1 . 1 0 `S303 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES312  1 e 1 @3988 ]
-[s S208 . 1 `uc 1 . 1 0 :1:0 
+[u S350 . 1 `S332 1 . 1 0 `S341 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES350  1 e 1 @3988 ]
+[s S201 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -239,14 +259,14 @@ TMRP_16 2
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "2840
-[s S217 . 1 `uc 1 . 1 0 :6:0 
+[s S210 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIF 1 0 :1:6 
 ]
-[u S220 . 1 `S208 1 . 1 0 `S217 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES220  1 e 1 @4001 ]
+[u S213 . 1 `S201 1 . 1 0 `S210 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES213  1 e 1 @4001 ]
 "3077
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S408 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S452 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -256,25 +276,25 @@ TMRP_16 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3118
-[s S417 . 1 `uc 1 . 1 0 :3:0 
+[s S461 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S420 . 1 `uc 1 . 1 0 :5:0 
+[s S464 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S423 . 1 `uc 1 . 1 0 :6:0 
+[s S467 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S426 . 1 `uc 1 . 1 0 :6:0 
+[s S470 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S429 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S473 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S431 . 1 `S408 1 . 1 0 `S417 1 . 1 0 `S420 1 . 1 0 `S423 1 . 1 0 `S426 1 . 1 0 `S429 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES431  1 e 1 @4011 ]
+[u S475 . 1 `S452 1 . 1 0 `S461 1 . 1 0 `S464 1 . 1 0 `S467 1 . 1 0 `S470 1 . 1 0 `S473 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES475  1 e 1 @4011 ]
 "3286
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S462 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S506 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -284,36 +304,36 @@ TMRP_16 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3346
-[s S471 . 1 `uc 1 . 1 0 :2:0 
+[s S515 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S474 . 1 `uc 1 . 1 0 :7:0 
+[s S518 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S477 . 1 `uc 1 . 1 0 :3:0 
+[s S521 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SENDB1 1 0 :1:3 
 ]
-[s S480 . 1 `uc 1 . 1 0 :4:0 
+[s S524 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S483 . 1 `uc 1 . 1 0 :1:0 
+[s S527 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S486 . 1 `uc 1 . 1 0 :6:0 
+[s S530 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S489 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S533 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S491 . 1 `uc 1 . 1 0 :5:0 
+[s S535 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[s S494 . 1 `uc 1 . 1 0 :6:0 
+[s S538 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S497 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S541 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S499 . 1 `S462 1 . 1 0 `S471 1 . 1 0 `S474 1 . 1 0 `S477 1 . 1 0 `S480 1 . 1 0 `S483 1 . 1 0 `S486 1 . 1 0 `S489 1 . 1 0 `S491 1 . 1 0 `S494 1 . 1 0 `S497 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES499  1 e 1 @4012 ]
+[u S543 . 1 `S506 1 . 1 0 `S515 1 . 1 0 `S518 1 . 1 0 `S521 1 . 1 0 `S524 1 . 1 0 `S527 1 . 1 0 `S530 1 . 1 0 `S533 1 . 1 0 `S535 1 . 1 0 `S538 1 . 1 0 `S541 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES543  1 e 1 @4012 ]
 "3583
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3594
@@ -322,11 +342,11 @@ TMRP_16 2
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3616
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S148 . 1 `uc 1 . 1 0 :2:0 
+[s S141 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "3661
-[s S151 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S144 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -334,44 +354,44 @@ TMRP_16 2
 `uc 1 . 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S159 . 1 `uc 1 . 1 0 :2:0 
+[s S152 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S165 . 1 `uc 1 . 1 0 :7:0 
+[s S158 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S168 . 1 `uc 1 . 1 0 :3:0 
+[s S161 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 ]
-[s S171 . 1 `uc 1 . 1 0 :7:0 
+[s S164 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S174 . 1 `S148 1 . 1 0 `S151 1 . 1 0 `S159 1 . 1 0 `S165 1 . 1 0 `S168 1 . 1 0 `S171 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES174  1 e 1 @4017 ]
+[u S167 . 1 `S141 1 . 1 0 `S144 1 . 1 0 `S152 1 . 1 0 `S158 1 . 1 0 `S161 1 . 1 0 `S164 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES167  1 e 1 @4017 ]
 "3730
 [v _TMR3 TMR3 `VEus  1 e 2 @4018 ]
 "3898
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
 "4063
 [v _PSTRCON PSTRCON `VEuc  1 e 1 @4025 ]
-[s S826 . 1 `uc 1 STRA 1 0 :1:0 
+[s S880 . 1 `uc 1 STRA 1 0 :1:0 
 `uc 1 STRB 1 0 :1:1 
 `uc 1 STRC 1 0 :1:2 
 `uc 1 STRD 1 0 :1:3 
 `uc 1 STRSYNC 1 0 :1:4 
 ]
 "4077
-[u S832 . 1 `S826 1 . 1 0 ]
-[v _PSTRCONbits PSTRCONbits `VES832  1 e 1 @4025 ]
-[s S796 . 1 `uc 1 CCP1M 1 0 :4:0 
+[u S886 . 1 `S880 1 . 1 0 ]
+[v _PSTRCONbits PSTRCONbits `VES886  1 e 1 @4025 ]
+[s S850 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "4437
-[s S800 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S854 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -380,16 +400,99 @@ TMRP_16 2
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[u S809 . 1 `S796 1 . 1 0 `S800 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES809  1 e 1 @4029 ]
+[u S863 . 1 `S850 1 . 1 0 `S854 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES863  1 e 1 @4029 ]
 "4502
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
-[s S768 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1025 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4861
+[s S1031 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S1036 . 1 `S1025 1 . 1 0 `S1031 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1036  1 e 1 @4038 ]
+[s S1051 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"4997
+[s S1054 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S1057 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S1066 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S1071 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S1076 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S1081 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S1086 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S1089 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S1092 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S1097 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA 1 0 :1:5 
+]
+[s S1100 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+]
+[s S1103 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START 1 0 :1:3 
+]
+[s S1106 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP 1 0 :1:4 
+]
+[s S1109 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+]
+[s S1112 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S1115 . 1 `S1051 1 . 1 0 `S1054 1 . 1 0 `S1057 1 . 1 0 `S1066 1 . 1 0 `S1071 1 . 1 0 `S1076 1 . 1 0 `S1081 1 . 1 0 `S1086 1 . 1 0 `S1089 1 . 1 0 `S1092 1 . 1 0 `S1097 1 . 1 0 `S1100 1 . 1 0 `S1103 1 . 1 0 `S1106 1 . 1 0 `S1109 1 . 1 0 `S1112 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES1115  1 e 1 @4039 ]
+"5147
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S822 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "5174
-[s S772 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S826 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -397,15 +500,15 @@ TMRP_16 2
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S780 . 1 `S768 1 . 1 0 `S772 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES780  1 e 1 @4042 ]
+[u S834 . 1 `S822 1 . 1 0 `S826 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES834  1 e 1 @4042 ]
 "5223
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5807
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5813
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S70 . 1 `uc 1 RABIF 1 0 :1:0 
+[s S65 . 1 `uc 1 RABIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RABIE 1 0 :1:3 
@@ -415,7 +518,7 @@ TMRP_16 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6278
-[s S79 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S74 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -424,102 +527,103 @@ TMRP_16 2
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S88 . 1 `uc 1 . 1 0 :6:0 
+[s S83 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S92 . 1 `uc 1 . 1 0 :6:0 
+[s S87 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PIE 1 0 :1:6 
 ]
-[u S95 . 1 `S70 1 . 1 0 `S79 1 . 1 0 `S88 1 . 1 0 `S92 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES95  1 e 1 @4082 ]
+[u S90 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S87 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES90  1 e 1 @4082 ]
 "7327
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
 [v _timer3Time timer3Time `ui  1 s 2 timer3Time ]
-"48 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+"49 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-[s S56 receiveBuffer 17 `[16]uc 1 buffer 16 0 `uc 1 length 1 16 ]
-"68
-[v main@data data `S56  1 a 17 31 ]
-"69
-[v main@i i `i  1 a 2 29 ]
-"87
+[s S33 spi_receive_buffer 32 `[30]uc 1 buffer 30 0 `i 1 length 2 30 ]
+"89
+[v main@my_data my_data `S33  1 a 32 32 ]
+"92
+[v main@i i `uc  1 a 1 31 ]
+"89
+[v main@F3924 F3924 `S33  1 s 32 F3924 ]
+"103
 } 0
-"57 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _setPulseWidth setPulseWidth `(v  1 e 0 0 ]
+"90 D:\Documents\ClutchControl\PIC Code/TorqueGriperSecondPIC.X/spi.c
+[v _slave_receive_data slave_receive_data `(v  1 e 0 0 ]
 {
-[v setPulseWidth@width width `ui  1 p 2 15 ]
-"61
+"96
+[v slave_receive_data@i i `uc  1 a 1 27 ]
+"95
+[v slave_receive_data@size size `uc  1 a 1 26 ]
+"93
+[v slave_receive_data@receive receive `uc  1 a 1 25 ]
+[s S33 spi_receive_buffer 32 `[30]uc 1 buffer 30 0 `i 1 length 2 30 ]
+"90
+[v slave_receive_data@buffer buffer `*.39S33  1 p 2 23 ]
+"107
+} 0
+"4
+[v _reassemble_packet reassemble_packet `(v  1 s 0 reassemble_packet ]
+{
+"10
+[v reassemble_packet@byte_2 byte_2 `uc  1 a 1 21 ]
+"9
+[v reassemble_packet@byte_1 byte_1 `uc  1 a 1 20 ]
+"6
+[v reassemble_packet@i i `uc  1 a 1 22 ]
+[s S33 spi_receive_buffer 32 `[30]uc 1 buffer 30 0 `i 1 length 2 30 ]
+"4
+[v reassemble_packet@buffer buffer `*.39S33  1 p 2 15 ]
+[v reassemble_packet@size size `uc  1 p 1 17 ]
+"15
+} 0
+"17
+[v _set_spi set_spi `(v  1 e 0 0 ]
+{
+[v set_spi@mode mode `E3059  1 a 1 wreg ]
+[v set_spi@mode mode `E3059  1 a 1 wreg ]
+[v set_spi@polarity polarity `E3066  1 p 1 15 ]
+"18
+[v set_spi@selection selection `E3069  1 p 1 16 ]
+[v set_spi@sample sample `E3072  1 p 1 17 ]
+"20
+[v set_spi@mode mode `E3059  1 a 1 18 ]
+"43
 } 0
 "23 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
 [v _serialSetUp serialSetUp `(v  1 e 0 0 ]
 {
 [v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
 [v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
-[v serialSetUp@brgh_bit brgh_bit `uc  1 p 1 19 ]
+[v serialSetUp@brgh_bit brgh_bit `uc  1 p 1 15 ]
 "24
-[v serialSetUp@spbrg16 spbrg16 `ui  1 p 2 20 ]
+[v serialSetUp@spbrg16 spbrg16 `ui  1 p 2 16 ]
 "26
-[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 22 ]
+[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 18 ]
 "43
 } 0
-"5
-[v _setTimer3 setTimer3 `(v  1 s 0 setTimer3 ]
-{
-[v setTimer3@turnOn turnOn `uc  1 a 1 wreg ]
-[v setTimer3@turnOn turnOn `uc  1 a 1 wreg ]
-[v setTimer3@TMR3Pair TMR3Pair `ui  1 p 2 15 ]
-[v setTimer3@turnOn turnOn `uc  1 a 1 18 ]
-"11
-} 0
-"63 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _selectOutput selectOutput `(v  1 e 0 0 ]
-{
-[v selectOutput@outputs outputs `uc  1 a 1 wreg ]
-[v selectOutput@outputs outputs `uc  1 a 1 wreg ]
-[v selectOutput@toggle toggle `uc  1 p 1 15 ]
-[v selectOutput@outputs outputs `uc  1 a 1 17 ]
-"82
-} 0
-"74 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _receiveData receiveData `(i  1 e 2 0 ]
-{
-"78
-[v receiveData@i i `i  1 a 2 21 ]
-"79
-[v receiveData@size size `i  1 a 2 19 ]
-"77
-[v receiveData@character character `uc  1 a 1 18 ]
-[s S56 receiveBuffer 17 `[16]uc 1 buffer 16 0 `uc 1 length 1 16 ]
-"74
-[v receiveData@buffer buffer `*.39S56  1 p 2 15 ]
-"111
-} 0
-"3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _pmwSingleModeSetUp pmwSingleModeSetUp `(v  1 e 0 0 ]
-{
-[v pmwSingleModeSetUp@polarity polarity `E3852  1 a 1 wreg ]
-[v pmwSingleModeSetUp@polarity polarity `E3852  1 a 1 wreg ]
-[v pmwSingleModeSetUp@valuePR2 valuePR2 `uc  1 p 1 15 ]
-[v pmwSingleModeSetUp@scaler scaler `E3858  1 p 1 16 ]
-"4
-[v pmwSingleModeSetUp@outputs outputs `uc  1 p 1 17 ]
-"6
-[v pmwSingleModeSetUp@polarity polarity `E3852  1 a 1 18 ]
-"55
-} 0
-"89 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
-[v _com_link com_link `II(v  1 e 0 0 ]
-{
-"99
-} 0
-"60 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
+"60
 [v _sendChar sendChar `(v  1 e 0 0 ]
 {
 [v sendChar@character character `uc  1 a 1 wreg ]
 [v sendChar@character character `uc  1 a 1 wreg ]
-[v sendChar@character character `uc  1 a 1 0 ]
+[v sendChar@character character `uc  1 a 1 15 ]
+"64
+} 0
+"105 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+[v _com_link com_link `II(v  1 e 0 0 ]
+{
+"115
+} 0
+"60 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
+[v i2_sendChar sendChar `(v  1 e 0 0 ]
+{
+[v i2sendChar@character character `uc  1 a 1 wreg ]
+[v i2sendChar@character character `uc  1 a 1 wreg ]
+[v i2sendChar@character character `uc  1 a 1 0 ]
 "64
 } 0

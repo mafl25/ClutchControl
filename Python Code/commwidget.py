@@ -34,9 +34,7 @@ class CommWidget(tk.Frame):
 
         # Baudrate port menu
         self.rate = tk.IntVar()
-        rate_choices = (2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 460800, 500000, 576000, 921600, 1000000,
-                        1152000, 1500000, 2000000, 2500000, 3000000)
-        rate_menu = ttk.OptionMenu(self, self.rate, rate_choices[12], *rate_choices)
+        rate_menu = ttk.OptionMenu(self, self.rate, self.pic.baud_rates[4], *self.pic.baud_rates)
         rate_menu.grid(row=2, column=1)
 
         label3 = tk.Label(self, text="Choose BaudRate", font=LARGE_FONT)

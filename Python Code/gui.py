@@ -131,7 +131,6 @@ class PWMWidget(tk.Frame):
     def scale_callback(self, value):
         value = int(self.resolution*round((float(value)/self.resolution)))
         self.var_label_pw.set(value)
-
         self.scale_set_pwm(value)
 
     def scale_set_pwm(self, value):

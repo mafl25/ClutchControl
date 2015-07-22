@@ -35,6 +35,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR2bits `VS143 ~T0 @X0 0 e@4001 ]
 "3730
 [v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
+"761
+[s S35 :8 `uc 1 ]
+[n S35 . ANSEL ]
+"764
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
+"774
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . ANSEL0 ANSEL1 ANSEL2 ANSEL3 ANSEL4 ANSEL5 ANSEL6 ANSEL7 ]
+"760
+[u S34 `S35 1 `S36 1 `S37 1 ]
+[n S34 . . . . ]
+"785
+[v _ANSELbits `VS34 ~T0 @X0 0 e@3966 ]
 "880
 [s S39 :4 `uc 1 ]
 [n S39 . ANSELH ]
@@ -81,38 +95,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
 "3077
 [v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
-"1733
-[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . . LATB4 LATB5 LATB6 LATB7 ]
-"1740
-[s S89 :1 `uc 1 ]
-[n S89 . LB0 ]
-"1743
-[s S90 :1 `uc 1 :1 `uc 1 ]
-[n S90 . . LB1 ]
-"1747
-[s S91 :2 `uc 1 :1 `uc 1 ]
-[n S91 . . LB2 ]
-"1751
-[s S92 :3 `uc 1 :1 `uc 1 ]
-[n S92 . . LB3 ]
-"1755
-[s S93 :4 `uc 1 :1 `uc 1 ]
-[n S93 . . LB4 ]
-"1759
-[s S94 :5 `uc 1 :1 `uc 1 ]
-[n S94 . . LB5 ]
-"1763
-[s S95 :6 `uc 1 :1 `uc 1 ]
-[n S95 . . LB6 ]
-"1767
-[s S96 :7 `uc 1 :1 `uc 1 ]
-[n S96 . . LB7 ]
-"1732
-[u S87 `S88 1 `S89 1 `S90 1 `S91 1 `S92 1 `S93 1 `S94 1 `S95 1 `S96 1 ]
-[n S87 . . . . . . . . . . ]
-"1772
-[v _LATBbits `VS87 ~T0 @X0 0 e@3978 ]
+"1842
+[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S98 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1852
+[s S99 :1 `uc 1 ]
+[n S99 . LC0 ]
+"1855
+[s S100 :1 `uc 1 :1 `uc 1 ]
+[n S100 . . LC1 ]
+"1859
+[s S101 :2 `uc 1 :1 `uc 1 ]
+[n S101 . . LC2 ]
+"1863
+[s S102 :3 `uc 1 :1 `uc 1 ]
+[n S102 . . LC3 ]
+"1867
+[s S103 :4 `uc 1 :1 `uc 1 ]
+[n S103 . . LC4 ]
+"1871
+[s S104 :5 `uc 1 :1 `uc 1 ]
+[n S104 . . LC5 ]
+"1875
+[s S105 :6 `uc 1 :1 `uc 1 ]
+[n S105 . . LC6 ]
+"1879
+[s S106 :7 `uc 1 :1 `uc 1 ]
+[n S106 . . LC7 ]
+"1841
+[u S97 `S98 1 `S99 1 `S100 1 `S101 1 `S102 1 `S103 1 `S104 1 `S105 1 `S106 1 ]
+[n S97 . . . . . . . . . . ]
+"1884
+[v _LATCbits `VS97 ~T0 @X0 0 e@3979 ]
 "3088
 [s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S155 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
@@ -176,9 +190,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTAbits `VS168 ~T0 @X0 0 e@4012 ]
 "3583
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"34 serialprotocol.h
-[s S373 `uc -> 16 `i `uc 1 ]
-[n S373 receiveBuffer buffer length ]
+"36 serialprotocol.h
+[s S374 `uc -> 16 `i `uc 1 ]
+[n S374 receiveBuffer buffer length ]
 "3594 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "1369
@@ -3096,13 +3110,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ancomp.h: 91: void Open_ancomp1(unsigned char config);
 [; ;ancomp.h: 92: void Close_ancomp2( void );
 [; ;ancomp.h: 93: void Open_ancomp2(unsigned char config);
-[; ;spi.h: 584: void OpenSPI( unsigned char sync_mode,
-[; ;spi.h: 585: unsigned char bus_mode,
-[; ;spi.h: 586: unsigned char smp_phase );
-[; ;spi.h: 588: signed char WriteSPI( unsigned char data_out );
-[; ;spi.h: 590: void getsSPI( unsigned char *rdptr, unsigned char length );
-[; ;spi.h: 592: void putsSPI( unsigned char *wrptr );
-[; ;spi.h: 594: unsigned char ReadSPI( void );
+[; ;TorqueGriperSecondPIC.X\spi.h: 28: enum spi_mode {MM_FOSC4, MM_FOSC16, MM_FOSC64, MM_TMR22, SM_SS, SM_NSS};
+[; ;TorqueGriperSecondPIC.X\spi.h: 29: enum spi_clk_pol {IDLE_LOW, IDLE_HIGH};
+[; ;TorqueGriperSecondPIC.X\spi.h: 30: enum spi_trans_sel {IDLE_ACTIVE, ACTIVE_IDLE};
+[; ;TorqueGriperSecondPIC.X\spi.h: 31: enum spi_sampling {MIDDLE, END};
+[; ;TorqueGriperSecondPIC.X\spi.h: 33: struct spi_receive_buffer
+[; ;TorqueGriperSecondPIC.X\spi.h: 34: {
+[; ;TorqueGriperSecondPIC.X\spi.h: 35: unsigned char buffer[30];
+[; ;TorqueGriperSecondPIC.X\spi.h: 36: int length;
+[; ;TorqueGriperSecondPIC.X\spi.h: 37: };
+[; ;TorqueGriperSecondPIC.X\spi.h: 39: void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
+[; ;TorqueGriperSecondPIC.X\spi.h: 40: enum spi_trans_sel selection, enum spi_sampling sample);
+[; ;TorqueGriperSecondPIC.X\spi.h: 41: unsigned char spi_write(unsigned char data);
+[; ;TorqueGriperSecondPIC.X\spi.h: 42: unsigned char spi_read(void);
+[; ;TorqueGriperSecondPIC.X\spi.h: 43: void send_data_spi(unsigned char *data, char size);
+[; ;TorqueGriperSecondPIC.X\spi.h: 44: void master_receive_data(struct spi_receive_buffer *buffer);
+[; ;TorqueGriperSecondPIC.X\spi.h: 45: void slave_receive_data(struct spi_receive_buffer *buffer);
 [; ;can2510.h: 414: void CAN2510Initialize(  unsigned int configuration,
 [; ;can2510.h: 415: unsigned char brp,
 [; ;can2510.h: 416: unsigned char interruptFlags,
@@ -3740,21 +3763,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;serialprotocol.h: 31: typedef char int8_t;
-[; ;serialprotocol.h: 32: typedef unsigned char uint8_t;
-[; ;serialprotocol.h: 34: struct receiveBuffer
-[; ;serialprotocol.h: 35: {
-[; ;serialprotocol.h: 36: unsigned char buffer[16];
-[; ;serialprotocol.h: 37: char length;
-[; ;serialprotocol.h: 38: };
-[; ;serialprotocol.h: 40: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.h: 41: unsigned int spbrg16);
-[; ;serialprotocol.h: 42: void toggleSerialPort(unsigned char toggle);
-[; ;serialprotocol.h: 43: void toggleTransmitter(unsigned char toggle);
-[; ;serialprotocol.h: 44: void toggleReceiver(unsigned char toggle);
-[; ;serialprotocol.h: 45: void sendChar(unsigned char toggle);
-[; ;serialprotocol.h: 46: void sendData(unsigned char *string, int length);
-[; ;serialprotocol.h: 47: int receiveData(struct receiveBuffer *SBuffer);
+[; ;serialprotocol.h: 33: typedef char int8_t;
+[; ;serialprotocol.h: 34: typedef unsigned char uint8_t;
+[; ;serialprotocol.h: 36: struct receiveBuffer
+[; ;serialprotocol.h: 37: {
+[; ;serialprotocol.h: 38: unsigned char buffer[16];
+[; ;serialprotocol.h: 39: char length;
+[; ;serialprotocol.h: 40: };
+[; ;serialprotocol.h: 42: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
+[; ;serialprotocol.h: 43: unsigned int spbrg16);
+[; ;serialprotocol.h: 44: void toggleSerialPort(unsigned char toggle);
+[; ;serialprotocol.h: 45: void toggleTransmitter(unsigned char toggle);
+[; ;serialprotocol.h: 46: void toggleReceiver(unsigned char toggle);
+[; ;serialprotocol.h: 47: void sendChar(unsigned char toggle);
+[; ;serialprotocol.h: 48: void sendData(unsigned char *string, int length);
+[; ;serialprotocol.h: 49: int receiveData(struct receiveBuffer *SBuffer);
 "3 serialprotocol.c
 [v _timer3Time `ui ~T0 @X0 1 s ]
 [; ;serialprotocol.c: 3: static unsigned int timer3Time;
@@ -3783,7 +3806,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _timer3Time _TMR3Pair ]
 [; ;serialprotocol.c: 11: }
 "11
-[e :UE 374 ]
+[e :UE 375 ]
 }
 "13
 [v _toggleTimer3 `(v ~T0 @X0 1 sf1`uc ]
@@ -3797,7 +3820,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
 [; ;serialprotocol.c: 15: if (toggle) {
 "15
-[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 376  ]
+[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 377  ]
 {
 [; ;serialprotocol.c: 16: TMR3 = timer3Time;
 "16
@@ -3808,19 +3831,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18
 }
 [; ;serialprotocol.c: 18: } else {
-[e $U 377  ]
-[e :U 376 ]
+[e $U 378  ]
+[e :U 377 ]
 {
 [; ;serialprotocol.c: 19: T3CONbits.TMR3ON = 0x00;
 "19
 [e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
 "20
 }
-[e :U 377 ]
+[e :U 378 ]
 [; ;serialprotocol.c: 20: }
 [; ;serialprotocol.c: 21: }
 "21
-[e :UE 375 ]
+[e :UE 376 ]
 }
 "23
 [v _serialSetUp `(v ~T0 @X0 1 ef3`uc`uc`ui ]
@@ -3837,9 +3860,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spbrg16 `ui ~T0 @X0 1 r3 ]
 "25
 [f ]
-[; ;serialprotocol.c: 26: ANSELHbits.ANS9 = 0;
+[; ;serialprotocol.c: 26: ANSELbits.ANS5 = 0;
 "26
-[e = . . _ANSELHbits 1 1 -> -> 0 `i `uc ]
+[e = . . _ANSELbits 1 5 -> -> 0 `i `uc ]
 [; ;serialprotocol.c: 27: ANSELHbits.ANS11 = 0;
 "27
 [e = . . _ANSELHbits 1 3 -> -> 0 `i `uc ]
@@ -3849,12 +3872,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.c: 30: TRISBbits.RB7 = 0;
 "30
 [e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 31: TRISBbits.RB6 = 0;
+[; ;serialprotocol.c: 31: TRISCbits.RC0 = 0;
 "31
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 32: TRISCbits.RC7 = 1;
+[e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
+[; ;serialprotocol.c: 32: TRISCbits.RC1 = 1;
 "32
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[e = . . _TRISCbits 1 1 -> -> 1 `i `uc ]
 [; ;serialprotocol.c: 34: BAUDCON = (brg16_bit) ? 0x08 : 0x00;
 "34
 [e = _BAUDCON -> ? != -> _brg16_bit `i -> -> -> 0 `i `uc `i : -> 8 `i -> 0 `i `uc ]
@@ -3870,15 +3893,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.c: 38: RCSTA = 0x90;
 "38
 [e = _RCSTA -> -> 144 `i `uc ]
-[; ;serialprotocol.c: 40: setTimer3(0x00, 65360);
-"40
-[e ( _setTimer3 (2 , -> -> 0 `i `uc -> -> 65360 `l `ui ]
-[; ;serialprotocol.c: 42: LATBbits.LATB6 = 1;
+[; ;serialprotocol.c: 42: LATCbits.LATC0 = 1;
 "42
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 [; ;serialprotocol.c: 43: }
 "43
-[e :UE 378 ]
+[e :UE 379 ]
 }
 "45
 [v _toggleSerialPort `(v ~T0 @X0 1 ef1`uc ]
@@ -3896,7 +3916,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _RCSTAbits 0 7 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [; ;serialprotocol.c: 48: }
 "48
-[e :UE 379 ]
+[e :UE 380 ]
 }
 "50
 [v _toggleTransmitter `(v ~T0 @X0 1 ef1`uc ]
@@ -3914,7 +3934,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXSTAbits 0 5 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [; ;serialprotocol.c: 53: }
 "53
-[e :UE 380 ]
+[e :UE 381 ]
 }
 "55
 [v _toggleReceiver `(v ~T0 @X0 1 ef1`uc ]
@@ -3932,7 +3952,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _RCSTAbits 0 4 -> ? != -> _toggle `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [; ;serialprotocol.c: 58: }
 "58
-[e :UE 381 ]
+[e :UE 382 ]
 }
 "60
 [v _sendChar `(v ~T0 @X0 1 ef1`uc ]
@@ -3947,17 +3967,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;serialprotocol.c: 62: while(!TXSTAbits.TRMT);
 "62
-[e $U 383  ]
-[e :U 384 ]
-[e :U 383 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 384  ]
+[e $U 384  ]
 [e :U 385 ]
+[e :U 384 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 385  ]
+[e :U 386 ]
 [; ;serialprotocol.c: 63: TXREG = character;
 "63
 [e = _TXREG _character ]
 [; ;serialprotocol.c: 64: }
 "64
-[e :UE 382 ]
+[e :UE 383 ]
 }
 "66
 [v _sendData `(v ~T0 @X0 1 ef2`*uc`i ]
@@ -3978,31 +3998,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 "70
 {
 [e = _i -> 0 `i ]
-[e $U 390  ]
+[e $U 391  ]
 "71
-[e :U 387 ]
+[e :U 388 ]
 [; ;serialprotocol.c: 71: sendChar(string[i]);
 [e ( _sendChar (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
 "70
 [e ++ _i -> 1 `i ]
-[e :U 390 ]
-[e $ < _i _length 387  ]
-[e :U 388 ]
+[e :U 391 ]
+[e $ < _i _length 388  ]
+[e :U 389 ]
 "71
 }
 [; ;serialprotocol.c: 72: }
 "72
-[e :UE 386 ]
+[e :UE 387 ]
 }
 "74
-[v _receiveData `(i ~T0 @X0 1 ef1`*S373 ]
+[v _receiveData `(i ~T0 @X0 1 ef1`*S374 ]
 "75
 {
 [; ;serialprotocol.c: 74: int receiveData(struct receiveBuffer *buffer)
 [; ;serialprotocol.c: 75: {
 [e :U _receiveData ]
 "74
-[v _buffer `*S373 ~T0 @X0 1 r1 ]
+[v _buffer `*S374 ~T0 @X0 1 r1 ]
 "75
 [f ]
 "77
@@ -4018,7 +4038,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _size -> 0 `i ]
 [; ;serialprotocol.c: 81: if (RCSTAbits.OERR) {
 "81
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 392  ]
+[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 393  ]
 {
 [; ;serialprotocol.c: 82: RCSTAbits.CREN = 0;
 "82
@@ -4028,7 +4048,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "84
 }
-[e :U 392 ]
+[e :U 393 ]
 [; ;serialprotocol.c: 84: }
 [; ;serialprotocol.c: 86: character = RCREG;
 "86
@@ -4036,39 +4056,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.c: 87: character = RCREG;
 "87
 [e = _character _RCREG ]
-[; ;serialprotocol.c: 89: if (PORTCbits.RC7 == 0) {
+[; ;serialprotocol.c: 89: if (PORTCbits.RC1 == 0) {
 "89
-[e $ ! == -> . . _PORTCbits 0 7 `i -> 0 `i 393  ]
+[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 394  ]
 {
-[; ;serialprotocol.c: 90: LATBbits.LATB6 = 0;
+[; ;serialprotocol.c: 90: LATCbits.LATC0 = 0;
 "90
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 [; ;serialprotocol.c: 92: while (!RCIF);
 "92
-[e $U 394  ]
-[e :U 395 ]
-[e :U 394 ]
-[e $ ! _RCIF 395  ]
+[e $U 395  ]
 [e :U 396 ]
+[e :U 395 ]
+[e $ ! _RCIF 396  ]
+[e :U 397 ]
 [; ;serialprotocol.c: 93: size = RCREG;
 "93
 [e = _size -> _RCREG `i ]
 [; ;serialprotocol.c: 95: if (size < 16 && size > 0) {
 "95
-[e $ ! && < _size -> 16 `i > _size -> 0 `i 397  ]
+[e $ ! && < _size -> 16 `i > _size -> 0 `i 398  ]
 {
 [; ;serialprotocol.c: 96: while (i < size) {
 "96
-[e $U 398  ]
-[e :U 399 ]
+[e $U 399  ]
+[e :U 400 ]
 {
 [; ;serialprotocol.c: 97: while (!RCIF);
 "97
-[e $U 401  ]
-[e :U 402 ]
-[e :U 401 ]
-[e $ ! _RCIF 402  ]
+[e $U 402  ]
 [e :U 403 ]
+[e :U 402 ]
+[e $ ! _RCIF 403  ]
+[e :U 404 ]
 [; ;serialprotocol.c: 98: buffer->buffer[i] = RCREG;
 "98
 [e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux _RCREG ]
@@ -4077,28 +4097,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _i -> 1 `i ]
 "100
 }
-[e :U 398 ]
+[e :U 399 ]
 "96
-[e $ < _i _size 399  ]
-[e :U 400 ]
+[e $ < _i _size 400  ]
+[e :U 401 ]
 "101
 }
-[e :U 397 ]
+[e :U 398 ]
 [; ;serialprotocol.c: 100: }
 [; ;serialprotocol.c: 101: }
-[; ;serialprotocol.c: 103: LATBbits.LATB6 = 1;
+[; ;serialprotocol.c: 103: LATCbits.LATC0 = 1;
 "103
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 104: while (PORTCbits.RC7 == 0);
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;serialprotocol.c: 104: while (PORTCbits.RC1 == 0);
 "104
-[e $U 404  ]
-[e :U 405 ]
-[e :U 404 ]
-[e $ == -> . . _PORTCbits 0 7 `i -> 0 `i 405  ]
+[e $U 405  ]
 [e :U 406 ]
+[e :U 405 ]
+[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 406  ]
+[e :U 407 ]
 "105
 }
-[e :U 393 ]
+[e :U 394 ]
 [; ;serialprotocol.c: 105: }
 [; ;serialprotocol.c: 107: buffer->length = i;
 "107
@@ -4109,8 +4129,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialprotocol.c: 110: return i;
 "110
 [e ) _i ]
-[e $UE 391  ]
+[e $UE 392  ]
 [; ;serialprotocol.c: 111: }
 "111
-[e :UE 391 ]
+[e :UE 392 ]
 }

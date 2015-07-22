@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Tue Jul 21 16:40:10 2015
+                                                                                               Wed Jul 22 21:35:07 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F13K22
@@ -11,24 +11,24 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      5                           	psect	text0,global,reloc=2,class=CODE,delta=1
      6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
      7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
-     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
-     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
-    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
     15                           	psect	intcode,global,reloc=2,class=CODE,delta=1
-    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
     17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
     18                           	psect	rparam,global,class=COMRAM,space=1,delta=1
     19  0000                     _TMR3	set	4018
     20  0000                     _ANSELHbits	set	3967
-    21  0000                     _BAUDCON	set	4024
-    22  0000                     _CCP1CONbits	set	4029
-    23  0000                     _CCPR1L	set	4030
-    24  0000                     _INTCONbits	set	4082
-    25  0000                     _LATBbits	set	3978
+    21  0000                     _ANSELbits	set	3966
+    22  0000                     _BAUDCON	set	4024
+    23  0000                     _CCP1CONbits	set	4029
+    24  0000                     _CCPR1L	set	4030
+    25  0000                     _INTCONbits	set	4082
     26  0000                     _LATCbits	set	3979
     27  0000                     _PIR2bits	set	4001
     28  0000                     _PORTCbits	set	3970
@@ -40,1417 +40,1223 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
     34  0000                     _RCSTAbits	set	4011
     35  0000                     _SPBRG	set	4015
     36  0000                     _SPBRGH	set	4016
-    37  0000                     _T2CONbits	set	4042
-    38  0000                     _T3CONbits	set	4017
-    39  0000                     _TMR0H	set	4055
-    40  0000                     _TMR0L	set	4054
-    41  0000                     _TRISBbits	set	3987
-    42  0000                     _TRISCbits	set	3988
-    43  0000                     _TXREG	set	4013
-    44  0000                     _TXSTA	set	4012
-    45  0000                     _TXSTAbits	set	4012
-    46  0000                     _RCIF	set	31989
-    47                           
-    48 ;;
-    49 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
-    50 ;;
-    51 ;; *************** function _main *****************
-    52 ;; Defined at:
-    53 ;;		line 48 in file "main.c"
-    54 ;; Parameters:    Size  Location     Type
-    55 ;;		None
-    56 ;; Auto vars:     Size  Location     Type
-    57 ;;  data           17   31[COMRAM] struct receiveBuffer
-    58 ;;  i               2   29[COMRAM] int 
-    59 ;; Return value:  Size  Location     Type
-    60 ;;                  2   22[None  ] int 
-    61 ;; Registers used:
-    62 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
-    63 ;; Tracked objects:
-    64 ;;		On entry : 0/0
-    65 ;;		On exit  : 0/0
-    66 ;;		Unchanged: 0/0
-    67 ;; Data sizes:     COMRAM   BANK0
-    68 ;;      Params:         0       0
-    69 ;;      Locals:        19       0
-    70 ;;      Temps:          2       0
-    71 ;;      Totals:        21       0
-    72 ;;Total ram usage:       21 bytes
-    73 ;; Hardware stack levels required when called:    4
-    74 ;; This function calls:
-    75 ;;		_pmwSingleModeSetUp
-    76 ;;		_receiveData
-    77 ;;		_selectOutput
-    78 ;;		_serialSetUp
-    79 ;;		_setPulseWidth
-    80 ;; This function is called by:
-    81 ;;		Startup code after reset
-    82 ;; This function uses a non-reentrant model
-    83 ;;
-    84                           
-    85                           	psect	text0
-    86  0000A0                     __ptext0:
-    87                           	opt stack 0
-    88  0000A0                     _main:
-    89                           	opt stack 27
-    90                           
-    91                           ;main.c: 49: _delay((unsigned long)((1)*(20000000/4000.0)));
+    37  0000                     _SSPBUF	set	4041
+    38  0000                     _SSPCON1bits	set	4038
+    39  0000                     _SSPSTATbits	set	4039
+    40  0000                     _T2CONbits	set	4042
+    41  0000                     _T3CONbits	set	4017
+    42  0000                     _TMR0H	set	4055
+    43  0000                     _TMR0L	set	4054
+    44  0000                     _TRISBbits	set	3987
+    45  0000                     _TRISCbits	set	3988
+    46  0000                     _TXREG	set	4013
+    47  0000                     _TXSTA	set	4012
+    48  0000                     _TXSTAbits	set	4012
+    49  0000                     _RCIF	set	31989
+    50                           
+    51 ;;
+    52 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+    53 ;;
+    54 ;; *************** function _main *****************
+    55 ;; Defined at:
+    56 ;;		line 49 in file "main.c"
+    57 ;; Parameters:    Size  Location     Type
+    58 ;;		None
+    59 ;; Auto vars:     Size  Location     Type
+    60 ;;  my_data        32   32[COMRAM] struct spi_receive_buffe
+    61 ;;  i               1   31[COMRAM] unsigned char 
+    62 ;; Return value:  Size  Location     Type
+    63 ;;                  2   16[None  ] int 
+    64 ;; Registers used:
+    65 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+    66 ;; Tracked objects:
+    67 ;;		On entry : 0/0
+    68 ;;		On exit  : 0/0
+    69 ;;		Unchanged: 0/0
+    70 ;; Data sizes:     COMRAM   BANK0
+    71 ;;      Params:         0       0
+    72 ;;      Locals:        33       0
+    73 ;;      Temps:          3       0
+    74 ;;      Totals:        36       0
+    75 ;;Total ram usage:       36 bytes
+    76 ;; Hardware stack levels required when called:    4
+    77 ;; This function calls:
+    78 ;;		_sendChar
+    79 ;;		_serialSetUp
+    80 ;;		_set_spi
+    81 ;;		_slave_receive_data
+    82 ;; This function is called by:
+    83 ;;		Startup code after reset
+    84 ;; This function uses a non-reentrant model
+    85 ;;
+    86                           
+    87                           	psect	text0
+    88  0000A0                     __ptext0:
+    89                           	opt stack 0
+    90  0000A0                     _main:
+    91                           	opt stack 27
     92                           
-    93                           ;incstack = 0
-    94  0000A0  0E07               	movlw	7
-    95  0000A2  6E1C               	movwf	??_main& (0+255),c
-    96  0000A4  0E7D               	movlw	125
-    97  0000A6                     u687:
-    98  0000A6  2EE8               	decfsz	wreg,f,c
-    99  0000A8  D7FE               	goto	u687
-   100  0000AA  2E1C               	decfsz	??_main& (0+255),f,c
-   101  0000AC  D7FC               	goto	u687
-   102  0000AE  F000               	nop	
-   103                           
-   104                           ;main.c: 50: serialSetUp(1, 1, 0x81);
-   105  0000B0  0E01               	movlw	1
-   106  0000B2  6E14               	movwf	serialSetUp@brgh_bit,c
-   107  0000B4  0E00               	movlw	0
-   108  0000B6  6E16               	movwf	serialSetUp@spbrg16+1,c
-   109  0000B8  0E81               	movlw	129
-   110  0000BA  6E15               	movwf	serialSetUp@spbrg16,c
-   111  0000BC  0E01               	movlw	1
-   112  0000BE  ECAA  F001         	call	_serialSetUp
-   113                           
-   114                           ;main.c: 52: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
-   115  0000C2  0EFE               	movlw	254
-   116  0000C4  6E10               	movwf	pmwSingleModeSetUp@valuePR2,c
-   117  0000C6  0E00               	movlw	0
-   118  0000C8  6E11               	movwf	pmwSingleModeSetUp@scaler,c
-   119  0000CA  0E06               	movlw	6
-   120  0000CC  6E12               	movwf	pmwSingleModeSetUp@outputs,c
+    93                           ;main.c: 87: serialSetUp(1, 1, 0x81);
+    94                           
+    95                           ;incstack = 0
+    96  0000A0  0E01               	movlw	1
+    97  0000A2  6E10               	movwf	serialSetUp@brgh_bit,c
+    98  0000A4  0E00               	movlw	0
+    99  0000A6  6E12               	movwf	serialSetUp@spbrg16+1,c
+   100  0000A8  0E81               	movlw	129
+   101  0000AA  6E11               	movwf	serialSetUp@spbrg16,c
+   102  0000AC  0E01               	movlw	1
+   103  0000AE  EC3B  F001         	call	_serialSetUp
+   104                           
+   105                           ;main.c: 88: sendChar('a');
+   106  0000B2  0E61               	movlw	97
+   107  0000B4  EC73  F001         	call	_sendChar
+   108                           
+   109                           ;main.c: 89: struct spi_receive_buffer my_data = {0, 0};
+   110  0000B8  EE20  F060         	lfsr	2,main@F3924
+   111  0000BC  EE10  F021         	lfsr	1,main@my_data
+   112  0000C0  0E1F               	movlw	31
+   113  0000C2                     u721:
+   114  0000C2  CFDB FFE3          	movff	plusw2,plusw1
+   115  0000C6  06E8               	decf	wreg,f,c
+   116  0000C8  E2FC               	bc	u721
+   117                           
+   118                           ;main.c: 91: set_spi(SM_NSS, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
+   119  0000CA  0E00               	movlw	0
+   120  0000CC  6E10               	movwf	set_spi@polarity,c
    121  0000CE  0E00               	movlw	0
-   122  0000D0  EC5D  F001         	call	_pmwSingleModeSetUp
-   123                           
-   124                           ;main.c: 53: setPulseWidth(0);
-   125  0000D4  0E00               	movlw	0
-   126  0000D6  6E11               	movwf	setPulseWidth@width+1,c
-   127  0000D8  0E00               	movlw	0
-   128  0000DA  6E10               	movwf	setPulseWidth@width,c
-   129  0000DC  ECF2  F001         	call	_setPulseWidth	;wreg free
-   130                           
-   131                           ;main.c: 68: struct receiveBuffer data;
-   132                           ;main.c: 69: int i = 0;
-   133  0000E0  0E00               	movlw	0
-   134  0000E2  6E1F               	movwf	main@i+1,c
-   135  0000E4  0E00               	movlw	0
-   136  0000E6  6E1E               	movwf	main@i,c
-   137  0000E8  D000               	goto	l1065
-   138  0000EA                     l1065:
-   139                           
-   140                           ;main.c: 73: i = receiveData(&data);
-   141  0000EA  0E20               	movlw	low main@data
-   142  0000EC  6E10               	movwf	receiveData@buffer,c
-   143  0000EE  0E00               	movlw	high main@data
-   144  0000F0  6E11               	movwf	receiveData@buffer+1,c
-   145  0000F2  ECAE  F000         	call	_receiveData	;wreg free
-   146  0000F6  C010  F01E         	movff	?_receiveData,main@i
-   147  0000FA  C011  F01F         	movff	?_receiveData+1,main@i+1
-   148                           
-   149                           ;main.c: 76: if (i) {
-   150  0000FE  501E               	movf	main@i,w,c
-   151  000100  101F               	iorwf	main@i+1,w,c
-   152  000102  B4D8               	btfsc	status,2,c
-   153  000104  D7F2               	goto	l1065
-   154                           
-   155                           ;main.c: 77: if (data.buffer[0] == 0xAA) {
-   156  000106  0EAA               	movlw	170
-   157  000108  1820               	xorwf	main@data,w,c
-   158  00010A  A4D8               	btfss	status,2,c
-   159  00010C  D006               	goto	l1073
-   160                           
-   161                           ;main.c: 78: selectOutput(data.buffer[1], 1);
-   162  00010E  0E01               	movlw	1
-   163  000110  6E10               	movwf	selectOutput@toggle,c
-   164  000112  5021               	movf	main@data+1,w,c
-   165  000114  EC0C  F001         	call	_selectOutput
-   166                           
-   167                           ;main.c: 79: } else if (data.buffer[0] == 0xAB) {
-   168  000118  D7E8               	goto	l1065
-   169  00011A                     l1073:
-   170  00011A  0EAB               	movlw	171
-   171  00011C  1820               	xorwf	main@data,w,c
-   172  00011E  A4D8               	btfss	status,2,c
-   173  000120  D006               	goto	l1077
-   174                           
-   175                           ;main.c: 80: selectOutput(data.buffer[1], 0);
-   176  000122  0E00               	movlw	0
-   177  000124  6E10               	movwf	selectOutput@toggle,c
-   178  000126  5021               	movf	main@data+1,w,c
-   179  000128  EC0C  F001         	call	_selectOutput
-   180                           
-   181                           ;main.c: 81: } else if (data.buffer[0] == 0xAC) {
-   182  00012C  D7DE               	goto	l1065
-   183  00012E                     l1077:
-   184  00012E  0EAC               	movlw	172
-   185  000130  1820               	xorwf	main@data,w,c
-   186  000132  A4D8               	btfss	status,2,c
-   187  000134  D7DA               	goto	l1065
-   188                           
-   189                           ;main.c: 82: setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
-   190  000136  5022               	movf	main@data+2,w,c
-   191  000138  C021  F01C         	movff	main@data+1,??_main
-   192  00013C  6A1D               	clrf	(??_main+1)& (0+255),c
-   193  00013E  90D8               	bcf	status,0,c
-   194  000140  361C               	rlcf	??_main,f,c
-   195  000142  361D               	rlcf	??_main+1,f,c
-   196  000144  90D8               	bcf	status,0,c
-   197  000146  361C               	rlcf	??_main,f,c
-   198  000148  361D               	rlcf	??_main+1,f,c
-   199  00014A  101C               	iorwf	??_main,w,c
-   200  00014C  6E10               	movwf	setPulseWidth@width,c
-   201  00014E  501D               	movf	??_main+1,w,c
-   202  000150  6E11               	movwf	setPulseWidth@width+1,c
-   203  000152  ECF2  F001         	call	_setPulseWidth	;wreg free
-   204  000156  D7C9               	goto	l1065
-   205                           
-   206                           ;main.c: 83: }
-   207                           ;main.c: 84: }
-   208                           ;main.c: 85: }
-   209                           ;main.c: 86: return (0);
-   210                           ;	Return value of _main is never used
-   211  000158  EF4E  F000         	goto	start
-   212  00015C                     __end_of_main:
-   213                           	opt stack 0
-   214                           wreg	equ	0xFE8
-   215                           status	equ	0xFD8
-   216                           
-   217                           	psect	cinit
-   218  00040E                     __pcinit:
-   219                           	opt stack 0
-   220  00040E                     start_initialization:
-   221                           	opt stack 0
-   222  00040E                     __initialization:
-   223                           	opt stack 0
-   224                           
-   225                           ; Clear objects allocated to COMRAM (2 bytes)
-   226  00040E  6A32               	clrf	(__pbssCOMRAM+1)& (0+255),c
-   227  000410  6A31               	clrf	__pbssCOMRAM& (0+255),c
-   228  000412                     end_of_initialization:
-   229                           	opt stack 0
-   230  000412                     __end_of__initialization:
-   231                           	opt stack 0
-   232  000412  0E00               	movlw	low (__Lmediumconst shr (0+16))
-   233  000414  6EF8               	movwf	tblptru,c
-   234  000416  0100               	movlb	0
-   235  000418  EF50  F000         	goto	_main	;jump to C main() function
-   236                           tblptru	equ	0xFF8
-   237                           wreg	equ	0xFE8
-   238                           status	equ	0xFD8
-   239                           
-   240                           	psect	bssCOMRAM
-   241  000031                     __pbssCOMRAM:
-   242                           	opt stack 0
-   243  000031                     _timer3Time:
-   244                           	opt stack 0
-   245  000031                     	ds	2
-   246                           tblptru	equ	0xFF8
-   247                           wreg	equ	0xFE8
-   248                           status	equ	0xFD8
-   249                           
-   250                           	psect	cstackCOMRAM
-   251  000001                     __pcstackCOMRAM:
-   252                           	opt stack 0
-   253  000001                     sendChar@character:
-   254                           	opt stack 0
-   255                           
-   256                           ; 1 bytes @ 0x0
-   257  000001                     	ds	1
-   258  000002                     ??_com_link:
-   259                           
-   260                           ; 0 bytes @ 0x1
-   261  000002                     	ds	14
-   262  000010                     ?_receiveData:
-   263                           	opt stack 0
-   264  000010                     pmwSingleModeSetUp@valuePR2:
-   265                           	opt stack 0
-   266  000010                     selectOutput@toggle:
-   267                           	opt stack 0
-   268  000010                     setTimer3@TMR3Pair:
-   269                           	opt stack 0
-   270  000010                     receiveData@buffer:
+   122  0000D0  6E11               	movwf	set_spi@selection,c
+   123  0000D2  0E00               	movlw	0
+   124  0000D4  6E12               	movwf	set_spi@sample,c
+   125  0000D6  0E05               	movlw	5
+   126  0000D8  EC0E  F001         	call	_set_spi
+   127                           
+   128                           ;main.c: 92: char i = 0;
+   129  0000DC  0E00               	movlw	0
+   130  0000DE  6E20               	movwf	main@i,c
+   131  0000E0  D000               	goto	l1180
+   132  0000E2                     l1180:
+   133                           
+   134                           ;main.c: 95: slave_receive_data(&my_data);
+   135  0000E2  0E21               	movlw	low main@my_data
+   136  0000E4  6E18               	movwf	slave_receive_data@buffer,c
+   137  0000E6  0E00               	movlw	high main@my_data
+   138  0000E8  6E19               	movwf	slave_receive_data@buffer+1,c
+   139  0000EA  ECDC  F000         	call	_slave_receive_data	;wreg free
+   140                           
+   141                           ;main.c: 96: for(i = 0; i < my_data.length; i++) {
+   142  0000EE  0E00               	movlw	0
+   143  0000F0  6E20               	movwf	main@i,c
+   144  0000F2  D00D               	goto	l1188
+   145  0000F4                     l1184:
+   146                           
+   147                           ;main.c: 97: sendChar(my_data.buffer[i]);
+   148  0000F4  5020               	movf	main@i,w,c
+   149  0000F6  0D01               	mullw	1
+   150  0000F8  0E21               	movlw	low main@my_data
+   151  0000FA  24F3               	addwf	prodl,w,c
+   152  0000FC  6ED9               	movwf	fsr2l,c
+   153  0000FE  0E00               	movlw	high main@my_data
+   154  000100  20F4               	addwfc	prodh,w,c
+   155  000102  6EDA               	movwf	fsr2h,c
+   156  000104  50DF               	movf	indf2,w,c
+   157  000106  EC73  F001         	call	_sendChar
+   158  00010A  2A20               	incf	main@i,f,c
+   159  00010C  D000               	goto	l1188
+   160  00010E                     l1188:
+   161  00010E  5020               	movf	main@i,w,c
+   162  000110  6E1D               	movwf	??_main& (0+255),c
+   163  000112  6A1E               	clrf	(??_main+1)& (0+255),c
+   164  000114  503F               	movf	main@my_data+30,w,c
+   165  000116  5C1D               	subwf	??_main,w,c
+   166  000118  501E               	movf	??_main+1,w,c
+   167  00011A  0A80               	xorlw	128
+   168  00011C  6E1F               	movwf	(??_main+2)& (0+255),c
+   169  00011E  5040               	movf	main@my_data+31,w,c
+   170  000120  0A80               	xorlw	128
+   171  000122  581F               	subwfb	(??_main+2)& (0+255),w,c
+   172  000124  B0D8               	btfsc	status,0,c
+   173  000126  D7DD               	goto	l1180
+   174  000128  D7E5               	goto	l1184
+   175  00012A  D7DB               	goto	l1180
+   176                           
+   177                           ;main.c: 98: }
+   178                           ;main.c: 99: }
+   179                           ;main.c: 102: return (0);
+   180                           ;	Return value of _main is never used
+   181  00012C  EF4E  F000         	goto	start
+   182  000130                     __end_of_main:
+   183                           	opt stack 0
+   184                           prodh	equ	0xFF4
+   185                           prodl	equ	0xFF3
+   186                           wreg	equ	0xFE8
+   187                           plusw1	equ	0xFE3
+   188                           indf2	equ	0xFDF
+   189                           plusw2	equ	0xFDB
+   190                           fsr2h	equ	0xFDA
+   191                           fsr2l	equ	0xFD9
+   192                           status	equ	0xFD8
+   193                           
+   194                           	psect	cinit
+   195  0002CC                     __pcinit:
+   196                           	opt stack 0
+   197  0002CC                     start_initialization:
+   198                           	opt stack 0
+   199  0002CC                     __initialization:
+   200                           	opt stack 0
+   201                           
+   202                           ; Clear objects allocated to BANK0 (32 bytes)
+   203  0002CC  EE00  F060         	lfsr	0,__pbssBANK0
+   204  0002D0  0E20               	movlw	32
+   205  0002D2                     clear_0:
+   206  0002D2  6AEE               	clrf	postinc0,c
+   207  0002D4  06E8               	decf	wreg,f,c
+   208  0002D6  E1FD               	bnz	clear_0
+   209                           
+   210                           ; Clear objects allocated to COMRAM (2 bytes)
+   211  0002D8  6A42               	clrf	(__pbssCOMRAM+1)& (0+255),c
+   212  0002DA  6A41               	clrf	__pbssCOMRAM& (0+255),c
+   213  0002DC                     end_of_initialization:
+   214                           	opt stack 0
+   215  0002DC                     __end_of__initialization:
+   216                           	opt stack 0
+   217  0002DC  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   218  0002DE  6EF8               	movwf	tblptru,c
+   219  0002E0  0100               	movlb	0
+   220  0002E2  EF50  F000         	goto	_main	;jump to C main() function
+   221                           tblptru	equ	0xFF8
+   222                           prodh	equ	0xFF4
+   223                           prodl	equ	0xFF3
+   224                           postinc0	equ	0xFEE
+   225                           wreg	equ	0xFE8
+   226                           plusw1	equ	0xFE3
+   227                           indf2	equ	0xFDF
+   228                           plusw2	equ	0xFDB
+   229                           fsr2h	equ	0xFDA
+   230                           fsr2l	equ	0xFD9
+   231                           status	equ	0xFD8
+   232                           
+   233                           	psect	bssCOMRAM
+   234  000041                     __pbssCOMRAM:
+   235                           	opt stack 0
+   236  000041                     _timer3Time:
+   237                           	opt stack 0
+   238  000041                     	ds	2
+   239                           tblptru	equ	0xFF8
+   240                           prodh	equ	0xFF4
+   241                           prodl	equ	0xFF3
+   242                           postinc0	equ	0xFEE
+   243                           wreg	equ	0xFE8
+   244                           plusw1	equ	0xFE3
+   245                           indf2	equ	0xFDF
+   246                           plusw2	equ	0xFDB
+   247                           fsr2h	equ	0xFDA
+   248                           fsr2l	equ	0xFD9
+   249                           status	equ	0xFD8
+   250                           
+   251                           	psect	bssBANK0
+   252  000060                     __pbssBANK0:
+   253                           	opt stack 0
+   254  000060                     main@F3924:
+   255                           	opt stack 0
+   256  000060                     	ds	32
+   257                           tblptru	equ	0xFF8
+   258                           prodh	equ	0xFF4
+   259                           prodl	equ	0xFF3
+   260                           postinc0	equ	0xFEE
+   261                           wreg	equ	0xFE8
+   262                           plusw1	equ	0xFE3
+   263                           indf2	equ	0xFDF
+   264                           plusw2	equ	0xFDB
+   265                           fsr2h	equ	0xFDA
+   266                           fsr2l	equ	0xFD9
+   267                           status	equ	0xFD8
+   268                           
+   269                           	psect	cstackCOMRAM
+   270  000001                     __pcstackCOMRAM:
    271                           	opt stack 0
-   272  000010                     setPulseWidth@width:
+   272  000001                     i2sendChar@character:
    273                           	opt stack 0
    274                           
-   275                           ; 2 bytes @ 0xF
-   276  000010                     	ds	1
-   277  000011                     ??_selectOutput:
-   278  000011                     pmwSingleModeSetUp@scaler:
-   279                           	opt stack 0
-   280                           
-   281                           ; 1 bytes @ 0x10
-   282  000011                     	ds	1
-   283  000012                     ??_setPulseWidth:
-   284  000012                     ??_receiveData:
-   285  000012                     ??_setTimer3:
-   286  000012                     pmwSingleModeSetUp@outputs:
-   287                           	opt stack 0
-   288  000012                     selectOutput@outputs:
-   289                           	opt stack 0
-   290                           
-   291                           ; 1 bytes @ 0x11
-   292  000012                     	ds	1
-   293  000013                     setTimer3@turnOn:
-   294                           	opt stack 0
-   295  000013                     receiveData@character:
-   296                           	opt stack 0
-   297  000013                     pmwSingleModeSetUp@polarity:
-   298                           	opt stack 0
-   299                           
-   300                           ; 1 bytes @ 0x12
-   301  000013                     	ds	1
-   302  000014                     serialSetUp@brgh_bit:
-   303                           	opt stack 0
-   304  000014                     receiveData@size:
-   305                           	opt stack 0
-   306                           
-   307                           ; 2 bytes @ 0x13
-   308  000014                     	ds	1
-   309  000015                     serialSetUp@spbrg16:
+   275                           ; 1 bytes @ 0x0
+   276  000001                     	ds	1
+   277  000002                     ??_com_link:
+   278                           
+   279                           ; 0 bytes @ 0x1
+   280  000002                     	ds	14
+   281  000010                     serialSetUp@brgh_bit:
+   282                           	opt stack 0
+   283  000010                     sendChar@character:
+   284                           	opt stack 0
+   285  000010                     set_spi@polarity:
+   286                           	opt stack 0
+   287  000010                     reassemble_packet@buffer:
+   288                           	opt stack 0
+   289                           
+   290                           ; 2 bytes @ 0xF
+   291  000010                     	ds	1
+   292  000011                     set_spi@selection:
+   293                           	opt stack 0
+   294  000011                     serialSetUp@spbrg16:
+   295                           	opt stack 0
+   296                           
+   297                           ; 2 bytes @ 0x10
+   298  000011                     	ds	1
+   299  000012                     reassemble_packet@size:
+   300                           	opt stack 0
+   301  000012                     set_spi@sample:
+   302                           	opt stack 0
+   303                           
+   304                           ; 1 bytes @ 0x11
+   305  000012                     	ds	1
+   306  000013                     ??_reassemble_packet:
+   307  000013                     serialSetUp@brg16_bit:
+   308                           	opt stack 0
+   309  000013                     set_spi@mode:
    310                           	opt stack 0
    311                           
-   312                           ; 2 bytes @ 0x14
-   313  000015                     	ds	1
-   314  000016                     receiveData@i:
+   312                           ; 1 bytes @ 0x12
+   313  000013                     	ds	1
+   314  000014                     _serialSetUp$760:
    315                           	opt stack 0
    316                           
-   317                           ; 2 bytes @ 0x15
-   318  000016                     	ds	1
-   319  000017                     serialSetUp@brg16_bit:
+   317                           ; 2 bytes @ 0x13
+   318  000014                     	ds	1
+   319  000015                     reassemble_packet@byte_1:
    320                           	opt stack 0
    321                           
-   322                           ; 1 bytes @ 0x16
-   323  000017                     	ds	1
-   324  000018                     _serialSetUp$708:
+   322                           ; 1 bytes @ 0x14
+   323  000015                     	ds	1
+   324  000016                     reassemble_packet@byte_2:
    325                           	opt stack 0
-   326                           
-   327                           ; 2 bytes @ 0x17
-   328  000018                     	ds	2
-   329  00001A                     _serialSetUp$709:
-   330                           	opt stack 0
-   331                           
-   332                           ; 2 bytes @ 0x19
-   333  00001A                     	ds	2
-   334  00001C                     ??_main:
-   335                           
-   336                           ; 0 bytes @ 0x1B
-   337  00001C                     	ds	2
-   338  00001E                     main@i:
-   339                           	opt stack 0
-   340                           
-   341                           ; 2 bytes @ 0x1D
-   342  00001E                     	ds	2
-   343  000020                     main@data:
-   344                           	opt stack 0
-   345                           
-   346                           ; 17 bytes @ 0x1F
-   347  000020                     	ds	17
-   348                           tblptru	equ	0xFF8
-   349                           wreg	equ	0xFE8
-   350                           status	equ	0xFD8
-   351                           
-   352 ;; *************** function _setPulseWidth *****************
-   353 ;; Defined at:
-   354 ;;		line 57 in file "pwm.c"
-   355 ;; Parameters:    Size  Location     Type
-   356 ;;  width           2   15[COMRAM] unsigned int 
-   357 ;; Auto vars:     Size  Location     Type
-   358 ;;		None
-   359 ;; Return value:  Size  Location     Type
-   360 ;;		None               void
-   361 ;; Registers used:
-   362 ;;		wreg, status,2, status,0
-   363 ;; Tracked objects:
-   364 ;;		On entry : 0/0
-   365 ;;		On exit  : 0/0
-   366 ;;		Unchanged: 0/0
-   367 ;; Data sizes:     COMRAM   BANK0
-   368 ;;      Params:         2       0
-   369 ;;      Locals:         0       0
-   370 ;;      Temps:          2       0
-   371 ;;      Totals:         4       0
-   372 ;;Total ram usage:        4 bytes
-   373 ;; Hardware stack levels used:    1
-   374 ;; Hardware stack levels required when called:    2
-   375 ;; This function calls:
-   376 ;;		Nothing
-   377 ;; This function is called by:
-   378 ;;		_main
-   379 ;; This function uses a non-reentrant model
-   380 ;;
+   326  000016                     _serialSetUp$761:
+   327                           	opt stack 0
+   328                           
+   329                           ; 2 bytes @ 0x15
+   330  000016                     	ds	1
+   331  000017                     reassemble_packet@i:
+   332                           	opt stack 0
+   333                           
+   334                           ; 1 bytes @ 0x16
+   335  000017                     	ds	1
+   336  000018                     slave_receive_data@buffer:
+   337                           	opt stack 0
+   338                           
+   339                           ; 2 bytes @ 0x17
+   340  000018                     	ds	2
+   341  00001A                     slave_receive_data@receive:
+   342                           	opt stack 0
+   343                           
+   344                           ; 1 bytes @ 0x19
+   345  00001A                     	ds	1
+   346  00001B                     slave_receive_data@size:
+   347                           	opt stack 0
+   348                           
+   349                           ; 1 bytes @ 0x1A
+   350  00001B                     	ds	1
+   351  00001C                     slave_receive_data@i:
+   352                           	opt stack 0
+   353                           
+   354                           ; 1 bytes @ 0x1B
+   355  00001C                     	ds	1
+   356  00001D                     ??_main:
+   357                           
+   358                           ; 0 bytes @ 0x1C
+   359  00001D                     	ds	3
+   360  000020                     main@i:
+   361                           	opt stack 0
+   362                           
+   363                           ; 1 bytes @ 0x1F
+   364  000020                     	ds	1
+   365  000021                     main@my_data:
+   366                           	opt stack 0
+   367                           
+   368                           ; 32 bytes @ 0x20
+   369  000021                     	ds	32
+   370                           tblptru	equ	0xFF8
+   371                           prodh	equ	0xFF4
+   372                           prodl	equ	0xFF3
+   373                           postinc0	equ	0xFEE
+   374                           wreg	equ	0xFE8
+   375                           plusw1	equ	0xFE3
+   376                           indf2	equ	0xFDF
+   377                           plusw2	equ	0xFDB
+   378                           fsr2h	equ	0xFDA
+   379                           fsr2l	equ	0xFD9
+   380                           status	equ	0xFD8
    381                           
-   382                           	psect	text1
-   383  0003E4                     __ptext1:
-   384                           	opt stack 0
-   385  0003E4                     _setPulseWidth:
-   386                           	opt stack 28
-   387                           
-   388                           ;pwm.c: 59: CCP1CONbits.DC1B = width;
-   389                           
-   390                           ;incstack = 0
-   391  0003E4  C010  F012         	movff	setPulseWidth@width,??_setPulseWidth
-   392  0003E8  3A12               	swapf	??_setPulseWidth,f,c
-   393  0003EA  50BD               	movf	4029,w,c	;volatile
-   394  0003EC  1812               	xorwf	??_setPulseWidth,w,c
-   395  0003EE  0BCF               	andlw	-49
-   396  0003F0  1812               	xorwf	??_setPulseWidth,w,c
-   397  0003F2  6EBD               	movwf	4029,c	;volatile
-   398                           
-   399                           ;pwm.c: 60: CCPR1L = width >> 2;
-   400  0003F4  C010  F012         	movff	setPulseWidth@width,??_setPulseWidth
-   401  0003F8  C011  F013         	movff	setPulseWidth@width+1,??_setPulseWidth+1
-   402  0003FC  90D8               	bcf	status,0,c
-   403  0003FE  3213               	rrcf	??_setPulseWidth+1,f,c
-   404  000400  3212               	rrcf	??_setPulseWidth,f,c
-   405  000402  90D8               	bcf	status,0,c
-   406  000404  3213               	rrcf	??_setPulseWidth+1,f,c
-   407  000406  3212               	rrcf	??_setPulseWidth,f,c
-   408  000408  5012               	movf	??_setPulseWidth,w,c
-   409  00040A  6EBE               	movwf	4030,c	;volatile
-   410  00040C  0012               	return		;funcret
-   411  00040E                     __end_of_setPulseWidth:
-   412                           	opt stack 0
-   413                           tblptru	equ	0xFF8
-   414                           wreg	equ	0xFE8
-   415                           status	equ	0xFD8
-   416                           
-   417 ;; *************** function _serialSetUp *****************
-   418 ;; Defined at:
-   419 ;;		line 23 in file "serialprotocol.c"
-   420 ;; Parameters:    Size  Location     Type
-   421 ;;  brg16_bit       1    wreg     unsigned char 
-   422 ;;  brgh_bit        1   19[COMRAM] unsigned char 
-   423 ;;  spbrg16         2   20[COMRAM] unsigned int 
-   424 ;; Auto vars:     Size  Location     Type
-   425 ;;  brg16_bit       1   22[COMRAM] unsigned char 
-   426 ;; Return value:  Size  Location     Type
-   427 ;;		None               void
-   428 ;; Registers used:
-   429 ;;		wreg, status,2, status,0, cstack
-   430 ;; Tracked objects:
-   431 ;;		On entry : 0/0
-   432 ;;		On exit  : 0/0
-   433 ;;		Unchanged: 0/0
-   434 ;; Data sizes:     COMRAM   BANK0
-   435 ;;      Params:         3       0
-   436 ;;      Locals:         5       0
-   437 ;;      Temps:          0       0
-   438 ;;      Totals:         8       0
-   439 ;;Total ram usage:        8 bytes
-   440 ;; Hardware stack levels used:    1
-   441 ;; Hardware stack levels required when called:    3
-   442 ;; This function calls:
-   443 ;;		_setTimer3
-   444 ;; This function is called by:
-   445 ;;		_main
-   446 ;; This function uses a non-reentrant model
-   447 ;;
-   448                           
-   449                           	psect	text2
-   450  000354                     __ptext2:
-   451                           	opt stack 0
-   452  000354                     _serialSetUp:
-   453                           	opt stack 27
-   454                           
-   455                           ;incstack = 0
-   456                           ;serialSetUp@brg16_bit stored from wreg
-   457  000354  6E17               	movwf	serialSetUp@brg16_bit,c
-   458                           
-   459                           ;serialprotocol.c: 26: ANSELHbits.ANS9 = 0;
-   460  000356  927F               	bcf	3967,1,c	;volatile
+   382 ;; *************** function _slave_receive_data *****************
+   383 ;; Defined at:
+   384 ;;		line 90 in file "../TorqueGriperSecondPIC.X/spi.c"
+   385 ;; Parameters:    Size  Location     Type
+   386 ;;  buffer          2   23[COMRAM] PTR struct spi_receive_b
+   387 ;;		 -> main@my_data(32), 
+   388 ;; Auto vars:     Size  Location     Type
+   389 ;;  i               1   27[COMRAM] unsigned char 
+   390 ;;  size            1   26[COMRAM] unsigned char 
+   391 ;;  receive         1   25[COMRAM] unsigned char 
+   392 ;; Return value:  Size  Location     Type
+   393 ;;		None               void
+   394 ;; Registers used:
+   395 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   396 ;; Tracked objects:
+   397 ;;		On entry : 0/0
+   398 ;;		On exit  : 0/0
+   399 ;;		Unchanged: 0/0
+   400 ;; Data sizes:     COMRAM   BANK0
+   401 ;;      Params:         2       0
+   402 ;;      Locals:         3       0
+   403 ;;      Temps:          0       0
+   404 ;;      Totals:         5       0
+   405 ;;Total ram usage:        5 bytes
+   406 ;; Hardware stack levels used:    1
+   407 ;; Hardware stack levels required when called:    3
+   408 ;; This function calls:
+   409 ;;		_reassemble_packet
+   410 ;; This function is called by:
+   411 ;;		_main
+   412 ;; This function uses a non-reentrant model
+   413 ;;
+   414                           
+   415                           	psect	text1
+   416  0001B8                     __ptext1:
+   417                           	opt stack 0
+   418  0001B8                     _slave_receive_data:
+   419                           	opt stack 27
+   420                           
+   421                           ;spi.c: 92: if (SSPSTATbits.BF){
+   422                           
+   423                           ;incstack = 0
+   424  0001B8  A0C7               	btfss	4039,0,c	;volatile
+   425  0001BA  0012               	return	
+   426                           
+   427                           ;spi.c: 93: unsigned char receive = SSPBUF;
+   428  0001BC  CFC9 F01A          	movff	4041,slave_receive_data@receive	;volatile
+   429                           
+   430                           ;spi.c: 94: if ((receive & 0xF0) == 0xA0){
+   431  0001C0  501A               	movf	slave_receive_data@receive,w,c
+   432  0001C2  0BF0               	andlw	240
+   433  0001C4  0AA0               	xorlw	160
+   434  0001C6  A4D8               	btfss	status,2,c
+   435  0001C8  0012               	return	
+   436                           
+   437                           ;spi.c: 95: char size = (receive & 0x0F) * 2;
+   438  0001CA  501A               	movf	slave_receive_data@receive,w,c
+   439  0001CC  0B0F               	andlw	15
+   440  0001CE  0D02               	mullw	2
+   441  0001D0  CFF3 F01B          	movff	prodl,slave_receive_data@size
+   442                           
+   443                           ;spi.c: 96: char i = 0;
+   444  0001D4  0E00               	movlw	0
+   445  0001D6  6E1C               	movwf	slave_receive_data@i,c
+   446                           
+   447                           ;spi.c: 97: for (i = 0; i < size; i++) {
+   448  0001D8  0E00               	movlw	0
+   449  0001DA  6E1C               	movwf	slave_receive_data@i,c
+   450  0001DC  D010               	goto	l1162
+   451  0001DE                     l239:
+   452                           
+   453                           ;spi.c: 98: LATCbits.LATC6 = 1;
+   454  0001DE  8C8B               	bsf	3979,6,c	;volatile
+   455                           
+   456                           ;spi.c: 99: while (!SSPSTATbits.BF);
+   457  0001E0  D000               	goto	l240
+   458  0001E2                     l240:
+   459  0001E2  A0C7               	btfss	4039,0,c	;volatile
+   460  0001E4  D7FE               	goto	l240
    461                           
-   462                           ;serialprotocol.c: 27: ANSELHbits.ANS11 = 0;
-   463  000358  967F               	bcf	3967,3,c	;volatile
-   464                           
-   465                           ;serialprotocol.c: 29: TRISBbits.RB5 = 1;
-   466  00035A  8A93               	bsf	3987,5,c	;volatile
-   467                           
-   468                           ;serialprotocol.c: 30: TRISBbits.RB7 = 0;
-   469  00035C  9E93               	bcf	3987,7,c	;volatile
-   470                           
-   471                           ;serialprotocol.c: 31: TRISBbits.RB6 = 0;
-   472  00035E  9C93               	bcf	3987,6,c	;volatile
-   473                           
-   474                           ;serialprotocol.c: 32: TRISCbits.RC7 = 1;
-   475  000360  8E94               	bsf	3988,7,c	;volatile
-   476                           
-   477                           ;serialprotocol.c: 34: BAUDCON = (brg16_bit) ? 0x08 : 0x00;
-   478  000362  5017               	movf	serialSetUp@brg16_bit,w,c
-   479  000364  A4D8               	btfss	status,2,c
-   480  000366  D004               	goto	l965
-   481  000368  0E00               	movlw	0
-   482  00036A  6E19               	movwf	_serialSetUp$708+1,c
-   483  00036C  0E00               	movlw	0
-   484  00036E  D003               	goto	L1
-   485  000370                     l965:
-   486  000370  0E00               	movlw	0
-   487  000372  6E19               	movwf	_serialSetUp$708+1,c
-   488  000374  0E08               	movlw	8
-   489  000376                     L1:
-   490  000376  6E18               	movwf	_serialSetUp$708,c
-   491  000378  D000               	goto	l967
-   492  00037A                     l967:
-   493  00037A  C018  FFB8         	movff	_serialSetUp$708,4024	;volatile
-   494                           
-   495                           ;serialprotocol.c: 35: TXSTA = (brgh_bit) ? 0x24: 0x20;
-   496  00037E  5014               	movf	serialSetUp@brgh_bit,w,c
-   497  000380  A4D8               	btfss	status,2,c
-   498  000382  D004               	goto	l973
-   499  000384  0E00               	movlw	0
-   500  000386  6E1B               	movwf	_serialSetUp$709+1,c
-   501  000388  0E20               	movlw	32
-   502  00038A  D003               	goto	L2
-   503  00038C                     l973:
-   504  00038C  0E00               	movlw	0
-   505  00038E  6E1B               	movwf	_serialSetUp$709+1,c
-   506  000390  0E24               	movlw	36
-   507  000392                     L2:
-   508  000392  6E1A               	movwf	_serialSetUp$709,c
-   509  000394  D000               	goto	l975
-   510  000396                     l975:
-   511  000396  C01A  FFAC         	movff	_serialSetUp$709,4012	;volatile
-   512                           
-   513                           ;serialprotocol.c: 36: SPBRGH = spbrg16 >> 8;
-   514  00039A  5016               	movf	serialSetUp@spbrg16+1,w,c
-   515  00039C  6EB0               	movwf	4016,c	;volatile
-   516                           
-   517                           ;serialprotocol.c: 37: SPBRG = spbrg16;
-   518  00039E  C015  FFAF         	movff	serialSetUp@spbrg16,4015	;volatile
-   519                           
-   520                           ;serialprotocol.c: 38: RCSTA = 0x90;
-   521  0003A2  0E90               	movlw	144
-   522  0003A4  6EAB               	movwf	4011,c	;volatile
-   523                           
-   524                           ;serialprotocol.c: 40: setTimer3(0x00, 65360);
-   525  0003A6  0EFF               	movlw	255
-   526  0003A8  6E11               	movwf	setTimer3@TMR3Pair+1,c
-   527  0003AA  0E50               	movlw	80
-   528  0003AC  6E10               	movwf	setTimer3@TMR3Pair,c
-   529  0003AE  0E00               	movlw	0
-   530  0003B0  ECDC  F001         	call	_setTimer3
-   531                           
-   532                           ;serialprotocol.c: 42: LATBbits.LATB6 = 1;
-   533  0003B4  8C8A               	bsf	3978,6,c	;volatile
-   534  0003B6  0012               	return		;funcret
-   535  0003B8                     __end_of_serialSetUp:
-   536                           	opt stack 0
-   537                           tblptru	equ	0xFF8
-   538                           wreg	equ	0xFE8
-   539                           status	equ	0xFD8
-   540                           
-   541 ;; *************** function _setTimer3 *****************
-   542 ;; Defined at:
-   543 ;;		line 5 in file "serialprotocol.c"
-   544 ;; Parameters:    Size  Location     Type
-   545 ;;  turnOn          1    wreg     unsigned char 
-   546 ;;  TMR3Pair        2   15[COMRAM] unsigned int 
-   547 ;; Auto vars:     Size  Location     Type
-   548 ;;  turnOn          1   18[COMRAM] unsigned char 
-   549 ;; Return value:  Size  Location     Type
-   550 ;;		None               void
-   551 ;; Registers used:
-   552 ;;		wreg, status,2, status,0
-   553 ;; Tracked objects:
-   554 ;;		On entry : 0/0
-   555 ;;		On exit  : 0/0
-   556 ;;		Unchanged: 0/0
-   557 ;; Data sizes:     COMRAM   BANK0
-   558 ;;      Params:         2       0
-   559 ;;      Locals:         1       0
-   560 ;;      Temps:          1       0
-   561 ;;      Totals:         4       0
-   562 ;;Total ram usage:        4 bytes
-   563 ;; Hardware stack levels used:    1
-   564 ;; Hardware stack levels required when called:    2
-   565 ;; This function calls:
-   566 ;;		Nothing
-   567 ;; This function is called by:
-   568 ;;		_serialSetUp
-   569 ;; This function uses a non-reentrant model
-   570 ;;
-   571                           
-   572                           	psect	text3
-   573  0003B8                     __ptext3:
-   574                           	opt stack 0
-   575  0003B8                     _setTimer3:
-   576                           	opt stack 27
-   577                           
-   578                           ;incstack = 0
-   579                           ;setTimer3@turnOn stored from wreg
-   580  0003B8  6E13               	movwf	setTimer3@turnOn,c
-   581                           
-   582                           ;serialprotocol.c: 6: T3CONbits.RD16 = 0x01;
-   583  0003BA  8EB1               	bsf	4017,7,c	;volatile
-   584                           
-   585                           ;serialprotocol.c: 7: T3CONbits.T3CKPS = 0x00;
-   586  0003BC  0ECF               	movlw	-49
-   587  0003BE  16B1               	andwf	4017,f,c	;volatile
-   588                           
-   589                           ;serialprotocol.c: 8: T3CONbits.TMR3CS = 0x00;
-   590  0003C0  92B1               	bcf	4017,1,c	;volatile
-   591                           
-   592                           ;serialprotocol.c: 9: T3CONbits.TMR3ON = (turnOn) ? 1 : 0;
-   593  0003C2  5013               	movf	setTimer3@turnOn,w,c
-   594  0003C4  B4D8               	btfsc	status,2,c
-   595  0003C6  D003               	goto	u400
-   596  0003C8  6A12               	clrf	??_setTimer3& (0+255),c
-   597  0003CA  2A12               	incf	??_setTimer3& (0+255),f,c
-   598  0003CC  D001               	goto	u418
-   599  0003CE                     u400:
-   600  0003CE  6A12               	clrf	??_setTimer3& (0+255),c
-   601  0003D0                     u418:
-   602  0003D0  50B1               	movf	4017,w,c	;volatile
-   603  0003D2  1812               	xorwf	??_setTimer3,w,c
-   604  0003D4  0BFE               	andlw	-2
-   605  0003D6  1812               	xorwf	??_setTimer3,w,c
-   606  0003D8  6EB1               	movwf	4017,c	;volatile
-   607                           
-   608                           ;serialprotocol.c: 10: timer3Time = TMR3Pair;
-   609  0003DA  C010  F031         	movff	setTimer3@TMR3Pair,_timer3Time
-   610  0003DE  C011  F032         	movff	setTimer3@TMR3Pair+1,_timer3Time+1
-   611  0003E2  0012               	return		;funcret
-   612  0003E4                     __end_of_setTimer3:
-   613                           	opt stack 0
-   614                           tblptru	equ	0xFF8
-   615                           wreg	equ	0xFE8
-   616                           status	equ	0xFD8
-   617                           
-   618 ;; *************** function _selectOutput *****************
-   619 ;; Defined at:
-   620 ;;		line 63 in file "pwm.c"
-   621 ;; Parameters:    Size  Location     Type
-   622 ;;  outputs         1    wreg     unsigned char 
-   623 ;;  toggle          1   15[COMRAM] unsigned char 
-   624 ;; Auto vars:     Size  Location     Type
-   625 ;;  outputs         1   17[COMRAM] unsigned char 
-   626 ;; Return value:  Size  Location     Type
-   627 ;;		None               void
-   628 ;; Registers used:
-   629 ;;		wreg, status,2, status,0
-   630 ;; Tracked objects:
-   631 ;;		On entry : 0/0
-   632 ;;		On exit  : 0/0
-   633 ;;		Unchanged: 0/0
-   634 ;; Data sizes:     COMRAM   BANK0
-   635 ;;      Params:         1       0
-   636 ;;      Locals:         1       0
-   637 ;;      Temps:          1       0
-   638 ;;      Totals:         3       0
-   639 ;;Total ram usage:        3 bytes
-   640 ;; Hardware stack levels used:    1
-   641 ;; Hardware stack levels required when called:    2
-   642 ;; This function calls:
-   643 ;;		Nothing
-   644 ;; This function is called by:
-   645 ;;		_main
-   646 ;; This function uses a non-reentrant model
-   647 ;;
-   648                           
-   649                           	psect	text4
-   650  000218                     __ptext4:
-   651                           	opt stack 0
-   652  000218                     _selectOutput:
-   653                           	opt stack 28
-   654                           
-   655                           ;incstack = 0
-   656                           ;selectOutput@outputs stored from wreg
-   657  000218  6E12               	movwf	selectOutput@outputs,c
-   658                           
-   659                           ;pwm.c: 65: switch (outputs){
-   660  00021A  D03D               	goto	l1053
-   661  00021C                     l1041:
-   662                           
-   663                           ;pwm.c: 67: PSTRCON = 0xF0;
-   664  00021C  0EF0               	movlw	240
-   665  00021E  6EB9               	movwf	4025,c	;volatile
-   666                           
-   667                           ;pwm.c: 68: break;
-   668  000220  0012               	return	
-   669  000222                     l1043:
-   670                           
-   671                           ;pwm.c: 70: PSTRCONbits.STRA = (toggle) ? 1 : 0;
-   672  000222  5010               	movf	selectOutput@toggle,w,c
-   673  000224  B4D8               	btfsc	status,2,c
-   674  000226  D003               	goto	u560
-   675  000228  6A11               	clrf	??_selectOutput& (0+255),c
-   676  00022A  2A11               	incf	??_selectOutput& (0+255),f,c
-   677  00022C  D001               	goto	u578
-   678  00022E                     u560:
-   679  00022E  6A11               	clrf	??_selectOutput& (0+255),c
-   680  000230                     u578:
-   681  000230  50B9               	movf	4025,w,c	;volatile
-   682  000232  1811               	xorwf	??_selectOutput,w,c
-   683  000234  0BFE               	andlw	-2
-   684  000236  1811               	xorwf	??_selectOutput,w,c
-   685  000238  6EB9               	movwf	4025,c	;volatile
-   686                           
-   687                           ;pwm.c: 71: break;
-   688  00023A  0012               	return	
-   689  00023C                     l1045:
-   690                           
-   691                           ;pwm.c: 73: PSTRCONbits.STRB = (toggle) ? 1 : 0;
-   692  00023C  5010               	movf	selectOutput@toggle,w,c
-   693  00023E  B4D8               	btfsc	status,2,c
-   694  000240  D003               	goto	u580
-   695  000242  6A11               	clrf	??_selectOutput& (0+255),c
-   696  000244  2A11               	incf	??_selectOutput& (0+255),f,c
-   697  000246  D001               	goto	u598
-   698  000248                     u580:
-   699  000248  6A11               	clrf	??_selectOutput& (0+255),c
-   700  00024A                     u598:
-   701  00024A  4611               	rlncf	??_selectOutput,f,c
-   702  00024C  50B9               	movf	4025,w,c	;volatile
-   703  00024E  1811               	xorwf	??_selectOutput,w,c
-   704  000250  0BFD               	andlw	-3
-   705  000252  1811               	xorwf	??_selectOutput,w,c
-   706  000254  6EB9               	movwf	4025,c	;volatile
-   707                           
-   708                           ;pwm.c: 74: break;
-   709  000256  0012               	return	
-   710  000258                     l1047:
-   711                           
-   712                           ;pwm.c: 76: PSTRCONbits.STRC = (toggle) ? 1 : 0;
-   713  000258  5010               	movf	selectOutput@toggle,w,c
-   714  00025A  B4D8               	btfsc	status,2,c
-   715  00025C  D003               	goto	u600
-   716  00025E  6A11               	clrf	??_selectOutput& (0+255),c
-   717  000260  2A11               	incf	??_selectOutput& (0+255),f,c
-   718  000262  D001               	goto	u618
-   719  000264                     u600:
-   720  000264  6A11               	clrf	??_selectOutput& (0+255),c
-   721  000266                     u618:
-   722  000266  4611               	rlncf	??_selectOutput,f,c
-   723  000268  4611               	rlncf	??_selectOutput,f,c
-   724  00026A  50B9               	movf	4025,w,c	;volatile
-   725  00026C  1811               	xorwf	??_selectOutput,w,c
-   726  00026E  0BFB               	andlw	-5
-   727  000270  1811               	xorwf	??_selectOutput,w,c
-   728  000272  6EB9               	movwf	4025,c	;volatile
+   462                           ;spi.c: 100: buffer->buffer[i] = SSPBUF;
+   463  0001E6  501C               	movf	slave_receive_data@i,w,c
+   464  0001E8  0D01               	mullw	1
+   465  0001EA  50F3               	movf	prodl,w,c
+   466  0001EC  2418               	addwf	slave_receive_data@buffer,w,c
+   467  0001EE  6ED9               	movwf	fsr2l,c
+   468  0001F0  50F4               	movf	prodh,w,c
+   469  0001F2  2019               	addwfc	slave_receive_data@buffer+1,w,c
+   470  0001F4  6EDA               	movwf	fsr2h,c
+   471  0001F6  CFC9 FFDF          	movff	4041,indf2	;volatile
+   472  0001FA  2A1C               	incf	slave_receive_data@i,f,c
+   473  0001FC  D000               	goto	l1162
+   474  0001FE                     l1162:
+   475  0001FE  501B               	movf	slave_receive_data@size,w,c
+   476  000200  5C1C               	subwf	slave_receive_data@i,w,c
+   477  000202  A0D8               	btfss	status,0,c
+   478  000204  D7EC               	goto	l239
+   479                           
+   480                           ;spi.c: 101: }
+   481                           ;spi.c: 102: LATCbits.LATC6 = 0;
+   482  000206  9C8B               	bcf	3979,6,c	;volatile
+   483                           
+   484                           ;spi.c: 104: reassemble_packet(buffer, size);
+   485  000208  C018  F010         	movff	slave_receive_data@buffer,reassemble_packet@buffer
+   486  00020C  C019  F011         	movff	slave_receive_data@buffer+1,reassemble_packet@buffer+1
+   487  000210  C01B  F012         	movff	slave_receive_data@size,reassemble_packet@size
+   488  000214  EC98  F000         	call	_reassemble_packet	;wreg free
+   489  000218  0012               	return	
+   490  00021A  0012               	return		;funcret
+   491  00021C                     __end_of_slave_receive_data:
+   492                           	opt stack 0
+   493                           tblptru	equ	0xFF8
+   494                           prodh	equ	0xFF4
+   495                           prodl	equ	0xFF3
+   496                           postinc0	equ	0xFEE
+   497                           wreg	equ	0xFE8
+   498                           plusw1	equ	0xFE3
+   499                           indf2	equ	0xFDF
+   500                           plusw2	equ	0xFDB
+   501                           fsr2h	equ	0xFDA
+   502                           fsr2l	equ	0xFD9
+   503                           status	equ	0xFD8
+   504                           
+   505 ;; *************** function _reassemble_packet *****************
+   506 ;; Defined at:
+   507 ;;		line 4 in file "../TorqueGriperSecondPIC.X/spi.c"
+   508 ;; Parameters:    Size  Location     Type
+   509 ;;  buffer          2   15[COMRAM] PTR struct spi_receive_b
+   510 ;;		 -> main@my_data(32), 
+   511 ;;  size            1   17[COMRAM] unsigned char 
+   512 ;; Auto vars:     Size  Location     Type
+   513 ;;  byte_2          1   21[COMRAM] unsigned char 
+   514 ;;  byte_1          1   20[COMRAM] unsigned char 
+   515 ;;  i               1   22[COMRAM] unsigned char 
+   516 ;; Return value:  Size  Location     Type
+   517 ;;		None               void
+   518 ;; Registers used:
+   519 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+   520 ;; Tracked objects:
+   521 ;;		On entry : 0/0
+   522 ;;		On exit  : 0/0
+   523 ;;		Unchanged: 0/0
+   524 ;; Data sizes:     COMRAM   BANK0
+   525 ;;      Params:         3       0
+   526 ;;      Locals:         3       0
+   527 ;;      Temps:          2       0
+   528 ;;      Totals:         8       0
+   529 ;;Total ram usage:        8 bytes
+   530 ;; Hardware stack levels used:    1
+   531 ;; Hardware stack levels required when called:    2
+   532 ;; This function calls:
+   533 ;;		Nothing
+   534 ;; This function is called by:
+   535 ;;		_slave_receive_data
+   536 ;;		_master_receive_data
+   537 ;; This function uses a non-reentrant model
+   538 ;;
+   539                           
+   540                           	psect	text2
+   541  000130                     __ptext2:
+   542                           	opt stack 0
+   543  000130                     _reassemble_packet:
+   544                           	opt stack 27
+   545                           
+   546                           ;spi.c: 6: char i;
+   547                           ;spi.c: 8: for (i = 0; i < size; i += 2) {
+   548                           
+   549                           ;incstack = 0
+   550  000130  0E00               	movlw	0
+   551  000132  6E17               	movwf	reassemble_packet@i,c
+   552  000134  D02E               	goto	l1102
+   553  000136                     l1094:
+   554                           
+   555                           ;spi.c: 9: unsigned char byte_1 = buffer->buffer[i];
+   556  000136  5017               	movf	reassemble_packet@i,w,c
+   557  000138  0D01               	mullw	1
+   558  00013A  50F3               	movf	prodl,w,c
+   559  00013C  2410               	addwf	reassemble_packet@buffer,w,c
+   560  00013E  6ED9               	movwf	fsr2l,c
+   561  000140  50F4               	movf	prodh,w,c
+   562  000142  2011               	addwfc	reassemble_packet@buffer+1,w,c
+   563  000144  6EDA               	movwf	fsr2h,c
+   564  000146  50DF               	movf	indf2,w,c
+   565  000148  6E15               	movwf	reassemble_packet@byte_1,c
+   566                           
+   567                           ;spi.c: 10: unsigned char byte_2 = buffer->buffer[i + 1];
+   568  00014A  5017               	movf	reassemble_packet@i,w,c
+   569  00014C  6E13               	movwf	??_reassemble_packet& (0+255),c
+   570  00014E  6A14               	clrf	(??_reassemble_packet+1)& (0+255),c
+   571  000150  0E01               	movlw	1
+   572  000152  2613               	addwf	??_reassemble_packet,f,c
+   573  000154  0E00               	movlw	0
+   574  000156  2214               	addwfc	??_reassemble_packet+1,f,c
+   575  000158  5013               	movf	??_reassemble_packet,w,c
+   576  00015A  2410               	addwf	reassemble_packet@buffer,w,c
+   577  00015C  6ED9               	movwf	fsr2l,c
+   578  00015E  5014               	movf	??_reassemble_packet+1,w,c
+   579  000160  2011               	addwfc	reassemble_packet@buffer+1,w,c
+   580  000162  6EDA               	movwf	fsr2h,c
+   581  000164  50DF               	movf	indf2,w,c
+   582  000166  6E16               	movwf	reassemble_packet@byte_2,c
+   583                           
+   584                           ;spi.c: 11: buffer->buffer[i >> 1] = byte_1 << 4 | (byte_2 & 0x0F);
+   585  000168  C017  F013         	movff	reassemble_packet@i,??_reassemble_packet
+   586  00016C  90D8               	bcf	status,0,c
+   587  00016E  3213               	rrcf	??_reassemble_packet,f,c
+   588  000170  5013               	movf	??_reassemble_packet,w,c
+   589  000172  2410               	addwf	reassemble_packet@buffer,w,c
+   590  000174  6ED9               	movwf	fsr2l,c
+   591  000176  0E00               	movlw	0
+   592  000178  2011               	addwfc	reassemble_packet@buffer+1,w,c
+   593  00017A  6EDA               	movwf	fsr2h,c
+   594  00017C  C016  F014         	movff	reassemble_packet@byte_2,??_reassemble_packet+1
+   595  000180  0E0F               	movlw	15
+   596  000182  1614               	andwf	??_reassemble_packet+1,f,c
+   597  000184  3815               	swapf	reassemble_packet@byte_1,w,c
+   598  000186  0BF0               	andlw	240
+   599  000188  1014               	iorwf	??_reassemble_packet+1,w,c
+   600  00018A  6EDF               	movwf	indf2,c
+   601  00018C  0E02               	movlw	2
+   602  00018E  2617               	addwf	reassemble_packet@i,f,c
+   603  000190  D000               	goto	l1102
+   604  000192                     l1102:
+   605  000192  5012               	movf	reassemble_packet@size,w,c
+   606  000194  5C17               	subwf	reassemble_packet@i,w,c
+   607  000196  A0D8               	btfss	status,0,c
+   608  000198  D7CE               	goto	l1094
+   609                           
+   610                           ;spi.c: 12: }
+   611                           ;spi.c: 14: buffer->length = i >> 1;
+   612  00019A  90D8               	bcf	status,0,c
+   613  00019C  3017               	rrcf	reassemble_packet@i,w,c
+   614  00019E  6E13               	movwf	??_reassemble_packet& (0+255),c
+   615  0001A0  6A14               	clrf	(??_reassemble_packet+1)& (0+255),c
+   616  0001A2  EE20 F01E          	lfsr	2,30
+   617  0001A6  5010               	movf	reassemble_packet@buffer,w,c
+   618  0001A8  26D9               	addwf	fsr2l,f,c
+   619  0001AA  5011               	movf	reassemble_packet@buffer+1,w,c
+   620  0001AC  22DA               	addwfc	fsr2h,f,c
+   621  0001AE  C013  FFDE         	movff	??_reassemble_packet,postinc2
+   622  0001B2  C014  FFDD         	movff	??_reassemble_packet+1,postdec2
+   623  0001B6  0012               	return		;funcret
+   624  0001B8                     __end_of_reassemble_packet:
+   625                           	opt stack 0
+   626                           tblptru	equ	0xFF8
+   627                           prodh	equ	0xFF4
+   628                           prodl	equ	0xFF3
+   629                           postinc0	equ	0xFEE
+   630                           wreg	equ	0xFE8
+   631                           plusw1	equ	0xFE3
+   632                           indf2	equ	0xFDF
+   633                           postinc2	equ	0xFDE
+   634                           postdec2	equ	0xFDD
+   635                           plusw2	equ	0xFDB
+   636                           fsr2h	equ	0xFDA
+   637                           fsr2l	equ	0xFD9
+   638                           status	equ	0xFD8
+   639                           
+   640 ;; *************** function _set_spi *****************
+   641 ;; Defined at:
+   642 ;;		line 17 in file "../TorqueGriperSecondPIC.X/spi.c"
+   643 ;; Parameters:    Size  Location     Type
+   644 ;;  mode            1    wreg     enum E3059
+   645 ;;  polarity        1   15[COMRAM] enum E3066
+   646 ;;  selection       1   16[COMRAM] enum E3069
+   647 ;;  sample          1   17[COMRAM] enum E3072
+   648 ;; Auto vars:     Size  Location     Type
+   649 ;;  mode            1   18[COMRAM] enum E3059
+   650 ;; Return value:  Size  Location     Type
+   651 ;;		None               void
+   652 ;; Registers used:
+   653 ;;		wreg, status,2, status,0
+   654 ;; Tracked objects:
+   655 ;;		On entry : 0/0
+   656 ;;		On exit  : 0/0
+   657 ;;		Unchanged: 0/0
+   658 ;; Data sizes:     COMRAM   BANK0
+   659 ;;      Params:         3       0
+   660 ;;      Locals:         1       0
+   661 ;;      Temps:          0       0
+   662 ;;      Totals:         4       0
+   663 ;;Total ram usage:        4 bytes
+   664 ;; Hardware stack levels used:    1
+   665 ;; Hardware stack levels required when called:    2
+   666 ;; This function calls:
+   667 ;;		Nothing
+   668 ;; This function is called by:
+   669 ;;		_main
+   670 ;; This function uses a non-reentrant model
+   671 ;;
+   672                           
+   673                           	psect	text3
+   674  00021C                     __ptext3:
+   675                           	opt stack 0
+   676  00021C                     _set_spi:
+   677                           	opt stack 28
+   678                           
+   679                           ;incstack = 0
+   680                           ;set_spi@mode stored from wreg
+   681  00021C  6E13               	movwf	set_spi@mode,c
+   682                           
+   683                           ;spi.c: 20: TRISCbits.RC7 = 0;
+   684  00021E  9E94               	bcf	3988,7,c	;volatile
+   685                           
+   686                           ;spi.c: 22: SSPCON1bits.SSPM = mode;
+   687  000220  50C6               	movf	4038,w,c	;volatile
+   688  000222  1813               	xorwf	set_spi@mode,w,c
+   689  000224  0BF0               	andlw	-16
+   690  000226  1813               	xorwf	set_spi@mode,w,c
+   691  000228  6EC6               	movwf	4038,c	;volatile
+   692                           
+   693                           ;spi.c: 23: SSPCON1bits.CKP = polarity;
+   694  00022A  B010               	btfsc	set_spi@polarity,0,c
+   695  00022C  D002               	bra	u615
+   696  00022E  98C6               	bcf	4038,4,c	;volatile
+   697  000230  D001               	bra	u616
+   698  000232                     u615:
+   699  000232  88C6               	bsf	4038,4,c	;volatile
+   700  000234                     u616:
+   701                           
+   702                           ;spi.c: 24: SSPSTATbits.SMP = sample;
+   703  000234  B012               	btfsc	set_spi@sample,0,c
+   704  000236  D002               	bra	u625
+   705  000238  9EC7               	bcf	4039,7,c	;volatile
+   706  00023A  D001               	bra	u626
+   707  00023C                     u625:
+   708  00023C  8EC7               	bsf	4039,7,c	;volatile
+   709  00023E                     u626:
+   710                           
+   711                           ;spi.c: 26: if (mode == SM_NSS || mode == SM_SS) {
+   712  00023E  0E05               	movlw	5
+   713  000240  1813               	xorwf	set_spi@mode,w,c
+   714  000242  B4D8               	btfsc	status,2,c
+   715  000244  D004               	goto	l201
+   716  000246  0E04               	movlw	4
+   717  000248  1813               	xorwf	set_spi@mode,w,c
+   718  00024A  A4D8               	btfss	status,2,c
+   719  00024C  D009               	goto	l199
+   720  00024E                     l201:
+   721                           
+   722                           ;spi.c: 27: TRISBbits.RB6 = 1;
+   723  00024E  8C93               	bsf	3987,6,c	;volatile
+   724                           
+   725                           ;spi.c: 28: if (mode == SM_SS)
+   726  000250  0E04               	movlw	4
+   727  000252  1813               	xorwf	set_spi@mode,w,c
+   728  000254  B4D8               	btfsc	status,2,c
    729                           
-   730                           ;pwm.c: 77: break;
-   731  000274  0012               	return	
-   732  000276                     l1049:
-   733                           
-   734                           ;pwm.c: 79: PSTRCONbits.STRD = (toggle) ? 1 : 0;
-   735  000276  5010               	movf	selectOutput@toggle,w,c
-   736  000278  B4D8               	btfsc	status,2,c
-   737  00027A  D003               	goto	u620
-   738  00027C  6A11               	clrf	??_selectOutput& (0+255),c
-   739  00027E  2A11               	incf	??_selectOutput& (0+255),f,c
-   740  000280  D001               	goto	u638
-   741  000282                     u620:
-   742  000282  6A11               	clrf	??_selectOutput& (0+255),c
-   743  000284                     u638:
-   744  000284  4611               	rlncf	??_selectOutput,f,c
-   745  000286  4611               	rlncf	??_selectOutput,f,c
-   746  000288  4611               	rlncf	??_selectOutput,f,c
-   747  00028A  50B9               	movf	4025,w,c	;volatile
-   748  00028C  1811               	xorwf	??_selectOutput,w,c
-   749  00028E  0BF7               	andlw	-9
-   750  000290  1811               	xorwf	??_selectOutput,w,c
-   751  000292  6EB9               	movwf	4025,c	;volatile
-   752                           
-   753                           ;pwm.c: 81: }
+   730                           ;spi.c: 29: TRISCbits.RC6 = 1;
+   731  000256  8C94               	bsf	3988,6,c	;volatile
+   732                           
+   733                           ;spi.c: 30: SSPSTATbits.CKE = 0;
+   734  000258  9CC7               	bcf	4039,6,c	;volatile
+   735                           
+   736                           ;spi.c: 31: TRISCbits.RC6 = 0;
+   737  00025A  9C94               	bcf	3988,6,c	;volatile
+   738                           
+   739                           ;spi.c: 32: LATCbits.LATC6 = 0;
+   740  00025C  9C8B               	bcf	3979,6,c	;volatile
+   741                           
+   742                           ;spi.c: 33: } else {
+   743  00025E  D008               	goto	l203
+   744  000260                     l199:
+   745                           
+   746                           ;spi.c: 34: TRISBbits.RB6 = 0;
+   747  000260  9C93               	bcf	3987,6,c	;volatile
+   748                           
+   749                           ;spi.c: 35: TRISCbits.RC6 = 1;
+   750  000262  8C94               	bsf	3988,6,c	;volatile
+   751                           
+   752                           ;spi.c: 36: ANSELHbits.ANS8 = 0;
+   753  000264  907F               	bcf	3967,0,c	;volatile
    754                           
-   755                           ;pwm.c: 80: break;
-   756  000294  0012               	return	
-   757  000296                     l1053:
-   758  000296  5012               	movf	selectOutput@outputs,w,c
-   759                           
-   760                           ; Switch size 1, requested type "space"
-   761                           ; Number of cases is 5, Range of values is 0 to 8
-   762                           ; switch strategies available:
-   763                           ; Name         Instructions Cycles
-   764                           ; simple_byte           16     9 (average)
-   765                           ;	Chosen strategy is simple_byte
-   766  000298  0A00               	xorlw	0	; case 0
-   767  00029A  B4D8               	btfsc	status,2,c
-   768  00029C  D7BF               	goto	l1041
-   769  00029E  0A01               	xorlw	1	; case 1
-   770  0002A0  B4D8               	btfsc	status,2,c
-   771  0002A2  D7BF               	goto	l1043
-   772  0002A4  0A03               	xorlw	3	; case 2
-   773  0002A6  B4D8               	btfsc	status,2,c
-   774  0002A8  D7C9               	goto	l1045
-   775  0002AA  0A06               	xorlw	6	; case 4
-   776  0002AC  B4D8               	btfsc	status,2,c
-   777  0002AE  D7D4               	goto	l1047
-   778  0002B0  0A0C               	xorlw	12	; case 8
-   779  0002B2  A4D8               	btfss	status,2,c
-   780  0002B4  0012               	return	
-   781  0002B6  D7DF               	goto	l1049
-   782  0002B8  0012               	return		;funcret
-   783  0002BA                     __end_of_selectOutput:
-   784                           	opt stack 0
-   785                           tblptru	equ	0xFF8
-   786                           wreg	equ	0xFE8
-   787                           status	equ	0xFD8
-   788                           
-   789 ;; *************** function _receiveData *****************
-   790 ;; Defined at:
-   791 ;;		line 74 in file "serialprotocol.c"
-   792 ;; Parameters:    Size  Location     Type
-   793 ;;  buffer          2   15[COMRAM] PTR struct receiveBuffer
-   794 ;;		 -> main@data(17), 
+   755                           ;spi.c: 37: SSPSTATbits.CKE = selection;
+   756  000266  B011               	btfsc	set_spi@selection,0,c
+   757  000268  D002               	bra	u665
+   758  00026A  9CC7               	bcf	4039,6,c	;volatile
+   759  00026C  D001               	bra	u666
+   760  00026E                     u665:
+   761  00026E  8CC7               	bsf	4039,6,c	;volatile
+   762  000270                     u666:
+   763  000270                     l203:
+   764                           
+   765                           ;spi.c: 38: }
+   766                           ;spi.c: 40: ANSELHbits.ANS10 = 0;
+   767  000270  947F               	bcf	3967,2,c	;volatile
+   768                           
+   769                           ;spi.c: 42: SSPCON1bits.SSPEN = 0x1;
+   770  000272  8AC6               	bsf	4038,5,c	;volatile
+   771  000274  0012               	return		;funcret
+   772  000276                     __end_of_set_spi:
+   773                           	opt stack 0
+   774                           tblptru	equ	0xFF8
+   775                           prodh	equ	0xFF4
+   776                           prodl	equ	0xFF3
+   777                           postinc0	equ	0xFEE
+   778                           wreg	equ	0xFE8
+   779                           plusw1	equ	0xFE3
+   780                           indf2	equ	0xFDF
+   781                           postinc2	equ	0xFDE
+   782                           postdec2	equ	0xFDD
+   783                           plusw2	equ	0xFDB
+   784                           fsr2h	equ	0xFDA
+   785                           fsr2l	equ	0xFD9
+   786                           status	equ	0xFD8
+   787                           
+   788 ;; *************** function _serialSetUp *****************
+   789 ;; Defined at:
+   790 ;;		line 23 in file "serialprotocol.c"
+   791 ;; Parameters:    Size  Location     Type
+   792 ;;  brg16_bit       1    wreg     unsigned char 
+   793 ;;  brgh_bit        1   15[COMRAM] unsigned char 
+   794 ;;  spbrg16         2   16[COMRAM] unsigned int 
    795 ;; Auto vars:     Size  Location     Type
-   796 ;;  i               2   21[COMRAM] int 
-   797 ;;  size            2   19[COMRAM] int 
-   798 ;;  character       1   18[COMRAM] unsigned char 
-   799 ;; Return value:  Size  Location     Type
-   800 ;;                  2   15[COMRAM] int 
-   801 ;; Registers used:
-   802 ;;		wreg, fsr2l, fsr2h, status,2, status,0
-   803 ;; Tracked objects:
-   804 ;;		On entry : 0/0
-   805 ;;		On exit  : 0/0
-   806 ;;		Unchanged: 0/0
-   807 ;; Data sizes:     COMRAM   BANK0
-   808 ;;      Params:         2       0
-   809 ;;      Locals:         5       0
-   810 ;;      Temps:          1       0
-   811 ;;      Totals:         8       0
-   812 ;;Total ram usage:        8 bytes
-   813 ;; Hardware stack levels used:    1
-   814 ;; Hardware stack levels required when called:    2
-   815 ;; This function calls:
-   816 ;;		Nothing
-   817 ;; This function is called by:
-   818 ;;		_main
-   819 ;; This function uses a non-reentrant model
-   820 ;;
-   821                           
-   822                           	psect	text5
-   823  00015C                     __ptext5:
-   824                           	opt stack 0
-   825  00015C                     _receiveData:
-   826                           	opt stack 28
-   827                           
-   828                           ;serialprotocol.c: 77: int8_t character;
-   829                           ;serialprotocol.c: 78: int i = 0;
-   830                           
-   831                           ;incstack = 0
-   832  00015C  0E00               	movlw	0
-   833  00015E  6E17               	movwf	receiveData@i+1,c
-   834  000160  0E00               	movlw	0
-   835  000162  6E16               	movwf	receiveData@i,c
-   836                           
-   837                           ;serialprotocol.c: 79: int size = 0;
-   838  000164  0E00               	movlw	0
-   839  000166  6E15               	movwf	receiveData@size+1,c
-   840  000168  0E00               	movlw	0
-   841  00016A  6E14               	movwf	receiveData@size,c
-   842                           
-   843                           ;serialprotocol.c: 81: if (RCSTAbits.OERR) {
-   844  00016C  A2AB               	btfss	4011,1,c	;volatile
-   845  00016E  D002               	goto	l117
-   846                           
-   847                           ;serialprotocol.c: 82: RCSTAbits.CREN = 0;
-   848  000170  98AB               	bcf	4011,4,c	;volatile
-   849                           
-   850                           ;serialprotocol.c: 83: RCSTAbits.CREN = 1;
-   851  000172  88AB               	bsf	4011,4,c	;volatile
-   852  000174                     l117:
-   853                           
-   854                           ;serialprotocol.c: 84: }
-   855                           ;serialprotocol.c: 86: character = RCREG;
-   856  000174  CFAE F013          	movff	4014,receiveData@character	;volatile
-   857                           
-   858                           ;serialprotocol.c: 87: character = RCREG;
-   859  000178  CFAE F013          	movff	4014,receiveData@character	;volatile
-   860                           
-   861                           ;serialprotocol.c: 89: if (PORTCbits.RC7 == 0) {
-   862  00017C  BE82               	btfsc	3970,7,c	;volatile
-   863  00017E  D036               	goto	l1033
-   864                           
-   865                           ;serialprotocol.c: 90: LATBbits.LATB6 = 0;
-   866  000180  9C8A               	bcf	3978,6,c	;volatile
-   867                           
-   868                           ;serialprotocol.c: 92: while (!RCIF);
-   869  000182  D000               	goto	l119
-   870  000184                     l119:
-   871  000184  AA9E               	btfss	3998,5,c	;volatile
-   872  000186  D7FE               	goto	l119
-   873                           
-   874                           ;serialprotocol.c: 93: size = RCREG;
-   875  000188  CFAE F014          	movff	4014,receiveData@size	;volatile
-   876  00018C  6A15               	clrf	receiveData@size+1,c
-   877                           
-   878                           ;serialprotocol.c: 95: if (size < 16 && size > 0) {
-   879  00018E  BE15               	btfsc	receiveData@size+1,7,c
-   880  000190  D006               	goto	l1023
-   881  000192  5015               	movf	receiveData@size+1,w,c
-   882  000194  E125               	bnz	l122
-   883  000196  0E10               	movlw	16
-   884  000198  5C14               	subwf	receiveData@size,w,c
-   885  00019A  B0D8               	btfsc	status,0,c
-   886  00019C  D021               	goto	l122
-   887  00019E                     l1023:
-   888  00019E  BE15               	btfsc	receiveData@size+1,7,c
-   889  0001A0  D01F               	goto	l122
-   890  0001A2  5015               	movf	receiveData@size+1,w,c
-   891  0001A4  E113               	bnz	l1031
-   892  0001A6  0414               	decf	receiveData@size,w,c
-   893  0001A8  B0D8               	btfsc	status,0,c
-   894  0001AA  D010               	goto	l1031
-   895  0001AC  D019               	goto	l122
-   896                           
-   897                           ;serialprotocol.c: 96: while (i < size) {
-   898  0001AE  D00E               	goto	l1031
-   899                           
-   900                           ;serialprotocol.c: 97: while (!RCIF);
-   901  0001B0  D000               	goto	l125
-   902  0001B2                     l125:
-   903  0001B2  AA9E               	btfss	3998,5,c	;volatile
-   904  0001B4  D7FE               	goto	l125
-   905                           
-   906                           ;serialprotocol.c: 98: buffer->buffer[i] = RCREG;
-   907  0001B6  5016               	movf	receiveData@i,w,c
-   908  0001B8  2410               	addwf	receiveData@buffer,w,c
-   909  0001BA  6ED9               	movwf	fsr2l,c
-   910  0001BC  5017               	movf	receiveData@i+1,w,c
-   911  0001BE  2011               	addwfc	receiveData@buffer+1,w,c
-   912  0001C0  6EDA               	movwf	fsr2h,c
-   913  0001C2  CFAE FFDF          	movff	4014,indf2	;volatile
-   914                           
-   915                           ;serialprotocol.c: 99: i++;
-   916  0001C6  4A16               	infsnz	receiveData@i,f,c
-   917  0001C8  2A17               	incf	receiveData@i+1,f,c
-   918  0001CA  D000               	goto	l1031
-   919  0001CC                     l1031:
-   920  0001CC  5014               	movf	receiveData@size,w,c
-   921  0001CE  5C16               	subwf	receiveData@i,w,c
-   922  0001D0  5017               	movf	receiveData@i+1,w,c
-   923  0001D2  0A80               	xorlw	128
-   924  0001D4  6E12               	movwf	??_receiveData& (0+255),c
-   925  0001D6  5015               	movf	receiveData@size+1,w,c
-   926  0001D8  0A80               	xorlw	128
-   927  0001DA  5812               	subwfb	??_receiveData& (0+255),w,c
-   928  0001DC  A0D8               	btfss	status,0,c
-   929  0001DE  D7E9               	goto	l125
-   930  0001E0                     l122:
-   931                           
-   932                           ;serialprotocol.c: 100: }
-   933                           ;serialprotocol.c: 101: }
-   934                           ;serialprotocol.c: 103: LATBbits.LATB6 = 1;
-   935  0001E0  8C8A               	bsf	3978,6,c	;volatile
-   936                           
-   937                           ;serialprotocol.c: 104: while (PORTCbits.RC7 == 0);
-   938  0001E2  D000               	goto	l129
-   939  0001E4                     l129:
-   940  0001E4  BE82               	btfsc	3970,7,c	;volatile
-   941  0001E6  D002               	goto	l1033
-   942  0001E8  D7FD               	goto	l129
-   943  0001EA  D000               	goto	l1033
-   944  0001EC                     l1033:
-   945                           
-   946                           ;serialprotocol.c: 105: }
-   947                           ;serialprotocol.c: 107: buffer->length = i;
-   948  0001EC  EE20 F010          	lfsr	2,16
-   949  0001F0  5010               	movf	receiveData@buffer,w,c
-   950  0001F2  26D9               	addwf	fsr2l,f,c
-   951  0001F4  5011               	movf	receiveData@buffer+1,w,c
-   952  0001F6  22DA               	addwfc	fsr2h,f,c
-   953  0001F8  C016  FFDF         	movff	receiveData@i,indf2
+   796 ;;  brg16_bit       1   18[COMRAM] unsigned char 
+   797 ;; Return value:  Size  Location     Type
+   798 ;;		None               void
+   799 ;; Registers used:
+   800 ;;		wreg, status,2
+   801 ;; Tracked objects:
+   802 ;;		On entry : 0/0
+   803 ;;		On exit  : 0/0
+   804 ;;		Unchanged: 0/0
+   805 ;; Data sizes:     COMRAM   BANK0
+   806 ;;      Params:         3       0
+   807 ;;      Locals:         5       0
+   808 ;;      Temps:          0       0
+   809 ;;      Totals:         8       0
+   810 ;;Total ram usage:        8 bytes
+   811 ;; Hardware stack levels used:    1
+   812 ;; Hardware stack levels required when called:    2
+   813 ;; This function calls:
+   814 ;;		Nothing
+   815 ;; This function is called by:
+   816 ;;		_main
+   817 ;; This function uses a non-reentrant model
+   818 ;;
+   819                           
+   820                           	psect	text4
+   821  000276                     __ptext4:
+   822                           	opt stack 0
+   823  000276                     _serialSetUp:
+   824                           	opt stack 28
+   825                           
+   826                           ;incstack = 0
+   827                           ;serialSetUp@brg16_bit stored from wreg
+   828  000276  6E13               	movwf	serialSetUp@brg16_bit,c
+   829                           
+   830                           ;serialprotocol.c: 26: ANSELbits.ANS5 = 0;
+   831  000278  9A7E               	bcf	3966,5,c	;volatile
+   832                           
+   833                           ;serialprotocol.c: 27: ANSELHbits.ANS11 = 0;
+   834  00027A  967F               	bcf	3967,3,c	;volatile
+   835                           
+   836                           ;serialprotocol.c: 29: TRISBbits.RB5 = 1;
+   837  00027C  8A93               	bsf	3987,5,c	;volatile
+   838                           
+   839                           ;serialprotocol.c: 30: TRISBbits.RB7 = 0;
+   840  00027E  9E93               	bcf	3987,7,c	;volatile
+   841                           
+   842                           ;serialprotocol.c: 31: TRISCbits.RC0 = 0;
+   843  000280  9094               	bcf	3988,0,c	;volatile
+   844                           
+   845                           ;serialprotocol.c: 32: TRISCbits.RC1 = 1;
+   846  000282  8294               	bsf	3988,1,c	;volatile
+   847                           
+   848                           ;serialprotocol.c: 34: BAUDCON = (brg16_bit) ? 0x08 : 0x00;
+   849  000284  5013               	movf	serialSetUp@brg16_bit,w,c
+   850  000286  A4D8               	btfss	status,2,c
+   851  000288  D004               	goto	l1112
+   852  00028A  0E00               	movlw	0
+   853  00028C  6E15               	movwf	_serialSetUp$760+1,c
+   854  00028E  0E00               	movlw	0
+   855  000290  D003               	goto	L1
+   856  000292                     l1112:
+   857  000292  0E00               	movlw	0
+   858  000294  6E15               	movwf	_serialSetUp$760+1,c
+   859  000296  0E08               	movlw	8
+   860  000298                     L1:
+   861  000298  6E14               	movwf	_serialSetUp$760,c
+   862  00029A  D000               	goto	l1114
+   863  00029C                     l1114:
+   864  00029C  C014  FFB8         	movff	_serialSetUp$760,4024	;volatile
+   865                           
+   866                           ;serialprotocol.c: 35: TXSTA = (brgh_bit) ? 0x24: 0x20;
+   867  0002A0  5010               	movf	serialSetUp@brgh_bit,w,c
+   868  0002A2  A4D8               	btfss	status,2,c
+   869  0002A4  D004               	goto	l1120
+   870  0002A6  0E00               	movlw	0
+   871  0002A8  6E17               	movwf	_serialSetUp$761+1,c
+   872  0002AA  0E20               	movlw	32
+   873  0002AC  D003               	goto	L2
+   874  0002AE                     l1120:
+   875  0002AE  0E00               	movlw	0
+   876  0002B0  6E17               	movwf	_serialSetUp$761+1,c
+   877  0002B2  0E24               	movlw	36
+   878  0002B4                     L2:
+   879  0002B4  6E16               	movwf	_serialSetUp$761,c
+   880  0002B6  D000               	goto	l1122
+   881  0002B8                     l1122:
+   882  0002B8  C016  FFAC         	movff	_serialSetUp$761,4012	;volatile
+   883                           
+   884                           ;serialprotocol.c: 36: SPBRGH = spbrg16 >> 8;
+   885  0002BC  5012               	movf	serialSetUp@spbrg16+1,w,c
+   886  0002BE  6EB0               	movwf	4016,c	;volatile
+   887                           
+   888                           ;serialprotocol.c: 37: SPBRG = spbrg16;
+   889  0002C0  C011  FFAF         	movff	serialSetUp@spbrg16,4015	;volatile
+   890                           
+   891                           ;serialprotocol.c: 38: RCSTA = 0x90;
+   892  0002C4  0E90               	movlw	144
+   893  0002C6  6EAB               	movwf	4011,c	;volatile
+   894                           
+   895                           ;serialprotocol.c: 42: LATCbits.LATC0 = 1;
+   896  0002C8  808B               	bsf	3979,0,c	;volatile
+   897  0002CA  0012               	return		;funcret
+   898  0002CC                     __end_of_serialSetUp:
+   899                           	opt stack 0
+   900                           tblptru	equ	0xFF8
+   901                           prodh	equ	0xFF4
+   902                           prodl	equ	0xFF3
+   903                           postinc0	equ	0xFEE
+   904                           wreg	equ	0xFE8
+   905                           plusw1	equ	0xFE3
+   906                           indf2	equ	0xFDF
+   907                           postinc2	equ	0xFDE
+   908                           postdec2	equ	0xFDD
+   909                           plusw2	equ	0xFDB
+   910                           fsr2h	equ	0xFDA
+   911                           fsr2l	equ	0xFD9
+   912                           status	equ	0xFD8
+   913                           
+   914 ;; *************** function _sendChar *****************
+   915 ;; Defined at:
+   916 ;;		line 60 in file "serialprotocol.c"
+   917 ;; Parameters:    Size  Location     Type
+   918 ;;  character       1    wreg     unsigned char 
+   919 ;; Auto vars:     Size  Location     Type
+   920 ;;  character       1   15[COMRAM] unsigned char 
+   921 ;; Return value:  Size  Location     Type
+   922 ;;		None               void
+   923 ;; Registers used:
+   924 ;;		wreg
+   925 ;; Tracked objects:
+   926 ;;		On entry : 0/0
+   927 ;;		On exit  : 0/0
+   928 ;;		Unchanged: 0/0
+   929 ;; Data sizes:     COMRAM   BANK0
+   930 ;;      Params:         0       0
+   931 ;;      Locals:         1       0
+   932 ;;      Temps:          0       0
+   933 ;;      Totals:         1       0
+   934 ;;Total ram usage:        1 bytes
+   935 ;; Hardware stack levels used:    1
+   936 ;; Hardware stack levels required when called:    2
+   937 ;; This function calls:
+   938 ;;		Nothing
+   939 ;; This function is called by:
+   940 ;;		_main
+   941 ;;		_sendData
+   942 ;; This function uses a non-reentrant model
+   943 ;;
+   944                           
+   945                           	psect	text5
+   946  0002E6                     __ptext5:
+   947                           	opt stack 0
+   948  0002E6                     _sendChar:
+   949                           	opt stack 28
+   950                           
+   951                           ;incstack = 0
+   952                           ;sendChar@character stored from wreg
+   953  0002E6  6E10               	movwf	sendChar@character,c
    954                           
-   955                           ;serialprotocol.c: 108: buffer->buffer[i] = 0;
-   956  0001FC  5016               	movf	receiveData@i,w,c
-   957  0001FE  2410               	addwf	receiveData@buffer,w,c
-   958  000200  6ED9               	movwf	fsr2l,c
-   959  000202  5017               	movf	receiveData@i+1,w,c
-   960  000204  2011               	addwfc	receiveData@buffer+1,w,c
-   961  000206  6EDA               	movwf	fsr2h,c
-   962  000208  0E00               	movlw	0
-   963  00020A  6EDF               	movwf	indf2,c
-   964                           
-   965                           ;serialprotocol.c: 110: return i;
-   966  00020C  C016  F010         	movff	receiveData@i,?_receiveData
-   967  000210  C017  F011         	movff	receiveData@i+1,?_receiveData+1
-   968  000214  0012               	return	
-   969  000216  0012               	return		;funcret
-   970  000218                     __end_of_receiveData:
-   971                           	opt stack 0
-   972                           tblptru	equ	0xFF8
-   973                           wreg	equ	0xFE8
-   974                           indf2	equ	0xFDF
-   975                           fsr2h	equ	0xFDA
-   976                           fsr2l	equ	0xFD9
-   977                           status	equ	0xFD8
-   978                           
-   979 ;; *************** function _pmwSingleModeSetUp *****************
-   980 ;; Defined at:
-   981 ;;		line 3 in file "pwm.c"
-   982 ;; Parameters:    Size  Location     Type
-   983 ;;  polarity        1    wreg     enum E3852
-   984 ;;  valuePR2        1   15[COMRAM] unsigned char 
-   985 ;;  scaler          1   16[COMRAM] enum E3858
-   986 ;;  outputs         1   17[COMRAM] unsigned char 
-   987 ;; Auto vars:     Size  Location     Type
-   988 ;;  polarity        1   18[COMRAM] enum E3852
-   989 ;; Return value:  Size  Location     Type
-   990 ;;		None               void
-   991 ;; Registers used:
-   992 ;;		wreg, status,2, status,0
-   993 ;; Tracked objects:
-   994 ;;		On entry : 0/0
-   995 ;;		On exit  : 0/0
-   996 ;;		Unchanged: 0/0
-   997 ;; Data sizes:     COMRAM   BANK0
-   998 ;;      Params:         3       0
-   999 ;;      Locals:         1       0
-  1000 ;;      Temps:          0       0
-  1001 ;;      Totals:         4       0
-  1002 ;;Total ram usage:        4 bytes
-  1003 ;; Hardware stack levels used:    1
-  1004 ;; Hardware stack levels required when called:    2
-  1005 ;; This function calls:
-  1006 ;;		Nothing
-  1007 ;; This function is called by:
-  1008 ;;		_main
-  1009 ;; This function uses a non-reentrant model
-  1010 ;;
-  1011                           
-  1012                           	psect	text6
-  1013  0002BA                     __ptext6:
-  1014                           	opt stack 0
-  1015  0002BA                     _pmwSingleModeSetUp:
-  1016                           	opt stack 28
-  1017                           
-  1018                           ;incstack = 0
-  1019                           ;pmwSingleModeSetUp@polarity stored from wreg
-  1020  0002BA  6E13               	movwf	pmwSingleModeSetUp@polarity,c
-  1021                           
-  1022                           ;pwm.c: 6: T2CONbits.TMR2ON = 1;
-  1023  0002BC  84CA               	bsf	4042,2,c	;volatile
-  1024                           
-  1025                           ;pwm.c: 8: switch (scaler) {
-  1026  0002BE  D009               	goto	l991
-  1027  0002C0                     l985:
-  1028                           
-  1029                           ;pwm.c: 10: T2CONbits.T2CKPS = 0x00;
-  1030  0002C0  0EFC               	movlw	-4
-  1031  0002C2  16CA               	andwf	4042,f,c	;volatile
-  1032                           
-  1033                           ;pwm.c: 11: break;
-  1034  0002C4  D011               	goto	l993
-  1035                           
-  1036                           ;pwm.c: 12: case TMRP_4:
-  1037  0002C6  D000               	goto	l989
-  1038  0002C8                     l989:
+   955                           ;serialprotocol.c: 62: while(!TXSTAbits.TRMT);
+   956  0002E8  D000               	goto	l100
+   957  0002EA                     l100:
+   958  0002EA  A2AC               	btfss	4012,1,c	;volatile
+   959  0002EC  D7FE               	goto	l100
+   960                           
+   961                           ;serialprotocol.c: 63: TXREG = character;
+   962  0002EE  C010  FFAD         	movff	sendChar@character,4013	;volatile
+   963  0002F2  0012               	return		;funcret
+   964  0002F4                     __end_of_sendChar:
+   965                           	opt stack 0
+   966                           tblptru	equ	0xFF8
+   967                           prodh	equ	0xFF4
+   968                           prodl	equ	0xFF3
+   969                           postinc0	equ	0xFEE
+   970                           wreg	equ	0xFE8
+   971                           plusw1	equ	0xFE3
+   972                           indf2	equ	0xFDF
+   973                           postinc2	equ	0xFDE
+   974                           postdec2	equ	0xFDD
+   975                           plusw2	equ	0xFDB
+   976                           fsr2h	equ	0xFDA
+   977                           fsr2l	equ	0xFD9
+   978                           status	equ	0xFD8
+   979                           
+   980 ;; *************** function _com_link *****************
+   981 ;; Defined at:
+   982 ;;		line 105 in file "main.c"
+   983 ;; Parameters:    Size  Location     Type
+   984 ;;		None
+   985 ;; Auto vars:     Size  Location     Type
+   986 ;;		None
+   987 ;; Return value:  Size  Location     Type
+   988 ;;		None               void
+   989 ;; Registers used:
+   990 ;;		wreg, status,2, cstack
+   991 ;; Tracked objects:
+   992 ;;		On entry : 0/0
+   993 ;;		On exit  : 0/0
+   994 ;;		Unchanged: 0/0
+   995 ;; Data sizes:     COMRAM   BANK0
+   996 ;;      Params:         0       0
+   997 ;;      Locals:         0       0
+   998 ;;      Temps:         14       0
+   999 ;;      Totals:        14       0
+  1000 ;;Total ram usage:       14 bytes
+  1001 ;; Hardware stack levels used:    1
+  1002 ;; Hardware stack levels required when called:    1
+  1003 ;; This function calls:
+  1004 ;;		i2_sendChar
+  1005 ;; This function is called by:
+  1006 ;;		Interrupt level 2
+  1007 ;; This function uses a non-reentrant model
+  1008 ;;
+  1009                           
+  1010                           	psect	intcode
+  1011  000008                     __pintcode:
+  1012                           	opt stack 0
+  1013  000008                     _com_link:
+  1014                           	opt stack 27
+  1015                           
+  1016                           ;incstack = 0
+  1017  000008  CFFA F002          	movff	pclath,??_com_link
+  1018  00000C  CFFB F003          	movff	pclatu,??_com_link+1
+  1019  000010  CFE9 F004          	movff	fsr0l,??_com_link+2
+  1020  000014  CFEA F005          	movff	fsr0h,??_com_link+3
+  1021  000018  CFE1 F006          	movff	fsr1l,??_com_link+4
+  1022  00001C  CFE2 F007          	movff	fsr1h,??_com_link+5
+  1023  000020  CFD9 F008          	movff	fsr2l,??_com_link+6
+  1024  000024  CFDA F009          	movff	fsr2h,??_com_link+7
+  1025  000028  CFF3 F00A          	movff	prodl,??_com_link+8
+  1026  00002C  CFF4 F00B          	movff	prodh,??_com_link+9
+  1027  000030  CFF6 F00C          	movff	tblptrl,??_com_link+10
+  1028  000034  CFF7 F00D          	movff	tblptrh,??_com_link+11
+  1029  000038  CFF8 F00E          	movff	tblptru,??_com_link+12
+  1030  00003C  CFF5 F00F          	movff	tablat,??_com_link+13
+  1031                           
+  1032                           ;main.c: 107: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
+  1033  000040  B4F2               	btfsc	intcon,2,c	;volatile
+  1034  000042  AAF2               	btfss	intcon,5,c	;volatile
+  1035  000044  D00E               	goto	i2l29
+  1036                           
+  1037                           ;main.c: 108: TMR0H = 65340 >> 8;
+  1038  000046  68D7               	setf	4055,c	;volatile
   1039                           
-  1040                           ;pwm.c: 16: T2CONbits.T2CKPS = 0x11;
-  1041  0002C8  50CA               	movf	4042,w,c	;volatile
-  1042  0002CA  0BFC               	andlw	-4
-  1043  0002CC  0901               	iorlw	1
-  1044  0002CE  6ECA               	movwf	4042,c	;volatile
-  1045                           
-  1046                           ;pwm.c: 17: }
-  1047  0002D0  D00B               	goto	l993
-  1048  0002D2                     l991:
-  1049  0002D2  5011               	movf	pmwSingleModeSetUp@scaler,w,c
+  1040                           ;main.c: 109: TMR0L = 65340;
+  1041  000048  0E3C               	movlw	60
+  1042  00004A  6ED6               	movwf	4054,c	;volatile
+  1043                           
+  1044                           ;main.c: 110: INTCONbits.TMR0IF = 0;
+  1045  00004C  94F2               	bcf	intcon,2,c	;volatile
+  1046                           
+  1047                           ;main.c: 111: sendChar(0x55);
+  1048  00004E  0E55               	movlw	85
+  1049  000050  EC7A  F001         	call	i2_sendChar
   1050                           
-  1051                           ; Switch size 1, requested type "space"
-  1052                           ; Number of cases is 3, Range of values is 0 to 2
-  1053                           ; switch strategies available:
-  1054                           ; Name         Instructions Cycles
-  1055                           ; simple_byte           10     6 (average)
-  1056                           ;	Chosen strategy is simple_byte
-  1057  0002D4  0A00               	xorlw	0	; case 0
-  1058  0002D6  B4D8               	btfsc	status,2,c
-  1059  0002D8  D7F3               	goto	l985
-  1060  0002DA  0A01               	xorlw	1	; case 1
-  1061  0002DC  B4D8               	btfsc	status,2,c
-  1062  0002DE  D7F4               	goto	l989
-  1063  0002E0  0A03               	xorlw	3	; case 2
-  1064  0002E2  B4D8               	btfsc	status,2,c
-  1065  0002E4  D7F1               	goto	l989
-  1066  0002E6  D000               	goto	l993
-  1067  0002E8                     l993:
-  1068                           
-  1069                           ;pwm.c: 19: CCP1CONbits.P1M = 0x00;
-  1070  0002E8  0E3F               	movlw	-193
-  1071  0002EA  16BD               	andwf	4029,f,c	;volatile
-  1072                           
-  1073                           ;pwm.c: 21: switch (polarity) {
-  1074  0002EC  D012               	goto	l1001
-  1075  0002EE                     l995:
-  1076                           
-  1077                           ;pwm.c: 23: CCP1CONbits.CCP1M = 0b1100;
-  1078  0002EE  50BD               	movf	4029,w,c	;volatile
-  1079  0002F0  0BF0               	andlw	-16
-  1080  0002F2  090C               	iorlw	12
-  1081  0002F4  D007               	goto	L4
-  1082  0002F6                     l997:
-  1083                           
-  1084                           ;pwm.c: 26: CCP1CONbits.CCP1M = 0b1101;
-  1085  0002F6  50BD               	movf	4029,w,c	;volatile
-  1086  0002F8  0BF0               	andlw	-16
-  1087  0002FA  090D               	iorlw	13
-  1088  0002FC  D003               	goto	L4
-  1089  0002FE                     l999:
-  1090                           
-  1091                           ;pwm.c: 29: CCP1CONbits.CCP1M = 0b1110;
-  1092  0002FE  50BD               	movf	4029,w,c	;volatile
-  1093  000300  0BF0               	andlw	-16
-  1094  000302  090E               	iorlw	14
-  1095  000304                     L4:
-  1096  000304  6EBD               	movwf	4029,c	;volatile
-  1097                           
-  1098                           ;pwm.c: 30: break;
-  1099  000306  D012               	goto	l158
-  1100  000308                     l161:
-  1101                           
-  1102                           ;pwm.c: 32: CCP1CONbits.CCP1M = 0b1111;
-  1103  000308  80BD               	bsf	4029,0,c	;volatile
-  1104  00030A  82BD               	bsf	4029,1,c	;volatile
-  1105  00030C  84BD               	bsf	4029,2,c	;volatile
-  1106  00030E  86BD               	bsf	4029,3,c	;volatile
-  1107                           
-  1108                           ;pwm.c: 33: }
-  1109  000310  D00D               	goto	l158
-  1110  000312                     l1001:
-  1111  000312  5013               	movf	pmwSingleModeSetUp@polarity,w,c
-  1112                           
-  1113                           ; Switch size 1, requested type "space"
-  1114                           ; Number of cases is 4, Range of values is 0 to 3
-  1115                           ; switch strategies available:
-  1116                           ; Name         Instructions Cycles
-  1117                           ; simple_byte           13     7 (average)
-  1118                           ;	Chosen strategy is simple_byte
-  1119  000314  0A00               	xorlw	0	; case 0
-  1120  000316  B4D8               	btfsc	status,2,c
-  1121  000318  D7EA               	goto	l995
-  1122  00031A  0A01               	xorlw	1	; case 1
-  1123  00031C  B4D8               	btfsc	status,2,c
-  1124  00031E  D7EB               	goto	l997
-  1125  000320  0A03               	xorlw	3	; case 2
-  1126  000322  B4D8               	btfsc	status,2,c
-  1127  000324  D7EC               	goto	l999
-  1128  000326  0A01               	xorlw	1	; case 3
-  1129  000328  B4D8               	btfsc	status,2,c
-  1130  00032A  D7EE               	goto	l161
-  1131  00032C                     l158:
-  1132                           
-  1133                           ;pwm.c: 35: PSTRCONbits.STRSYNC = 1;
-  1134  00032C  88B9               	bsf	4025,4,c	;volatile
+  1051                           ;main.c: 112: sendChar(0xDD);
+  1052  000054  0EDD               	movlw	221
+  1053  000056  EC7A  F001         	call	i2_sendChar
+  1054                           
+  1055                           ;main.c: 113: sendChar(0x00);
+  1056  00005A  0E00               	movlw	0
+  1057  00005C  EC7A  F001         	call	i2_sendChar
+  1058  000060  D000               	goto	i2l29
+  1059  000062                     i2l29:
+  1060  000062  C00F  FFF5         	movff	??_com_link+13,tablat
+  1061  000066  C00E  FFF8         	movff	??_com_link+12,tblptru
+  1062  00006A  C00D  FFF7         	movff	??_com_link+11,tblptrh
+  1063  00006E  C00C  FFF6         	movff	??_com_link+10,tblptrl
+  1064  000072  C00B  FFF4         	movff	??_com_link+9,prodh
+  1065  000076  C00A  FFF3         	movff	??_com_link+8,prodl
+  1066  00007A  C009  FFDA         	movff	??_com_link+7,fsr2h
+  1067  00007E  C008  FFD9         	movff	??_com_link+6,fsr2l
+  1068  000082  C007  FFE2         	movff	??_com_link+5,fsr1h
+  1069  000086  C006  FFE1         	movff	??_com_link+4,fsr1l
+  1070  00008A  C005  FFEA         	movff	??_com_link+3,fsr0h
+  1071  00008E  C004  FFE9         	movff	??_com_link+2,fsr0l
+  1072  000092  C003  FFFB         	movff	??_com_link+1,pclatu
+  1073  000096  C002  FFFA         	movff	??_com_link,pclath
+  1074  00009A  0011               	retfie		f
+  1075  00009C                     __end_of_com_link:
+  1076                           	opt stack 0
+  1077                           pclatu	equ	0xFFB
+  1078                           pclath	equ	0xFFA
+  1079                           tblptru	equ	0xFF8
+  1080                           tblptrh	equ	0xFF7
+  1081                           tblptrl	equ	0xFF6
+  1082                           tablat	equ	0xFF5
+  1083                           prodh	equ	0xFF4
+  1084                           prodl	equ	0xFF3
+  1085                           intcon	equ	0xFF2
+  1086                           postinc0	equ	0xFEE
+  1087                           fsr0h	equ	0xFEA
+  1088                           fsr0l	equ	0xFE9
+  1089                           wreg	equ	0xFE8
+  1090                           plusw1	equ	0xFE3
+  1091                           fsr1h	equ	0xFE2
+  1092                           fsr1l	equ	0xFE1
+  1093                           indf2	equ	0xFDF
+  1094                           postinc2	equ	0xFDE
+  1095                           postdec2	equ	0xFDD
+  1096                           plusw2	equ	0xFDB
+  1097                           fsr2h	equ	0xFDA
+  1098                           fsr2l	equ	0xFD9
+  1099                           status	equ	0xFD8
+  1100                           
+  1101 ;; *************** function i2_sendChar *****************
+  1102 ;; Defined at:
+  1103 ;;		line 60 in file "serialprotocol.c"
+  1104 ;; Parameters:    Size  Location     Type
+  1105 ;;  character       1    wreg     unsigned char 
+  1106 ;; Auto vars:     Size  Location     Type
+  1107 ;;  character       1    0[COMRAM] unsigned char 
+  1108 ;; Return value:  Size  Location     Type
+  1109 ;;		None               void
+  1110 ;; Registers used:
+  1111 ;;		wreg
+  1112 ;; Tracked objects:
+  1113 ;;		On entry : 0/0
+  1114 ;;		On exit  : 0/0
+  1115 ;;		Unchanged: 0/0
+  1116 ;; Data sizes:     COMRAM   BANK0
+  1117 ;;      Params:         0       0
+  1118 ;;      Locals:         1       0
+  1119 ;;      Temps:          0       0
+  1120 ;;      Totals:         1       0
+  1121 ;;Total ram usage:        1 bytes
+  1122 ;; Hardware stack levels used:    1
+  1123 ;; This function calls:
+  1124 ;;		Nothing
+  1125 ;; This function is called by:
+  1126 ;;		_com_link
+  1127 ;; This function uses a non-reentrant model
+  1128 ;;
+  1129                           
+  1130                           	psect	text7
+  1131  0002F4                     __ptext7:
+  1132                           	opt stack 0
+  1133  0002F4                     i2_sendChar:
+  1134                           	opt stack 27
   1135                           
-  1136                           ;pwm.c: 37: if (outputs & 0x01) {
-  1137  00032E  A012               	btfss	pmwSingleModeSetUp@outputs,0,c
-  1138  000330  D002               	goto	l162
+  1136                           ;incstack = 0
+  1137                           ;i2sendChar@character stored from wreg
+  1138  0002F4  6E01               	movwf	i2sendChar@character,c
   1139                           
-  1140                           ;pwm.c: 38: LATCbits.LATC5 = 0;
-  1141  000332  9A8B               	bcf	3979,5,c	;volatile
-  1142                           
-  1143                           ;pwm.c: 39: TRISCbits.RC5 = 0;
-  1144  000334  9A94               	bcf	3988,5,c	;volatile
-  1145  000336                     l162:
-  1146                           
-  1147                           ;pwm.c: 40: }
-  1148                           ;pwm.c: 41: if (outputs & 0x02) {
-  1149  000336  A212               	btfss	pmwSingleModeSetUp@outputs,1,c
-  1150  000338  D002               	goto	l163
-  1151                           
-  1152                           ;pwm.c: 42: LATCbits.LATC4 = 0;
-  1153  00033A  988B               	bcf	3979,4,c	;volatile
-  1154                           
-  1155                           ;pwm.c: 43: TRISCbits.RC4 = 0;
-  1156  00033C  9894               	bcf	3988,4,c	;volatile
-  1157  00033E                     l163:
-  1158                           
-  1159                           ;pwm.c: 44: }
-  1160                           ;pwm.c: 45: if (outputs & 0x04) {
-  1161  00033E  A412               	btfss	pmwSingleModeSetUp@outputs,2,c
-  1162  000340  D002               	goto	l164
-  1163                           
-  1164                           ;pwm.c: 46: LATCbits.LATC3 = 0;
-  1165  000342  968B               	bcf	3979,3,c	;volatile
-  1166                           
-  1167                           ;pwm.c: 47: TRISCbits.RC3 = 0;
-  1168  000344  9694               	bcf	3988,3,c	;volatile
-  1169  000346                     l164:
-  1170                           
-  1171                           ;pwm.c: 48: }
-  1172                           ;pwm.c: 49: if (outputs & 0x08) {
-  1173  000346  A612               	btfss	pmwSingleModeSetUp@outputs,3,c
-  1174  000348  D002               	goto	l165
-  1175                           
-  1176                           ;pwm.c: 50: LATCbits.LATC2 = 0;
-  1177  00034A  948B               	bcf	3979,2,c	;volatile
-  1178                           
-  1179                           ;pwm.c: 51: TRISCbits.RC2 = 0;
-  1180  00034C  9494               	bcf	3988,2,c	;volatile
-  1181  00034E                     l165:
-  1182                           
-  1183                           ;pwm.c: 52: }
-  1184                           ;pwm.c: 54: PR2 = valuePR2;
-  1185  00034E  C010  FFCB         	movff	pmwSingleModeSetUp@valuePR2,4043	;volatile
-  1186  000352  0012               	return		;funcret
-  1187  000354                     __end_of_pmwSingleModeSetUp:
-  1188                           	opt stack 0
-  1189                           tblptru	equ	0xFF8
-  1190                           wreg	equ	0xFE8
-  1191                           indf2	equ	0xFDF
-  1192                           fsr2h	equ	0xFDA
-  1193                           fsr2l	equ	0xFD9
-  1194                           status	equ	0xFD8
-  1195                           
-  1196 ;; *************** function _com_link *****************
-  1197 ;; Defined at:
-  1198 ;;		line 89 in file "main.c"
-  1199 ;; Parameters:    Size  Location     Type
-  1200 ;;		None
-  1201 ;; Auto vars:     Size  Location     Type
-  1202 ;;		None
-  1203 ;; Return value:  Size  Location     Type
-  1204 ;;		None               void
-  1205 ;; Registers used:
-  1206 ;;		wreg, status,2, cstack
-  1207 ;; Tracked objects:
-  1208 ;;		On entry : 0/0
-  1209 ;;		On exit  : 0/0
-  1210 ;;		Unchanged: 0/0
-  1211 ;; Data sizes:     COMRAM   BANK0
-  1212 ;;      Params:         0       0
-  1213 ;;      Locals:         0       0
-  1214 ;;      Temps:         14       0
-  1215 ;;      Totals:        14       0
-  1216 ;;Total ram usage:       14 bytes
-  1217 ;; Hardware stack levels used:    1
-  1218 ;; Hardware stack levels required when called:    1
-  1219 ;; This function calls:
-  1220 ;;		_sendChar
-  1221 ;; This function is called by:
-  1222 ;;		Interrupt level 2
-  1223 ;; This function uses a non-reentrant model
-  1224 ;;
-  1225                           
-  1226                           	psect	intcode
-  1227  000008                     __pintcode:
-  1228                           	opt stack 0
-  1229  000008                     _com_link:
-  1230                           	opt stack 27
-  1231                           
-  1232                           ;incstack = 0
-  1233  000008  CFFA F002          	movff	pclath,??_com_link
-  1234  00000C  CFFB F003          	movff	pclatu,??_com_link+1
-  1235  000010  CFE9 F004          	movff	fsr0l,??_com_link+2
-  1236  000014  CFEA F005          	movff	fsr0h,??_com_link+3
-  1237  000018  CFE1 F006          	movff	fsr1l,??_com_link+4
-  1238  00001C  CFE2 F007          	movff	fsr1h,??_com_link+5
-  1239  000020  CFD9 F008          	movff	fsr2l,??_com_link+6
-  1240  000024  CFDA F009          	movff	fsr2h,??_com_link+7
-  1241  000028  CFF3 F00A          	movff	prodl,??_com_link+8
-  1242  00002C  CFF4 F00B          	movff	prodh,??_com_link+9
-  1243  000030  CFF6 F00C          	movff	tblptrl,??_com_link+10
-  1244  000034  CFF7 F00D          	movff	tblptrh,??_com_link+11
-  1245  000038  CFF8 F00E          	movff	tblptru,??_com_link+12
-  1246  00003C  CFF5 F00F          	movff	tablat,??_com_link+13
-  1247                           
-  1248                           ;main.c: 91: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-  1249  000040  B4F2               	btfsc	intcon,2,c	;volatile
-  1250  000042  AAF2               	btfss	intcon,5,c	;volatile
-  1251  000044  D00E               	goto	i2l36
-  1252                           
-  1253                           ;main.c: 92: TMR0H = 65340 >> 8;
-  1254  000046  68D7               	setf	4055,c	;volatile
-  1255                           
-  1256                           ;main.c: 93: TMR0L = 65340;
-  1257  000048  0E3C               	movlw	60
-  1258  00004A  6ED6               	movwf	4054,c	;volatile
-  1259                           
-  1260                           ;main.c: 94: INTCONbits.TMR0IF = 0;
-  1261  00004C  94F2               	bcf	intcon,2,c	;volatile
-  1262                           
-  1263                           ;main.c: 95: sendChar(0x55);
-  1264  00004E  0E55               	movlw	85
-  1265  000050  EC0E  F002         	call	_sendChar
-  1266                           
-  1267                           ;main.c: 96: sendChar(0xDD);
-  1268  000054  0EDD               	movlw	221
-  1269  000056  EC0E  F002         	call	_sendChar
-  1270                           
-  1271                           ;main.c: 97: sendChar(0x00);
-  1272  00005A  0E00               	movlw	0
-  1273  00005C  EC0E  F002         	call	_sendChar
-  1274  000060  D000               	goto	i2l36
-  1275  000062                     i2l36:
-  1276  000062  C00F  FFF5         	movff	??_com_link+13,tablat
-  1277  000066  C00E  FFF8         	movff	??_com_link+12,tblptru
-  1278  00006A  C00D  FFF7         	movff	??_com_link+11,tblptrh
-  1279  00006E  C00C  FFF6         	movff	??_com_link+10,tblptrl
-  1280  000072  C00B  FFF4         	movff	??_com_link+9,prodh
-  1281  000076  C00A  FFF3         	movff	??_com_link+8,prodl
-  1282  00007A  C009  FFDA         	movff	??_com_link+7,fsr2h
-  1283  00007E  C008  FFD9         	movff	??_com_link+6,fsr2l
-  1284  000082  C007  FFE2         	movff	??_com_link+5,fsr1h
-  1285  000086  C006  FFE1         	movff	??_com_link+4,fsr1l
-  1286  00008A  C005  FFEA         	movff	??_com_link+3,fsr0h
-  1287  00008E  C004  FFE9         	movff	??_com_link+2,fsr0l
-  1288  000092  C003  FFFB         	movff	??_com_link+1,pclatu
-  1289  000096  C002  FFFA         	movff	??_com_link,pclath
-  1290  00009A  0011               	retfie		f
-  1291  00009C                     __end_of_com_link:
-  1292                           	opt stack 0
-  1293                           pclatu	equ	0xFFB
-  1294                           pclath	equ	0xFFA
-  1295                           tblptru	equ	0xFF8
-  1296                           tblptrh	equ	0xFF7
-  1297                           tblptrl	equ	0xFF6
-  1298                           tablat	equ	0xFF5
-  1299                           prodh	equ	0xFF4
-  1300                           prodl	equ	0xFF3
-  1301                           intcon	equ	0xFF2
-  1302                           fsr0h	equ	0xFEA
-  1303                           fsr0l	equ	0xFE9
-  1304                           wreg	equ	0xFE8
-  1305                           fsr1h	equ	0xFE2
-  1306                           fsr1l	equ	0xFE1
-  1307                           indf2	equ	0xFDF
-  1308                           fsr2h	equ	0xFDA
-  1309                           fsr2l	equ	0xFD9
-  1310                           status	equ	0xFD8
-  1311                           
-  1312 ;; *************** function _sendChar *****************
-  1313 ;; Defined at:
-  1314 ;;		line 60 in file "serialprotocol.c"
-  1315 ;; Parameters:    Size  Location     Type
-  1316 ;;  character       1    wreg     unsigned char 
-  1317 ;; Auto vars:     Size  Location     Type
-  1318 ;;  character       1    0[COMRAM] unsigned char 
-  1319 ;; Return value:  Size  Location     Type
-  1320 ;;		None               void
-  1321 ;; Registers used:
-  1322 ;;		wreg
-  1323 ;; Tracked objects:
-  1324 ;;		On entry : 0/0
-  1325 ;;		On exit  : 0/0
-  1326 ;;		Unchanged: 0/0
-  1327 ;; Data sizes:     COMRAM   BANK0
-  1328 ;;      Params:         0       0
-  1329 ;;      Locals:         1       0
-  1330 ;;      Temps:          0       0
-  1331 ;;      Totals:         1       0
-  1332 ;;Total ram usage:        1 bytes
-  1333 ;; Hardware stack levels used:    1
-  1334 ;; This function calls:
-  1335 ;;		Nothing
-  1336 ;; This function is called by:
-  1337 ;;		_com_link
-  1338 ;;		_sendData
-  1339 ;; This function uses a non-reentrant model
-  1340 ;;
-  1341                           
-  1342                           	psect	text8
-  1343  00041C                     __ptext8:
-  1344                           	opt stack 0
-  1345  00041C                     _sendChar:
-  1346                           	opt stack 27
-  1347                           
-  1348                           ;incstack = 0
-  1349                           ;sendChar@character stored from wreg
-  1350  00041C  6E01               	movwf	sendChar@character,c
-  1351                           
-  1352                           ;serialprotocol.c: 62: while(!TXSTAbits.TRMT);
-  1353  00041E  D000               	goto	i2l105
-  1354  000420                     i2l105:
-  1355  000420  A2AC               	btfss	4012,1,c	;volatile
-  1356  000422  D7FE               	goto	i2l105
-  1357                           
-  1358                           ;serialprotocol.c: 63: TXREG = character;
-  1359  000424  C001  FFAD         	movff	sendChar@character,4013	;volatile
-  1360  000428  0012               	return		;funcret
-  1361  00042A                     __end_of_sendChar:
-  1362                           	opt stack 0
-  1363  0000                     pclatu	equ	0xFFB
-  1364                           pclath	equ	0xFFA
-  1365                           tblptru	equ	0xFF8
-  1366                           tblptrh	equ	0xFF7
-  1367                           tblptrl	equ	0xFF6
-  1368                           tablat	equ	0xFF5
-  1369                           prodh	equ	0xFF4
-  1370                           prodl	equ	0xFF3
-  1371                           intcon	equ	0xFF2
-  1372                           fsr0h	equ	0xFEA
-  1373                           fsr0l	equ	0xFE9
-  1374                           wreg	equ	0xFE8
-  1375                           fsr1h	equ	0xFE2
-  1376                           fsr1l	equ	0xFE1
-  1377                           indf2	equ	0xFDF
-  1378                           fsr2h	equ	0xFDA
-  1379                           fsr2l	equ	0xFD9
-  1380                           status	equ	0xFD8
-  1381                           pclatu	equ	0xFFB
-  1382                           pclath	equ	0xFFA
-  1383                           tblptru	equ	0xFF8
-  1384                           tblptrh	equ	0xFF7
-  1385                           tblptrl	equ	0xFF6
-  1386                           tablat	equ	0xFF5
-  1387                           prodh	equ	0xFF4
-  1388                           prodl	equ	0xFF3
-  1389                           intcon	equ	0xFF2
-  1390                           fsr0h	equ	0xFEA
-  1391                           fsr0l	equ	0xFE9
-  1392                           wreg	equ	0xFE8
-  1393                           fsr1h	equ	0xFE2
-  1394                           fsr1l	equ	0xFE1
-  1395                           indf2	equ	0xFDF
-  1396                           fsr2h	equ	0xFDA
-  1397                           fsr2l	equ	0xFD9
-  1398                           status	equ	0xFD8
-  1399                           
-  1400                           	psect	rparam
-  1401  0000                     pclatu	equ	0xFFB
-  1402                           pclath	equ	0xFFA
-  1403                           tblptru	equ	0xFF8
-  1404                           tblptrh	equ	0xFF7
-  1405                           tblptrl	equ	0xFF6
-  1406                           tablat	equ	0xFF5
-  1407                           prodh	equ	0xFF4
-  1408                           prodl	equ	0xFF3
-  1409                           intcon	equ	0xFF2
-  1410                           fsr0h	equ	0xFEA
-  1411                           fsr0l	equ	0xFE9
-  1412                           wreg	equ	0xFE8
-  1413                           fsr1h	equ	0xFE2
-  1414                           fsr1l	equ	0xFE1
-  1415                           indf2	equ	0xFDF
-  1416                           fsr2h	equ	0xFDA
-  1417                           fsr2l	equ	0xFD9
-  1418                           status	equ	0xFD8
+  1140                           ;serialprotocol.c: 62: while(!TXSTAbits.TRMT);
+  1141  0002F6  D000               	goto	i2l100
+  1142  0002F8                     i2l100:
+  1143  0002F8  A2AC               	btfss	4012,1,c	;volatile
+  1144  0002FA  D7FE               	goto	i2l100
+  1145                           
+  1146                           ;serialprotocol.c: 63: TXREG = character;
+  1147  0002FC  C001  FFAD         	movff	i2sendChar@character,4013	;volatile
+  1148  000300  0012               	return		;funcret
+  1149  000302                     __end_ofi2_sendChar:
+  1150                           	opt stack 0
+  1151  0000                     pclatu	equ	0xFFB
+  1152                           pclath	equ	0xFFA
+  1153                           tblptru	equ	0xFF8
+  1154                           tblptrh	equ	0xFF7
+  1155                           tblptrl	equ	0xFF6
+  1156                           tablat	equ	0xFF5
+  1157                           prodh	equ	0xFF4
+  1158                           prodl	equ	0xFF3
+  1159                           intcon	equ	0xFF2
+  1160                           postinc0	equ	0xFEE
+  1161                           fsr0h	equ	0xFEA
+  1162                           fsr0l	equ	0xFE9
+  1163                           wreg	equ	0xFE8
+  1164                           plusw1	equ	0xFE3
+  1165                           fsr1h	equ	0xFE2
+  1166                           fsr1l	equ	0xFE1
+  1167                           indf2	equ	0xFDF
+  1168                           postinc2	equ	0xFDE
+  1169                           postdec2	equ	0xFDD
+  1170                           plusw2	equ	0xFDB
+  1171                           fsr2h	equ	0xFDA
+  1172                           fsr2l	equ	0xFD9
+  1173                           status	equ	0xFD8
+  1174                           pclatu	equ	0xFFB
+  1175                           pclath	equ	0xFFA
+  1176                           tblptru	equ	0xFF8
+  1177                           tblptrh	equ	0xFF7
+  1178                           tblptrl	equ	0xFF6
+  1179                           tablat	equ	0xFF5
+  1180                           prodh	equ	0xFF4
+  1181                           prodl	equ	0xFF3
+  1182                           intcon	equ	0xFF2
+  1183                           postinc0	equ	0xFEE
+  1184                           fsr0h	equ	0xFEA
+  1185                           fsr0l	equ	0xFE9
+  1186                           wreg	equ	0xFE8
+  1187                           plusw1	equ	0xFE3
+  1188                           fsr1h	equ	0xFE2
+  1189                           fsr1l	equ	0xFE1
+  1190                           indf2	equ	0xFDF
+  1191                           postinc2	equ	0xFDE
+  1192                           postdec2	equ	0xFDD
+  1193                           plusw2	equ	0xFDB
+  1194                           fsr2h	equ	0xFDA
+  1195                           fsr2l	equ	0xFD9
+  1196                           status	equ	0xFD8
+  1197                           
+  1198                           	psect	rparam
+  1199  0000                     pclatu	equ	0xFFB
+  1200                           pclath	equ	0xFFA
+  1201                           tblptru	equ	0xFF8
+  1202                           tblptrh	equ	0xFF7
+  1203                           tblptrl	equ	0xFF6
+  1204                           tablat	equ	0xFF5
+  1205                           prodh	equ	0xFF4
+  1206                           prodl	equ	0xFF3
+  1207                           intcon	equ	0xFF2
+  1208                           postinc0	equ	0xFEE
+  1209                           fsr0h	equ	0xFEA
+  1210                           fsr0l	equ	0xFE9
+  1211                           wreg	equ	0xFE8
+  1212                           plusw1	equ	0xFE3
+  1213                           fsr1h	equ	0xFE2
+  1214                           fsr1l	equ	0xFE1
+  1215                           indf2	equ	0xFDF
+  1216                           postinc2	equ	0xFDE
+  1217                           postdec2	equ	0xFDD
+  1218                           plusw2	equ	0xFDB
+  1219                           fsr2h	equ	0xFDA
+  1220                           fsr2l	equ	0xFD9
+  1221                           status	equ	0xFD8
 
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        0
-    BSS         2
+    BSS         34
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95     48      50
-    BANK0           160      0       0
+    COMRAM           95     64      66
+    BANK0           160      0      32
 
 Pointer List with Targets:
 
-    receiveData@buffer	PTR struct receiveBuffer size(2) Largest target is 17
-		 -> main@data(COMRAM[17]), 
+    slave_receive_data@buffer	PTR struct spi_receive_buffer size(2) Largest target is 32
+		 -> main@my_data(COMRAM[32]), 
+
+    reassemble_packet@buffer	PTR struct spi_receive_buffer size(2) Largest target is 32
+		 -> main@my_data(COMRAM[32]), 
 
 
 Critical Paths under _main in COMRAM
 
-    _main->_serialSetUp
-    _serialSetUp->_setTimer3
+    _main->_slave_receive_data
+    _slave_receive_data->_reassemble_packet
 
 Critical Paths under _com_link in COMRAM
 
-    _com_link->_sendChar
+    _com_link->i2_sendChar
 
 Critical Paths under _main in BANK0
 
@@ -1465,42 +1271,38 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                21    21      0    1648
-                                             27 COMRAM    21    21      0
-                 _pmwSingleModeSetUp
-                        _receiveData
-                       _selectOutput
+ (0) _main                                                36    36      0    1523
+                                             28 COMRAM    36    36      0
+                           _sendChar
                         _serialSetUp
-                      _setPulseWidth
+                            _set_spi
+                 _slave_receive_data
  ---------------------------------------------------------------------------------
- (1) _setPulseWidth                                        4     2      2     172
-                                             15 COMRAM     4     2      2
+ (1) _slave_receive_data                                   5     3      2     769
+                                             23 COMRAM     5     3      2
+                  _reassemble_packet
  ---------------------------------------------------------------------------------
- (1) _serialSetUp                                          8     5      3     372
-                                             19 COMRAM     8     5      3
-                          _setTimer3
+ (2) _reassemble_packet                                    8     5      3     524
+                                             15 COMRAM     8     5      3
  ---------------------------------------------------------------------------------
- (2) _setTimer3                                            4     2      2     108
-                                             15 COMRAM     4     2      2
- ---------------------------------------------------------------------------------
- (1) _selectOutput                                         3     2      1     238
-                                             15 COMRAM     3     2      1
- ---------------------------------------------------------------------------------
- (1) _receiveData                                          8     6      2     312
-                                             15 COMRAM     8     6      2
- ---------------------------------------------------------------------------------
- (1) _pmwSingleModeSetUp                                   4     1      3     346
+ (1) _set_spi                                              4     1      3     346
                                              15 COMRAM     4     1      3
+ ---------------------------------------------------------------------------------
+ (1) _serialSetUp                                          8     5      3     264
+                                             15 COMRAM     8     5      3
+ ---------------------------------------------------------------------------------
+ (1) _sendChar                                             1     1      0      22
+                                             15 COMRAM     1     1      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 2
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (3) _com_link                                            14    14      0      15
+ (3) _com_link                                            14    14      0      22
                                               1 COMRAM    14    14      0
-                           _sendChar
+                         i2_sendChar
  ---------------------------------------------------------------------------------
- (4) _sendChar                                             1     1      0      15
+ (4) i2_sendChar                                           1     1      0      22
                                               0 COMRAM     1     1      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 4
@@ -1509,101 +1311,95 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _pmwSingleModeSetUp
-   _receiveData
-   _selectOutput
+   _sendChar
    _serialSetUp
-     _setTimer3
-   _setPulseWidth
+   _set_spi
+   _slave_receive_data
+     _reassemble_packet
 
  _com_link (ROOT)
-   _sendChar
+   i2_sendChar
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
 EEDATA             100      0       0       0        0.0%
 BIGRAM              FF      0       0       6        0.0%
 BITBANK0            A0      0       0       3        0.0%
-BANK0               A0      0       0       4        0.0%
+BANK0               A0      0      20       4       20.0%
 BITCOMRAM           5F      0       0       0        0.0%
-COMRAM              5F     30      32       1       52.6%
+COMRAM              5F     40      42       1       69.5%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      32       5        0.0%
-DATA                 0      0      32       7        0.0%
+ABS                  0      0      62       5        0.0%
+DATA                 0      0      62       7        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Tue Jul 21 16:40:10 2015
+Symbol Table                                                                                   Wed Jul 22 21:35:07 2015
 
-        ?_pmwSingleModeSetUp 0010         serialSetUp@brg16_bit 0017                          l122 01E0  
-                        l125 01B2                          l117 0174                          l119 0184  
-                        l161 0308                          l129 01E4                          l162 0336  
-                        l163 033E                          l164 0346                          l165 034E  
-                        l158 032C                          l973 038C                          l965 0370  
-                        l991 02D2                          l975 0396                          l967 037A  
-                        l993 02E8                          l985 02C0                          l995 02EE  
-                        l997 02F6                          l989 02C8                          l999 02FE  
-                        u400 03CE                          _PR2 000FCB                          u600 0264  
-                        u418 03D0                          u620 0282                          u560 022E  
-                        u618 0266                          u580 0248                          u638 0284  
-                        u578 0230                          u598 024A                          u687 00A6  
-               __CFG_BORV$19 000000          serialSetUp@brgh_bit 0014           serialSetUp@spbrg16 0015  
-                        wreg 000FE8                 __CFG_FOSC$HS 000000         ??_pmwSingleModeSetUp 0013  
-       receiveData@character 0013                 __CFG_LVP$OFF 000000                         l1001 0312  
-                       l1031 01CC                         l1023 019E                         l1033 01EC  
-                       l1041 021C                         l1043 0222                         l1045 023C  
-                       l1053 0296                         l1047 0258                         l1049 0276  
-                       l1073 011A                         l1065 00EA                         l1077 012E  
-                       _RCIF 007CF5                         i2l36 0062                         _TMR3 000FB2  
-                       _main 00A0                         fsr0h 000FEA                         fsr1h 000FE2  
-                       fsr0l 000FE9                         fsr2h 000FDA                         fsr1l 000FE1  
-                       indf2 000FDF                         fsr2l 000FD9                         pclat 000FFA  
-                       prodh 000FF4                         prodl 000FF3                         start 009C  
-              __CFG_IESO$OFF 000000                __CFG_MCLRE$ON 000000                 ___param_bank 000010  
-            setTimer3@turnOn 0013                        ?_main 0001                        i2l105 0420  
-                      _RCREG 000FAE               __CFG_BBSIZ$OFF 000000                        _RCSTA 000FAB  
-                      _TMR0H 000FD7                        _TMR0L 000FD6                        _SPBRG 000FAF  
-                      _TXREG 000FAD                        _TXSTA 000FAC               __CFG_FCMEN$OFF 000000  
-                      main@i 001E                        tablat 000FF5                        status 000FD8  
-             __CFG_HFOFST$ON 000000                 ?_receiveData 0010              __initialization 040E  
-               __end_of_main 015C               __CFG_PCLKEN$ON 000000          selectOutput@outputs 0012  
-                     ??_main 001C                __activetblptr 000002               __CFG_PLLEN$OFF 000000  
-          setTimer3@TMR3Pair 0010                       _CCPR1L 000FBE               __CFG_WDTEN$OFF 000000  
-                     _SPBRGH 000FB0        __end_of_setPulseWidth 040E    pmwSingleModeSetUp@outputs 0012  
-               ?_serialSetUp 0014               __CFG_XINST$OFF 000000             __end_of_com_link 009C  
-             __CFG_STVREN$ON 000000             __end_of_sendChar 042A                       tblptrh 000FF7  
-                     tblptrl 000FF6                       tblptru 000FF8                   __accesstop 0060  
-    __end_of__initialization 0412                ___rparam_used 000001               __pcstackCOMRAM 0001  
-   pmwSingleModeSetUp@scaler 0011         __size_of_receiveData 00BC                ?_selectOutput 0010  
-         __size_of_setTimer3 002C                      _BAUDCON 000FB8  __size_of_pmwSingleModeSetUp 009A  
+                _SSPSTATbits 000FC7         serialSetUp@brg16_bit 0013                          l100 02EA  
+                        l201 024E                          l203 0270                          l240 01E2  
+                        l239 01DE                          l199 0260                          _PR2 000FCB  
+                        u615 0232                          u616 0234                          u625 023C  
+                        u721 00C2                          u626 023E                          u665 026E  
+                        u666 0270                 __CFG_BORV$19 000000                          prod 000FF3  
+        serialSetUp@brgh_bit 0010           serialSetUp@spbrg16 0011                          wreg 000FE8  
+               __CFG_FOSC$HS 000000                 __CFG_LVP$OFF 000000                         l1102 0192  
+                       l1120 02AE                         l1112 0292                         l1122 02B8  
+                       l1114 029C                         l1162 01FE                         l1180 00E2  
+                       l1094 0136                         l1184 00F4                         l1188 010E  
+                       _RCIF 007CF5                         i2l29 0062                         _TMR3 000FB2  
+                       _main 00A0                  main@my_data 0021                         fsr0h 000FEA  
+                       fsr1h 000FE2                         fsr0l 000FE9                         fsr2h 000FDA  
+                       fsr1l 000FE1                         indf2 000FDF                         fsr2l 000FD9  
+                       pclat 000FFA                         prodh 000FF4                         prodl 000FF3  
+                       start 009C                   i2_sendChar 02F4                __CFG_IESO$OFF 000000  
+              __CFG_MCLRE$ON 000000                 ___param_bank 000010                        ?_main 0001  
+                      i2l100 02F8                        _RCREG 000FAE               __CFG_BBSIZ$OFF 000000  
+                      _RCSTA 000FAB                        _TMR0H 000FD7                        _TMR0L 000FD6  
+                      _SPBRG 000FAF                        _TXREG 000FAD                        _TXSTA 000FAC  
+             __CFG_FCMEN$OFF 000000                        main@i 0020                        tablat 000FF5  
+            __end_of_set_spi 0276                        plusw1 000FE3                        plusw2 000FDB  
+                      status 000FD8               __CFG_HFOFST$ON 000000              __initialization 02CC  
+               __end_of_main 0130  __size_of_slave_receive_data 0064               __CFG_PCLKEN$ON 000000  
+  slave_receive_data@receive 001A                       ??_main 001D                __activetblptr 000002  
+             __CFG_PLLEN$OFF 000000                       _CCPR1L 000FBE               __CFG_WDTEN$OFF 000000  
+                     _SPBRGH 000FB0                       _SSPBUF 000FC9                  ?i2_sendChar 0001  
+               ?_serialSetUp 0010               __CFG_XINST$OFF 000000             __end_of_com_link 009C  
+            set_spi@polarity 0010               __CFG_STVREN$ON 000000                       clear_0 02D2  
+           __end_of_sendChar 02F4      reassemble_packet@buffer 0010      reassemble_packet@byte_1 0015  
+    reassemble_packet@byte_2 0016                       tblptrh 000FF7                       tblptrl 000FF6  
+                     tblptru 000FF8                    ??_set_spi 0013                   __accesstop 0060  
+    __end_of__initialization 02DC                ___rparam_used 000001               __pcstackCOMRAM 0001  
+         reassemble_packet@i 0017          __size_ofi2_sendChar 000E          slave_receive_data@i 001C  
+      reassemble_packet@size 0012                   __pbssBANK0 0060                      _BAUDCON 000FB8  
                     _PSTRCON 000FB9                    ?_com_link 0001                    ?_sendChar 0001  
             __CFG_PWRTEN$OFF 000000                      __Hparam 0000                      __Lparam 0000  
-             ??_selectOutput 0011         __size_of_serialSetUp 0064                      __pcinit 040E  
-                    __ramtop 0100                      __ptext0 00A0                      __ptext1 03E4  
-                    __ptext2 0354                      __ptext3 03B8                      __ptext4 0218  
-                    __ptext5 015C                      __ptext6 02BA                      __ptext8 041C  
-                  _T2CONbits 000FCA                    _T3CONbits 000FB1                   ??_com_link 0002  
-       end_of_initialization 0412            __end_of_setTimer3 03E4                __Lmediumconst 0000  
-                 ??_sendChar 0001                    _RCSTAbits 000FAB                   _timer3Time 0031  
-            receiveData@size 0014                    _PORTCbits 000F82                    _TRISBbits 000F93  
-                  _TRISCbits 000F94                  _CCP1CONbits 000FBD                    _TXSTAbits 000FAC  
-               receiveData@i 0016       __size_of_setPulseWidth 002A          start_initialization 040E  
-         selectOutput@toggle 0010         __end_of_selectOutput 02BA                  __pbssCOMRAM 0031  
-          __size_of_com_link 0094                ??_receiveData 0012                _setPulseWidth 03E4  
-          __size_of_sendChar 000E                    __pintcode 0008   __end_of_pmwSingleModeSetUp 0354  
-                   _LATBbits 000F8A                     _LATCbits 000F8B               ?_setPulseWidth 0010  
-                  _setTimer3 03B8                ??_serialSetUp 0017                     _PIR2bits 000FA1  
-           __CFG_WDTPS$32768 000000          __end_of_receiveData 0218        __size_of_selectOutput 00A2  
-                 ?_setTimer3 0010                     __Hrparam 0000                     __Lrparam 0000  
-         __CFG_BOREN$SBORDIS 000000                 _selectOutput 0218          __end_of_serialSetUp 03B8  
-                 _ANSELHbits 000F7F                     _com_link 0008              ??_setPulseWidth 0012  
-              __size_of_main 00BC                  _receiveData 015C                     _sendChar 041C  
-                   main@data 0020            receiveData@buffer 0010              _serialSetUp$708 0018  
-            _serialSetUp$709 001A                   _INTCONbits 000FF2                     intlevel2 0000  
-                ??_setTimer3 0012                  _serialSetUp 0354           setPulseWidth@width 0010  
-                _PSTRCONbits 000FB9   pmwSingleModeSetUp@valuePR2 0010   pmwSingleModeSetUp@polarity 0013  
-         _pmwSingleModeSetUp 02BA            sendChar@character 0001  
+           set_spi@selection 0011         __size_of_serialSetUp 0056                      __pcinit 02CC  
+                  _ANSELbits 000F7E                      __ramtop 0100                      __ptext0 00A0  
+                    __ptext1 01B8                      __ptext2 0130                      __ptext3 021C  
+                    __ptext4 0276                      __ptext5 02E6                      __ptext7 02F4  
+                  _T2CONbits 000FCA                    _T3CONbits 000FB1                      _set_spi 021C  
+                 ??_com_link 0002         end_of_initialization 02DC       slave_receive_data@size 001B  
+                set_spi@mode 0013                __Lmediumconst 0000                 ??i2_sendChar 0001  
+                 ??_sendChar 0010   __end_of_slave_receive_data 021C                    _RCSTAbits 000FAB  
+                 _timer3Time 0041                      postdec2 000FDD                      postinc0 000FEE  
+                    postinc2 000FDE                    _PORTCbits 000F82                    _TRISBbits 000F93  
+                  _TRISCbits 000F94           __end_ofi2_sendChar 0302                  _CCP1CONbits 000FBD  
+                  _TXSTAbits 000FAC          start_initialization 02CC                  __pbssCOMRAM 0041  
+          __size_of_com_link 0094            _reassemble_packet 0130            __size_of_sendChar 000E  
+         ?_reassemble_packet 0010                    __pintcode 0008          ??_reassemble_packet 0013  
+        i2sendChar@character 0001                     ?_set_spi 0010    __end_of_reassemble_packet 01B8  
+                   _LATCbits 000F8B                ??_serialSetUp 0013                     _PIR2bits 000FA1  
+           __CFG_WDTPS$32768 000000                    main@F3924 0060           _slave_receive_data 01B8  
+        ?_slave_receive_data 0018     slave_receive_data@buffer 0018                     __Hrparam 0000  
+              set_spi@sample 0012                     __Lrparam 0000           __CFG_BOREN$SBORDIS 000000  
+       ??_slave_receive_data 001A          __end_of_serialSetUp 02CC                   _ANSELHbits 000F7F  
+           __size_of_set_spi 005A                     _com_link 0008   __size_of_reassemble_packet 0088  
+              __size_of_main 0090                     _sendChar 02E6              _serialSetUp$760 0014  
+            _serialSetUp$761 0016                   _INTCONbits 000FF2                     intlevel2 0000  
+                _serialSetUp 0276                  _PSTRCONbits 000FB9                  _SSPCON1bits 000FC6  
+          sendChar@character 0010  

@@ -13,11 +13,13 @@
 /*
  * RTS and CTS uses inverted logic
  */
-#define RTS LATBbits.LATB6
-#define TRIS_RTS TRISBbits.RB6
-#define CTS PORTCbits.RC7
-#define TRIS_CTS TRISCbits.RC7
+#define RTS LATCbits.LATC0
+#define TRIS_RTS TRISCbits.RC0
+#define CTS PORTCbits.RC1
+#define TRIS_CTS TRISCbits.RC1
+#define CTS_AN  ANSELbits.ANS5
 #define TRIS_RX TRISBbits.RB5
+#define RX_AN   ANSELHbits.ANS11
 #define TRIS_TX TRISBbits.RB7
 
 #define MAX_BUFFER_LENGTH 16

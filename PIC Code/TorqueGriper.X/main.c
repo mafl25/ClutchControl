@@ -8,6 +8,7 @@
 #include <xc.h>
 #include "serialprotocol.h"
 #include "pwm.h"
+#include "spi.h"
 
 // CONFIG1H
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
@@ -46,7 +47,7 @@
 void interrupt com_link(void);
 
 int main() {
-    __delay_ms(1);
+    /*__delay_ms(1);
     serialSetUp(BRG16_ON, BRGH_ON, 0x81);
     
     pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, OUT_C | OUT_B);
@@ -61,7 +62,7 @@ int main() {
     INTCONbits.GIE = 1;
     TMR0H = TMR0VAL >> 8;
     TMR0L = TMR0VAL;
-    T0CONbits.TMR0ON = 1;*/
+    T0CONbits.TMR0ON = 1;
     
         
     
@@ -82,7 +83,22 @@ int main() {
                 setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
             }
         }
+    }*/
+    serialSetUp(BRG16_ON, BRGH_ON, 0x81);
+    sendChar('a');
+    struct spi_receive_buffer my_data = {0, 0};
+    
+    set_spi(SM_NSS, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
+    char i = 0;
+    
+    while (1){
+        slave_receive_data(&my_data);
+        for(i = 0; i < my_data.length; i++) {
+            sendChar(my_data.buffer[i]);
+        }
     }
+    
+    
     return (0);
 }
 

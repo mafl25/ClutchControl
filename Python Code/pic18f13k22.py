@@ -22,6 +22,8 @@ class PIC18F13K22:
         self._running = False
         self._online_flag = False
         self.p_size = packet_size
+        self.baud_rates = (2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 460800, 500000, 576000, 921600, 1000000,
+                           1152000, 1500000, 2000000, 2500000, 3000000)
 
         # PWM stuff
         self.pwm_outputs = ("P1A", "P1B", "P1C", "P1D")  # Make this a Dictionary

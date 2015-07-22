@@ -3854,18 +3854,25 @@ void Open_ancomp1(unsigned char config);
 void Close_ancomp2( void );
 void Open_ancomp2(unsigned char config);
 
-# 584 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\spi.h"
-void OpenSPI( unsigned char sync_mode,
-unsigned char bus_mode,
-unsigned char smp_phase );
+# 28 "../TorqueGriperSecondPIC.X\spi.h"
+enum spi_mode {MM_FOSC4, MM_FOSC16, MM_FOSC64, MM_TMR22, SM_SS, SM_NSS};
+enum spi_clk_pol {IDLE_LOW, IDLE_HIGH};
+enum spi_trans_sel {IDLE_ACTIVE, ACTIVE_IDLE};
+enum spi_sampling {MIDDLE, END};
 
-signed char WriteSPI( unsigned char data_out );
+struct spi_receive_buffer
+{
+unsigned char buffer[30];
+int length;
+};
 
-void getsSPI( unsigned char *rdptr, unsigned char length );
-
-void putsSPI( unsigned char *wrptr );
-
-unsigned char ReadSPI( void );
+void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
+enum spi_trans_sel selection, enum spi_sampling sample);
+unsigned char spi_write(unsigned char data);
+unsigned char spi_read(void);
+void send_data_spi(unsigned char *data, char size);
+void master_receive_data(struct spi_receive_buffer *buffer);
+void slave_receive_data(struct spi_receive_buffer *buffer);
 
 # 414 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\can2510.h"
 void CAN2510Initialize(  unsigned int configuration,
