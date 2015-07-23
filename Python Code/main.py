@@ -8,7 +8,7 @@ import sys
 
 def main():
 
-    pic = PIC.PIC18F13K22(15)
+    pic = PIC.PIC18F13K22(6)
     app = gui.WindowGUI(pic=pic)
     app.mainloop()
 

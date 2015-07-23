@@ -3631,9 +3631,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 49: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 110: serialSetUp(1, 1, 0x04);
+[; ;main.c: 110: serialSetUp(1, 1, 0x81);
 "110
-[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 4 `i `ui ]
+[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 129 `i `ui ]
 "111
 [v _byte_1 `uc ~T0 @X0 1 a ]
 "112

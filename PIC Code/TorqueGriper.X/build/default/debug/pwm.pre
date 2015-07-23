@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "pwm.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4738,25 +4738,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 33 "serialprotocol.h"
-typedef char int8_t;
-typedef unsigned char uint8_t;
-
-struct receiveBuffer
-{
-unsigned char buffer[16];
-char length;
-};
-
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16);
-void toggleSerialPort(unsigned char toggle);
-void toggleTransmitter(unsigned char toggle);
-void toggleReceiver(unsigned char toggle);
-void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
-int receiveData(struct receiveBuffer *SBuffer);
-
 # 27 "pwm.h"
 typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
 typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
@@ -4769,93 +4750,84 @@ void selectOutput(unsigned char outputs, unsigned char toggle);
 void pmwHalfBridgeSetUp();
 void pmwFullBridgeSetUp();
 
-
-# 14 "main.c"
-#pragma config FOSC = HS
-#pragma config PLLEN = OFF
-#pragma config PCLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 19
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config HFOFST = ON
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = OFF
-#pragma config XINST = OFF
-
-# 47
-void interrupt com_link(void);
-
-int main() {
-
-# 110
-serialSetUp(1, 1, 0x04);
-unsigned char byte_1;
-unsigned char byte_2;
-unsigned char data[6];
-char length = 0;
-char size;
-char i;
-
-while (1){
-i = 0;
-if (RCIF){
-i = 0;
-byte_1 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xE0){
-size = byte_1 & 0x0F;
-if (size <= 6) {
-sendChar(0x70);
-for (; i < size; i++){
-while (!RCIF);
-byte_1 = RCREG;
-while (!RCIF);
-byte_2 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-sendChar(0x60);
-} else {
-sendChar(0x50);
-break;
-}
-}
-} else {
-sendChar(0x40);
-}
-}
-
-length = i;
-}
-
-if (i)
-sendData(data, length);
-}
-
-
-return (0);
-}
-
-void interrupt com_link(void)
+# 3 "pwm.c"
+void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+unsigned char outputs)
 {
-if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-TMR0H = 65340 >> 8;
-TMR0L = 65340;
-INTCONbits.TMR0IF = 0;
-_delay((unsigned long)((1)*(20000000/4000.0)));
+T2CONbits.TMR2ON = 1;
+
+switch (scaler) {
+case TMRP_1:
+T2CONbits.T2CKPS = 0x00;
+break;
+case TMRP_4:
+T2CONbits.T2CKPS = 0x01;
+break;
+case TMRP_16:
+T2CONbits.T2CKPS = 0x11;
+}
+
+CCP1CONbits.P1M = 0x00;
+
+switch (polarity) {
+case PACH_PBDH:
+CCP1CONbits.CCP1M = 0b1100;
+break;
+case PACH_PBDL:
+CCP1CONbits.CCP1M = 0b1101;
+break;
+case PACL_PBDH:
+CCP1CONbits.CCP1M = 0b1110;
+break;
+case PACL_PBDL:
+CCP1CONbits.CCP1M = 0b1111;
+}
+
+PSTRCONbits.STRSYNC = 1;
+
+if (outputs & 0x01) {
+LATCbits.LATC5 = 0;
+TRISCbits.RC5 = 0;
+}
+if (outputs & 0x02) {
+LATCbits.LATC4 = 0;
+TRISCbits.RC4 = 0;
+}
+if (outputs & 0x04) {
+LATCbits.LATC3 = 0;
+TRISCbits.RC3 = 0;
+}
+if (outputs & 0x08) {
+LATCbits.LATC2 = 0;
+TRISCbits.RC2 = 0;
+}
+
+PR2 = valuePR2;
+}
+
+void setPulseWidth(unsigned int width)
+{
+CCP1CONbits.DC1B = width;
+CCPR1L = width >> 2;
+}
+
+void selectOutput(unsigned char outputs, unsigned char toggle)
+{
+switch (outputs){
+case 0:
+PSTRCON = 0xF0;
+break;
+case 0x01:
+PSTRCONbits.STRA = (toggle) ? 1 : 0;
+break;
+case 0x02:
+PSTRCONbits.STRB = (toggle) ? 1 : 0;
+break;
+case 0x04:
+PSTRCONbits.STRC = (toggle) ? 1 : 0;
+break;
+case 0x08:
+PSTRCONbits.STRD = (toggle) ? 1 : 0;
+break;
 }
 }

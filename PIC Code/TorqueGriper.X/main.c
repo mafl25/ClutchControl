@@ -8,7 +8,7 @@
 #include <xc.h>
 #include "serialprotocol.h"
 #include "pwm.h"
-#include "spi.h"
+//#include "spi.h"
 
 // CONFIG1H
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
@@ -84,7 +84,7 @@ int main() {
             }
         }
     }*/
-    serialSetUp(BRG16_ON, BRGH_ON, 0x81);
+    /*serialSetUp(BRG16_ON, BRGH_ON, 0x81);
     sendChar('a');
     struct spi_receive_buffer my_data = {0, 0};
     
@@ -96,6 +96,59 @@ int main() {
         for(i = 0; i < my_data.length; i++) {
             sendChar(my_data.buffer[i]);
         }
+    }*/
+    
+#define CTS_CHAR    0x70
+#define OK_CHAR     0x60
+#define NOK_CHAR    0x50
+#define MAX_SIZE    6
+#define TB_CHAR     0x40
+#define RX_MASK     0xA0
+#define RTS_MASK    0xE0
+    
+
+    serialSetUp(BRG16_ON, BRGH_ON, 0x04);
+    unsigned char byte_1;
+    unsigned char byte_2;
+    unsigned char data[MAX_SIZE];
+    char length = 0;
+    char size;
+    char i;
+    
+    while (1){
+        i = 0;
+        if (RCIF){
+            i = 0;
+            byte_1 = RCREG;
+            
+            if ((byte_1 & 0xF0) == RTS_MASK){
+                size = byte_1 & 0x0F;
+                if (size <= MAX_SIZE) {
+                    sendChar(CTS_CHAR);
+                    for (; i < size; i++){
+                        while (!RCIF); 
+                        byte_1 = RCREG;
+                        while (!RCIF);
+                        byte_2 = RCREG;
+
+                        if ((byte_1 & 0xF0) == RX_MASK && (byte_2 & 0xF0) == RX_MASK){
+                            data[i] = byte_1 << 4 | (byte_2 & 0x0F);
+                            sendChar(OK_CHAR);
+                        } else {
+                            sendChar(NOK_CHAR);
+                            break;
+                        }
+                    }
+                } else {
+                    sendChar(TB_CHAR);
+                }
+            }
+            
+            length = i;
+        }
+        
+        if (i)
+            sendData(data, length);
     }
     
     
@@ -108,8 +161,6 @@ void interrupt com_link(void)        // interrupt function
         TMR0H = TMR0VAL >> 8;
         TMR0L = TMR0VAL;
         INTCONbits.TMR0IF = 0;
-        sendChar(0x55);
-        sendChar(0xDD);
-        sendChar(0x00);
+        __delay_ms(1);
     }
 }

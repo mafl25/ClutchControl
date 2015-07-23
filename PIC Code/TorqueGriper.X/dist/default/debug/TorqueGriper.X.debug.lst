@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Thu Jul 23 15:32:39 2015
+                                                                                               Thu Jul 23 14:56:13 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F13K22
@@ -363,14 +363,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    357  00009E                     _main:
    358                           	opt stack 28
    359                           
-   360                           ;main.c: 110: serialSetUp(1, 1, 0x04);
+   360                           ;main.c: 110: serialSetUp(1, 1, 0x81);
    361                           
    362                           ;incstack = 0
    363  00009E  0E01               	movlw	1
    364  0000A0  6E10               	movwf	serialSetUp@brgh_bit,c
    365  0000A2  0E00               	movlw	0
    366  0000A4  6E12               	movwf	serialSetUp@spbrg16+1,c
-   367  0000A6  0E04               	movlw	4
+   367  0000A6  0E81               	movlw	129
    368  0000A8  6E11               	movwf	serialSetUp@spbrg16,c
    369  0000AA  0E01               	movlw	1
    370  0000AC  ECBC  F000         	call	_serialSetUp
@@ -971,21 +971,21 @@ Call Graph Tables:
 Name               Size   Autos  Total    Cost      Usage
 EEDATA             100      0       0       0        0.0%
 BIGRAM              FF      0       0       6        0.0%
-BITBANK0            A0      0       0       3        0.0%
-BANK0               A0      0       0       4        0.0%
+BITBANK0            A0      0       0       5        0.0%
+BANK0               A0      0       0       3        0.0%
 BITCOMRAM           5F      0       0       0        0.0%
 COMRAM              5F     23      25       1       38.9%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      25       5        0.0%
+ABS                  0      0      25       4        0.0%
 DATA                 0      0      25       7        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Thu Jul 23 15:32:39 2015
+Symbol Table                                                                                   Thu Jul 23 14:56:13 2015
 
             _SSPSTATbits 000FC7                       l30 00F0                       l27 00E6  
    serialSetUp@brg16_bit 0013                      l115 0218                      _PR2 000FCB  

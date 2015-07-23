@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "../TorqueGriperSecondPIC.X/spi.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4738,124 +4738,108 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 33 "serialprotocol.h"
-typedef char int8_t;
-typedef unsigned char uint8_t;
-
-struct receiveBuffer
+# 4 "../TorqueGriperSecondPIC.X/spi.c"
+static void reassemble_packet(struct spi_receive_buffer *buffer, char size)
 {
-unsigned char buffer[16];
-char length;
-};
-
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16);
-void toggleSerialPort(unsigned char toggle);
-void toggleTransmitter(unsigned char toggle);
-void toggleReceiver(unsigned char toggle);
-void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
-int receiveData(struct receiveBuffer *SBuffer);
-
-# 27 "pwm.h"
-typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
-
-void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-unsigned char outputs);
-void setPulseWidth(unsigned int width);
-void selectOutput(unsigned char outputs, unsigned char toggle);
-
-void pmwHalfBridgeSetUp();
-void pmwFullBridgeSetUp();
-
-
-# 14 "main.c"
-#pragma config FOSC = HS
-#pragma config PLLEN = OFF
-#pragma config PCLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 19
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config HFOFST = ON
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = OFF
-#pragma config XINST = OFF
-
-# 47
-void interrupt com_link(void);
-
-int main() {
-
-# 110
-serialSetUp(1, 1, 0x04);
-unsigned char byte_1;
-unsigned char byte_2;
-unsigned char data[6];
-char length = 0;
-char size;
 char i;
 
-while (1){
-i = 0;
-if (RCIF){
-i = 0;
-byte_1 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xE0){
-size = byte_1 & 0x0F;
-if (size <= 6) {
-sendChar(0x70);
-for (; i < size; i++){
-while (!RCIF);
-byte_1 = RCREG;
-while (!RCIF);
-byte_2 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-sendChar(0x60);
-} else {
-sendChar(0x50);
-break;
-}
-}
-} else {
-sendChar(0x40);
-}
+for (i = 0; i < size; i += 2) {
+unsigned char byte_1 = buffer->buffer[i];
+unsigned char byte_2 = buffer->buffer[i + 1];
+buffer->buffer[i >> 1] = byte_1 << 4 | (byte_2 & 0x0F);
 }
 
-length = i;
+buffer->length = i >> 1;
 }
 
-if (i)
-sendData(data, length);
-}
-
-
-return (0);
-}
-
-void interrupt com_link(void)
+void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
+enum spi_trans_sel selection, enum spi_sampling sample)
 {
-if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-TMR0H = 65340 >> 8;
-TMR0L = 65340;
-INTCONbits.TMR0IF = 0;
-_delay((unsigned long)((1)*(20000000/4000.0)));
+TRISCbits.RC7 = 0;
+
+SSPCON1bits.SSPM = mode;
+SSPCON1bits.CKP = polarity;
+SSPSTATbits.SMP = sample;
+
+if (mode == SM_NSS || mode == SM_SS) {
+TRISBbits.RB6 = 1;
+if (mode == SM_SS)
+TRISCbits.RC6 = 1;
+SSPSTATbits.CKE = 0;
+TRISCbits.RC6 = 0;
+LATCbits.LATC6 = 0;
+} else {
+TRISBbits.RB6 = 0;
+TRISCbits.RC6 = 1;
+ANSELHbits.ANS8 = 0;
+SSPSTATbits.CKE = selection;
+}
+
+ANSELHbits.ANS10 = 0;
+
+SSPCON1bits.SSPEN = 0x1;
+}
+
+unsigned char spi_write(unsigned char data)
+{
+SSPBUF = data;
+while (!SSPSTATbits.BF);
+return SSPBUF;
+}
+
+unsigned char spi_read(void)
+{
+while (SSPSTATbits.BF);
+return SSPBUF;
+}
+
+void send_data_spi(unsigned char *data, char size)
+{
+spi_write(0xA0 | (size & 0x0F));
+
+while (!PORTCbits.RC6);
+
+char i;
+for (i = 0; i < size; i++) {
+unsigned char byte_1 = (data[i] >> 4) | 0xF0;
+unsigned char byte_2 = (data[i] & 0x0F) | 0xF0;
+spi_write(byte_1);
+spi_write(byte_2);
+}
+}
+
+void master_receive_data(struct spi_receive_buffer *buffer)
+{
+buffer->length = 0;
+
+if (PORTCbits.RC6){
+unsigned char response = spi_write(0xB0);
+if ((response & 0xC0) == 0xC0){
+unsigned char size = (response & 0x0F) * 2;
+char i;
+for (i = 0; i < size; i++)
+buffer->buffer[i] = spi_write(0xD0);
+
+reassemble_packet(buffer, size);
+}
+}
+}
+
+void slave_receive_data(struct spi_receive_buffer *buffer)
+{
+if (SSPSTATbits.BF){
+unsigned char receive = SSPBUF;
+if ((receive & 0xF0) == 0xA0){
+char size = (receive & 0x0F) * 2;
+char i = 0;
+for (i = 0; i < size; i++) {
+LATCbits.LATC6 = 1;
+while (!SSPSTATbits.BF);
+buffer->buffer[i] = SSPBUF;
+}
+LATCbits.LATC6 = 0;
+
+reassemble_packet(buffer, size);
+}
 }
 }

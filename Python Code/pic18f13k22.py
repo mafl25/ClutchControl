@@ -41,35 +41,35 @@ class PIC18F13K22:
         except sp.SerialException as error:
             raise ErrorConnection(error.args)
 
-        self._t = Thread(target=self._connect_pic, args=(disconnect,), daemon=True)
-        self._running = True
-        self._t.start()
+        # self._t = Thread(target=self._connect_pic, args=(disconnect,), daemon=True)
+        # self._running = True
+        # self._t.start()
 
     def _connect_pic(self, disconnect):
 
         received_data = bytearray()
         self._online_flag = False
 
-        while self._running:
+        # while self._running:
 
-            start_time = time.monotonic()
+        start_time = time.monotonic()
+        n_bytes = self.port.inWaiting()
+        while n_bytes <= 3 and self._running:
             n_bytes = self.port.inWaiting()
-            while n_bytes <= 3 and self._running:
-                n_bytes = self.port.inWaiting()
-                end_time = time.monotonic()
-                time_dif = (end_time - start_time) * 1000
-                if time_dif > disconnect and self._online_flag:
-                    self._online_flag = False
-                    self.online = False
+            end_time = time.monotonic()
+            time_dif = (end_time - start_time) * 1000
+            if time_dif > disconnect and self._online_flag:
+                self._online_flag = False
+                self.online = False
 
-            received_data.extend(self.port.read(n_bytes))
+        received_data.extend(self.port.read(n_bytes))
+        received_data = self.cut_packet(received_data)
+        while len(received_data) >= 3:
+            # Check if the packet is complete
+            if received_data[0] == 0x55 and received_data[1] == 0xDD:  # TODO: Put constants in variables.
+                if (received_data[2] + 3) > len(received_data):
+                    break
             received_data = self.cut_packet(received_data)
-            while len(received_data) >= 3:
-                # Check if the packet is complete
-                if received_data[0] == 0x55 and received_data[1] == 0xDD:
-                    if (received_data[2] + 3) > len(received_data):
-                        break
-                received_data = self.cut_packet(received_data)
 
     def close_connection(self):
 

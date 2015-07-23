@@ -1,40 +1,182 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"42 serialprotocol.h
-[v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"7327 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"3594
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"47 serialprotocol.h
-[v _sendChar `(v ~T0 @X0 0 ef1`uc ]
-"48
-[v _sendData `(v ~T0 @X0 0 ef2`*uc`i ]
-"6248 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"6258
-[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S331 . RBIF INT0F T0IF RBIE INT0E T0IE PEIE GIE ]
-"6268
-[s S332 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S332 . . GIEL GIEH ]
-"6273
-[s S333 :6 `uc 1 :1 `uc 1 ]
-[n S333 . . PIE ]
-"6247
-[u S329 `S330 1 `S331 1 `S332 1 `S333 1 ]
-[n S329 . . . . . ]
-"6278
-[v _INTCONbits `VS329 ~T0 @X0 0 e@4082 ]
-"5813
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-"5807
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-[v F3867 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF3867 ~T0 @X0 0 e ]
-[p i __delay ]
+"33 ../TorqueGriperSecondPIC.X\spi.h
+[s S338 `uc -> 30 `i `i 1 ]
+[n S338 spi_receive_buffer buffer length ]
+"19 ../TorqueGriperSecondPIC.X/spi.c
+[c E3059 0 1 2 3 4 5 .. ]
+[n E3059 spi_mode MM_FOSC4 MM_FOSC16 MM_FOSC64 MM_TMR22 SM_SS SM_NSS  ]
+[c E3066 0 1 .. ]
+[n E3066 spi_clk_pol IDLE_LOW IDLE_HIGH  ]
+[c E3069 0 1 .. ]
+[n E3069 spi_trans_sel IDLE_ACTIVE ACTIVE_IDLE  ]
+[c E3072 0 1 .. ]
+[n E3072 spi_sampling MIDDLE END  ]
+"2261 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S120 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2271
+[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2260
+[u S119 `S120 1 `S121 1 ]
+[n S119 . . . ]
+"2282
+[v _TRISCbits `VS119 ~T0 @X0 0 e@3988 ]
+"4847
+[s S255 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S255 . SSPM CKP SSPEN SSPOV WCOL ]
+"4854
+[s S256 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S256 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"4846
+[u S254 `S255 1 `S256 1 ]
+[n S254 . . . ]
+"4861
+[v _SSPCON1bits `VS254 ~T0 @X0 0 e@4038 ]
+"4916
+[s S258 :2 `uc 1 :1 `uc 1 ]
+[n S258 . . R_NOT_W ]
+"4920
+[s S259 :5 `uc 1 :1 `uc 1 ]
+[n S259 . . D_NOT_A ]
+"4924
+[s S260 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S260 . BF UA R_nW S P D_nA CKE SMP ]
+"4934
+[s S261 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S261 . . R . D ]
+"4940
+[s S262 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S262 . . W . A ]
+"4946
+[s S263 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S263 . . nW . nA ]
+"4952
+[s S264 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S264 . . R_W . D_A ]
+"4958
+[s S265 :2 `uc 1 :1 `uc 1 ]
+[n S265 . . NOT_WRITE ]
+"4962
+[s S266 :5 `uc 1 :1 `uc 1 ]
+[n S266 . . NOT_ADDRESS ]
+"4966
+[s S267 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S267 . . nWRITE . nADDRESS ]
+"4972
+[s S268 :5 `uc 1 :1 `uc 1 ]
+[n S268 . . DA ]
+"4976
+[s S269 :2 `uc 1 :1 `uc 1 ]
+[n S269 . . RW ]
+"4980
+[s S270 :3 `uc 1 :1 `uc 1 ]
+[n S270 . . START ]
+"4984
+[s S271 :4 `uc 1 :1 `uc 1 ]
+[n S271 . . STOP ]
+"4988
+[s S272 :2 `uc 1 :1 `uc 1 ]
+[n S272 . . NOT_W ]
+"4992
+[s S273 :5 `uc 1 :1 `uc 1 ]
+[n S273 . . NOT_A ]
+"4915
+[u S257 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
+[n S257 . . . . . . . . . . . . . . . . . ]
+"4997
+[v _SSPSTATbits `VS257 ~T0 @X0 0 e@4039 ]
+"2132
+[s S114 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
+"2139
+[s S115 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S115 . . RB4 RB5 RB6 RB7 ]
+"2131
+[u S113 `S114 1 `S115 1 ]
+[n S113 . . . ]
+"2147
+[v _TRISBbits `VS113 ~T0 @X0 0 e@3987 ]
+"1842
+[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S98 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1852
+[s S99 :1 `uc 1 ]
+[n S99 . LC0 ]
+"1855
+[s S100 :1 `uc 1 :1 `uc 1 ]
+[n S100 . . LC1 ]
+"1859
+[s S101 :2 `uc 1 :1 `uc 1 ]
+[n S101 . . LC2 ]
+"1863
+[s S102 :3 `uc 1 :1 `uc 1 ]
+[n S102 . . LC3 ]
+"1867
+[s S103 :4 `uc 1 :1 `uc 1 ]
+[n S103 . . LC4 ]
+"1871
+[s S104 :5 `uc 1 :1 `uc 1 ]
+[n S104 . . LC5 ]
+"1875
+[s S105 :6 `uc 1 :1 `uc 1 ]
+[n S105 . . LC6 ]
+"1879
+[s S106 :7 `uc 1 :1 `uc 1 ]
+[n S106 . . LC7 ]
+"1841
+[u S97 `S98 1 `S99 1 `S100 1 `S101 1 `S102 1 `S103 1 `S104 1 `S105 1 `S106 1 ]
+[n S97 . . . . . . . . . . ]
+"1884
+[v _LATCbits `VS97 ~T0 @X0 0 e@3979 ]
+"880
+[s S39 :4 `uc 1 ]
+[n S39 . ANSELH ]
+"883
+[s S40 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S40 . ANS8 ANS9 ANS10 ANS11 ]
+"889
+[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . ANSEL8 ANSEL9 ANSEL10 ANSEL11 ]
+"879
+[u S38 `S39 1 `S40 1 `S41 1 ]
+[n S38 . . . . ]
+"896
+[v _ANSELHbits `VS38 ~T0 @X0 0 e@3967 ]
+"5147
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
+"1369
+[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S67 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1379
+[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S68 . AN4 AN5 AN6 AN7 . AN8 AN9 ]
+"1388
+[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S69 . C12INP C12IN1M C12IN2M C12IN3M C12OUT ]
+"1395
+[s S70 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S70 . . P1D P1C P1B P1A SS SDO ]
+"1404
+[s S71 :6 `uc 1 :1 `uc 1 ]
+[n S71 . . NOT_SS ]
+"1408
+[s S72 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S72 . C2INP . PGM C2OUT CCP1 nSS ]
+"1416
+[s S73 :1 `uc 1 :1 `uc 1 ]
+[n S73 . . CCP2 ]
+"1420
+[s S74 :2 `uc 1 :1 `uc 1 ]
+[n S74 . . PA1 ]
+"1424
+[s S75 :1 `uc 1 :1 `uc 1 ]
+[n S75 . . PA2 ]
+"1368
+[u S66 `S67 1 `S68 1 `S69 1 `S70 1 `S71 1 `S72 1 `S73 1 `S74 1 `S75 1 ]
+[n S66 . . . . . . . . . . ]
+"1429
+[v _PORTCbits `VS66 ~T0 @X0 0 e@3970 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3569,259 +3711,391 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;serialprotocol.h: 33: typedef char int8_t;
-[; ;serialprotocol.h: 34: typedef unsigned char uint8_t;
-[; ;serialprotocol.h: 36: struct receiveBuffer
-[; ;serialprotocol.h: 37: {
-[; ;serialprotocol.h: 38: unsigned char buffer[16];
-[; ;serialprotocol.h: 39: char length;
-[; ;serialprotocol.h: 40: };
-[; ;serialprotocol.h: 42: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.h: 43: unsigned int spbrg16);
-[; ;serialprotocol.h: 44: void toggleSerialPort(unsigned char toggle);
-[; ;serialprotocol.h: 45: void toggleTransmitter(unsigned char toggle);
-[; ;serialprotocol.h: 46: void toggleReceiver(unsigned char toggle);
-[; ;serialprotocol.h: 47: void sendChar(unsigned char toggle);
-[; ;serialprotocol.h: 48: void sendData(unsigned char *string, int length);
-[; ;serialprotocol.h: 49: int receiveData(struct receiveBuffer *SBuffer);
-[; ;pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-[; ;pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
-[; ;pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-[; ;pwm.h: 31: unsigned char outputs);
-[; ;pwm.h: 32: void setPulseWidth(unsigned int width);
-[; ;pwm.h: 33: void selectOutput(unsigned char outputs, unsigned char toggle);
-[; ;pwm.h: 35: void pmwHalfBridgeSetUp();
-[; ;pwm.h: 36: void pmwFullBridgeSetUp();
-"14 main.c
-[p x FOSC=HS ]
-"15
-[p x PLLEN=OFF ]
-"16
-[p x PCLKEN=ON ]
-"17
-[p x FCMEN=OFF ]
-"18
-[p x IESO=OFF ]
-"21
-[p x PWRTEN=OFF ]
-"22
-[p x BOREN=SBORDIS ]
-"23
-[p x BORV=19 ]
-"26
-[p x WDTEN=OFF ]
-"27
-[p x WDTPS=32768 ]
-"30
-[p x HFOFST=ON ]
-"31
-[p x MCLRE=ON ]
-"34
-[p x STVREN=ON ]
-"35
-[p x LVP=OFF ]
-"36
-[p x BBSIZ=OFF ]
-"37
-[p x XINST=OFF ]
-[; ;main.c: 47: void interrupt com_link(void);
-"49
-[v _main `(i ~T0 @X0 1 ef ]
+"4 ../TorqueGriperSecondPIC.X/spi.c
+[v _reassemble_packet `(v ~T0 @X0 1 sf2`*S338`uc ]
+"5
 {
-[; ;main.c: 49: int main() {
-[e :U _main ]
+[; ;spi.c: 4: static void reassemble_packet(struct spi_receive_buffer *buffer, char size)
+[; ;spi.c: 5: {
+[e :U _reassemble_packet ]
+"4
+[v _buffer `*S338 ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+"5
 [f ]
-[; ;main.c: 110: serialSetUp(1, 1, 0x04);
-"110
-[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 4 `i `ui ]
-"111
-[v _byte_1 `uc ~T0 @X0 1 a ]
-"112
-[v _byte_2 `uc ~T0 @X0 1 a ]
-"113
-[v _data `uc ~T0 @X0 -> 6 `i a ]
-"114
-[v _length `uc ~T0 @X0 1 a ]
-[; ;main.c: 111: unsigned char byte_1;
-[; ;main.c: 112: unsigned char byte_2;
-[; ;main.c: 113: unsigned char data[6];
-[; ;main.c: 114: char length = 0;
-[e = _length -> -> 0 `i `uc ]
-"115
-[v _size `uc ~T0 @X0 1 a ]
-"116
+"6
 [v _i `uc ~T0 @X0 1 a ]
-[; ;main.c: 115: char size;
-[; ;main.c: 116: char i;
-[; ;main.c: 118: while (1){
-"118
-[e :U 377 ]
+[; ;spi.c: 6: char i;
+[; ;spi.c: 8: for (i = 0; i < size; i += 2) {
+"8
 {
-[; ;main.c: 119: i = 0;
-"119
 [e = _i -> -> 0 `i `uc ]
-[; ;main.c: 120: if (RCIF){
-"120
-[e $ ! _RCIF 379  ]
+[e $U 378  ]
+[e :U 375 ]
 {
-[; ;main.c: 121: i = 0;
-"121
-[e = _i -> -> 0 `i `uc ]
-[; ;main.c: 122: byte_1 = RCREG;
-"122
-[e = _byte_1 _RCREG ]
-[; ;main.c: 124: if ((byte_1 & 0xF0) == 0xE0){
-"124
-[e $ ! == & -> _byte_1 `i -> 240 `i -> 224 `i 380  ]
-{
-[; ;main.c: 125: size = byte_1 & 0x0F;
-"125
-[e = _size -> & -> _byte_1 `i -> 15 `i `uc ]
-[; ;main.c: 126: if (size <= 6) {
-"126
-[e $ ! <= -> _size `i -> 6 `i 381  ]
-{
-[; ;main.c: 127: sendChar(0x70);
-"127
-[e ( _sendChar (1 -> -> 112 `i `uc ]
-[; ;main.c: 128: for (; i < size; i++){
-"128
-{
-[e $U 385  ]
-[e :U 382 ]
-{
-[; ;main.c: 129: while (!RCIF);
-"129
-[e $U 386  ]
-[e :U 387 ]
-[e :U 386 ]
-[e $ ! _RCIF 387  ]
-[e :U 388 ]
-[; ;main.c: 130: byte_1 = RCREG;
-"130
-[e = _byte_1 _RCREG ]
-[; ;main.c: 131: while (!RCIF);
-"131
-[e $U 389  ]
-[e :U 390 ]
-[e :U 389 ]
-[e $ ! _RCIF 390  ]
-[e :U 391 ]
-[; ;main.c: 132: byte_2 = RCREG;
-"132
-[e = _byte_2 _RCREG ]
-[; ;main.c: 134: if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-"134
-[e $ ! && == & -> _byte_1 `i -> 240 `i -> 160 `i == & -> _byte_2 `i -> 240 `i -> 160 `i 392  ]
-{
-[; ;main.c: 135: data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-"135
-[e = *U + &U _data * -> _i `ux -> -> # *U &U _data `ui `ux -> | << -> _byte_1 `i -> 4 `i & -> _byte_2 `i -> 15 `i `uc ]
-[; ;main.c: 136: sendChar(0x60);
-"136
-[e ( _sendChar (1 -> -> 96 `i `uc ]
-"137
+"9
+[v _byte_1 `uc ~T0 @X0 1 a ]
+[; ;spi.c: 9: unsigned char byte_1 = buffer->buffer[i];
+[e = _byte_1 *U + &U . *U _buffer 0 * -> _i `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
+"10
+[v _byte_2 `uc ~T0 @X0 1 a ]
+[; ;spi.c: 10: unsigned char byte_2 = buffer->buffer[i + 1];
+[e = _byte_2 *U + &U . *U _buffer 0 * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
+[; ;spi.c: 11: buffer->buffer[i >> 1] = byte_1 << 4 | (byte_2 & 0x0F);
+"11
+[e = *U + &U . *U _buffer 0 * -> -> >> -> _i `i -> 1 `i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> | << -> _byte_1 `i -> 4 `i & -> _byte_2 `i -> 15 `i `uc ]
+"12
 }
-[; ;main.c: 137: } else {
-[e $U 393  ]
-[e :U 392 ]
-{
-[; ;main.c: 138: sendChar(0x50);
-"138
-[e ( _sendChar (1 -> -> 80 `i `uc ]
-[; ;main.c: 139: break;
-"139
-[e $U 383  ]
-"140
-}
-[e :U 393 ]
-"141
-}
-"128
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 385 ]
-[e $ < -> _i `i -> _size `i 382  ]
-[e :U 383 ]
-"141
-}
-"142
-}
-[; ;main.c: 140: }
-[; ;main.c: 141: }
-[; ;main.c: 142: } else {
-[e $U 394  ]
-[e :U 381 ]
-{
-[; ;main.c: 143: sendChar(0x40);
-"143
-[e ( _sendChar (1 -> -> 64 `i `uc ]
-"144
-}
-[e :U 394 ]
-"145
-}
-[e :U 380 ]
-[; ;main.c: 144: }
-[; ;main.c: 145: }
-[; ;main.c: 147: length = i;
-"147
-[e = _length _i ]
-"148
-}
-[e :U 379 ]
-[; ;main.c: 148: }
-[; ;main.c: 150: if (i)
-"150
-[e $ ! != -> _i `i -> -> -> 0 `i `uc `i 395  ]
-[; ;main.c: 151: sendData(data, length);
-"151
-[e ( _sendData (2 , &U _data -> _length `i ]
-[e :U 395 ]
-"152
-}
-[e :U 376 ]
-"118
-[e $U 377  ]
+"8
+[e =+ _i -> -> 2 `i `uc ]
 [e :U 378 ]
-[; ;main.c: 152: }
-[; ;main.c: 155: return (0);
-"155
-[e ) -> 0 `i ]
-[e $UE 375  ]
-[; ;main.c: 156: }
-"156
-[e :UE 375 ]
+[e $ < -> _i `i -> _size `i 375  ]
+[e :U 376 ]
+"12
 }
-[v F3921 `(v ~T0 @X0 1 tf ]
-"158
-[v _com_link `IF3921 ~T0 @X0 1 e ]
-"159
+[; ;spi.c: 12: }
+[; ;spi.c: 14: buffer->length = i >> 1;
+"14
+[e = . *U _buffer 1 >> -> _i `i -> 1 `i ]
+[; ;spi.c: 15: }
+"15
+[e :UE 374 ]
+}
+"17
+[v _set_spi `(v ~T0 @X0 1 ef4`E3059`E3066`E3069`E3072 ]
+"19
 {
-[; ;main.c: 158: void interrupt com_link(void)
-[; ;main.c: 159: {
-[e :U _com_link ]
+[; ;spi.c: 17: void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
+[; ;spi.c: 18: enum spi_trans_sel selection, enum spi_sampling sample)
+[; ;spi.c: 19: {
+[e :U _set_spi ]
+"17
+[v _mode `E3059 ~T0 @X0 1 r1 ]
+[v _polarity `E3066 ~T0 @X0 1 r2 ]
+"18
+[v _selection `E3069 ~T0 @X0 1 r3 ]
+[v _sample `E3072 ~T0 @X0 1 r4 ]
+"19
 [f ]
-[; ;main.c: 160: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-"160
-[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 397  ]
+[; ;spi.c: 20: TRISCbits.RC7 = 0;
+"20
+[e = . . _TRISCbits 1 7 -> -> 0 `i `uc ]
+[; ;spi.c: 22: SSPCON1bits.SSPM = mode;
+"22
+[e = . . _SSPCON1bits 0 0 -> _mode `uc ]
+[; ;spi.c: 23: SSPCON1bits.CKP = polarity;
+"23
+[e = . . _SSPCON1bits 0 1 -> _polarity `uc ]
+[; ;spi.c: 24: SSPSTATbits.SMP = sample;
+"24
+[e = . . _SSPSTATbits 2 7 -> _sample `uc ]
+[; ;spi.c: 26: if (mode == SM_NSS || mode == SM_SS) {
+"26
+[e $ ! || == -> _mode `i -> . `E3059 5 `i == -> _mode `i -> . `E3059 4 `i 380  ]
 {
-[; ;main.c: 161: TMR0H = 65340 >> 8;
-"161
-[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
-[; ;main.c: 162: TMR0L = 65340;
-"162
-[e = _TMR0L -> -> 65340 `l `uc ]
-[; ;main.c: 163: INTCONbits.TMR0IF = 0;
-"163
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 164: _delay((unsigned long)((1)*(20000000/4000.0)));
-"164
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"165
+[; ;spi.c: 27: TRISBbits.RB6 = 1;
+"27
+[e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
+[; ;spi.c: 28: if (mode == SM_SS)
+"28
+[e $ ! == -> _mode `i -> . `E3059 4 `i 381  ]
+[; ;spi.c: 29: TRISCbits.RC6 = 1;
+"29
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[e :U 381 ]
+[; ;spi.c: 30: SSPSTATbits.CKE = 0;
+"30
+[e = . . _SSPSTATbits 2 6 -> -> 0 `i `uc ]
+[; ;spi.c: 31: TRISCbits.RC6 = 0;
+"31
+[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
+[; ;spi.c: 32: LATCbits.LATC6 = 0;
+"32
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+"33
 }
-[e :U 397 ]
-[; ;main.c: 165: }
-[; ;main.c: 166: }
-"166
-[e :UE 396 ]
+[; ;spi.c: 33: } else {
+[e $U 382  ]
+[e :U 380 ]
+{
+[; ;spi.c: 34: TRISBbits.RB6 = 0;
+"34
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+[; ;spi.c: 35: TRISCbits.RC6 = 1;
+"35
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;spi.c: 36: ANSELHbits.ANS8 = 0;
+"36
+[e = . . _ANSELHbits 1 0 -> -> 0 `i `uc ]
+[; ;spi.c: 37: SSPSTATbits.CKE = selection;
+"37
+[e = . . _SSPSTATbits 2 6 -> _selection `uc ]
+"38
+}
+[e :U 382 ]
+[; ;spi.c: 38: }
+[; ;spi.c: 40: ANSELHbits.ANS10 = 0;
+"40
+[e = . . _ANSELHbits 1 2 -> -> 0 `i `uc ]
+[; ;spi.c: 42: SSPCON1bits.SSPEN = 0x1;
+"42
+[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;spi.c: 43: }
+"43
+[e :UE 379 ]
+}
+"45
+[v _spi_write `(uc ~T0 @X0 1 ef1`uc ]
+"46
+{
+[; ;spi.c: 45: unsigned char spi_write(unsigned char data)
+[; ;spi.c: 46: {
+[e :U _spi_write ]
+"45
+[v _data `uc ~T0 @X0 1 r1 ]
+"46
+[f ]
+[; ;spi.c: 47: SSPBUF = data;
+"47
+[e = _SSPBUF _data ]
+[; ;spi.c: 48: while (!SSPSTATbits.BF);
+"48
+[e $U 384  ]
+[e :U 385 ]
+[e :U 384 ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 385  ]
+[e :U 386 ]
+[; ;spi.c: 49: return SSPBUF;
+"49
+[e ) _SSPBUF ]
+[e $UE 383  ]
+[; ;spi.c: 50: }
+"50
+[e :UE 383 ]
+}
+"52
+[v _spi_read `(uc ~T0 @X0 1 ef ]
+"53
+{
+[; ;spi.c: 52: unsigned char spi_read(void)
+[; ;spi.c: 53: {
+[e :U _spi_read ]
+[f ]
+[; ;spi.c: 54: while (SSPSTATbits.BF);
+"54
+[e $U 388  ]
+[e :U 389 ]
+[e :U 388 ]
+[e $ != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 389  ]
+[e :U 390 ]
+[; ;spi.c: 55: return SSPBUF;
+"55
+[e ) _SSPBUF ]
+[e $UE 387  ]
+[; ;spi.c: 56: }
+"56
+[e :UE 387 ]
+}
+"58
+[v _send_data_spi `(v ~T0 @X0 1 ef2`*uc`uc ]
+"59
+{
+[; ;spi.c: 58: void send_data_spi(unsigned char *data, char size)
+[; ;spi.c: 59: {
+[e :U _send_data_spi ]
+"58
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+"59
+[f ]
+[; ;spi.c: 60: spi_write(0xA0 | (size & 0x0F));
+"60
+[e ( _spi_write (1 -> | -> 160 `i & -> _size `i -> 15 `i `uc ]
+[; ;spi.c: 62: while (!PORTCbits.RC6);
+"62
+[e $U 392  ]
+[e :U 393 ]
+[e :U 392 ]
+[e $ ! != -> . . _PORTCbits 0 6 `i -> -> -> 0 `i `Vuc `i 393  ]
+[e :U 394 ]
+"64
+[v _i `uc ~T0 @X0 1 a ]
+[; ;spi.c: 64: char i;
+[; ;spi.c: 65: for (i = 0; i < size; i++) {
+"65
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 398  ]
+[e :U 395 ]
+{
+"66
+[v _byte_1 `uc ~T0 @X0 1 a ]
+[; ;spi.c: 66: unsigned char byte_1 = (data[i] >> 4) | 0xF0;
+[e = _byte_1 -> | >> -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `i -> 4 `i -> 240 `i `uc ]
+"67
+[v _byte_2 `uc ~T0 @X0 1 a ]
+[; ;spi.c: 67: unsigned char byte_2 = (data[i] & 0x0F) | 0xF0;
+[e = _byte_2 -> | & -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `i -> 15 `i -> 240 `i `uc ]
+[; ;spi.c: 68: spi_write(byte_1);
+"68
+[e ( _spi_write (1 _byte_1 ]
+[; ;spi.c: 69: spi_write(byte_2);
+"69
+[e ( _spi_write (1 _byte_2 ]
+"70
+}
+"65
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 398 ]
+[e $ < -> _i `i -> _size `i 395  ]
+[e :U 396 ]
+"70
+}
+[; ;spi.c: 70: }
+[; ;spi.c: 71: }
+"71
+[e :UE 391 ]
+}
+"73
+[v _master_receive_data `(v ~T0 @X0 1 ef1`*S338 ]
+"74
+{
+[; ;spi.c: 73: void master_receive_data(struct spi_receive_buffer *buffer)
+[; ;spi.c: 74: {
+[e :U _master_receive_data ]
+"73
+[v _buffer `*S338 ~T0 @X0 1 r1 ]
+"74
+[f ]
+[; ;spi.c: 75: buffer->length = 0;
+"75
+[e = . *U _buffer 1 -> 0 `i ]
+[; ;spi.c: 77: if (PORTCbits.RC6){
+"77
+[e $ ! != -> . . _PORTCbits 0 6 `i -> -> -> 0 `i `Vuc `i 400  ]
+{
+"78
+[v _response `uc ~T0 @X0 1 a ]
+[; ;spi.c: 78: unsigned char response = spi_write(0xB0);
+[e = _response ( _spi_write (1 -> -> 176 `i `uc ]
+[; ;spi.c: 79: if ((response & 0xC0) == 0xC0){
+"79
+[e $ ! == & -> _response `i -> 192 `i -> 192 `i 401  ]
+{
+"80
+[v _size `uc ~T0 @X0 1 a ]
+[; ;spi.c: 80: unsigned char size = (response & 0x0F) * 2;
+[e = _size -> * & -> _response `i -> 15 `i -> 2 `i `uc ]
+"81
+[v _i `uc ~T0 @X0 1 a ]
+[; ;spi.c: 81: char i;
+[; ;spi.c: 82: for (i = 0; i < size; i++)
+"82
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 405  ]
+"83
+[e :U 402 ]
+[; ;spi.c: 83: buffer->buffer[i] = spi_write(0xD0);
+[e = *U + &U . *U _buffer 0 * -> _i `ux -> -> # *U &U . *U _buffer 0 `ui `ux ( _spi_write (1 -> -> 208 `i `uc ]
+"82
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 405 ]
+[e $ < -> _i `i -> _size `i 402  ]
+[e :U 403 ]
+"83
+}
+[; ;spi.c: 85: reassemble_packet(buffer, size);
+"85
+[e ( _reassemble_packet (2 , _buffer _size ]
+"86
+}
+[e :U 401 ]
+"87
+}
+[e :U 400 ]
+[; ;spi.c: 86: }
+[; ;spi.c: 87: }
+[; ;spi.c: 88: }
+"88
+[e :UE 399 ]
+}
+"90
+[v _slave_receive_data `(v ~T0 @X0 1 ef1`*S338 ]
+"91
+{
+[; ;spi.c: 90: void slave_receive_data(struct spi_receive_buffer *buffer)
+[; ;spi.c: 91: {
+[e :U _slave_receive_data ]
+"90
+[v _buffer `*S338 ~T0 @X0 1 r1 ]
+"91
+[f ]
+[; ;spi.c: 92: if (SSPSTATbits.BF){
+"92
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 407  ]
+{
+"93
+[v _receive `uc ~T0 @X0 1 a ]
+[; ;spi.c: 93: unsigned char receive = SSPBUF;
+[e = _receive _SSPBUF ]
+[; ;spi.c: 94: if ((receive & 0xF0) == 0xA0){
+"94
+[e $ ! == & -> _receive `i -> 240 `i -> 160 `i 408  ]
+{
+"95
+[v _size `uc ~T0 @X0 1 a ]
+[; ;spi.c: 95: char size = (receive & 0x0F) * 2;
+[e = _size -> * & -> _receive `i -> 15 `i -> 2 `i `uc ]
+"96
+[v _i `uc ~T0 @X0 1 a ]
+[; ;spi.c: 96: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;spi.c: 97: for (i = 0; i < size; i++) {
+"97
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 412  ]
+[e :U 409 ]
+{
+[; ;spi.c: 98: LATCbits.LATC6 = 1;
+"98
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;spi.c: 99: while (!SSPSTATbits.BF);
+"99
+[e $U 413  ]
+[e :U 414 ]
+[e :U 413 ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 414  ]
+[e :U 415 ]
+[; ;spi.c: 100: buffer->buffer[i] = SSPBUF;
+"100
+[e = *U + &U . *U _buffer 0 * -> _i `ux -> -> # *U &U . *U _buffer 0 `ui `ux _SSPBUF ]
+"101
+}
+"97
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 412 ]
+[e $ < -> _i `i -> _size `i 409  ]
+[e :U 410 ]
+"101
+}
+[; ;spi.c: 101: }
+[; ;spi.c: 102: LATCbits.LATC6 = 0;
+"102
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;spi.c: 104: reassemble_packet(buffer, size);
+"104
+[e ( _reassemble_packet (2 , _buffer _size ]
+"105
+}
+[e :U 408 ]
+"106
+}
+[e :U 407 ]
+[; ;spi.c: 105: }
+[; ;spi.c: 106: }
+[; ;spi.c: 107: }
+"107
+[e :UE 406 ]
 }

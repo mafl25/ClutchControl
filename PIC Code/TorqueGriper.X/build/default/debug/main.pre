@@ -4802,7 +4802,7 @@ void interrupt com_link(void);
 int main() {
 
 # 110
-serialSetUp(1, 1, 0x04);
+serialSetUp(1, 1, 0x81);
 unsigned char byte_1;
 unsigned char byte_2;
 unsigned char data[6];

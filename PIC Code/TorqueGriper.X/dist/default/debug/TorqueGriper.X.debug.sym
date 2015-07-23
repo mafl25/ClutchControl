@@ -202,7 +202,7 @@ __Hend_init 9E 0 CODE 0
 __Lend_init 9A 0 CODE 0
 _serialSetUp$742 16 0 COMRAM 1
 __smallconst 0 0 SMALLCONST 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
@@ -223,13 +223,13 @@ __CFG_PCLKEN$ON 0 0 ABS 0
 __activetblptr 2 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 221 CODE 8 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 25 COMRAM 1 1
 %locals
-dist/default/production\TorqueGriper.X.production.obj
+dist/default/debug\TorqueGriper.X.debug.obj
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 6553 8 0 CODE 0
@@ -241,7 +241,7 @@ main.c
 163 4C 0 CODE 0
 164 4E 0 CODE 0
 166 60 0 CODE 0
-C:\Users\Manuel\AppData\Local\Temp\s5jk.
+C:\Users\Manuel\AppData\Local\Temp\s584.
 1394 206 0 CODE 0
 1396 206 0 CODE 0
 1399 206 0 CODE 0

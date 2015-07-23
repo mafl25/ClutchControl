@@ -3,14 +3,14 @@ Microchip MPLAB XC8 Compiler V1.34 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
-  -h+dist/default/production\TorqueGriper.X.production.sym \
-  --cmf=dist/default/production\TorqueGriper.X.production.cmf -z -Q18F13K22 \
-  -oC:\Users\Manuel\AppData\Local\Temp\s5jk.6 \
-  -Mdist/default/production/TorqueGriper.X.production.map -E1 -ver=XC8 \
-  -ASTACK=060h-0ffh -pstack=STACK -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
-  -ASMALLCONST=0100h-01FFhx31 -AMEDIUMCONST=0100h-01FFFh -ACOMRAM=01h-05Fh \
+  -h+dist/default/debug\TorqueGriper.X.debug.sym \
+  --cmf=dist/default/debug\TorqueGriper.X.debug.cmf -z -Q18F13K22 \
+  -oC:\Users\Manuel\AppData\Local\Temp\s584.6 \
+  -Mdist/default/debug/TorqueGriper.X.debug.map -E1 -ver=XC8 \
+  -ASTACK=060h-0ffh -pstack=STACK -ACODE=00h-01DFFh -ACONST=00h-01DFFh \
+  -ASMALLCONST=0100h-01FFhx29 -AMEDIUMCONST=0100h-01DFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-0FFh -ABIGRAM=01h-0FFh -ARAM=060h-0FFh -ABANK0=060h-0FFh \
-  -ASFR=0F60h-0FFFh \
+  -ASFR=0F60h-0FFCh \
   -preset_vec=00h,intcode=08h,intcodelo,powerup,init,end_init \
   -pramtop=0100h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
   -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
@@ -20,8 +20,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Manuel\AppData\Local\Temp\s5jk.obj \
-  dist/default/production\TorqueGriper.X.production.obj 
+  C:\Users\Manuel\AppData\Local\Temp\s584.obj \
+  dist/default/debug\TorqueGriper.X.debug.obj 
 
 Object code version is 3.11
 
@@ -33,12 +33,12 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Manuel\AppData\Local\Temp\s5jk.obj
+C:\Users\Manuel\AppData\Local\Temp\s584.obj
                 end_init                             9A       9A        4        4       0
-                reset_vec                             0        0        4        0       0
+                reset_vec                             0        0        6        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/default/production\TorqueGriper.X.production.obj
+dist/default/debug\TorqueGriper.X.debug.obj
                 intcode                               8        8       92        4       0
                 text3                               214      214        E        4       0
                 text2                               1CE      1CE       38        4       0
@@ -54,7 +54,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                             9A       9A        4         0
                 intcode                               8        8       92         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text3                               214      214        E         0
                 text2                               1CE      1CE       38         0
                 text1                               178      178       56         0
@@ -95,7 +95,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 cstackCOMRAM                   000001  000025  000026         1       1  COMRAM  
                 intcode                        000008  00021A  000222         4       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
@@ -107,16 +107,16 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            000060-0000FF               A0
         BIGRAM           000026-0000FF               DA
-        CODE             000004-000007                4
-                         000222-001FFF             1DDE
+        CODE             000006-000007                2
+                         000222-001DFF             1BDE
         COMRAM           000026-00005F               3A
-        CONST            000004-000007                4
-                         000222-001FFF             1DDE
+        CONST            000006-000007                2
+                         000222-001DFF             1BDE
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000222-001FFF             1DDE
+        MEDIUMCONST      000222-001DFF             1BDE
         RAM              000060-0000FF               A0
-        SFR              000F60-000FFF               A0
-        SMALLCONST       000222-001FFF              100
+        SFR              000F60-000FFC               9D
+        SMALLCONST       000222-001DFF              100
         STACK            000060-0000FF               A0
 
                                   Symbol Table
@@ -210,7 +210,7 @@ __Hramtop                ramtop       000100
 __Hrbit                  rbit         000000
 __Hrbss                  rbss         000000
 __Hrdata                 rdata        000000
-__Hreset_vec             reset_vec    000004
+__Hreset_vec             reset_vec    000006
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
