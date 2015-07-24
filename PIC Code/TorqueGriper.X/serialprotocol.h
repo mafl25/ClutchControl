@@ -22,7 +22,14 @@
 #define RX_AN   ANSELHbits.ANS11
 #define TRIS_TX TRISBbits.RB7
 
-#define MAX_BUFFER_LENGTH 16
+#define CTS_CHAR    0x70
+#define OK_CHAR     0x60
+#define NOK_CHAR    0x50
+#define MAX_SIZE    7
+#define TB_CHAR     0x40
+#define RX_MASK     0xA0
+#define RTS_MASK    0xE0
+
 #define INACTIVE 1
 #define ACTIVE 0
 #define BRG16_ON 1
@@ -35,7 +42,7 @@ typedef unsigned char uint8_t;
 
 struct receiveBuffer
 {
-    unsigned char buffer[MAX_BUFFER_LENGTH];
+    unsigned char buffer[MAX_SIZE];
     char length;
 };
 
@@ -45,7 +52,7 @@ void toggleSerialPort(unsigned char toggle); //Turns Serial Port on or off
 void toggleTransmitter(unsigned char toggle); //Turns Transmitter on or off
 void toggleReceiver(unsigned char toggle); //Turns Receiver on or off
 void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
+void sendData(unsigned char *string, uint8_t length);
 int receiveData(struct receiveBuffer *SBuffer);
 
 #endif	/* SERIALPROTOCOL_H */

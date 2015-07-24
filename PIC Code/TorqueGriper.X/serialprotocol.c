@@ -63,9 +63,13 @@ void sendChar(unsigned char character)
     TXREG = character;
 }
 
-void sendData(unsigned char *string, int length)
+void sendData(unsigned char *string, uint8_t length)
 {
     int i;
+    
+    sendChar(0x55);
+    sendChar(0xDD);
+    sendChar(length);
 
     for (i = 0; i < length; i++) 
         sendChar(string[i]);
@@ -73,37 +77,47 @@ void sendData(unsigned char *string, int length)
 
 int receiveData(struct receiveBuffer *buffer)
 {
-    
-    int8_t character;
+    uint8_t byte_1;
+    uint8_t byte_2;
     int i = 0;
     int size = 0;
         
     if (RCSTAbits.OERR) { //In case data is sent while the MCU is not receiving
         RCSTAbits.CREN = 0; //This will clear the overrun error
         RCSTAbits.CREN = 1;
+        byte_1 = RCREG;//To clear the buffer of any unwanted input
+        byte_1 = RCREG;
     }
 
-    character = RCREG;//To clear the buffer of any unwanted input
-    character = RCREG;
-    
-    if (CTS == ACTIVE) {
-        RTS = ACTIVE;
+    if (RCIF){
+                        
+        byte_1 = RCREG;
 
-        while (!RCIF);
-        size = RCREG;
+        if ((byte_1 & 0xF0) == RTS_MASK){
+            size = byte_1 & 0x0F;
+            if (size < MAX_SIZE) {
+                sendChar(CTS_CHAR);
+                for (; i < size; i++){
 
-        if (size < MAX_BUFFER_LENGTH && size > 0) {
-            while (i < size) {
-                while (!RCIF); 
-                buffer->buffer[i] = RCREG;
-                i++;
+                    while (!RCIF); 
+                    byte_1 = RCREG;
+                    while (!RCIF);
+                    byte_2 = RCREG;
+
+                    if ((byte_1 & 0xF0) == RX_MASK && (byte_2 & 0xF0) == RX_MASK){
+                        buffer->buffer[i] = byte_1 << 4 | (byte_2 & 0x0F);
+                        sendChar(OK_CHAR);
+                    } else {
+                        sendChar(NOK_CHAR);
+                        break;
+                    }
+                }
+            } else {
+                sendChar(TB_CHAR);
             }
         }
-
-        RTS = INACTIVE;
-        while (CTS == ACTIVE);
     }
-
+            
     buffer->length = i;
     buffer->buffer[i] = 0;
     

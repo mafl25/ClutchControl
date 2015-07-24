@@ -4738,13 +4738,13 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 33 "serialprotocol.h"
+# 40 "serialprotocol.h"
 typedef char int8_t;
 typedef unsigned char uint8_t;
 
 struct receiveBuffer
 {
-unsigned char buffer[16];
+unsigned char buffer[7];
 char length;
 };
 
@@ -4754,7 +4754,7 @@ void toggleSerialPort(unsigned char toggle);
 void toggleTransmitter(unsigned char toggle);
 void toggleReceiver(unsigned char toggle);
 void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
+void sendData(unsigned char *string, uint8_t length);
 int receiveData(struct receiveBuffer *SBuffer);
 
 # 3 "serialprotocol.c"
@@ -4821,9 +4821,13 @@ while(!TXSTAbits.TRMT);
 TXREG = character;
 }
 
-void sendData(unsigned char *string, int length)
+void sendData(unsigned char *string, uint8_t length)
 {
 int i;
+
+sendChar(0x55);
+sendChar(0xDD);
+sendChar(length);
 
 for (i = 0; i < length; i++)
 sendChar(string[i]);
@@ -4831,35 +4835,45 @@ sendChar(string[i]);
 
 int receiveData(struct receiveBuffer *buffer)
 {
-
-int8_t character;
+uint8_t byte_1;
+uint8_t byte_2;
 int i = 0;
 int size = 0;
 
 if (RCSTAbits.OERR) {
 RCSTAbits.CREN = 0;
 RCSTAbits.CREN = 1;
+byte_1 = RCREG;
+byte_1 = RCREG;
 }
 
-character = RCREG;
-character = RCREG;
+if (RCIF){
 
-if (PORTCbits.RC1 == 0) {
-LATCbits.LATC0 = 0;
+byte_1 = RCREG;
+
+if ((byte_1 & 0xF0) == 0xE0){
+size = byte_1 & 0x0F;
+if (size < 7) {
+sendChar(0x70);
+for (; i < size; i++){
 
 while (!RCIF);
-size = RCREG;
-
-if (size < 16 && size > 0) {
-while (i < size) {
+byte_1 = RCREG;
 while (!RCIF);
-buffer->buffer[i] = RCREG;
-i++;
-}
-}
+byte_2 = RCREG;
 
-LATCbits.LATC0 = 1;
-while (PORTCbits.RC1 == 0);
+if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
+buffer->buffer[i] = byte_1 << 4 | (byte_2 & 0x0F);
+sendChar(0x60);
+} else {
+sendChar(0x50);
+break;
+}
+}
+} else {
+sendChar(0x40);
+}
+}
 }
 
 buffer->length = i;

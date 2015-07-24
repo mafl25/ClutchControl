@@ -190,43 +190,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTAbits `VS168 ~T0 @X0 0 e@4012 ]
 "3583
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"36 serialprotocol.h
-[s S374 `uc -> 16 `i `uc 1 ]
+"43 serialprotocol.h
+[s S374 `uc -> 7 `i `uc 1 ]
 [n S374 receiveBuffer buffer length ]
 "3594 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"1369
-[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S67 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1379
-[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . AN4 AN5 AN6 AN7 . AN8 AN9 ]
-"1388
-[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S69 . C12INP C12IN1M C12IN2M C12IN3M C12OUT ]
-"1395
-[s S70 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S70 . . P1D P1C P1B P1A SS SDO ]
-"1404
-[s S71 :6 `uc 1 :1 `uc 1 ]
-[n S71 . . NOT_SS ]
-"1408
-[s S72 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S72 . C2INP . PGM C2OUT CCP1 nSS ]
-"1416
-[s S73 :1 `uc 1 :1 `uc 1 ]
-[n S73 . . CCP2 ]
-"1420
-[s S74 :2 `uc 1 :1 `uc 1 ]
-[n S74 . . PA1 ]
-"1424
-[s S75 :1 `uc 1 :1 `uc 1 ]
-[n S75 . . PA2 ]
-"1368
-[u S66 `S67 1 `S68 1 `S69 1 `S70 1 `S71 1 `S72 1 `S73 1 `S74 1 `S75 1 ]
-[n S66 . . . . . . . . . . ]
-"1429
-[v _PORTCbits `VS66 ~T0 @X0 0 e@3970 ]
 "7327
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -3763,21 +3731,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;serialprotocol.h: 33: typedef char int8_t;
-[; ;serialprotocol.h: 34: typedef unsigned char uint8_t;
-[; ;serialprotocol.h: 36: struct receiveBuffer
-[; ;serialprotocol.h: 37: {
-[; ;serialprotocol.h: 38: unsigned char buffer[16];
-[; ;serialprotocol.h: 39: char length;
-[; ;serialprotocol.h: 40: };
-[; ;serialprotocol.h: 42: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.h: 43: unsigned int spbrg16);
-[; ;serialprotocol.h: 44: void toggleSerialPort(unsigned char toggle);
-[; ;serialprotocol.h: 45: void toggleTransmitter(unsigned char toggle);
-[; ;serialprotocol.h: 46: void toggleReceiver(unsigned char toggle);
-[; ;serialprotocol.h: 47: void sendChar(unsigned char toggle);
-[; ;serialprotocol.h: 48: void sendData(unsigned char *string, int length);
-[; ;serialprotocol.h: 49: int receiveData(struct receiveBuffer *SBuffer);
+[; ;serialprotocol.h: 40: typedef char int8_t;
+[; ;serialprotocol.h: 41: typedef unsigned char uint8_t;
+[; ;serialprotocol.h: 43: struct receiveBuffer
+[; ;serialprotocol.h: 44: {
+[; ;serialprotocol.h: 45: unsigned char buffer[7];
+[; ;serialprotocol.h: 46: char length;
+[; ;serialprotocol.h: 47: };
+[; ;serialprotocol.h: 49: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
+[; ;serialprotocol.h: 50: unsigned int spbrg16);
+[; ;serialprotocol.h: 51: void toggleSerialPort(unsigned char toggle);
+[; ;serialprotocol.h: 52: void toggleTransmitter(unsigned char toggle);
+[; ;serialprotocol.h: 53: void toggleReceiver(unsigned char toggle);
+[; ;serialprotocol.h: 54: void sendChar(unsigned char toggle);
+[; ;serialprotocol.h: 55: void sendData(unsigned char *string, uint8_t length);
+[; ;serialprotocol.h: 56: int receiveData(struct receiveBuffer *SBuffer);
 "3 serialprotocol.c
 [v _timer3Time `ui ~T0 @X0 1 s ]
 [; ;serialprotocol.c: 3: static unsigned int timer3Time;
@@ -3980,157 +3948,209 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 383 ]
 }
 "66
-[v _sendData `(v ~T0 @X0 1 ef2`*uc`i ]
+[v _sendData `(v ~T0 @X0 1 ef2`*uc`uc ]
 "67
 {
-[; ;serialprotocol.c: 66: void sendData(unsigned char *string, int length)
+[; ;serialprotocol.c: 66: void sendData(unsigned char *string, uint8_t length)
 [; ;serialprotocol.c: 67: {
 [e :U _sendData ]
 "66
 [v _string `*uc ~T0 @X0 1 r1 ]
-[v _length `i ~T0 @X0 1 r2 ]
+[v _length `uc ~T0 @X0 1 r2 ]
 "67
 [f ]
 "68
 [v _i `i ~T0 @X0 1 a ]
 [; ;serialprotocol.c: 68: int i;
-[; ;serialprotocol.c: 70: for (i = 0; i < length; i++)
+[; ;serialprotocol.c: 70: sendChar(0x55);
 "70
+[e ( _sendChar (1 -> -> 85 `i `uc ]
+[; ;serialprotocol.c: 71: sendChar(0xDD);
+"71
+[e ( _sendChar (1 -> -> 221 `i `uc ]
+[; ;serialprotocol.c: 72: sendChar(length);
+"72
+[e ( _sendChar (1 _length ]
+[; ;serialprotocol.c: 74: for (i = 0; i < length; i++)
+"74
 {
 [e = _i -> 0 `i ]
 [e $U 391  ]
-"71
+"75
 [e :U 388 ]
-[; ;serialprotocol.c: 71: sendChar(string[i]);
+[; ;serialprotocol.c: 75: sendChar(string[i]);
 [e ( _sendChar (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
-"70
+"74
 [e ++ _i -> 1 `i ]
 [e :U 391 ]
-[e $ < _i _length 388  ]
+[e $ < _i -> _length `i 388  ]
 [e :U 389 ]
-"71
+"75
 }
-[; ;serialprotocol.c: 72: }
-"72
+[; ;serialprotocol.c: 76: }
+"76
 [e :UE 387 ]
 }
-"74
-[v _receiveData `(i ~T0 @X0 1 ef1`*S374 ]
-"75
-{
-[; ;serialprotocol.c: 74: int receiveData(struct receiveBuffer *buffer)
-[; ;serialprotocol.c: 75: {
-[e :U _receiveData ]
-"74
-[v _buffer `*S374 ~T0 @X0 1 r1 ]
-"75
-[f ]
-"77
-[v _character `uc ~T0 @X0 1 a ]
 "78
-[v _i `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 77: int8_t character;
-[; ;serialprotocol.c: 78: int i = 0;
-[e = _i -> 0 `i ]
+[v _receiveData `(i ~T0 @X0 1 ef1`*S374 ]
 "79
-[v _size `i ~T0 @X0 1 a ]
-[; ;serialprotocol.c: 79: int size = 0;
-[e = _size -> 0 `i ]
-[; ;serialprotocol.c: 81: if (RCSTAbits.OERR) {
+{
+[; ;serialprotocol.c: 78: int receiveData(struct receiveBuffer *buffer)
+[; ;serialprotocol.c: 79: {
+[e :U _receiveData ]
+"78
+[v _buffer `*S374 ~T0 @X0 1 r1 ]
+"79
+[f ]
+"80
+[v _byte_1 `uc ~T0 @X0 1 a ]
 "81
+[v _byte_2 `uc ~T0 @X0 1 a ]
+"82
+[v _i `i ~T0 @X0 1 a ]
+[; ;serialprotocol.c: 80: uint8_t byte_1;
+[; ;serialprotocol.c: 81: uint8_t byte_2;
+[; ;serialprotocol.c: 82: int i = 0;
+[e = _i -> 0 `i ]
+"83
+[v _size `i ~T0 @X0 1 a ]
+[; ;serialprotocol.c: 83: int size = 0;
+[e = _size -> 0 `i ]
+[; ;serialprotocol.c: 85: if (RCSTAbits.OERR) {
+"85
 [e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 393  ]
 {
-[; ;serialprotocol.c: 82: RCSTAbits.CREN = 0;
-"82
+[; ;serialprotocol.c: 86: RCSTAbits.CREN = 0;
+"86
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 83: RCSTAbits.CREN = 1;
-"83
+[; ;serialprotocol.c: 87: RCSTAbits.CREN = 1;
+"87
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"84
+[; ;serialprotocol.c: 88: byte_1 = RCREG;
+"88
+[e = _byte_1 _RCREG ]
+[; ;serialprotocol.c: 89: byte_1 = RCREG;
+"89
+[e = _byte_1 _RCREG ]
+"90
 }
 [e :U 393 ]
-[; ;serialprotocol.c: 84: }
-[; ;serialprotocol.c: 86: character = RCREG;
-"86
-[e = _character _RCREG ]
-[; ;serialprotocol.c: 87: character = RCREG;
-"87
-[e = _character _RCREG ]
-[; ;serialprotocol.c: 89: if (PORTCbits.RC1 == 0) {
-"89
-[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 394  ]
-{
-[; ;serialprotocol.c: 90: LATCbits.LATC0 = 0;
-"90
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 92: while (!RCIF);
+[; ;serialprotocol.c: 90: }
+[; ;serialprotocol.c: 92: if (RCIF){
 "92
-[e $U 395  ]
-[e :U 396 ]
-[e :U 395 ]
-[e $ ! _RCIF 396  ]
-[e :U 397 ]
-[; ;serialprotocol.c: 93: size = RCREG;
-"93
-[e = _size -> _RCREG `i ]
-[; ;serialprotocol.c: 95: if (size < 16 && size > 0) {
-"95
-[e $ ! && < _size -> 16 `i > _size -> 0 `i 398  ]
+[e $ ! _RCIF 394  ]
 {
-[; ;serialprotocol.c: 96: while (i < size) {
+[; ;serialprotocol.c: 94: byte_1 = RCREG;
+"94
+[e = _byte_1 _RCREG ]
+[; ;serialprotocol.c: 96: if ((byte_1 & 0xF0) == 0xE0){
 "96
-[e $U 399  ]
-[e :U 400 ]
+[e $ ! == & -> _byte_1 `i -> 240 `i -> 224 `i 395  ]
 {
-[; ;serialprotocol.c: 97: while (!RCIF);
+[; ;serialprotocol.c: 97: size = byte_1 & 0x0F;
 "97
-[e $U 402  ]
-[e :U 403 ]
-[e :U 402 ]
-[e $ ! _RCIF 403  ]
-[e :U 404 ]
-[; ;serialprotocol.c: 98: buffer->buffer[i] = RCREG;
+[e = _size & -> _byte_1 `i -> 15 `i ]
+[; ;serialprotocol.c: 98: if (size < 7) {
 "98
-[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux _RCREG ]
-[; ;serialprotocol.c: 99: i++;
+[e $ ! < _size -> 7 `i 396  ]
+{
+[; ;serialprotocol.c: 99: sendChar(0x70);
 "99
-[e ++ _i -> 1 `i ]
+[e ( _sendChar (1 -> -> 112 `i `uc ]
+[; ;serialprotocol.c: 100: for (; i < size; i++){
 "100
-}
-[e :U 399 ]
-"96
-[e $ < _i _size 400  ]
+{
+[e $U 400  ]
+[e :U 397 ]
+{
+[; ;serialprotocol.c: 102: while (!RCIF);
+"102
+[e $U 401  ]
+[e :U 402 ]
 [e :U 401 ]
-"101
-}
-[e :U 398 ]
-[; ;serialprotocol.c: 100: }
-[; ;serialprotocol.c: 101: }
-[; ;serialprotocol.c: 103: LATCbits.LATC0 = 1;
+[e $ ! _RCIF 402  ]
+[e :U 403 ]
+[; ;serialprotocol.c: 103: byte_1 = RCREG;
 "103
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;serialprotocol.c: 104: while (PORTCbits.RC1 == 0);
+[e = _byte_1 _RCREG ]
+[; ;serialprotocol.c: 104: while (!RCIF);
 "104
-[e $U 405  ]
-[e :U 406 ]
+[e $U 404  ]
 [e :U 405 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 406  ]
-[e :U 407 ]
+[e :U 404 ]
+[e $ ! _RCIF 405  ]
+[e :U 406 ]
+[; ;serialprotocol.c: 105: byte_2 = RCREG;
 "105
+[e = _byte_2 _RCREG ]
+[; ;serialprotocol.c: 107: if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
+"107
+[e $ ! && == & -> _byte_1 `i -> 240 `i -> 160 `i == & -> _byte_2 `i -> 240 `i -> 160 `i 407  ]
+{
+[; ;serialprotocol.c: 108: buffer->buffer[i] = byte_1 << 4 | (byte_2 & 0x0F);
+"108
+[e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> | << -> _byte_1 `i -> 4 `i & -> _byte_2 `i -> 15 `i `uc ]
+[; ;serialprotocol.c: 109: sendChar(0x60);
+"109
+[e ( _sendChar (1 -> -> 96 `i `uc ]
+"110
+}
+[; ;serialprotocol.c: 110: } else {
+[e $U 408  ]
+[e :U 407 ]
+{
+[; ;serialprotocol.c: 111: sendChar(0x50);
+"111
+[e ( _sendChar (1 -> -> 80 `i `uc ]
+[; ;serialprotocol.c: 112: break;
+"112
+[e $U 398  ]
+"113
+}
+[e :U 408 ]
+"114
+}
+"100
+[e ++ _i -> 1 `i ]
+[e :U 400 ]
+[e $ < _i _size 397  ]
+[e :U 398 ]
+"114
+}
+"115
+}
+[; ;serialprotocol.c: 113: }
+[; ;serialprotocol.c: 114: }
+[; ;serialprotocol.c: 115: } else {
+[e $U 409  ]
+[e :U 396 ]
+{
+[; ;serialprotocol.c: 116: sendChar(0x40);
+"116
+[e ( _sendChar (1 -> -> 64 `i `uc ]
+"117
+}
+[e :U 409 ]
+"118
+}
+[e :U 395 ]
+"119
 }
 [e :U 394 ]
-[; ;serialprotocol.c: 105: }
-[; ;serialprotocol.c: 107: buffer->length = i;
-"107
+[; ;serialprotocol.c: 117: }
+[; ;serialprotocol.c: 118: }
+[; ;serialprotocol.c: 119: }
+[; ;serialprotocol.c: 121: buffer->length = i;
+"121
 [e = . *U _buffer 1 -> _i `uc ]
-[; ;serialprotocol.c: 108: buffer->buffer[i] = 0;
-"108
+[; ;serialprotocol.c: 122: buffer->buffer[i] = 0;
+"122
 [e = *U + &U . *U _buffer 0 * -> -> _i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> -> 0 `i `uc ]
-[; ;serialprotocol.c: 110: return i;
-"110
+[; ;serialprotocol.c: 124: return i;
+"124
 [e ) _i ]
 [e $UE 392  ]
-[; ;serialprotocol.c: 111: }
-"111
+[; ;serialprotocol.c: 125: }
+"125
 [e :UE 392 ]
 }

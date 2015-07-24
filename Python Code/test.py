@@ -1,37 +1,15 @@
 __author__ = 'Manuel'
 
-# import serial
-from serialport import MPort
+"""import pic18f13k22 as mcu
 
-# port = serial.Serial(port='COM4', baudrate=38400, timeout=0.0)
-port = MPort(packet_size=6, port='COM4', baudrate=1000000, timeout=0.0)
-data = bytearray("manuel iñárritu fernandez lopez alvarado", encoding="utf-8")
-"""size = len(data)
+pic = mcu.PIC18F13K22(6)
+pic.open_connection(port="COM4", baudrate=1000000, disconnect=1000, packet_size=6)
+pic.pwm_select_output("P1C", 1)
+pic.close_connection()"""
 
-if size <= 6:
-    send_size = size | 0xE0
-    port.write(bytes([send_size]))
-    send_data = bytearray()
-    for i, data_byte in enumerate(data):
-        send_data.append((data[i] >> 4) | 0xA0)
-        send_data.append((data[i] & 0x0F) | 0xA0)
-    n_bytes = port.inWaiting()
-    while n_bytes <= 0:
-        n_bytes = port.inWaiting()
-    byte_read = port.read()
-    if byte_read[0] == 0x70:
-        for i in range(0, size * 2, 2):
-            port.write(send_data[i:i + 2])
-            n_bytes = port.inWaiting()
-            while n_bytes <= 0:
-                n_bytes = port.inWaiting()
-            byte_read = port.read()
-            if byte_read[0] == 0x60:
-                continue
-            else:
-                i -= 2  # or resend"""
-port.send_data(data)
+import serialport as ser
 
-print(port.read_data().decode(encoding="utf-8"))
-
+port = ser.MPort(port="COM4", baudrate=38400, packet_size=6, timeout=0.0)
+port.send_data([0xAA, 0x04])
+# port.send_data([0xAC, 254, 4])
 port.close()

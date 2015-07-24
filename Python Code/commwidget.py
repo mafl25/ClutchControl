@@ -121,4 +121,4 @@ def update_on_off(label, parent):  # Analyze more this function later
         parent.on_off_line.set("PIC Online")
     else:
         parent.on_off_line.set("PIC Offline")
-    label.after(20, update_on_off, label, parent)  # Have to call it again to kee it running
+    label.after(100, update_on_off, label, parent)  # Have to call it again to kee it running

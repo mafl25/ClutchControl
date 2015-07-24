@@ -8,6 +8,14 @@ class SerialException(Exception):
     pass
 
 
+CTS_CHAR = 0x70
+OK_CHAR = 0x60
+NOK_CHAR = 0x50
+TB_CHAR = 0x40
+RX_MASK = 0xA0
+RTS_MASK = 0xE0
+
+
 class MPort(serial.Serial):
 
     def __init__(self, packet_size, *args, **kwargs):
@@ -32,15 +40,15 @@ class MPort(serial.Serial):
             self.write(bytes([send_size]))
             send_data = bytearray()
             for i, data_byte in enumerate(data):
-                send_data.append((data[i] >> 4) | 0xA0)
-                send_data.append((data[i] & 0x0F) | 0xA0)
+                send_data.append((data[i] >> 4) | RX_MASK)
+                send_data.append((data[i] & 0x0F) | RX_MASK)
 
             n_bytes = self.inWaiting()
             while n_bytes <= 0:
                 n_bytes = self.inWaiting()
 
-            byte_read = self.read()
-            if byte_read[0] == 0x70:
+            byte_read = self.read(n_bytes)
+            if byte_read[0] == CTS_CHAR:
                 for i in range(0, size * 2, 2):
                     self.write(send_data[i:i + 2])
 
@@ -48,8 +56,8 @@ class MPort(serial.Serial):
                     while n_bytes <= 0:
                         n_bytes = self.inWaiting()
 
-                    byte_read = self.read()
-                    if byte_read[0] == 0x60:  # TODO: Put all these constants in variables.
+                    byte_read = self.read(n_bytes)
+                    if byte_read[0] == OK_CHAR:
                         continue
                     else:
                         pass  # TODO: Something here in case the byte was not received well
@@ -74,6 +82,11 @@ class MPort(serial.Serial):
         buffer.extend(self.read(n_bytes))
         del(self._received[0:])
         return buffer
+
+    def bytes_in_buffer(self):
+        n_bytes = self.inWaiting()
+        self._received.extend(self.read(n_bytes))
+        return len(self._received)
 
 
 

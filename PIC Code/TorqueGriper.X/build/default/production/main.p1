@@ -1,16 +1,41 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"42 serialprotocol.h
+[v F3867 `(v ~T0 @X0 1 tf1`ul ]
+"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v __delay `JF3867 ~T0 @X0 0 e ]
+[p i __delay ]
+"45 main.c
+[v _setup_tmr0 `(v ~T0 @X0 0 ef1`i ]
+"49 serialprotocol.h
 [v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"7327 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"3594
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"47 serialprotocol.h
-[v _sendChar `(v ~T0 @X0 0 ef1`uc ]
-"48
-[v _sendData `(v ~T0 @X0 0 ef2`*uc`i ]
-"6248 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+"52 main.c
+[c E3896 0 1 2 3 .. ]
+[n E3896 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
+[c E3902 0 1 2 .. ]
+[n E3902 . TMRP_1 TMRP_4 TMRP_16  ]
+"30 pwm.h
+[v _pmwSingleModeSetUp `(v ~T0 @X0 0 ef4`E3896`uc`E3902`uc ]
+"32
+[v _setPulseWidth `(v ~T0 @X0 0 ef1`ui ]
+"43 serialprotocol.h
+[s S374 `uc -> 7 `i `uc 1 ]
+[n S374 receiveBuffer buffer length ]
+"56
+[v _receiveData `(i ~T0 @X0 0 ef1`*S374 ]
+"33 pwm.h
+[v _selectOutput `(v ~T0 @X0 0 ef2`uc`uc ]
+"5738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S312 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S312 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"5746
+[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S313 . T0PS0 T0PS1 T0PS2 ]
+"5737
+[u S311 `S312 1 `S313 1 ]
+[n S311 . . . ]
+"5752
+[v _T0CONbits `VS311 ~T0 @X0 0 e@4053 ]
+"6248
 [s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "6258
@@ -31,10 +56,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
 "5807
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-[v F3867 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF3867 ~T0 @X0 0 e ]
-[p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3569,21 +3590,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;serialprotocol.h: 33: typedef char int8_t;
-[; ;serialprotocol.h: 34: typedef unsigned char uint8_t;
-[; ;serialprotocol.h: 36: struct receiveBuffer
-[; ;serialprotocol.h: 37: {
-[; ;serialprotocol.h: 38: unsigned char buffer[16];
-[; ;serialprotocol.h: 39: char length;
-[; ;serialprotocol.h: 40: };
-[; ;serialprotocol.h: 42: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.h: 43: unsigned int spbrg16);
-[; ;serialprotocol.h: 44: void toggleSerialPort(unsigned char toggle);
-[; ;serialprotocol.h: 45: void toggleTransmitter(unsigned char toggle);
-[; ;serialprotocol.h: 46: void toggleReceiver(unsigned char toggle);
-[; ;serialprotocol.h: 47: void sendChar(unsigned char toggle);
-[; ;serialprotocol.h: 48: void sendData(unsigned char *string, int length);
-[; ;serialprotocol.h: 49: int receiveData(struct receiveBuffer *SBuffer);
+[; ;serialprotocol.h: 40: typedef char int8_t;
+[; ;serialprotocol.h: 41: typedef unsigned char uint8_t;
+[; ;serialprotocol.h: 43: struct receiveBuffer
+[; ;serialprotocol.h: 44: {
+[; ;serialprotocol.h: 45: unsigned char buffer[7];
+[; ;serialprotocol.h: 46: char length;
+[; ;serialprotocol.h: 47: };
+[; ;serialprotocol.h: 49: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
+[; ;serialprotocol.h: 50: unsigned int spbrg16);
+[; ;serialprotocol.h: 51: void toggleSerialPort(unsigned char toggle);
+[; ;serialprotocol.h: 52: void toggleTransmitter(unsigned char toggle);
+[; ;serialprotocol.h: 53: void toggleReceiver(unsigned char toggle);
+[; ;serialprotocol.h: 54: void sendChar(unsigned char toggle);
+[; ;serialprotocol.h: 55: void sendData(unsigned char *string, uint8_t length);
+[; ;serialprotocol.h: 56: int receiveData(struct receiveBuffer *SBuffer);
 [; ;pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
 [; ;pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
 [; ;pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
@@ -3624,204 +3645,138 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BBSIZ=OFF ]
 "37
 [p x XINST=OFF ]
-[; ;main.c: 47: void interrupt com_link(void);
-"49
+[; ;main.c: 45: void setup_tmr0(int tmr0_value);
+"47
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 49: int main() {
+[; ;main.c: 47: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 110: serialSetUp(1, 1, 0x04);
-"110
-[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 4 `i `ui ]
-"111
-[v _byte_1 `uc ~T0 @X0 1 a ]
-"112
-[v _byte_2 `uc ~T0 @X0 1 a ]
-"113
-[v _data `uc ~T0 @X0 -> 6 `i a ]
-"114
-[v _length `uc ~T0 @X0 1 a ]
-[; ;main.c: 111: unsigned char byte_1;
-[; ;main.c: 112: unsigned char byte_2;
-[; ;main.c: 113: unsigned char data[6];
-[; ;main.c: 114: char length = 0;
-[e = _length -> -> 0 `i `uc ]
-"115
-[v _size `uc ~T0 @X0 1 a ]
-"116
-[v _i `uc ~T0 @X0 1 a ]
-[; ;main.c: 115: char size;
-[; ;main.c: 116: char i;
-[; ;main.c: 118: while (1){
-"118
+[; ;main.c: 48: _delay((unsigned long)((1)*(20000000/4000.0)));
+"48
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 50: setup_tmr0(65340);
+"50
+[e ( _setup_tmr0 (1 -> -> 65340 `l `i ]
+[; ;main.c: 51: serialSetUp(1, 1, 0x81);
+"51
+[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 129 `i `ui ]
+[; ;main.c: 52: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
+"52
+[e ( _pmwSingleModeSetUp (4 , , , . `E3896 0 -> -> 254 `i `uc . `E3902 0 -> | -> 4 `i -> 2 `i `uc ]
+[; ;main.c: 53: setPulseWidth(0);
+"53
+[e ( _setPulseWidth (1 -> -> 0 `i `ui ]
+"55
+[v _data `S374 ~T0 @X0 1 a ]
+"56
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 55: struct receiveBuffer data;
+[; ;main.c: 56: int i = 0;
+[e = _i -> 0 `i ]
+"57
+[v _wat `uc ~T0 @X0 1 a ]
+[; ;main.c: 57: unsigned char wat = 0;
+[e = _wat -> -> 0 `i `uc ]
+[; ;main.c: 59: while (1) {
+"59
 [e :U 377 ]
 {
-[; ;main.c: 119: i = 0;
-"119
-[e = _i -> -> 0 `i `uc ]
-[; ;main.c: 120: if (RCIF){
-"120
-[e $ ! _RCIF 379  ]
+[; ;main.c: 61: i = receiveData(&data);
+"61
+[e = _i ( _receiveData (1 &U _data ]
+[; ;main.c: 64: if (i) {
+"64
+[e $ ! != _i -> 0 `i 379  ]
 {
-[; ;main.c: 121: i = 0;
-"121
-[e = _i -> -> 0 `i `uc ]
-[; ;main.c: 122: byte_1 = RCREG;
-"122
-[e = _byte_1 _RCREG ]
-[; ;main.c: 124: if ((byte_1 & 0xF0) == 0xE0){
-"124
-[e $ ! == & -> _byte_1 `i -> 240 `i -> 224 `i 380  ]
+[; ;main.c: 65: if (data.buffer[0] == 0xAA) {
+"65
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 170 `i 380  ]
 {
-[; ;main.c: 125: size = byte_1 & 0x0F;
-"125
-[e = _size -> & -> _byte_1 `i -> 15 `i `uc ]
-[; ;main.c: 126: if (size <= 6) {
-"126
-[e $ ! <= -> _size `i -> 6 `i 381  ]
-{
-[; ;main.c: 127: sendChar(0x70);
-"127
-[e ( _sendChar (1 -> -> 112 `i `uc ]
-[; ;main.c: 128: for (; i < size; i++){
-"128
-{
-[e $U 385  ]
-[e :U 382 ]
-{
-[; ;main.c: 129: while (!RCIF);
-"129
-[e $U 386  ]
-[e :U 387 ]
-[e :U 386 ]
-[e $ ! _RCIF 387  ]
-[e :U 388 ]
-[; ;main.c: 130: byte_1 = RCREG;
-"130
-[e = _byte_1 _RCREG ]
-[; ;main.c: 131: while (!RCIF);
-"131
-[e $U 389  ]
-[e :U 390 ]
-[e :U 389 ]
-[e $ ! _RCIF 390  ]
-[e :U 391 ]
-[; ;main.c: 132: byte_2 = RCREG;
-"132
-[e = _byte_2 _RCREG ]
-[; ;main.c: 134: if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-"134
-[e $ ! && == & -> _byte_1 `i -> 240 `i -> 160 `i == & -> _byte_2 `i -> 240 `i -> 160 `i 392  ]
-{
-[; ;main.c: 135: data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-"135
-[e = *U + &U _data * -> _i `ux -> -> # *U &U _data `ui `ux -> | << -> _byte_1 `i -> 4 `i & -> _byte_2 `i -> 15 `i `uc ]
-[; ;main.c: 136: sendChar(0x60);
-"136
-[e ( _sendChar (1 -> -> 96 `i `uc ]
-"137
+[; ;main.c: 66: selectOutput(data.buffer[1], 1);
+"66
+[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 1 `i `uc ]
+"67
 }
-[; ;main.c: 137: } else {
-[e $U 393  ]
-[e :U 392 ]
-{
-[; ;main.c: 138: sendChar(0x50);
-"138
-[e ( _sendChar (1 -> -> 80 `i `uc ]
-[; ;main.c: 139: break;
-"139
-[e $U 383  ]
-"140
-}
-[e :U 393 ]
-"141
-}
-"128
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 385 ]
-[e $ < -> _i `i -> _size `i 382  ]
-[e :U 383 ]
-"141
-}
-"142
-}
-[; ;main.c: 140: }
-[; ;main.c: 141: }
-[; ;main.c: 142: } else {
-[e $U 394  ]
-[e :U 381 ]
-{
-[; ;main.c: 143: sendChar(0x40);
-"143
-[e ( _sendChar (1 -> -> 64 `i `uc ]
-"144
-}
-[e :U 394 ]
-"145
-}
+[; ;main.c: 67: } else if (data.buffer[0] == 0xAB) {
+[e $U 381  ]
 [e :U 380 ]
-[; ;main.c: 144: }
-[; ;main.c: 145: }
-[; ;main.c: 147: length = i;
-"147
-[e = _length _i ]
-"148
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 171 `i 382  ]
+{
+[; ;main.c: 68: selectOutput(data.buffer[1], 0);
+"68
+[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 0 `i `uc ]
+"69
+}
+[; ;main.c: 69: } else if (data.buffer[0] == 0xAC) {
+[e $U 383  ]
+[e :U 382 ]
+[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 172 `i 384  ]
+{
+[; ;main.c: 70: setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
+"70
+[e ( _setPulseWidth (1 -> | << -> *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 2 `i -> *U + &U . _data 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i `ui ]
+"71
+}
+[e :U 384 ]
+"72
+[e :U 383 ]
+[e :U 381 ]
 }
 [e :U 379 ]
-[; ;main.c: 148: }
-[; ;main.c: 150: if (i)
-"150
-[e $ ! != -> _i `i -> -> -> 0 `i `uc `i 395  ]
-[; ;main.c: 151: sendData(data, length);
-"151
-[e ( _sendData (2 , &U _data -> _length `i ]
-[e :U 395 ]
-"152
+"80
 }
 [e :U 376 ]
-"118
+"59
 [e $U 377  ]
 [e :U 378 ]
-[; ;main.c: 152: }
-[; ;main.c: 155: return (0);
-"155
+[; ;main.c: 71: }
+[; ;main.c: 72: }
+[; ;main.c: 80: }
+[; ;main.c: 82: return (0);
+"82
 [e ) -> 0 `i ]
 [e $UE 375  ]
-[; ;main.c: 156: }
-"156
+[; ;main.c: 83: }
+"83
 [e :UE 375 ]
 }
-[v F3921 `(v ~T0 @X0 1 tf ]
-"158
-[v _com_link `IF3921 ~T0 @X0 1 e ]
-"159
+"85
+[v _setup_tmr0 `(v ~T0 @X0 1 ef1`i ]
+"86
 {
-[; ;main.c: 158: void interrupt com_link(void)
-[; ;main.c: 159: {
-[e :U _com_link ]
+[; ;main.c: 85: void setup_tmr0(int tmr0_value)
+[; ;main.c: 86: {
+[e :U _setup_tmr0 ]
+"85
+[v _tmr0_value `i ~T0 @X0 1 r1 ]
+"86
 [f ]
-[; ;main.c: 160: if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-"160
-[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 397  ]
-{
-[; ;main.c: 161: TMR0H = 65340 >> 8;
-"161
-[e = _TMR0H -> >> -> 65340 `l -> 8 `i `uc ]
-[; ;main.c: 162: TMR0L = 65340;
-"162
-[e = _TMR0L -> -> 65340 `l `uc ]
-[; ;main.c: 163: INTCONbits.TMR0IF = 0;
-"163
+[; ;main.c: 87: T0CONbits.PSA = 0;
+"87
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 88: T0CONbits.T0PS = 0x06;
+"88
+[e = . . _T0CONbits 0 0 -> -> 6 `i `uc ]
+[; ;main.c: 89: T0CONbits.T0CS = 0;
+"89
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 90: T0CONbits.T08BIT = 0;
+"90
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 91: INTCONbits.TMR0IF = 0;
+"91
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 164: _delay((unsigned long)((1)*(20000000/4000.0)));
-"164
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"165
-}
-[e :U 397 ]
-[; ;main.c: 165: }
-[; ;main.c: 166: }
-"166
-[e :UE 396 ]
+[; ;main.c: 92: TMR0H = tmr0_value >> 8;
+"92
+[e = _TMR0H -> >> _tmr0_value -> 8 `i `uc ]
+[; ;main.c: 93: TMR0L = tmr0_value;
+"93
+[e = _TMR0L -> _tmr0_value `uc ]
+[; ;main.c: 94: T0CONbits.TMR0ON = 1;
+"94
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 95: }
+"95
+[e :UE 385 ]
 }

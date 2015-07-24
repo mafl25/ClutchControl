@@ -4738,13 +4738,13 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 33 "serialprotocol.h"
+# 40 "serialprotocol.h"
 typedef char int8_t;
 typedef unsigned char uint8_t;
 
 struct receiveBuffer
 {
-unsigned char buffer[16];
+unsigned char buffer[7];
 char length;
 };
 
@@ -4754,7 +4754,7 @@ void toggleSerialPort(unsigned char toggle);
 void toggleTransmitter(unsigned char toggle);
 void toggleReceiver(unsigned char toggle);
 void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, int length);
+void sendData(unsigned char *string, uint8_t length);
 int receiveData(struct receiveBuffer *SBuffer);
 
 # 27 "pwm.h"
@@ -4796,66 +4796,50 @@ void pmwFullBridgeSetUp();
 #pragma config BBSIZ = OFF
 #pragma config XINST = OFF
 
-# 47
-void interrupt com_link(void);
+# 45
+void setup_tmr0(int tmr0_value);
 
 int main() {
+_delay((unsigned long)((1)*(20000000/4000.0)));
 
-# 110
-serialSetUp(1, 1, 0x04);
-unsigned char byte_1;
-unsigned char byte_2;
-unsigned char data[6];
-char length = 0;
-char size;
-char i;
+setup_tmr0(65340);
+serialSetUp(1, 1, 0x81);
+pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
+setPulseWidth(0);
 
-while (1){
-i = 0;
-if (RCIF){
-i = 0;
-byte_1 = RCREG;
+struct receiveBuffer data;
+int i = 0;
+unsigned char wat = 0;
 
-if ((byte_1 & 0xF0) == 0xE0){
-size = byte_1 & 0x0F;
-if (size <= 6) {
-sendChar(0x70);
-for (; i < size; i++){
-while (!RCIF);
-byte_1 = RCREG;
-while (!RCIF);
-byte_2 = RCREG;
+while (1) {
 
-if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-sendChar(0x60);
-} else {
-sendChar(0x50);
-break;
-}
-}
-} else {
-sendChar(0x40);
+i = receiveData(&data);
+
+
+if (i) {
+if (data.buffer[0] == 0xAA) {
+selectOutput(data.buffer[1], 1);
+} else if (data.buffer[0] == 0xAB) {
+selectOutput(data.buffer[1], 0);
+} else if (data.buffer[0] == 0xAC) {
+setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
 }
 }
 
-length = i;
+# 80
 }
-
-if (i)
-sendData(data, length);
-}
-
 
 return (0);
 }
 
-void interrupt com_link(void)
+void setup_tmr0(int tmr0_value)
 {
-if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
-TMR0H = 65340 >> 8;
-TMR0L = 65340;
+T0CONbits.PSA = 0;
+T0CONbits.T0PS = 0x06;
+T0CONbits.T0CS = 0;
+T0CONbits.T08BIT = 0;
 INTCONbits.TMR0IF = 0;
-_delay((unsigned long)((1)*(20000000/4000.0)));
-}
+TMR0H = tmr0_value >> 8;
+TMR0L = tmr0_value;
+T0CONbits.TMR0ON = 1;
 }

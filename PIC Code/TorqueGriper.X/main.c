@@ -42,32 +42,19 @@
 #define BACKWARD LATCbits.LATC4 
 #define TRIS_BACKWARD TRISCbits.RC4 
 
-#define TMR0VAL 65340
-
-void interrupt com_link(void);
+void setup_tmr0(int tmr0_value);
 
 int main() {
-    /*__delay_ms(1);
-    serialSetUp(BRG16_ON, BRGH_ON, 0x81);
+    __delay_ms(1);
     
+    setup_tmr0(65340);
+    serialSetUp(BRG16_ON, BRGH_ON, 0x81); // TODO: Clean Up all code
     pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, OUT_C | OUT_B);
     setPulseWidth(0);
     
-    /*T0CONbits.PSA = 0;
-    T0CONbits.T0PS = 0x06;
-    T0CONbits.T0CS = 0;
-    T0CONbits.T08BIT = 0;
-    INTCONbits.TMR0IF = 0;
-    INTCONbits.TMR0IE = 1;
-    INTCONbits.GIE = 1;
-    TMR0H = TMR0VAL >> 8;
-    TMR0L = TMR0VAL;
-    T0CONbits.TMR0ON = 1;
-    
-        
-    
     struct receiveBuffer data;
     int i = 0;
+    unsigned char wat = 0;
     
     while (1) {
         
@@ -83,84 +70,26 @@ int main() {
                 setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
             }
         }
-    }*/
-    /*serialSetUp(BRG16_ON, BRGH_ON, 0x81);
-    sendChar('a');
-    struct spi_receive_buffer my_data = {0, 0};
-    
-    set_spi(SM_NSS, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
-    char i = 0;
-    
-    while (1){
-        slave_receive_data(&my_data);
-        for(i = 0; i < my_data.length; i++) {
-            sendChar(my_data.buffer[i]);
-        }
-    }*/
-    
-#define CTS_CHAR    0x70
-#define OK_CHAR     0x60
-#define NOK_CHAR    0x50
-#define MAX_SIZE    6
-#define TB_CHAR     0x40
-#define RX_MASK     0xA0
-#define RTS_MASK    0xE0
-    
-
-    serialSetUp(BRG16_ON, BRGH_ON, 0x04);
-    unsigned char byte_1;
-    unsigned char byte_2;
-    unsigned char data[MAX_SIZE];
-    char length = 0;
-    char size;
-    char i;
-    
-    while (1){
-        i = 0;
-        if (RCIF){
-            i = 0;
-            byte_1 = RCREG;
-            
-            if ((byte_1 & 0xF0) == RTS_MASK){
-                size = byte_1 & 0x0F;
-                if (size <= MAX_SIZE) {
-                    sendChar(CTS_CHAR);
-                    for (; i < size; i++){
-                        while (!RCIF); 
-                        byte_1 = RCREG;
-                        while (!RCIF);
-                        byte_2 = RCREG;
-
-                        if ((byte_1 & 0xF0) == RX_MASK && (byte_2 & 0xF0) == RX_MASK){
-                            data[i] = byte_1 << 4 | (byte_2 & 0x0F);
-                            sendChar(OK_CHAR);
-                        } else {
-                            sendChar(NOK_CHAR);
-                            break;
-                        }
-                    }
-                } else {
-                    sendChar(TB_CHAR);
-                }
-            }
-            
-            length = i;
-        }
         
-        if (i)
-            sendData(data, length);
+        /*if (INTCONbits.TMR0IF){
+            sendData(&wat, 0);
+            TMR0H = 65340 >> 8;
+            TMR0L = 65340;
+            INTCONbits.TMR0IF = 0;
+        }*/
     }
-    
     
     return (0);
 }
 
-void interrupt com_link(void)        // interrupt function 
- {
-    if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){                                     
-        TMR0H = TMR0VAL >> 8;
-        TMR0L = TMR0VAL;
-        INTCONbits.TMR0IF = 0;
-        __delay_ms(1);
-    }
+void setup_tmr0(int tmr0_value)
+{
+    T0CONbits.PSA = 0;
+    T0CONbits.T0PS = 0x06;
+    T0CONbits.T0CS = 0;
+    T0CONbits.T08BIT = 0;
+    INTCONbits.TMR0IF = 0;
+    TMR0H = tmr0_value >> 8;
+    TMR0L = tmr0_value;
+    T0CONbits.TMR0ON = 1;
 }
