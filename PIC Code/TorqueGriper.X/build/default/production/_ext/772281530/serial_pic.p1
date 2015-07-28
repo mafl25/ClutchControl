@@ -1,88 +1,68 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"5 pwm.c
-[c E3874 0 1 2 3 .. ]
-[n E3874 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
-[c E3880 0 1 2 .. ]
-[n E3880 . TMRP_1 TMRP_4 TMRP_16  ]
-"5159 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S275 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S275 . T2CKPS TMR2ON T2OUTPS ]
-"5164
-[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S276 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
-"5158
-[u S274 `S275 1 `S276 1 ]
-[n S274 . . . ]
-"5174
-[v _T2CONbits `VS274 ~T0 @X0 0 e@4042 ]
-"4421
-[s S234 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S234 . CCP1M DC1B P1M ]
-"4426
-[s S235 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S235 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 DC1B0 DC1B1 P1M0 P1M1 ]
-"4420
-[u S233 `S234 1 `S235 1 ]
-[n S233 . . . ]
-"4437
-[v _CCP1CONbits `VS233 ~T0 @X0 0 e@4029 ]
-"4069
-[s S216 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S216 . STRA STRB STRC STRD STRSYNC ]
-"4068
-[u S215 `S216 1 ]
-[n S215 . . ]
-"4077
-[v _PSTRCONbits `VS215 ~T0 @X0 0 e@4025 ]
-"1842
-[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S98 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"1852
-[s S99 :1 `uc 1 ]
-[n S99 . LC0 ]
-"1855
-[s S100 :1 `uc 1 :1 `uc 1 ]
-[n S100 . . LC1 ]
-"1859
-[s S101 :2 `uc 1 :1 `uc 1 ]
-[n S101 . . LC2 ]
-"1863
-[s S102 :3 `uc 1 :1 `uc 1 ]
-[n S102 . . LC3 ]
-"1867
-[s S103 :4 `uc 1 :1 `uc 1 ]
-[n S103 . . LC4 ]
-"1871
-[s S104 :5 `uc 1 :1 `uc 1 ]
-[n S104 . . LC5 ]
-"1875
-[s S105 :6 `uc 1 :1 `uc 1 ]
-[n S105 . . LC6 ]
-"1879
-[s S106 :7 `uc 1 :1 `uc 1 ]
-[n S106 . . LC7 ]
-"1841
-[u S97 `S98 1 `S99 1 `S100 1 `S101 1 `S102 1 `S103 1 `S104 1 `S105 1 `S106 1 ]
-[n S97 . . . . . . . . . . ]
-"1884
-[v _LATCbits `VS97 ~T0 @X0 0 e@3979 ]
-"2261
-[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S120 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"2271
-[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S121 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"2260
-[u S119 `S120 1 `S121 1 ]
-[n S119 . . . ]
-"2282
-[v _TRISCbits `VS119 ~T0 @X0 0 e@3988 ]
-"5223
-[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
-"4502
-[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
-"4063
-[v _PSTRCON `Vuc ~T0 @X0 0 e@4025 ]
+"3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[s S374 `uc 1 `*uc 1 `c 1 `c 1 ]
+[n S374 interrupt_serial tx_int_enable data length position ]
+"880 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S39 :4 `uc 1 ]
+[n S39 . ANSELH ]
+"883
+[s S40 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S40 . ANS8 ANS9 ANS10 ANS11 ]
+"889
+[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . ANSEL8 ANSEL9 ANSEL10 ANSEL11 ]
+"879
+[u S38 `S39 1 `S40 1 `S41 1 ]
+[n S38 . . . . ]
+"896
+[v _ANSELHbits `VS38 ~T0 @X0 0 e@3967 ]
+"3286
+[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
+"3077
+[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
+"3898
+[v _BAUDCON `Vuc ~T0 @X0 0 e@4024 ]
+"3616
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"3605
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"7327
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"3594
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
+"7661
+[v _TXIF `Vb ~T0 @X0 0 e@31988 ]
+"3583
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"6242
+[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
+"7325
+[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
+"7659
+[v _TXIE `Vb ~T0 @X0 0 e@31980 ]
+"3088
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"3098
+[s S156 :3 `uc 1 :1 `uc 1 ]
+[n S156 . . ADEN ]
+"3102
+[s S157 :5 `uc 1 :1 `uc 1 ]
+[n S157 . . SRENA ]
+"3106
+[s S158 :6 `uc 1 :1 `uc 1 ]
+[n S158 . . RC8_9 ]
+"3110
+[s S159 :6 `uc 1 :1 `uc 1 ]
+[n S159 . . RC9 ]
+"3114
+[s S160 :1 `uc 1 ]
+[n S160 . RCD8 ]
+"3087
+[u S154 `S155 1 `S156 1 `S157 1 `S158 1 `S159 1 `S160 1 ]
+[n S154 . . . . . . . ]
+"3118
+[v _RCSTAbits `VS154 ~T0 @X0 0 e@4011 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3617,289 +3597,641 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-[; ;pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
-[; ;pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-[; ;pwm.h: 31: unsigned char outputs);
-[; ;pwm.h: 32: void setPulseWidth(unsigned int width);
-[; ;pwm.h: 33: void selectOutput(unsigned char outputs, unsigned char toggle);
-[; ;pwm.h: 35: void pmwHalfBridgeSetUp();
-[; ;pwm.h: 36: void pmwFullBridgeSetUp();
-"3 pwm.c
-[v _pmwSingleModeSetUp `(v ~T0 @X0 1 ef4`E3874`uc`E3880`uc ]
-"5
-{
-[; ;pwm.c: 3: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-[; ;pwm.c: 4: unsigned char outputs)
-[; ;pwm.c: 5: {
-[e :U _pmwSingleModeSetUp ]
-"3
-[v _polarity `E3874 ~T0 @X0 1 r1 ]
-[v _valuePR2 `uc ~T0 @X0 1 r2 ]
-[v _scaler `E3880 ~T0 @X0 1 r3 ]
-"4
-[v _outputs `uc ~T0 @X0 1 r4 ]
-"5
-[f ]
-[; ;pwm.c: 6: T2CONbits.TMR2ON = 1;
-"6
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;pwm.c: 8: switch (scaler) {
-"8
-[e $U 376  ]
-{
-[; ;pwm.c: 9: case TMRP_1:
-"9
-[e :U 377 ]
-[; ;pwm.c: 10: T2CONbits.T2CKPS = 0x00;
-"10
-[e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
-[; ;pwm.c: 11: break;
-"11
-[e $U 375  ]
-[; ;pwm.c: 12: case TMRP_4:
-"12
-[e :U 378 ]
-[; ;pwm.c: 13: T2CONbits.T2CKPS = 0x01;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;serial_pic.h: 92: void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+[; ;serial_pic.h: 93: uint16_t baudrate_value);
+[; ;serial_pic.h: 101: void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+[; ;serial_pic.h: 109: bool serial_peek_receive(bool get_byte, uint8_t *byte);
+[; ;serial_pic.h: 115: uint8_t serial_get_byte(void);
+[; ;serial_pic.h: 123: int8_t serial_get_data(uint8_t *data, int8_t size);
+[; ;serial_pic.h: 129: void serial_send_byte(uint8_t byte);
+[; ;serial_pic.h: 136: int8_t serial_send_data(uint8_t *data, int8_t size);
+[; ;serial_pic.h: 144: void serial_interrupts(uint8_t interrupts);
+[; ;serial_pic.h: 153: void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+[; ;serial_pic.h: 161: void serial_load_buffer(uint8_t *buffer, int8_t size);
+[; ;serial_pic.h: 168: int8_t serial_send_buffer(void);
+[; ;serial_pic.h: 177: uint8_t serial_receive_error(bool clear);
+[; ;serial_pic.c: 3: struct interrupt_serial
+[; ;serial_pic.c: 4: {
+[; ;serial_pic.c: 5: bool tx_int_enable;
+[; ;serial_pic.c: 6: uint8_t *data;
+[; ;serial_pic.c: 7: int8_t length;
+[; ;serial_pic.c: 8: int8_t position;
+[; ;serial_pic.c: 9: };
+"11 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _interrupt_data `S374 ~T0 @X0 1 s ]
+[; ;serial_pic.c: 11: static struct interrupt_serial interrupt_data;
 "13
-[e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
-[; ;pwm.c: 14: break;
-"14
-[e $U 375  ]
-[; ;pwm.c: 15: case TMRP_16:
+[v _setup_serial `(v ~T0 @X0 1 ef4`uc`uc`uc`ui ]
 "15
-[e :U 379 ]
-[; ;pwm.c: 16: T2CONbits.T2CKPS = 0x11;
+{
+[; ;serial_pic.c: 13: void setup_serial(uint8_t TXSTA_reg, uint8_t RCSTA_reg, uint8_t BAUDCON_reg,
+[; ;serial_pic.c: 14: uint16_t baudrate_value)
+[; ;serial_pic.c: 15: {
+[e :U _setup_serial ]
+"13
+[v _TXSTA_reg `uc ~T0 @X0 1 r1 ]
+[v _RCSTA_reg `uc ~T0 @X0 1 r2 ]
+[v _BAUDCON_reg `uc ~T0 @X0 1 r3 ]
+"14
+[v _baudrate_value `ui ~T0 @X0 1 r4 ]
+"15
+[f ]
+[; ;serial_pic.c: 16: if (RCSTA_reg & 0x80) {
 "16
-[e = . . _T2CONbits 0 0 -> -> 17 `i `uc ]
+[e $ ! != & -> _RCSTA_reg `i -> 128 `i -> 0 `i 376  ]
+{
+[; ;serial_pic.c: 17: ANSELHbits.ANS11 = 0;
 "17
+[e = . . _ANSELHbits 1 3 -> -> 0 `i `uc ]
+"18
 }
-[; ;pwm.c: 17: }
-[e $U 375  ]
-"8
 [e :U 376 ]
-[e [\ _scaler , $ . `E3880 0 377
- , $ . `E3880 1 378
- , $ . `E3880 2 379
- 375 ]
-"17
-[e :U 375 ]
-[; ;pwm.c: 19: CCP1CONbits.P1M = 0x00;
-"19
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-[; ;pwm.c: 21: switch (polarity) {
+[; ;serial_pic.c: 18: }
+[; ;serial_pic.c: 20: TXSTA = TXSTA_reg;
+"20
+[e = _TXSTA _TXSTA_reg ]
+[; ;serial_pic.c: 21: RCSTA = RCSTA_reg;
 "21
-[e $U 381  ]
-{
-[; ;pwm.c: 22: case PACH_PBDH:
+[e = _RCSTA _RCSTA_reg ]
+[; ;serial_pic.c: 22: BAUDCON = BAUDCON_reg;
 "22
-[e :U 382 ]
-[; ;pwm.c: 23: CCP1CONbits.CCP1M = 0b1100;
-"23
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-[; ;pwm.c: 24: break;
+[e = _BAUDCON _BAUDCON_reg ]
+[; ;serial_pic.c: 24: SPBRGH = baudrate_value >> 8;
 "24
-[e $U 380  ]
-[; ;pwm.c: 25: case PACH_PBDL:
+[e = _SPBRGH -> >> _baudrate_value -> 8 `i `uc ]
+[; ;serial_pic.c: 25: SPBRG = baudrate_value;
 "25
-[e :U 383 ]
-[; ;pwm.c: 26: CCP1CONbits.CCP1M = 0b1101;
+[e = _SPBRG -> _baudrate_value `uc ]
+[; ;serial_pic.c: 26: }
 "26
-[e = . . _CCP1CONbits 0 0 -> -> 13 `i `uc ]
-[; ;pwm.c: 27: break;
-"27
-[e $U 380  ]
-[; ;pwm.c: 28: case PACL_PBDH:
+[e :UE 375 ]
+}
 "28
-[e :U 384 ]
-[; ;pwm.c: 29: CCP1CONbits.CCP1M = 0b1110;
+[v _setup_simple_serial `(v ~T0 @X0 1 ef2`uc`ui ]
 "29
-[e = . . _CCP1CONbits 0 0 -> -> 14 `i `uc ]
-[; ;pwm.c: 30: break;
+{
+[; ;serial_pic.c: 28: void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value)
+[; ;serial_pic.c: 29: {
+[e :U _setup_simple_serial ]
+"28
+[v _baudrate_bits `uc ~T0 @X0 1 r1 ]
+[v _baudrate_value `ui ~T0 @X0 1 r2 ]
+"29
+[f ]
+[; ;serial_pic.c: 30: ANSELHbits.ANS11 = 0;
 "30
-[e $U 380  ]
-[; ;pwm.c: 31: case PACL_PBDL:
+[e = . . _ANSELHbits 1 3 -> -> 0 `i `uc ]
+[; ;serial_pic.c: 31: TXSTA = (baudrate_bits & 0x04) ? 0x24: 0x20;
 "31
-[e :U 385 ]
-[; ;pwm.c: 32: CCP1CONbits.CCP1M = 0b1111;
+[e = _TXSTA -> ? != & -> _baudrate_bits `i -> 4 `i -> 0 `i : -> 36 `i -> 32 `i `uc ]
+[; ;serial_pic.c: 32: RCSTA = 0x90;
 "32
-[e = . . _CCP1CONbits 0 0 -> -> 15 `i `uc ]
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;serial_pic.c: 33: BAUDCON = (baudrate_bits & 0x08) ? 0x08 : 0x00;
 "33
-}
-[; ;pwm.c: 33: }
-[e $U 380  ]
-"21
-[e :U 381 ]
-[e [\ _polarity , $ . `E3874 0 382
- , $ . `E3874 1 383
- , $ . `E3874 2 384
- , $ . `E3874 3 385
- 380 ]
-"33
-[e :U 380 ]
-[; ;pwm.c: 35: PSTRCONbits.STRSYNC = 1;
+[e = _BAUDCON -> ? != & -> _baudrate_bits `i -> 8 `i -> 0 `i : -> 8 `i -> 0 `i `uc ]
+[; ;serial_pic.c: 35: SPBRGH = baudrate_value >> 8;
 "35
-[e = . . _PSTRCONbits 0 4 -> -> 1 `i `uc ]
-[; ;pwm.c: 37: if (outputs & 0x01) {
+[e = _SPBRGH -> >> _baudrate_value -> 8 `i `uc ]
+[; ;serial_pic.c: 36: SPBRG = baudrate_value;
+"36
+[e = _SPBRG -> _baudrate_value `uc ]
+[; ;serial_pic.c: 37: }
 "37
-[e $ ! != & -> _outputs `i -> 1 `i -> 0 `i 386  ]
-{
-[; ;pwm.c: 38: LATCbits.LATC5 = 0;
-"38
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;pwm.c: 39: TRISCbits.RC5 = 0;
+[e :UE 377 ]
+}
 "39
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[v _serial_peek_receive `(uc ~T0 @X0 1 ef2`uc`*uc ]
 "40
-}
-[e :U 386 ]
-[; ;pwm.c: 40: }
-[; ;pwm.c: 41: if (outputs & 0x02) {
+{
+[; ;serial_pic.c: 39: bool serial_peek_receive(bool get_byte, uint8_t *byte)
+[; ;serial_pic.c: 40: {
+[e :U _serial_peek_receive ]
+"39
+[v _get_byte `uc ~T0 @X0 1 r1 ]
+[v _byte `*uc ~T0 @X0 1 r2 ]
+"40
+[f ]
+[; ;serial_pic.c: 41: if (get_byte) {
 "41
-[e $ ! != & -> _outputs `i -> 2 `i -> 0 `i 387  ]
+[e $ ! != -> _get_byte `i -> -> -> 0 `i `uc `i 379  ]
 {
-[; ;pwm.c: 42: LATCbits.LATC4 = 0;
+[; ;serial_pic.c: 42: if (RCIF) {
 "42
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;pwm.c: 43: TRISCbits.RC4 = 0;
-"43
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
-"44
-}
-[e :U 387 ]
-[; ;pwm.c: 44: }
-[; ;pwm.c: 45: if (outputs & 0x04) {
-"45
-[e $ ! != & -> _outputs `i -> 4 `i -> 0 `i 388  ]
+[e $ ! _RCIF 380  ]
 {
-[; ;pwm.c: 46: LATCbits.LATC3 = 0;
+[; ;serial_pic.c: 43: *byte = RCREG;
+"43
+[e = *U _byte _RCREG ]
+[; ;serial_pic.c: 44: return 1;
+"44
+[e ) -> -> 1 `i `uc ]
+[e $UE 378  ]
+"45
+}
+[; ;serial_pic.c: 45: } else {
+[e $U 381  ]
+[e :U 380 ]
+{
+[; ;serial_pic.c: 46: return 0;
 "46
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;pwm.c: 47: TRISCbits.RC3 = 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 378  ]
 "47
-[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
+}
+[e :U 381 ]
 "48
 }
-[e :U 388 ]
-[; ;pwm.c: 48: }
-[; ;pwm.c: 49: if (outputs & 0x08) {
-"49
-[e $ ! != & -> _outputs `i -> 8 `i -> 0 `i 389  ]
-{
-[; ;pwm.c: 50: LATCbits.LATC2 = 0;
+[e :U 379 ]
+[; ;serial_pic.c: 47: }
+[; ;serial_pic.c: 48: }
+[; ;serial_pic.c: 50: return (RCIF) ? 1 : 0;
 "50
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;pwm.c: 51: TRISCbits.RC2 = 0;
+[e ) -> ? _RCIF : -> 1 `i -> 0 `i `uc ]
+[e $UE 378  ]
+[; ;serial_pic.c: 51: }
 "51
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"52
+[e :UE 378 ]
 }
-[e :U 389 ]
-[; ;pwm.c: 52: }
-[; ;pwm.c: 54: PR2 = valuePR2;
+"53
+[v _serial_get_byte `(uc ~T0 @X0 1 ef ]
 "54
-[e = _PR2 _valuePR2 ]
-[; ;pwm.c: 55: }
+{
+[; ;serial_pic.c: 53: uint8_t serial_get_byte(void)
+[; ;serial_pic.c: 54: {
+[e :U _serial_get_byte ]
+[f ]
+[; ;serial_pic.c: 55: while (!RCIF);
 "55
-[e :UE 374 ]
+[e $U 383  ]
+[e :U 384 ]
+[e :U 383 ]
+[e $ ! _RCIF 384  ]
+[e :U 385 ]
+[; ;serial_pic.c: 57: return RCREG;
+"57
+[e ) _RCREG ]
+[e $UE 382  ]
+[; ;serial_pic.c: 58: }
+"58
+[e :UE 382 ]
 }
-"57
-[v _setPulseWidth `(v ~T0 @X0 1 ef1`ui ]
-"58
-{
-[; ;pwm.c: 57: void setPulseWidth(unsigned int width)
-[; ;pwm.c: 58: {
-[e :U _setPulseWidth ]
-"57
-[v _width `ui ~T0 @X0 1 r1 ]
-"58
-[f ]
-[; ;pwm.c: 59: CCP1CONbits.DC1B = width;
-"59
-[e = . . _CCP1CONbits 0 1 -> _width `uc ]
-[; ;pwm.c: 60: CCPR1L = width >> 2;
 "60
-[e = _CCPR1L -> >> _width -> 2 `i `uc ]
-[; ;pwm.c: 61: }
+[v _serial_get_data `(c ~T0 @X0 1 ef2`*uc`c ]
 "61
-[e :UE 390 ]
-}
-"63
-[v _selectOutput `(v ~T0 @X0 1 ef2`uc`uc ]
-"64
 {
-[; ;pwm.c: 63: void selectOutput(unsigned char outputs, unsigned char toggle)
-[; ;pwm.c: 64: {
-[e :U _selectOutput ]
-"63
-[v _outputs `uc ~T0 @X0 1 r1 ]
-[v _toggle `uc ~T0 @X0 1 r2 ]
-"64
+[; ;serial_pic.c: 60: int8_t serial_get_data(uint8_t *data, int8_t size)
+[; ;serial_pic.c: 61: {
+[e :U _serial_get_data ]
+"60
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _size `c ~T0 @X0 1 r2 ]
+"61
 [f ]
-[; ;pwm.c: 65: switch (outputs){
-"65
-[e $U 393  ]
+"62
+[v _i `c ~T0 @X0 1 a ]
+[; ;serial_pic.c: 62: int8_t i;
+[; ;serial_pic.c: 64: if (size < 0) {
+"64
+[e $ ! < -> _size `i -> 0 `i 387  ]
 {
-[; ;pwm.c: 66: case 0:
-"66
-[e :U 394 ]
-[; ;pwm.c: 67: PSTRCON = 0xF0;
-"67
-[e = _PSTRCON -> -> 240 `i `uc ]
-[; ;pwm.c: 68: break;
-"68
-[e $U 392  ]
-[; ;pwm.c: 69: case 0x01:
-"69
-[e :U 395 ]
-[; ;pwm.c: 70: PSTRCONbits.STRA = (toggle) ? 1 : 0;
-"70
-[e = . . _PSTRCONbits 0 0 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 71: break;
-"71
-[e $U 392  ]
-[; ;pwm.c: 72: case 0x02:
-"72
-[e :U 396 ]
-[; ;pwm.c: 73: PSTRCONbits.STRB = (toggle) ? 1 : 0;
-"73
-[e = . . _PSTRCONbits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 74: break;
-"74
-[e $U 392  ]
-[; ;pwm.c: 75: case 0x04:
-"75
-[e :U 397 ]
-[; ;pwm.c: 76: PSTRCONbits.STRC = (toggle) ? 1 : 0;
-"76
-[e = . . _PSTRCONbits 0 2 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 77: break;
-"77
-[e $U 392  ]
-[; ;pwm.c: 78: case 0x08:
-"78
-[e :U 398 ]
-[; ;pwm.c: 79: PSTRCONbits.STRD = (toggle) ? 1 : 0;
-"79
-[e = . . _PSTRCONbits 0 3 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 80: break;
-"80
-[e $U 392  ]
-"81
-}
-[; ;pwm.c: 81: }
-[e $U 392  ]
+[; ;serial_pic.c: 65: for (i = 0; data[i] != 0; i++)
 "65
+{
+[e = _i -> -> 0 `i `c ]
+[e $U 391  ]
+"66
+[e :U 388 ]
+[; ;serial_pic.c: 66: data[i] = serial_get_byte();
+[e = *U + _data * -> _i `x -> -> # *U _data `i `x ( _serial_get_byte ..  ]
+"65
+[e ++ _i -> -> 1 `i `c ]
+[e :U 391 ]
+[e $ != -> *U + _data * -> _i `x -> -> # *U _data `i `x `i -> 0 `i 388  ]
+[e :U 389 ]
+"66
+}
+[; ;serial_pic.c: 67: data[i] = 0;
+"67
+[e = *U + _data * -> _i `x -> -> # *U _data `i `x -> -> 0 `i `uc ]
+"68
+}
+[; ;serial_pic.c: 68: } else {
+[e $U 392  ]
+[e :U 387 ]
+{
+[; ;serial_pic.c: 69: for (i = 0; i < size; i++)
+"69
+{
+[e = _i -> -> 0 `i `c ]
+[e $U 396  ]
+"70
 [e :U 393 ]
-[e [\ _outputs , $ -> -> 0 `i `uc 394
- , $ -> -> 1 `i `uc 395
- , $ -> -> 2 `i `uc 396
- , $ -> -> 4 `i `uc 397
- , $ -> -> 8 `i `uc 398
- 392 ]
-"81
+[; ;serial_pic.c: 70: data[i] = serial_get_byte();
+[e = *U + _data * -> _i `x -> -> # *U _data `i `x ( _serial_get_byte ..  ]
+"69
+[e ++ _i -> -> 1 `i `c ]
+[e :U 396 ]
+[e $ < -> _i `i -> _size `i 393  ]
+[e :U 394 ]
+"70
+}
+"71
+}
 [e :U 392 ]
-[; ;pwm.c: 82: }
+[; ;serial_pic.c: 71: }
+[; ;serial_pic.c: 73: return i;
+"73
+[e ) _i ]
+[e $UE 386  ]
+[; ;serial_pic.c: 74: }
+"74
+[e :UE 386 ]
+}
+"76
+[v _serial_send_byte `(v ~T0 @X0 1 ef1`uc ]
+"77
+{
+[; ;serial_pic.c: 76: void serial_send_byte(uint8_t byte)
+[; ;serial_pic.c: 77: {
+[e :U _serial_send_byte ]
+"76
+[v _byte `uc ~T0 @X0 1 r1 ]
+"77
+[f ]
+[; ;serial_pic.c: 78: while (!TXIF);
+"78
+[e $U 398  ]
+[e :U 399 ]
+[e :U 398 ]
+[e $ ! _TXIF 399  ]
+[e :U 400 ]
+[; ;serial_pic.c: 79: TXREG = byte;
+"79
+[e = _TXREG _byte ]
+[; ;serial_pic.c: 80: }
+"80
+[e :UE 397 ]
+}
 "82
-[e :UE 391 ]
+[v _serial_send_data `(c ~T0 @X0 1 ef2`*uc`c ]
+"83
+{
+[; ;serial_pic.c: 82: int8_t serial_send_data(uint8_t *data, int8_t size)
+[; ;serial_pic.c: 83: {
+[e :U _serial_send_data ]
+"82
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _size `c ~T0 @X0 1 r2 ]
+"83
+[f ]
+"84
+[v _i `c ~T0 @X0 1 a ]
+[; ;serial_pic.c: 84: int8_t i;
+[; ;serial_pic.c: 86: if (size < 0) {
+"86
+[e $ ! < -> _size `i -> 0 `i 402  ]
+{
+[; ;serial_pic.c: 87: for (i = 0; data[i] != 0; i++)
+"87
+{
+[e = _i -> -> 0 `i `c ]
+[e $U 406  ]
+"88
+[e :U 403 ]
+[; ;serial_pic.c: 88: serial_send_byte(data[i]);
+[e ( _serial_send_byte (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
+"87
+[e ++ _i -> -> 1 `i `c ]
+[e :U 406 ]
+[e $ != -> *U + _data * -> _i `x -> -> # *U _data `i `x `i -> 0 `i 403  ]
+[e :U 404 ]
+"88
+}
+[; ;serial_pic.c: 89: serial_send_byte(0);
+"89
+[e ( _serial_send_byte (1 -> -> 0 `i `uc ]
+"90
+}
+[; ;serial_pic.c: 90: } else {
+[e $U 407  ]
+[e :U 402 ]
+{
+[; ;serial_pic.c: 91: for (i = 0; i < size; i++)
+"91
+{
+[e = _i -> -> 0 `i `c ]
+[e $U 411  ]
+"92
+[e :U 408 ]
+[; ;serial_pic.c: 92: serial_send_byte(data[i]);
+[e ( _serial_send_byte (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
+"91
+[e ++ _i -> -> 1 `i `c ]
+[e :U 411 ]
+[e $ < -> _i `i -> _size `i 408  ]
+[e :U 409 ]
+"92
+}
+"93
+}
+[e :U 407 ]
+[; ;serial_pic.c: 93: }
+[; ;serial_pic.c: 95: return i;
+"95
+[e ) _i ]
+[e $UE 401  ]
+[; ;serial_pic.c: 96: }
+"96
+[e :UE 401 ]
+}
+"98
+[v _serial_interrupts `(v ~T0 @X0 1 ef1`uc ]
+"99
+{
+[; ;serial_pic.c: 98: void serial_interrupts(uint8_t interrupts)
+[; ;serial_pic.c: 99: {
+[e :U _serial_interrupts ]
+"98
+[v _interrupts `uc ~T0 @X0 1 r1 ]
+"99
+[f ]
+[; ;serial_pic.c: 100: if (interrupts & (0x01 | 0x02)) {
+"100
+[e $ ! != & -> _interrupts `i | -> 1 `i -> 2 `i -> 0 `i 413  ]
+{
+[; ;serial_pic.c: 101: INTCON |= 0xC0;
+"101
+[e =| _INTCON -> -> 192 `i `uc ]
+[; ;serial_pic.c: 102: RCIE = (interrupts & 0x01) ? 1 : 0;
+"102
+[e = _RCIE -> ? != & -> _interrupts `i -> 1 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+[; ;serial_pic.c: 103: interrupt_data.tx_int_enable = (interrupts & 0x02) ? 1 : 0;
+"103
+[e = . _interrupt_data 0 -> ? != & -> _interrupts `i -> 2 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+"104
+}
+[e :U 413 ]
+[; ;serial_pic.c: 104: }
+[; ;serial_pic.c: 105: }
+"105
+[e :UE 412 ]
+}
+"107
+[v _serial_disable_interrupts `(v ~T0 @X0 1 ef2`uc`uc ]
+"108
+{
+[; ;serial_pic.c: 107: void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts)
+[; ;serial_pic.c: 108: {
+[e :U _serial_disable_interrupts ]
+"107
+[v _interrupts `uc ~T0 @X0 1 r1 ]
+[v _all_interrupts `uc ~T0 @X0 1 r2 ]
+"108
+[f ]
+[; ;serial_pic.c: 109: if (all_interrupts)
+"109
+[e $ ! != -> _all_interrupts `i -> -> -> 0 `i `uc `i 415  ]
+[; ;serial_pic.c: 110: INTCON &= 0x3F;
+"110
+[e =& _INTCON -> -> 63 `i `uc ]
+[e :U 415 ]
+[; ;serial_pic.c: 112: if (interrupts & 0x01)
+"112
+[e $ ! != & -> _interrupts `i -> 1 `i -> 0 `i 416  ]
+[; ;serial_pic.c: 113: RCIE = 0;
+"113
+[e = _RCIE -> -> 0 `i `b ]
+[e :U 416 ]
+[; ;serial_pic.c: 115: if (interrupts & 0x02)
+"115
+[e $ ! != & -> _interrupts `i -> 2 `i -> 0 `i 417  ]
+[; ;serial_pic.c: 116: interrupt_data.tx_int_enable = 0;
+"116
+[e = . _interrupt_data 0 -> -> 0 `i `uc ]
+[e :U 417 ]
+[; ;serial_pic.c: 117: }
+"117
+[e :UE 414 ]
+}
+"119
+[v _serial_load_buffer `(v ~T0 @X0 1 ef2`*uc`c ]
+"120
+{
+[; ;serial_pic.c: 119: void serial_load_buffer(uint8_t *buffer, int8_t size)
+[; ;serial_pic.c: 120: {
+[e :U _serial_load_buffer ]
+"119
+[v _buffer `*uc ~T0 @X0 1 r1 ]
+[v _size `c ~T0 @X0 1 r2 ]
+"120
+[f ]
+[; ;serial_pic.c: 121: if (interrupt_data.tx_int_enable) {
+"121
+[e $ ! != -> . _interrupt_data 0 `i -> -> -> 0 `i `uc `i 419  ]
+{
+[; ;serial_pic.c: 122: interrupt_data.data = buffer;
+"122
+[e = . _interrupt_data 1 _buffer ]
+[; ;serial_pic.c: 123: interrupt_data.length = size;
+"123
+[e = . _interrupt_data 2 _size ]
+[; ;serial_pic.c: 124: interrupt_data.position = 0;
+"124
+[e = . _interrupt_data 3 -> -> 0 `i `c ]
+[; ;serial_pic.c: 126: TXIE = 1;
+"126
+[e = _TXIE -> -> 1 `i `b ]
+"127
+}
+[e :U 419 ]
+[; ;serial_pic.c: 127: }
+[; ;serial_pic.c: 128: }
+"128
+[e :UE 418 ]
+}
+"130
+[v _serial_send_buffer `(c ~T0 @X0 1 ef ]
+"131
+{
+[; ;serial_pic.c: 130: int8_t serial_send_buffer(void)
+[; ;serial_pic.c: 131: {
+[e :U _serial_send_buffer ]
+[f ]
+[; ;serial_pic.c: 132: if (TXIF && TXIE) {
+"132
+[e $ ! && _TXIF _TXIE 421  ]
+{
+[; ;serial_pic.c: 133: if (interrupt_data.length < 0) {
+"133
+[e $ ! < -> . _interrupt_data 2 `i -> 0 `i 422  ]
+{
+[; ;serial_pic.c: 134: if (interrupt_data.data[interrupt_data.position] != 0) {
+"134
+[e $ ! != -> *U + . _interrupt_data 1 * -> . _interrupt_data 3 `x -> -> # *U . _interrupt_data 1 `i `x `i -> 0 `i 423  ]
+{
+[; ;serial_pic.c: 135: serial_send_byte(interrupt_data.data[interrupt_data.position]);
+"135
+[e ( _serial_send_byte (1 *U + . _interrupt_data 1 * -> . _interrupt_data 3 `x -> -> # *U . _interrupt_data 1 `i `x ]
+[; ;serial_pic.c: 136: interrupt_data.position++;
+"136
+[e ++ . _interrupt_data 3 -> -> 1 `i `c ]
+"137
+}
+[; ;serial_pic.c: 137: } else {
+[e $U 424  ]
+[e :U 423 ]
+{
+[; ;serial_pic.c: 138: TXIE = 0;
+"138
+[e = _TXIE -> -> 0 `i `b ]
+"139
+}
+[e :U 424 ]
+"140
+}
+[; ;serial_pic.c: 139: }
+[; ;serial_pic.c: 140: } else if (interrupt_data.position < interrupt_data.length) {
+[e $U 425  ]
+[e :U 422 ]
+[e $ ! < -> . _interrupt_data 3 `i -> . _interrupt_data 2 `i 426  ]
+{
+[; ;serial_pic.c: 141: serial_send_byte(interrupt_data.data[interrupt_data.position]);
+"141
+[e ( _serial_send_byte (1 *U + . _interrupt_data 1 * -> . _interrupt_data 3 `x -> -> # *U . _interrupt_data 1 `i `x ]
+[; ;serial_pic.c: 142: interrupt_data.position++;
+"142
+[e ++ . _interrupt_data 3 -> -> 1 `i `c ]
+[; ;serial_pic.c: 143: if (interrupt_data.position == interrupt_data.length)
+"143
+[e $ ! == -> . _interrupt_data 3 `i -> . _interrupt_data 2 `i 427  ]
+[; ;serial_pic.c: 144: TXIE = 0;
+"144
+[e = _TXIE -> -> 0 `i `b ]
+[e :U 427 ]
+"145
+}
+[e :U 426 ]
+"147
+[e :U 425 ]
+[; ;serial_pic.c: 145: }
+[; ;serial_pic.c: 147: return interrupt_data.position;
+[e ) . _interrupt_data 3 ]
+[e $UE 420  ]
+"148
+}
+[; ;serial_pic.c: 148: } else {
+[e $U 428  ]
+[e :U 421 ]
+{
+[; ;serial_pic.c: 149: return -1;
+"149
+[e ) -> -U -> 1 `i `c ]
+[e $UE 420  ]
+"150
+}
+[e :U 428 ]
+[; ;serial_pic.c: 150: }
+[; ;serial_pic.c: 151: }
+"151
+[e :UE 420 ]
+}
+"153
+[v _serial_receive_error `(uc ~T0 @X0 1 ef1`uc ]
+"154
+{
+[; ;serial_pic.c: 153: uint8_t serial_receive_error(bool clear)
+[; ;serial_pic.c: 154: {
+[e :U _serial_receive_error ]
+"153
+[v _clear `uc ~T0 @X0 1 r1 ]
+"154
+[f ]
+"155
+[v _error `uc ~T0 @X0 1 a ]
+[; ;serial_pic.c: 155: uint8_t error = 0;
+[e = _error -> -> 0 `i `uc ]
+[; ;serial_pic.c: 157: if (RCSTAbits.FERR && RCSTAbits.OERR) {
+"157
+[e $ ! && != -> . . _RCSTAbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 430  ]
+{
+[; ;serial_pic.c: 158: error = 3;
+"158
+[e = _error -> -> 3 `i `uc ]
+"159
+}
+[; ;serial_pic.c: 159: } else if (RCSTAbits.FERR) {
+[e $U 431  ]
+[e :U 430 ]
+[e $ ! != -> . . _RCSTAbits 0 2 `i -> -> -> 0 `i `Vuc `i 432  ]
+{
+[; ;serial_pic.c: 160: error = 2;
+"160
+[e = _error -> -> 2 `i `uc ]
+"161
+}
+[; ;serial_pic.c: 161: } else if (RCSTAbits.OERR) {
+[e $U 433  ]
+[e :U 432 ]
+[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 434  ]
+{
+[; ;serial_pic.c: 162: error = 1;
+"162
+[e = _error -> -> 1 `i `uc ]
+"163
+}
+[e :U 434 ]
+"165
+[e :U 433 ]
+[e :U 431 ]
+[; ;serial_pic.c: 163: }
+[; ;serial_pic.c: 165: if (clear) {
+[e $ ! != -> _clear `i -> -> -> 0 `i `uc `i 435  ]
+{
+[; ;serial_pic.c: 166: RCSTAbits.SPEN = 0;
+"166
+[e = . . _RCSTAbits 0 7 -> -> 0 `i `uc ]
+[; ;serial_pic.c: 167: RCSTAbits.SPEN = 1;
+"167
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"168
+}
+[e :U 435 ]
+[; ;serial_pic.c: 168: }
+[; ;serial_pic.c: 170: return error;
+"170
+[e ) _error ]
+[e $UE 429  ]
+[; ;serial_pic.c: 171: }
+"171
+[e :UE 429 ]
 }

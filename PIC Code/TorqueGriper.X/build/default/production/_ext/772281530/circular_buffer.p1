@@ -1,0 +1,211 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.h
+[s S1 `uc 1 `uc 1 `uc -> 32 `i ]
+[n S1 circular_buffer position count data ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;circular_buffer.h: 10: struct circular_buffer {
+[; ;circular_buffer.h: 11: uint8_t position;
+[; ;circular_buffer.h: 12: uint8_t count;
+[; ;circular_buffer.h: 13: uint8_t data[0x20];
+[; ;circular_buffer.h: 14: };
+[; ;circular_buffer.h: 21: int16_t buffer_pop(struct circular_buffer volatile *buffer);
+[; ;circular_buffer.h: 27: bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
+[; ;circular_buffer.h: 33: bool buffer_full(const struct circular_buffer volatile *buffer);
+[; ;circular_buffer.h: 39: bool buffer_empty(const struct circular_buffer volatile *buffer);
+[; ;circular_buffer.h: 45: uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+[; ;circular_buffer.h: 51: uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+"4 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+[v _buffer_count `(uc ~T0 @X0 1 ef1`*CVS1 ]
+"5
+{
+[; ;circular_buffer.c: 4: uint8_t buffer_count(const struct circular_buffer volatile *buffer)
+[; ;circular_buffer.c: 5: {
+[e :U _buffer_count ]
+"4
+[v _buffer `*CVS1 ~T0 @X0 1 r1 ]
+"5
+[f ]
+[; ;circular_buffer.c: 6: return buffer->count;
+"6
+[e ) . *U _buffer 1 ]
+[e $UE 2  ]
+[; ;circular_buffer.c: 7: }
+"7
+[e :UE 2 ]
+}
+"9
+[v _buffer_space `(uc ~T0 @X0 1 ef1`*CVS1 ]
+"10
+{
+[; ;circular_buffer.c: 9: uint8_t buffer_space(const struct circular_buffer volatile *buffer)
+[; ;circular_buffer.c: 10: {
+[e :U _buffer_space ]
+"9
+[v _buffer `*CVS1 ~T0 @X0 1 r1 ]
+"10
+[f ]
+[; ;circular_buffer.c: 11: return 0x20 - buffer->count;
+"11
+[e ) -> - -> 32 `i -> . *U _buffer 1 `i `uc ]
+[e $UE 3  ]
+[; ;circular_buffer.c: 12: }
+"12
+[e :UE 3 ]
+}
+"14
+[v _buffer_empty `(uc ~T0 @X0 1 ef1`*CVS1 ]
+"15
+{
+[; ;circular_buffer.c: 14: bool buffer_empty(const struct circular_buffer volatile *buffer)
+[; ;circular_buffer.c: 15: {
+[e :U _buffer_empty ]
+"14
+[v _buffer `*CVS1 ~T0 @X0 1 r1 ]
+"15
+[f ]
+[; ;circular_buffer.c: 16: return (buffer->count == 0) ? 1 : 0;
+"16
+[e ) -> ? == -> . *U _buffer 1 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+[e $UE 4  ]
+[; ;circular_buffer.c: 17: }
+"17
+[e :UE 4 ]
+}
+"19
+[v _buffer_full `(uc ~T0 @X0 1 ef1`*CVS1 ]
+"20
+{
+[; ;circular_buffer.c: 19: bool buffer_full(const struct circular_buffer volatile *buffer)
+[; ;circular_buffer.c: 20: {
+[e :U _buffer_full ]
+"19
+[v _buffer `*CVS1 ~T0 @X0 1 r1 ]
+"20
+[f ]
+[; ;circular_buffer.c: 21: return (buffer->count == 0x20) ? 1 : 0;
+"21
+[e ) -> ? == -> . *U _buffer 1 `i -> 32 `i : -> 1 `i -> 0 `i `uc ]
+[e $UE 5  ]
+[; ;circular_buffer.c: 22: }
+"22
+[e :UE 5 ]
+}
+"24
+[v _buffer_push `(uc ~T0 @X0 1 ef2`*VS1`uc ]
+"25
+{
+[; ;circular_buffer.c: 24: bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte)
+[; ;circular_buffer.c: 25: {
+[e :U _buffer_push ]
+"24
+[v _buffer `*VS1 ~T0 @X0 1 r1 ]
+[v _byte `uc ~T0 @X0 1 r2 ]
+"25
+[f ]
+[; ;circular_buffer.c: 26: if (buffer->count == 0x20) {
+"26
+[e $ ! == -> . *U _buffer 1 `i -> 32 `i 7  ]
+{
+[; ;circular_buffer.c: 27: return 0;
+"27
+[e ) -> -> 0 `i `uc ]
+[e $UE 6  ]
+"28
+}
+[; ;circular_buffer.c: 28: } else {
+[e $U 8  ]
+[e :U 7 ]
+{
+"29
+[v _current_position `uc ~T0 @X0 1 a ]
+[; ;circular_buffer.c: 29: uint8_t current_position = (buffer->position + buffer->count)
+[; ;circular_buffer.c: 30: & (0x20 - 1);
+"30
+[e = _current_position -> & + -> . *U _buffer 0 `i -> . *U _buffer 1 `i - -> 32 `i -> 1 `i `uc ]
+[; ;circular_buffer.c: 31: buffer->data[current_position] = byte;
+"31
+[e = *U + &U . *U _buffer 2 * -> _current_position `ux -> -> # *U &U . *U _buffer 2 `ui `ux _byte ]
+[; ;circular_buffer.c: 32: buffer->count++;
+"32
+[e ++ . *U _buffer 1 -> -> 1 `i `uc ]
+[; ;circular_buffer.c: 33: return 1;
+"33
+[e ) -> -> 1 `i `uc ]
+[e $UE 6  ]
+"34
+}
+[e :U 8 ]
+[; ;circular_buffer.c: 34: }
+[; ;circular_buffer.c: 35: }
+"35
+[e :UE 6 ]
+}
+"37
+[v _buffer_pop `(i ~T0 @X0 1 ef1`*VS1 ]
+"38
+{
+[; ;circular_buffer.c: 37: int16_t buffer_pop(struct circular_buffer volatile *buffer)
+[; ;circular_buffer.c: 38: {
+[e :U _buffer_pop ]
+"37
+[v _buffer `*VS1 ~T0 @X0 1 r1 ]
+"38
+[f ]
+[; ;circular_buffer.c: 39: if (buffer->count <= 0) {
+"39
+[e $ ! <= -> . *U _buffer 1 `i -> 0 `i 10  ]
+{
+[; ;circular_buffer.c: 40: return -1;
+"40
+[e ) -U -> 1 `i ]
+[e $UE 9  ]
+"41
+}
+[e :U 10 ]
+"43
+[v _byte `i ~T0 @X0 1 a ]
+[; ;circular_buffer.c: 41: }
+[; ;circular_buffer.c: 43: int16_t byte = (buffer->data[buffer->position]) & 0xFF;
+[e = _byte & -> *U + &U . *U _buffer 2 * -> . *U _buffer 0 `ux -> -> # *U &U . *U _buffer 2 `ui `ux `i -> 255 `i ]
+[; ;circular_buffer.c: 44: buffer->position = (buffer->position + 1) & (0x20 - 1);
+"44
+[e = . *U _buffer 0 -> & + -> . *U _buffer 0 `i -> 1 `i - -> 32 `i -> 1 `i `uc ]
+[; ;circular_buffer.c: 45: buffer->count--;
+"45
+[e -- . *U _buffer 1 -> -> 1 `i `uc ]
+[; ;circular_buffer.c: 47: return byte;
+"47
+[e ) _byte ]
+[e $UE 9  ]
+[; ;circular_buffer.c: 48: }
+"48
+[e :UE 9 ]
+}

@@ -1,5 +1,5 @@
 
-# 1 "pwm.c"
+# 1 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4738,96 +4738,303 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 27 "pwm.h"
-typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
 
-void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-unsigned char outputs);
-void setPulseWidth(unsigned int width);
-void selectOutput(unsigned char outputs, unsigned char toggle);
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
 
-void pmwHalfBridgeSetUp();
-void pmwFullBridgeSetUp();
+# 20
+typedef signed int int16_t;
 
-# 3 "pwm.c"
-void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-unsigned char outputs)
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.h"
+void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+uint16_t baudrate_value);
+
+# 101
+void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 109
+bool serial_peek_receive(bool get_byte, uint8_t *byte);
+
+# 115
+uint8_t serial_get_byte(void);
+
+# 123
+int8_t serial_get_data(uint8_t *data, int8_t size);
+
+# 129
+void serial_send_byte(uint8_t byte);
+
+# 136
+int8_t serial_send_data(uint8_t *data, int8_t size);
+
+# 144
+void serial_interrupts(uint8_t interrupts);
+
+# 153
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+
+# 161
+void serial_load_buffer(uint8_t *buffer, int8_t size);
+
+# 168
+int8_t serial_send_buffer(void);
+
+# 177
+uint8_t serial_receive_error(bool clear);
+
+# 3 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c"
+struct interrupt_serial
 {
-T2CONbits.TMR2ON = 1;
+bool tx_int_enable;
+uint8_t *data;
+int8_t length;
+int8_t position;
+};
 
-switch (scaler) {
-case TMRP_1:
-T2CONbits.T2CKPS = 0x00;
-break;
-case TMRP_4:
-T2CONbits.T2CKPS = 0x01;
-break;
-case TMRP_16:
-T2CONbits.T2CKPS = 0x11;
-}
+static struct interrupt_serial interrupt_data;
 
-CCP1CONbits.P1M = 0x00;
-
-switch (polarity) {
-case PACH_PBDH:
-CCP1CONbits.CCP1M = 0b1100;
-break;
-case PACH_PBDL:
-CCP1CONbits.CCP1M = 0b1101;
-break;
-case PACL_PBDH:
-CCP1CONbits.CCP1M = 0b1110;
-break;
-case PACL_PBDL:
-CCP1CONbits.CCP1M = 0b1111;
-}
-
-PSTRCONbits.STRSYNC = 1;
-
-if (outputs & 0x01) {
-LATCbits.LATC5 = 0;
-TRISCbits.RC5 = 0;
-}
-if (outputs & 0x02) {
-LATCbits.LATC4 = 0;
-TRISCbits.RC4 = 0;
-}
-if (outputs & 0x04) {
-LATCbits.LATC3 = 0;
-TRISCbits.RC3 = 0;
-}
-if (outputs & 0x08) {
-LATCbits.LATC2 = 0;
-TRISCbits.RC2 = 0;
-}
-
-PR2 = valuePR2;
-}
-
-void setPulseWidth(unsigned int width)
+void setup_serial(uint8_t TXSTA_reg, uint8_t RCSTA_reg, uint8_t BAUDCON_reg,
+uint16_t baudrate_value)
 {
-CCP1CONbits.DC1B = width;
-CCPR1L = width >> 2;
+if (RCSTA_reg & 0x80) {
+ANSELHbits.ANS11 = 0;
 }
 
-void selectOutput(unsigned char outputs, unsigned char toggle)
-{
-switch (outputs){
-case 0:
-PSTRCON = 0xF0;
-break;
-case 0x01:
-PSTRCONbits.STRA = (toggle) ? 1 : 0;
-break;
-case 0x02:
-PSTRCONbits.STRB = (toggle) ? 1 : 0;
-break;
-case 0x04:
-PSTRCONbits.STRC = (toggle) ? 1 : 0;
-break;
-case 0x08:
-PSTRCONbits.STRD = (toggle) ? 1 : 0;
-break;
+TXSTA = TXSTA_reg;
+RCSTA = RCSTA_reg;
+BAUDCON = BAUDCON_reg;
+
+SPBRGH = baudrate_value >> 8;
+SPBRG = baudrate_value;
 }
+
+void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value)
+{
+ANSELHbits.ANS11 = 0;
+TXSTA = (baudrate_bits & 0x04) ? 0x24: 0x20;
+RCSTA = 0x90;
+BAUDCON = (baudrate_bits & 0x08) ? 0x08 : 0x00;
+
+SPBRGH = baudrate_value >> 8;
+SPBRG = baudrate_value;
+}
+
+bool serial_peek_receive(bool get_byte, uint8_t *byte)
+{
+if (get_byte) {
+if (RCIF) {
+*byte = RCREG;
+return 1;
+} else {
+return 0;
+}
+}
+
+return (RCIF) ? 1 : 0;
+}
+
+uint8_t serial_get_byte(void)
+{
+while (!RCIF);
+
+return RCREG;
+}
+
+int8_t serial_get_data(uint8_t *data, int8_t size)
+{
+int8_t i;
+
+if (size < 0) {
+for (i = 0; data[i] != 0; i++)
+data[i] = serial_get_byte();
+data[i] = 0;
+} else {
+for (i = 0; i < size; i++)
+data[i] = serial_get_byte();
+}
+
+return i;
+}
+
+void serial_send_byte(uint8_t byte)
+{
+while (!TXIF);
+TXREG = byte;
+}
+
+int8_t serial_send_data(uint8_t *data, int8_t size)
+{
+int8_t i;
+
+if (size < 0) {
+for (i = 0; data[i] != 0; i++)
+serial_send_byte(data[i]);
+serial_send_byte(0);
+} else {
+for (i = 0; i < size; i++)
+serial_send_byte(data[i]);
+}
+
+return i;
+}
+
+void serial_interrupts(uint8_t interrupts)
+{
+if (interrupts & (0x01 | 0x02)) {
+INTCON |= 0xC0;
+RCIE = (interrupts & 0x01) ? 1 : 0;
+interrupt_data.tx_int_enable = (interrupts & 0x02) ? 1 : 0;
+}
+}
+
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts)
+{
+if (all_interrupts)
+INTCON &= 0x3F;
+
+if (interrupts & 0x01)
+RCIE = 0;
+
+if (interrupts & 0x02)
+interrupt_data.tx_int_enable = 0;
+}
+
+void serial_load_buffer(uint8_t *buffer, int8_t size)
+{
+if (interrupt_data.tx_int_enable) {
+interrupt_data.data = buffer;
+interrupt_data.length = size;
+interrupt_data.position = 0;
+
+TXIE = 1;
+}
+}
+
+int8_t serial_send_buffer(void)
+{
+if (TXIF && TXIE) {
+if (interrupt_data.length < 0) {
+if (interrupt_data.data[interrupt_data.position] != 0) {
+serial_send_byte(interrupt_data.data[interrupt_data.position]);
+interrupt_data.position++;
+} else {
+TXIE = 0;
+}
+} else if (interrupt_data.position < interrupt_data.length) {
+serial_send_byte(interrupt_data.data[interrupt_data.position]);
+interrupt_data.position++;
+if (interrupt_data.position == interrupt_data.length)
+TXIE = 0;
+}
+
+return interrupt_data.position;
+} else {
+return -1;
+}
+}
+
+uint8_t serial_receive_error(bool clear)
+{
+uint8_t error = 0;
+
+if (RCSTAbits.FERR && RCSTAbits.OERR) {
+error = 3;
+} else if (RCSTAbits.FERR) {
+error = 2;
+} else if (RCSTAbits.OERR) {
+error = 1;
+}
+
+if (clear) {
+RCSTAbits.SPEN = 0;
+RCSTAbits.SPEN = 1;
+}
+
+return error;
 }

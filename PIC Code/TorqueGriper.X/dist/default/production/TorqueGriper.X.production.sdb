@@ -3,30 +3,24 @@
 [d edition pro ]
 [d chip 18F13K22 ]
 [d frameptr 4065 ]
-"52 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
-[e E3896 . `uc
-PACH_PBDH 0
-PACH_PBDL 1
-PACL_PBDH 2
-PACL_PBDL 3
-]
-[e E3902 . `uc
-TMRP_1 0
-TMRP_4 1
-TMRP_16 2
-]
-"5 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[e E3874 . `uc
-PACH_PBDH 0
-PACH_PBDL 1
-PACL_PBDH 2
-PACL_PBDL 3
-]
-[e E3880 . `uc
-TMRP_1 0
-TMRP_4 1
-TMRP_16 2
-]
+"4 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+[v _buffer_count buffer_count `(uc  1 e 1 0 ]
+"9
+[v _buffer_space buffer_space `(uc  1 e 1 0 ]
+"14
+[v _buffer_empty buffer_empty `(uc  1 e 1 0 ]
+"24
+[v _buffer_push buffer_push `(uc  1 e 1 0 ]
+"37
+[v _buffer_pop buffer_pop `(i  1 e 2 0 ]
+"28 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _setup_simple_serial setup_simple_serial `(v  1 e 0 0 ]
+"53
+[v _serial_get_byte serial_get_byte `(uc  1 e 1 0 ]
+"76
+[v _serial_send_byte serial_send_byte `(v  1 e 0 0 ]
+"98
+[v _serial_interrupts serial_interrupts `(v  1 e 0 0 ]
 "63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
 "88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
@@ -47,28 +41,27 @@ TMRP_16 2
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"47 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
-[v _main main `(i  1 e 2 0 ]
-"85
-[v _setup_tmr0 setup_tmr0 `(v  1 e 0 0 ]
-"3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _pmwSingleModeSetUp pmwSingleModeSetUp `(v  1 e 0 0 ]
+"20 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_setup eserial_setup `(v  1 e 0 0 ]
+"38
+[v _eserial_send_data eserial_send_data `(c  1 e 1 0 ]
 "57
-[v _setPulseWidth setPulseWidth `(v  1 e 0 0 ]
-"63
-[v _selectOutput selectOutput `(v  1 e 0 0 ]
-"23 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _serialSetUp serialSetUp `(v  1 e 0 0 ]
-"60
-[v _sendChar sendChar `(v  1 e 0 0 ]
-"78
-[v _receiveData receiveData `(i  1 e 2 0 ]
-[s S270 . 1 `uc 1 ANSEL 1 0 :8:0 
+[v _eserial_receive eserial_receive `(v  1 e 0 0 ]
+"23 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"35
+[v _isr isr `II(v  1 e 0 0 ]
+[s S55 interrupt_serial 6 `uc 1 tx_int_enable 1 0 `*.2uc 1 data 3 1 `c 1 length 1 4 `c 1 position 1 5 ]
+"11 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _interrupt_data interrupt_data `S55  1 s 6 interrupt_data ]
+[s S218 . 1 `uc 1 ANSEL 1 0 :8:0 
 ]
 "785 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S272 . 1 `uc 1 ANS0 1 0 :1:0 
+[s S220 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -77,7 +70,7 @@ TMRP_16 2
 `uc 1 ANS6 1 0 :1:6 
 `uc 1 ANS7 1 0 :1:7 
 ]
-[s S281 . 1 `uc 1 ANSEL0 1 0 :1:0 
+[s S229 . 1 `uc 1 ANSEL0 1 0 :1:0 
 `uc 1 ANSEL1 1 0 :1:1 
 `uc 1 ANSEL2 1 0 :1:2 
 `uc 1 ANSEL3 1 0 :1:3 
@@ -86,24 +79,24 @@ TMRP_16 2
 `uc 1 ANSEL6 1 0 :1:6 
 `uc 1 ANSEL7 1 0 :1:7 
 ]
-[u S290 . 1 `S270 1 . 1 0 `S272 1 . 1 0 `S281 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES290  1 e 1 @3966 ]
-[s S315 . 1 `uc 1 ANSELH 1 0 :4:0 
+[u S238 . 1 `S218 1 . 1 0 `S220 1 . 1 0 `S229 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES238  1 e 1 @3966 ]
+[s S60 . 1 `uc 1 ANSELH 1 0 :4:0 
 ]
 "896
-[s S317 . 1 `uc 1 ANS8 1 0 :1:0 
+[s S62 . 1 `uc 1 ANS8 1 0 :1:0 
 `uc 1 ANS9 1 0 :1:1 
 `uc 1 ANS10 1 0 :1:2 
 `uc 1 ANS11 1 0 :1:3 
 ]
-[s S322 . 1 `uc 1 ANSEL8 1 0 :1:0 
+[s S67 . 1 `uc 1 ANSEL8 1 0 :1:0 
 `uc 1 ANSEL9 1 0 :1:1 
 `uc 1 ANSEL10 1 0 :1:2 
 `uc 1 ANSEL11 1 0 :1:3 
 ]
-[u S327 . 1 `S315 1 . 1 0 `S317 1 . 1 0 `S322 1 . 1 0 ]
-[v _ANSELHbits ANSELHbits `VES327  1 e 1 @3967 ]
-[s S417 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S72 . 1 `S60 1 . 1 0 `S62 1 . 1 0 `S67 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES72  1 e 1 @3967 ]
+[s S322 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -113,47 +106,32 @@ TMRP_16 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1884
-[s S426 . 1 `uc 1 LC0 1 0 :1:0 
+[s S331 . 1 `uc 1 LC0 1 0 :1:0 
 ]
-[s S428 . 1 `uc 1 . 1 0 :1:0 
+[s S333 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 ]
-[s S431 . 1 `uc 1 . 1 0 :2:0 
+[s S336 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LC2 1 0 :1:2 
 ]
-[s S434 . 1 `uc 1 . 1 0 :3:0 
+[s S339 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LC3 1 0 :1:3 
 ]
-[s S437 . 1 `uc 1 . 1 0 :4:0 
+[s S342 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LC4 1 0 :1:4 
 ]
-[s S440 . 1 `uc 1 . 1 0 :5:0 
+[s S345 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LC5 1 0 :1:5 
 ]
-[s S443 . 1 `uc 1 . 1 0 :6:0 
+[s S348 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LC6 1 0 :1:6 
 ]
-[s S446 . 1 `uc 1 . 1 0 :7:0 
+[s S351 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S449 . 1 `S417 1 . 1 0 `S426 1 . 1 0 `S428 1 . 1 0 `S431 1 . 1 0 `S434 1 . 1 0 `S437 1 . 1 0 `S440 1 . 1 0 `S443 1 . 1 0 `S446 1 . 1 0 ]
-[v _LATCbits LATCbits `VES449  1 e 1 @3979 ]
-[s S344 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 TRISB4 1 0 :1:4 
-`uc 1 TRISB5 1 0 :1:5 
-`uc 1 TRISB6 1 0 :1:6 
-`uc 1 TRISB7 1 0 :1:7 
-]
-"2147
-[s S350 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-[u S356 . 1 `S344 1 . 1 0 `S350 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES356  1 e 1 @3987 ]
-[s S372 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S354 . 1 `S322 1 . 1 0 `S331 1 . 1 0 `S333 1 . 1 0 `S336 1 . 1 0 `S339 1 . 1 0 `S342 1 . 1 0 `S345 1 . 1 0 `S348 1 . 1 0 `S351 1 . 1 0 ]
+[v _LATCbits LATCbits `VES354  1 e 1 @3979 ]
+[s S280 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -163,7 +141,7 @@ TMRP_16 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "2282
-[s S381 . 1 `uc 1 RC0 1 0 :1:0 
+[s S289 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -172,26 +150,11 @@ TMRP_16 2
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S390 . 1 `S372 1 . 1 0 `S381 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES390  1 e 1 @3988 ]
-[s S241 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 TMR3IF 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 BCLIF 1 0 :1:3 
-`uc 1 EEIF 1 0 :1:4 
-`uc 1 C2IF 1 0 :1:5 
-`uc 1 C1IF 1 0 :1:6 
-`uc 1 OSCFIF 1 0 :1:7 
-]
-"2840
-[s S250 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 CMIF 1 0 :1:6 
-]
-[u S253 . 1 `S241 1 . 1 0 `S250 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES253  1 e 1 @4001 ]
+[u S298 . 1 `S280 1 . 1 0 `S289 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES298  1 e 1 @3988 ]
 "3077
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S492 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S101 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -201,64 +164,24 @@ TMRP_16 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3118
-[s S501 . 1 `uc 1 . 1 0 :3:0 
+[s S110 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S504 . 1 `uc 1 . 1 0 :5:0 
+[s S113 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S507 . 1 `uc 1 . 1 0 :6:0 
+[s S116 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S510 . 1 `uc 1 . 1 0 :6:0 
+[s S119 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S513 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S122 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S515 . 1 `S492 1 . 1 0 `S501 1 . 1 0 `S504 1 . 1 0 `S507 1 . 1 0 `S510 1 . 1 0 `S513 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES515  1 e 1 @4011 ]
+[u S124 . 1 `S101 1 . 1 0 `S110 1 . 1 0 `S113 1 . 1 0 `S116 1 . 1 0 `S119 1 . 1 0 `S122 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES124  1 e 1 @4011 ]
 "3286
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S546 . 1 `uc 1 TX9D 1 0 :1:0 
-`uc 1 TRMT 1 0 :1:1 
-`uc 1 BRGH 1 0 :1:2 
-`uc 1 SENDB 1 0 :1:3 
-`uc 1 SYNC 1 0 :1:4 
-`uc 1 TXEN 1 0 :1:5 
-`uc 1 TX9 1 0 :1:6 
-`uc 1 CSRC 1 0 :1:7 
-]
-"3346
-[s S555 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 BRGH1 1 0 :1:2 
-]
-[s S558 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 CSRC1 1 0 :1:7 
-]
-[s S561 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 SENDB1 1 0 :1:3 
-]
-[s S564 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 SYNC1 1 0 :1:4 
-]
-[s S567 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 TRMT1 1 0 :1:1 
-]
-[s S570 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 TX91 1 0 :1:6 
-]
-[s S573 . 1 `uc 1 TX9D1 1 0 :1:0 
-]
-[s S575 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 TXEN1 1 0 :1:5 
-]
-[s S578 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 TX8_9 1 0 :1:6 
-]
-[s S581 . 1 `uc 1 TXD8 1 0 :1:0 
-]
-[u S583 . 1 `S546 1 . 1 0 `S555 1 . 1 0 `S558 1 . 1 0 `S561 1 . 1 0 `S564 1 . 1 0 `S567 1 . 1 0 `S570 1 . 1 0 `S573 1 . 1 0 `S575 1 . 1 0 `S578 1 . 1 0 `S581 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES583  1 e 1 @4012 ]
 "3583
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3594
@@ -267,214 +190,134 @@ TMRP_16 2
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3616
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S181 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 NOT_T3SYNC 1 0 :1:2 
-]
-"3661
-[s S184 . 1 `uc 1 TMR3ON 1 0 :1:0 
-`uc 1 TMR3CS 1 0 :1:1 
-`uc 1 nT3SYNC 1 0 :1:2 
-`uc 1 T3CCP1 1 0 :1:3 
-`uc 1 T3CKPS 1 0 :2:4 
-`uc 1 . 1 0 :1:6 
-`uc 1 RD16 1 0 :1:7 
-]
-[s S192 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 T3SYNC 1 0 :1:2 
-`uc 1 . 1 0 :1:3 
-`uc 1 T3CKPS0 1 0 :1:4 
-`uc 1 T3CKPS1 1 0 :1:5 
-]
-[s S198 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 RD163 1 0 :1:7 
-]
-[s S201 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 SOSCEN3 1 0 :1:3 
-]
-[s S204 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 T3RD16 1 0 :1:7 
-]
-[u S207 . 1 `S181 1 . 1 0 `S184 1 . 1 0 `S192 1 . 1 0 `S198 1 . 1 0 `S201 1 . 1 0 `S204 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES207  1 e 1 @4017 ]
-"3730
-[v _TMR3 TMR3 `VEus  1 e 2 @4018 ]
 "3898
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
-"4063
-[v _PSTRCON PSTRCON `VEuc  1 e 1 @4025 ]
-[s S803 . 1 `uc 1 STRA 1 0 :1:0 
-`uc 1 STRB 1 0 :1:1 
-`uc 1 STRC 1 0 :1:2 
-`uc 1 STRD 1 0 :1:3 
-`uc 1 STRSYNC 1 0 :1:4 
-]
-"4077
-[u S809 . 1 `S803 1 . 1 0 ]
-[v _PSTRCONbits PSTRCONbits `VES809  1 e 1 @4025 ]
-[s S773 . 1 `uc 1 CCP1M 1 0 :4:0 
-`uc 1 DC1B 1 0 :2:4 
-`uc 1 P1M 1 0 :2:6 
-]
-"4437
-[s S777 . 1 `uc 1 CCP1M0 1 0 :1:0 
-`uc 1 CCP1M1 1 0 :1:1 
-`uc 1 CCP1M2 1 0 :1:2 
-`uc 1 CCP1M3 1 0 :1:3 
-`uc 1 DC1B0 1 0 :1:4 
-`uc 1 DC1B1 1 0 :1:5 
-`uc 1 P1M0 1 0 :1:6 
-`uc 1 P1M1 1 0 :1:7 
-]
-[u S786 . 1 `S773 1 . 1 0 `S777 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES786  1 e 1 @4029 ]
-"4502
-[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
-[s S745 . 1 `uc 1 T2CKPS 1 0 :2:0 
-`uc 1 TMR2ON 1 0 :1:2 
-`uc 1 T2OUTPS 1 0 :4:3 
-]
-"5174
-[s S749 . 1 `uc 1 T2CKPS0 1 0 :1:0 
-`uc 1 T2CKPS1 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 T2OUTPS0 1 0 :1:3 
-`uc 1 T2OUTPS1 1 0 :1:4 
-`uc 1 T2OUTPS2 1 0 :1:5 
-`uc 1 T2OUTPS3 1 0 :1:6 
-]
-[u S757 . 1 `S745 1 . 1 0 `S749 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES757  1 e 1 @4042 ]
-"5223
-[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S75 . 1 `uc 1 T0PS 1 0 :3:0 
-`uc 1 PSA 1 0 :1:3 
-`uc 1 T0SE 1 0 :1:4 
-`uc 1 T0CS 1 0 :1:5 
-`uc 1 T08BIT 1 0 :1:6 
-`uc 1 TMR0ON 1 0 :1:7 
-]
-"5752
-[s S82 . 1 `uc 1 T0PS0 1 0 :1:0 
-`uc 1 T0PS1 1 0 :1:1 
-`uc 1 T0PS2 1 0 :1:2 
-]
-[u S86 . 1 `S75 1 . 1 0 `S82 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES86  1 e 1 @4053 ]
-"5807
-[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
-"5813
-[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S101 . 1 `uc 1 RABIF 1 0 :1:0 
-`uc 1 INT0IF 1 0 :1:1 
-`uc 1 TMR0IF 1 0 :1:2 
-`uc 1 RABIE 1 0 :1:3 
-`uc 1 INT0IE 1 0 :1:4 
-`uc 1 TMR0IE 1 0 :1:5 
-`uc 1 PEIE_GIEL 1 0 :1:6 
-`uc 1 GIE_GIEH 1 0 :1:7 
-]
-"6278
-[s S110 . 1 `uc 1 RBIF 1 0 :1:0 
-`uc 1 INT0F 1 0 :1:1 
-`uc 1 T0IF 1 0 :1:2 
-`uc 1 RBIE 1 0 :1:3 
-`uc 1 INT0E 1 0 :1:4 
-`uc 1 T0IE 1 0 :1:5 
-`uc 1 PEIE 1 0 :1:6 
-`uc 1 GIE 1 0 :1:7 
-]
-[s S119 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 GIEL 1 0 :1:6 
-`uc 1 GIEH 1 0 :1:7 
-]
-[s S123 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 PIE 1 0 :1:6 
-]
-[u S126 . 1 `S101 1 . 1 0 `S110 1 . 1 0 `S119 1 . 1 0 `S123 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES126  1 e 1 @4082 ]
+"6242
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+"7325
+[v _RCIE RCIE `VEb  1 e 0 @31981 ]
 "7327
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
-"3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _timer3Time timer3Time `ui  1 s 2 timer3Time ]
-"47 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+"7659
+[v _TXIE TXIE `VEb  1 e 0 @31980 ]
+"7661
+[v _TXIF TXIF `VEb  1 e 0 @31988 ]
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"19 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+[v _my_buffer my_buffer `VES21  1 e 34 0 ]
+"23
 [v _main main `(i  1 e 2 0 ]
 {
-[s S61 receiveBuffer 8 `[7]uc 1 buffer 7 0 `uc 1 length 1 7 ]
-"55
-[v main@data data `S61  1 a 8 15 ]
-"56
-[v main@i i `i  1 a 2 13 ]
-"57
-[v main@wat wat `uc  1 a 1 12 ]
-"83
+"33
 } 0
-"85
-[v _setup_tmr0 setup_tmr0 `(v  1 e 0 0 ]
+"20 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_setup eserial_setup `(v  1 e 0 0 ]
 {
-[v setup_tmr0@tmr0_value tmr0_value `i  1 p 2 0 ]
-"95
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v eserial_setup@baudrate_value baudrate_value `ui  1 p 2 30 ]
+"22
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 0 ]
+"32
 } 0
-"57 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _setPulseWidth setPulseWidth `(v  1 e 0 0 ]
+"28 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _setup_simple_serial setup_simple_serial `(v  1 e 0 0 ]
 {
-[v setPulseWidth@width width `ui  1 p 2 0 ]
-"61
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v setup_simple_serial@baudrate_value baudrate_value `ui  1 p 2 23 ]
+"30
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 29 ]
+"37
 } 0
-"23 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _serialSetUp serialSetUp `(v  1 e 0 0 ]
+"98
+[v _serial_interrupts serial_interrupts `(v  1 e 0 0 ]
 {
-[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
-[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 wreg ]
-[v serialSetUp@brgh_bit brgh_bit `uc  1 p 1 0 ]
-"24
-[v serialSetUp@spbrg16 spbrg16 `ui  1 p 2 1 ]
-"26
-[v serialSetUp@brg16_bit brg16_bit `uc  1 a 1 3 ]
+[v serial_interrupts@interrupts interrupts `uc  1 a 1 wreg ]
+[v serial_interrupts@interrupts interrupts `uc  1 a 1 wreg ]
+"100
+[v serial_interrupts@interrupts interrupts `uc  1 a 1 24 ]
+"105
+} 0
+"38 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_send_data eserial_send_data `(c  1 e 1 0 ]
+{
+"44
+[v eserial_send_data@value value `i  1 a 2 1 ]
 "43
-} 0
-"63 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _selectOutput selectOutput `(v  1 e 0 0 ]
-{
-[v selectOutput@outputs outputs `uc  1 a 1 wreg ]
-[v selectOutput@outputs outputs `uc  1 a 1 wreg ]
-[v selectOutput@toggle toggle `uc  1 p 1 0 ]
-[v selectOutput@outputs outputs `uc  1 a 1 2 ]
-"82
-} 0
-"78 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\serialprotocol.c
-[v _receiveData receiveData `(i  1 e 2 0 ]
-{
-"82
-[v receiveData@i i `i  1 a 2 8 ]
-"83
-[v receiveData@size size `i  1 a 2 4 ]
-"80
-[v receiveData@byte_1 byte_1 `uc  1 a 1 7 ]
-"81
-[v receiveData@byte_2 byte_2 `uc  1 a 1 6 ]
-[s S61 receiveBuffer 8 `[7]uc 1 buffer 7 0 `uc 1 length 1 7 ]
-"78
-[v receiveData@buffer buffer `*.39S61  1 p 2 1 ]
-"125
-} 0
-"60
-[v _sendChar sendChar `(v  1 e 0 0 ]
-{
-[v sendChar@character character `uc  1 a 1 wreg ]
-[v sendChar@character character `uc  1 a 1 wreg ]
-[v sendChar@character character `uc  1 a 1 0 ]
-"64
-} 0
-"3 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\pwm.c
-[v _pmwSingleModeSetUp pmwSingleModeSetUp `(v  1 e 0 0 ]
-{
-[v pmwSingleModeSetUp@polarity polarity `E3874  1 a 1 wreg ]
-[v pmwSingleModeSetUp@polarity polarity `E3874  1 a 1 wreg ]
-[v pmwSingleModeSetUp@valuePR2 valuePR2 `uc  1 p 1 0 ]
-[v pmwSingleModeSetUp@scaler scaler `E3880  1 p 1 1 ]
-"4
-[v pmwSingleModeSetUp@outputs outputs `uc  1 p 1 2 ]
-"6
-[v pmwSingleModeSetUp@polarity polarity `E3874  1 a 1 3 ]
+[v eserial_send_data@i i `c  1 a 1 0 ]
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"38
+[v eserial_send_data@buffer buffer `*.39VES21  1 p 2 29 ]
 "55
+} 0
+"76 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _serial_send_byte serial_send_byte `(v  1 e 0 0 ]
+{
+[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
+[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
+[v serial_send_byte@byte byte `uc  1 a 1 23 ]
+"80
+} 0
+"37 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+[v _buffer_pop buffer_pop `(i  1 e 2 0 ]
+{
+"43
+[v buffer_pop@byte byte `i  1 a 2 27 ]
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"37
+[v buffer_pop@buffer buffer `*.39VES21  1 p 2 23 ]
+"48
+} 0
+"14
+[v _buffer_empty buffer_empty `(uc  1 e 1 0 ]
+{
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+[v buffer_empty@buffer buffer `*.39CVES21  1 p 2 23 ]
+"17
+} 0
+"4
+[v _buffer_count buffer_count `(uc  1 e 1 0 ]
+{
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+[v buffer_count@buffer buffer `*.39CVES21  1 p 2 23 ]
+"7
+} 0
+"35 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
+[v _isr isr `II(v  1 e 0 0 ]
+{
+"40
+} 0
+"57 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_receive eserial_receive `(v  1 e 0 0 ]
+{
+"80
+[v eserial_receive@value value `uc  1 a 1 8 ]
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"57
+[v eserial_receive@buffer buffer `*.39VES21  1 p 2 5 ]
+"82
+} 0
+"53 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _serial_get_byte serial_get_byte `(uc  1 e 1 0 ]
+{
+"58
+} 0
+"9 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+[v _buffer_space buffer_space `(uc  1 e 1 0 ]
+{
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+[v buffer_space@buffer buffer `*.39CVES21  1 p 2 0 ]
+"12
+} 0
+"24
+[v _buffer_push buffer_push `(uc  1 e 1 0 ]
+{
+"29
+[v buffer_push@current_position current_position `uc  1 a 1 4 ]
+[s S21 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"24
+[v buffer_push@buffer buffer `*.39VES21  1 p 2 0 ]
+[v buffer_push@byte byte `uc  1 p 1 2 ]
+"35
 } 0

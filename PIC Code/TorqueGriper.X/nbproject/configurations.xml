@@ -4,8 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>serialprotocol.h</itemPath>
-      <itemPath>pwm.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.h</itemPath>
+      <itemPath>extended_serial.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -15,8 +18,11 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>serialprotocol.c</itemPath>
-      <itemPath>pwm.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c</itemPath>
+      <itemPath>extended_serial.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -27,6 +33,7 @@
   <sourceRootList>
     <Elem>.</Elem>
     <Elem>../TorqueGriperSecondPIC.X</Elem>
+    <Elem>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -66,7 +73,8 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value="..\TorqueGriperSecondPIC.X"/>
+        <property key="extra-include-directories"
+                  value="C:\Users\Manuel\Documents\PICLibrary\PICLibraries.X;..\TorqueGriperSecondPIC.X"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
@@ -83,7 +91,7 @@
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
         <property key="warning-level" value="0"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
@@ -151,7 +159,7 @@
         <property key="memories.programmemory.partition2.start"
                   value="${memories.programmemory.partition2.start.value}"/>
         <property key="memories.programmemory.start" value="0x0"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

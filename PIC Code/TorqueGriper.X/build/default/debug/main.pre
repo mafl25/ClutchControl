@@ -4738,108 +4738,200 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 40 "serialprotocol.h"
-typedef char int8_t;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
 typedef unsigned char uint8_t;
 
-struct receiveBuffer
-{
-unsigned char buffer[7];
-char length;
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+uint16_t baudrate_value);
+
+# 101
+void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 109
+bool serial_peek_receive(bool get_byte, uint8_t *byte);
+
+# 115
+uint8_t serial_get_byte(void);
+
+# 123
+int8_t serial_get_data(uint8_t *data, int8_t size);
+
+# 129
+void serial_send_byte(uint8_t byte);
+
+# 136
+int8_t serial_send_data(uint8_t *data, int8_t size);
+
+# 144
+void serial_interrupts(uint8_t interrupts);
+
+# 153
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+
+# 161
+void serial_load_buffer(uint8_t *buffer, int8_t size);
+
+# 168
+int8_t serial_send_buffer(void);
+
+# 177
+uint8_t serial_receive_error(bool clear);
+
+# 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
+struct circular_buffer {
+uint8_t position;
+uint8_t count;
+uint8_t data[0x20];
 };
 
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16);
-void toggleSerialPort(unsigned char toggle);
-void toggleTransmitter(unsigned char toggle);
-void toggleReceiver(unsigned char toggle);
-void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, uint8_t length);
-int receiveData(struct receiveBuffer *SBuffer);
+# 21
+int16_t buffer_pop(struct circular_buffer volatile *buffer);
 
-# 27 "pwm.h"
-typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
+# 27
+bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
 
-void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-unsigned char outputs);
-void setPulseWidth(unsigned int width);
-void selectOutput(unsigned char outputs, unsigned char toggle);
+# 33
+bool buffer_full(const struct circular_buffer volatile *buffer);
 
-void pmwHalfBridgeSetUp();
-void pmwFullBridgeSetUp();
-
-
-# 14 "main.c"
-#pragma config FOSC = HS
-#pragma config PLLEN = OFF
-#pragma config PCLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 19
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config HFOFST = ON
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = OFF
-#pragma config XINST = OFF
+# 39
+bool buffer_empty(const struct circular_buffer volatile *buffer);
 
 # 45
-void setup_tmr0(int tmr0_value);
+uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+
+# 51
+uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+
+# 16 "extended_serial.h"
+void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 22
+int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+
+void eserial_receive(struct circular_buffer volatile *buffer);
+
+
+# 13 "main.c"
+#pragma config FOSC = HS
+#pragma config LVP = OFF
+
+
+
+
+volatile struct circular_buffer my_buffer = {0, 0, {0}};
+
+void interrupt isr(void);
 
 int main() {
-_delay((unsigned long)((1)*(20000000/4000.0)));
 
-setup_tmr0(65340);
-serialSetUp(1, 1, 0x04);
-pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
-setPulseWidth(0);
-
-struct receiveBuffer data;
-int i = 0;
-unsigned char wat = 0;
+eserial_setup(0x08 | 0x04, 0x04);
 
 while (1) {
-
-i = receiveData(&data);
-
-
-if (i) {
-if (data.buffer[0] == 0xAA) {
-selectOutput(data.buffer[1], 1);
-} else if (data.buffer[0] == 0xAB) {
-selectOutput(data.buffer[1], 0);
-} else if (data.buffer[0] == 0xAC) {
-setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
-}
-}
-
-# 80
+eserial_send_data(&my_buffer);
+_delay((unsigned long)((10)*(20000000/4000.0)));
+_delay((unsigned long)((10)*(20000000/4000.0)));
+_delay((unsigned long)((10)*(20000000/4000.0)));
+_delay((unsigned long)((10)*(20000000/4000.0)));
+_delay((unsigned long)((10)*(20000000/4000.0)));
 }
 
 return (0);
 }
 
-void setup_tmr0(int tmr0_value)
+void interrupt isr(void)
 {
-T0CONbits.PSA = 0;
-T0CONbits.T0PS = 0x06;
-T0CONbits.T0CS = 0;
-T0CONbits.T08BIT = 0;
-INTCONbits.TMR0IF = 0;
-TMR0H = tmr0_value >> 8;
-TMR0L = tmr0_value;
-T0CONbits.TMR0ON = 1;
+if (RCIF && RCIE) {
+eserial_receive(&my_buffer);
+}
 }

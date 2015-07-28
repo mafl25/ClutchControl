@@ -1,5 +1,5 @@
 
-# 1 "serialprotocol.c"
+# 1 "extended_serial.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4738,146 +4738,212 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 40 "serialprotocol.h"
-typedef char int8_t;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
 typedef unsigned char uint8_t;
 
-struct receiveBuffer
-{
-unsigned char buffer[7];
-char length;
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+uint16_t baudrate_value);
+
+# 101
+void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 109
+bool serial_peek_receive(bool get_byte, uint8_t *byte);
+
+# 115
+uint8_t serial_get_byte(void);
+
+# 123
+int8_t serial_get_data(uint8_t *data, int8_t size);
+
+# 129
+void serial_send_byte(uint8_t byte);
+
+# 136
+int8_t serial_send_data(uint8_t *data, int8_t size);
+
+# 144
+void serial_interrupts(uint8_t interrupts);
+
+# 153
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+
+# 161
+void serial_load_buffer(uint8_t *buffer, int8_t size);
+
+# 168
+int8_t serial_send_buffer(void);
+
+# 177
+uint8_t serial_receive_error(bool clear);
+
+# 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
+struct circular_buffer {
+uint8_t position;
+uint8_t count;
+uint8_t data[0x20];
 };
 
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16);
-void toggleSerialPort(unsigned char toggle);
-void toggleTransmitter(unsigned char toggle);
-void toggleReceiver(unsigned char toggle);
-void sendChar(unsigned char toggle);
-void sendData(unsigned char *string, uint8_t length);
-int receiveData(struct receiveBuffer *SBuffer);
+# 21
+int16_t buffer_pop(struct circular_buffer volatile *buffer);
 
-# 3 "serialprotocol.c"
-static unsigned int timer3Time;
+# 27
+bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
 
-static void setTimer3(unsigned char turnOn, unsigned int TMR3Pair) {
-T3CONbits.RD16 = 0x01;
-T3CONbits.T3CKPS = 0x00;
-T3CONbits.TMR3CS = 0x00;
-T3CONbits.TMR3ON = (turnOn) ? 1 : 0;
-timer3Time = TMR3Pair;
-}
+# 33
+bool buffer_full(const struct circular_buffer volatile *buffer);
 
-static void toggleTimer3(unsigned char toggle) {
-PIR2bits.TMR3IF = 0;
-if (toggle) {
-TMR3 = timer3Time;
-T3CONbits.TMR3ON = 0x01;
-} else {
-T3CONbits.TMR3ON = 0x00;
-}
-}
+# 39
+bool buffer_empty(const struct circular_buffer volatile *buffer);
 
-void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-unsigned int spbrg16)
+# 45
+uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+
+# 51
+uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+
+# 16 "extended_serial.h"
+void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 22
+int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+
+void eserial_receive(struct circular_buffer volatile *buffer);
+
+# 20 "extended_serial.c"
+void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
 {
 ANSELbits.ANS5 = 0;
 ANSELHbits.ANS11 = 0;
 
-TRISBbits.RB5 = 1;
-TRISBbits.RB7 = 0;
 TRISCbits.RC0 = 0;
 TRISCbits.RC1 = 1;
 
-BAUDCON = (brg16_bit) ? 0x08 : 0x00;
-TXSTA = (brgh_bit) ? 0x24: 0x20;
-SPBRGH = spbrg16 >> 8;
-SPBRG = spbrg16;
-RCSTA = 0x90;
+setup_simple_serial(baudrate_bits, baudrate_value);
+serial_interrupts(0x01);
 
-
-
-LATCbits.LATC0 = 1;
+LATCbits.LATC0 = 0;
 }
 
-void toggleSerialPort(unsigned char toggle)
+# 38
+int8_t eserial_send_data(struct circular_buffer volatile *buffer)
 {
-RCSTAbits.SPEN = toggle != 0 ? 1 : 0;
+
+# 43
+int8_t i = 0;
+int16_t value = buffer_pop(buffer);
+while (value != -1) {
+serial_send_byte((uint8_t)value);
+value = buffer_pop(buffer);
+i++;
 }
 
-void toggleTransmitter(unsigned char toggle)
-{
-TXSTAbits.TXEN = toggle != 0 ? 1 : 0;
-}
-
-void toggleReceiver(unsigned char toggle)
-{
-RCSTAbits.CREN = toggle != 0 ? 1 : 0;
-}
-
-void sendChar(unsigned char character)
-{
-while(!TXSTAbits.TRMT);
-TXREG = character;
-}
-
-void sendData(unsigned char *string, uint8_t length)
-{
-int i;
-
-sendChar(0x55);
-sendChar(0xDD);
-sendChar(length);
-
-for (i = 0; i < length; i++)
-sendChar(string[i]);
-}
-
-int receiveData(struct receiveBuffer *buffer)
-{
-uint8_t byte_1;
-uint8_t byte_2;
-int i = 0;
-int size = 0;
-
-if (RCSTAbits.OERR) {
-RCSTAbits.CREN = 0;
-RCSTAbits.CREN = 1;
-byte_1 = RCREG;
-byte_1 = RCREG;
-}
-
-if (RCIF){
-
-byte_1 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xE0){
-size = byte_1 & 0x0F;
-if (size < 7) {
-sendChar(0x70);
-for (; i < size; i++){
-
-while (!RCIF);
-byte_1 = RCREG;
-while (!RCIF);
-byte_2 = RCREG;
-
-if ((byte_1 & 0xF0) == 0xA0 && (byte_2 & 0xF0) == 0xA0){
-buffer->buffer[i] = byte_1 << 4 | (byte_2 & 0x0F);
-sendChar(0x60);
-} else {
-sendChar(0x50);
-break;
-}
-}
-} else {
-sendChar(0x40);
-}
-}
-}
-
-buffer->length = i;
-buffer->buffer[i] = 0;
+if (buffer_empty(buffer))
+LATCbits.LATC0 = 0;
 
 return i;
+}
+
+void eserial_receive(struct circular_buffer volatile *buffer)
+{
+
+# 75
+if (buffer_space(buffer) <= 0x05)
+LATCbits.LATC0 = 1;
+else
+LATCbits.LATC0 = 0;
+
+uint8_t value = serial_get_byte();
+buffer_push(buffer, value);
 }

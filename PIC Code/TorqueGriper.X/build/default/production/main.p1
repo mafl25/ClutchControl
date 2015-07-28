@@ -1,61 +1,20 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[s S374 `uc 1 `uc 1 `uc -> 32 `i ]
+[n S374 circular_buffer position count data ]
 [p mainexit ]
-[v F3867 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF3867 ~T0 @X0 0 e ]
-[p i __delay ]
-"45 main.c
-[v _setup_tmr0 `(v ~T0 @X0 0 ef1`i ]
-"49 serialprotocol.h
-[v _serialSetUp `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"52 main.c
-[c E3896 0 1 2 3 .. ]
-[n E3896 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
-[c E3902 0 1 2 .. ]
-[n E3902 . TMRP_1 TMRP_4 TMRP_16  ]
-"30 pwm.h
-[v _pmwSingleModeSetUp `(v ~T0 @X0 0 ef4`E3896`uc`E3902`uc ]
-"32
-[v _setPulseWidth `(v ~T0 @X0 0 ef1`ui ]
-"43 serialprotocol.h
-[s S374 `uc -> 7 `i `uc 1 ]
-[n S374 receiveBuffer buffer length ]
-"56
-[v _receiveData `(i ~T0 @X0 0 ef1`*S374 ]
-"33 pwm.h
-[v _selectOutput `(v ~T0 @X0 0 ef2`uc`uc ]
-"5738 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S312 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S312 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"5746
-[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S313 . T0PS0 T0PS1 T0PS2 ]
-"5737
-[u S311 `S312 1 `S313 1 ]
-[n S311 . . . ]
-"5752
-[v _T0CONbits `VS311 ~T0 @X0 0 e@4053 ]
-"6248
-[s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"6258
-[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S331 . RBIF INT0F T0IF RBIE INT0E T0IE PEIE GIE ]
-"6268
-[s S332 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S332 . . GIEL GIEH ]
-"6273
-[s S333 :6 `uc 1 :1 `uc 1 ]
-[n S333 . . PIE ]
-"6247
-[u S329 `S330 1 `S331 1 `S332 1 `S333 1 ]
-[n S329 . . . . . ]
-"6278
-[v _INTCONbits `VS329 ~T0 @X0 0 e@4082 ]
-"5813
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-"5807
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"16 extended_serial.h
+[v _eserial_setup `(v ~T0 @X0 0 ef2`uc`ui ]
+"45 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[v _buffer_count `(uc ~T0 @X0 0 ef1`*CVS374 ]
+"22 extended_serial.h
+[v _eserial_send_data `(c ~T0 @X0 0 ef1`*VS374 ]
+"7327 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"7325
+[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
+"24 extended_serial.h
+[v _eserial_receive `(v ~T0 @X0 0 ef1`*VS374 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3590,193 +3549,137 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;serialprotocol.h: 40: typedef char int8_t;
-[; ;serialprotocol.h: 41: typedef unsigned char uint8_t;
-[; ;serialprotocol.h: 43: struct receiveBuffer
-[; ;serialprotocol.h: 44: {
-[; ;serialprotocol.h: 45: unsigned char buffer[7];
-[; ;serialprotocol.h: 46: char length;
-[; ;serialprotocol.h: 47: };
-[; ;serialprotocol.h: 49: void serialSetUp(unsigned char brg16_bit, unsigned char brgh_bit,
-[; ;serialprotocol.h: 50: unsigned int spbrg16);
-[; ;serialprotocol.h: 51: void toggleSerialPort(unsigned char toggle);
-[; ;serialprotocol.h: 52: void toggleTransmitter(unsigned char toggle);
-[; ;serialprotocol.h: 53: void toggleReceiver(unsigned char toggle);
-[; ;serialprotocol.h: 54: void sendChar(unsigned char toggle);
-[; ;serialprotocol.h: 55: void sendData(unsigned char *string, uint8_t length);
-[; ;serialprotocol.h: 56: int receiveData(struct receiveBuffer *SBuffer);
-[; ;pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
-[; ;pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
-[; ;pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
-[; ;pwm.h: 31: unsigned char outputs);
-[; ;pwm.h: 32: void setPulseWidth(unsigned int width);
-[; ;pwm.h: 33: void selectOutput(unsigned char outputs, unsigned char toggle);
-[; ;pwm.h: 35: void pmwHalfBridgeSetUp();
-[; ;pwm.h: 36: void pmwFullBridgeSetUp();
-"14 main.c
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;PICLibraries.X\serial_pic.h: 92: void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+[; ;PICLibraries.X\serial_pic.h: 93: uint16_t baudrate_value);
+[; ;PICLibraries.X\serial_pic.h: 101: void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+[; ;PICLibraries.X\serial_pic.h: 109: bool serial_peek_receive(bool get_byte, uint8_t *byte);
+[; ;PICLibraries.X\serial_pic.h: 115: uint8_t serial_get_byte(void);
+[; ;PICLibraries.X\serial_pic.h: 123: int8_t serial_get_data(uint8_t *data, int8_t size);
+[; ;PICLibraries.X\serial_pic.h: 129: void serial_send_byte(uint8_t byte);
+[; ;PICLibraries.X\serial_pic.h: 136: int8_t serial_send_data(uint8_t *data, int8_t size);
+[; ;PICLibraries.X\serial_pic.h: 144: void serial_interrupts(uint8_t interrupts);
+[; ;PICLibraries.X\serial_pic.h: 153: void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+[; ;PICLibraries.X\serial_pic.h: 161: void serial_load_buffer(uint8_t *buffer, int8_t size);
+[; ;PICLibraries.X\serial_pic.h: 168: int8_t serial_send_buffer(void);
+[; ;PICLibraries.X\serial_pic.h: 177: uint8_t serial_receive_error(bool clear);
+[; ;PICLibraries.X\circular_buffer.h: 10: struct circular_buffer {
+[; ;PICLibraries.X\circular_buffer.h: 11: uint8_t position;
+[; ;PICLibraries.X\circular_buffer.h: 12: uint8_t count;
+[; ;PICLibraries.X\circular_buffer.h: 13: uint8_t data[0x20];
+[; ;PICLibraries.X\circular_buffer.h: 14: };
+[; ;PICLibraries.X\circular_buffer.h: 21: int16_t buffer_pop(struct circular_buffer volatile *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 27: bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
+[; ;PICLibraries.X\circular_buffer.h: 33: bool buffer_full(const struct circular_buffer volatile *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 39: bool buffer_empty(const struct circular_buffer volatile *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 45: uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 51: uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+[; ;extended_serial.h: 16: void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
+[; ;extended_serial.h: 22: int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+[; ;extended_serial.h: 24: void eserial_receive(struct circular_buffer volatile *buffer);
+"13 main.c
 [p x FOSC=HS ]
-"15
-[p x PLLEN=OFF ]
-"16
-[p x PCLKEN=ON ]
-"17
-[p x FCMEN=OFF ]
-"18
-[p x IESO=OFF ]
-"21
-[p x PWRTEN=OFF ]
-"22
-[p x BOREN=SBORDIS ]
-"23
-[p x BORV=19 ]
-"26
-[p x WDTEN=OFF ]
-"27
-[p x WDTPS=32768 ]
-"30
-[p x HFOFST=ON ]
-"31
-[p x MCLRE=ON ]
-"34
-[p x STVREN=ON ]
-"35
+"14
 [p x LVP=OFF ]
-"36
-[p x BBSIZ=OFF ]
-"37
-[p x XINST=OFF ]
-[; ;main.c: 45: void setup_tmr0(int tmr0_value);
-"47
+"19
+[v _my_buffer `VS374 ~T0 @X0 1 e ]
+[i _my_buffer
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+:U ..
+-> -> 0 `i `uc
+..
+..
+..
+]
+[; ;main.c: 19: volatile struct circular_buffer my_buffer = {0, 0, {0}};
+[; ;main.c: 21: void interrupt isr(void);
+"23
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 47: int main() {
+[; ;main.c: 23: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 48: _delay((unsigned long)((1)*(20000000/4000.0)));
-"48
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;main.c: 50: setup_tmr0(65340);
-"50
-[e ( _setup_tmr0 (1 -> -> 65340 `l `i ]
-[; ;main.c: 51: serialSetUp(1, 1, 0x81);
-"51
-[e ( _serialSetUp (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 129 `i `ui ]
-[; ;main.c: 52: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x04 | 0x02);
-"52
-[e ( _pmwSingleModeSetUp (4 , , , . `E3896 0 -> -> 254 `i `uc . `E3902 0 -> | -> 4 `i -> 2 `i `uc ]
-[; ;main.c: 53: setPulseWidth(0);
-"53
-[e ( _setPulseWidth (1 -> -> 0 `i `ui ]
-"55
-[v _data `S374 ~T0 @X0 1 a ]
-"56
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 55: struct receiveBuffer data;
-[; ;main.c: 56: int i = 0;
-[e = _i -> 0 `i ]
-"57
-[v _wat `uc ~T0 @X0 1 a ]
-[; ;main.c: 57: unsigned char wat = 0;
-[e = _wat -> -> 0 `i `uc ]
-[; ;main.c: 59: while (1) {
-"59
+[; ;main.c: 25: eserial_setup(0x08 | 0x04, 0x13);
+"25
+[e ( _eserial_setup (2 , -> | -> 8 `i -> 4 `i `uc -> -> 19 `i `ui ]
+[; ;main.c: 27: while (1) {
+"27
 [e :U 377 ]
 {
-[; ;main.c: 61: i = receiveData(&data);
-"61
-[e = _i ( _receiveData (1 &U _data ]
-[; ;main.c: 64: if (i) {
-"64
-[e $ ! != _i -> 0 `i 379  ]
-{
-[; ;main.c: 65: if (data.buffer[0] == 0xAA) {
-"65
-[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 170 `i 380  ]
-{
-[; ;main.c: 66: selectOutput(data.buffer[1], 1);
-"66
-[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 1 `i `uc ]
-"67
-}
-[; ;main.c: 67: } else if (data.buffer[0] == 0xAB) {
-[e $U 381  ]
-[e :U 380 ]
-[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 171 `i 382  ]
-{
-[; ;main.c: 68: selectOutput(data.buffer[1], 0);
-"68
-[e ( _selectOutput (2 , *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux -> -> 0 `i `uc ]
-"69
-}
-[; ;main.c: 69: } else if (data.buffer[0] == 0xAC) {
-[e $U 383  ]
-[e :U 382 ]
-[e $ ! == -> *U + &U . _data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 172 `i 384  ]
-{
-[; ;main.c: 70: setPulseWidth(data.buffer[1] << 2 | data.buffer[2]);
-"70
-[e ( _setPulseWidth (1 -> | << -> *U + &U . _data 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i -> 2 `i -> *U + &U . _data 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _data 0 `ui `ux `i `ui ]
-"71
-}
-[e :U 384 ]
-"72
-[e :U 383 ]
-[e :U 381 ]
-}
+[; ;main.c: 28: if(buffer_count(&my_buffer) > 0x20 - 4)
+"28
+[e $ ! > -> ( _buffer_count (1 -> &U _my_buffer `*CVS374 `i - -> 32 `i -> 4 `i 379  ]
+[; ;main.c: 29: eserial_send_data(&my_buffer);
+"29
+[e ( _eserial_send_data (1 &U _my_buffer ]
 [e :U 379 ]
-"80
+"30
 }
 [e :U 376 ]
-"59
+"27
 [e $U 377  ]
 [e :U 378 ]
-[; ;main.c: 71: }
-[; ;main.c: 72: }
-[; ;main.c: 80: }
-[; ;main.c: 82: return (0);
-"82
+[; ;main.c: 30: }
+[; ;main.c: 32: return (0);
+"32
 [e ) -> 0 `i ]
 [e $UE 375  ]
-[; ;main.c: 83: }
-"83
+[; ;main.c: 33: }
+"33
 [e :UE 375 ]
 }
-"85
-[v _setup_tmr0 `(v ~T0 @X0 1 ef1`i ]
-"86
+[v F3963 `(v ~T0 @X0 1 tf ]
+"35
+[v _isr `IF3963 ~T0 @X0 1 e ]
+"36
 {
-[; ;main.c: 85: void setup_tmr0(int tmr0_value)
-[; ;main.c: 86: {
-[e :U _setup_tmr0 ]
-"85
-[v _tmr0_value `i ~T0 @X0 1 r1 ]
-"86
+[; ;main.c: 35: void interrupt isr(void)
+[; ;main.c: 36: {
+[e :U _isr ]
 [f ]
-[; ;main.c: 87: T0CONbits.PSA = 0;
-"87
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 88: T0CONbits.T0PS = 0x06;
-"88
-[e = . . _T0CONbits 0 0 -> -> 6 `i `uc ]
-[; ;main.c: 89: T0CONbits.T0CS = 0;
-"89
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 90: T0CONbits.T08BIT = 0;
-"90
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 91: INTCONbits.TMR0IF = 0;
-"91
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 92: TMR0H = tmr0_value >> 8;
-"92
-[e = _TMR0H -> >> _tmr0_value -> 8 `i `uc ]
-[; ;main.c: 93: TMR0L = tmr0_value;
-"93
-[e = _TMR0L -> _tmr0_value `uc ]
-[; ;main.c: 94: T0CONbits.TMR0ON = 1;
-"94
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 95: }
-"95
-[e :UE 385 ]
+[; ;main.c: 37: if (RCIF && RCIE) {
+"37
+[e $ ! && _RCIF _RCIE 381  ]
+{
+[; ;main.c: 38: eserial_receive(&my_buffer);
+"38
+[e ( _eserial_receive (1 &U _my_buffer ]
+"39
+}
+[e :U 381 ]
+[; ;main.c: 39: }
+[; ;main.c: 40: }
+"40
+[e :UE 380 ]
 }

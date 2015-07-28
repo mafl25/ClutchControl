@@ -1,6 +1,6 @@
- build/default/production/main.d  \
- build/default/production/main.p1:  \
- main.c  \
+ build/default/production/extended_serial.d  \
+ build/default/production/extended_serial.p1:  \
+ extended_serial.c  \
 extended_serial.h  \
 ../TorqueGriperSecondPIC.X/spi.h  \
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.h  \
