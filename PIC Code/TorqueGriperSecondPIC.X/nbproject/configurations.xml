@@ -4,7 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>spi.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.h</itemPath>
+      <itemPath>../TorqueGriper.X/extended_spi.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.h</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -14,7 +18,11 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>spi.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c</itemPath>
+      <itemPath>../TorqueGriper.X/extended_spi.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c</itemPath>
+      <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -22,6 +30,10 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X</Elem>
+    <Elem>../TorqueGriper.X</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -60,7 +72,8 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="C:\Users\Manuel\Documents\PICLibrary\PICLibraries.X;..\TorqueGriper.X"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
@@ -77,8 +90,8 @@
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
-        <property key="warning-level" value="0"/>
+        <property key="verbose" value="true"/>
+        <property key="warning-level" value="9"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
@@ -127,6 +140,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -144,7 +158,7 @@
         <property key="memories.programmemory.partition2.start"
                   value="${memories.programmemory.partition2.start.value}"/>
         <property key="memories.programmemory.start" value="0x0"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

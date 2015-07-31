@@ -2,33 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1a865e-5039-4153-84d1-99390671f0bc" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\pwm.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\pwm.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\pwm.pre" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\serialprotocol.pre" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\pwm.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\pwm.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\pwm.pre" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\serialprotocol.p1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\serialprotocol.p1.d" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\production\serialprotocol.pre" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.elf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.elf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.obj" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.rlf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.rlf" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\circular_buffer.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\circular_buffer.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\circular_buffer.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\encoding.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\encoding.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\encoding.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\serial_pic.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\serial_pic.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\_ext\772281530\serial_pic.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\extended_serial.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\extended_serial.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\extended_serial.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\build\default\debug\main.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.cmf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.elf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.hxl" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.lst" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.map" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.mum" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.rlf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.sdb" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\TorqueGriper.X.debug.sym" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\dist\default\debug\memoryfile.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\main.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\main.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\main.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\spi.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\spi.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\debug\spi.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\production\spi.p1" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\production\spi.p1.d" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\build\default\production\spi.pre" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.cmf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.elf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.hxl" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.lst" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.map" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.mum" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.rlf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.sdb" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\TorqueGriperSecondPIC.X.debug.sym" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\debug\memoryfile.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.cmf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.elf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.hex" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.hxl" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.lst" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.map" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.mum" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.rlf" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.sdb" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\TorqueGriperSecondPIC.X.production.sym" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\dist\default\production\memoryfile.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.elf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.elf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.obj" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.rlf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.rlf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-default.mk" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-default.mk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/Makefile-default.mk" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/Makefile-default.mk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-genesis.properties" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/Makefile-genesis.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.cmf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.cmf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.hxl" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.hxl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.lst" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.map" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.mum" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.mum" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.sdb" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.sdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.sym" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/TorqueGriper.X.debug.sym" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/Makefile-genesis.properties" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/Makefile-genesis.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.cmf" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.cmf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hex" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hxl" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.hxl" />
@@ -37,18 +75,32 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.mum" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.mum" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sdb" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sym" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/TorqueGriper.X.production.sym" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/circular_buffer.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/circular_buffer.p1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/circular_buffer.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/circular_buffer.pre" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/configurations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/configurations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/private/configurations.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/private/configurations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/encoding.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/encoding.p1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/encoding.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/encoding.pre" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/extended_serial.c" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/extended_serial.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/extended_serial.h" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/extended_serial.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.p1.d" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.p1.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.p1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/extended_serial.pre" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/main.c" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/main.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.p1.d" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.p1.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/main.c" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/main.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1.d" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.p1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.p1.d" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.p1.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.p1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/debug/main.pre" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.p1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/main.pre" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/memoryfile.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/debug/memoryfile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/build/default/production/main.pre" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/memoryfile.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/dist/default/production/memoryfile.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/private/private.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/project.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/nbproject/project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/private/private.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/project.xml" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriperSecondPIC.X/nbproject/project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/serial_pic.p1" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/serial_pic.p1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/serial_pic.pre" afterPath="$PROJECT_DIR$/../PIC Code/TorqueGriper.X/build/default/production/_ext/772281530/serial_pic.pre" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -74,8 +126,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64827585">
-              <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.67277485">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
               <folding>
                 <element signature="e#403#416#0" expanded="true" />
               </folding>
@@ -400,7 +452,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10102489" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -409,7 +461,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27086616" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35433072" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -828,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64827585">
-          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.67277485">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
           <folding>
             <element signature="e#403#416#0" expanded="true" />
           </folding>

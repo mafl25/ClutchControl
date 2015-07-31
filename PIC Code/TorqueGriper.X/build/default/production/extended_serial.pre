@@ -4831,41 +4831,53 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+# 87 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+struct interrupt_serial
+{
+bool tx_int_enable;
+uint8_t *data;
+int8_t length;
+int8_t position;
+};
+
+# 100
 void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
 uint16_t baudrate_value);
 
-# 101
+# 109
 void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
 
-# 109
+# 117
 bool serial_peek_receive(bool get_byte, uint8_t *byte);
 
-# 115
+# 123
 uint8_t serial_get_byte(void);
 
-# 123
+# 131
 int8_t serial_get_data(uint8_t *data, int8_t size);
 
-# 129
+# 137
 void serial_send_byte(uint8_t byte);
 
-# 136
+# 144
 int8_t serial_send_data(uint8_t *data, int8_t size);
 
-# 144
-void serial_interrupts(uint8_t interrupts);
+# 152
+void serial_interrupts(uint8_t interrupts,
+struct interrupt_serial volatile *interrupt_data);
 
-# 153
-void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+# 162
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts,
+struct interrupt_serial volatile *interrupt_data);
 
-# 161
-void serial_load_buffer(uint8_t *buffer, int8_t size);
+# 171
+void serial_load_buffer(uint8_t *buffer, int8_t size,
+struct interrupt_serial volatile *interrupt_data);
 
-# 168
-int8_t serial_send_buffer(void);
+# 179
+int8_t serial_send_buffer(struct interrupt_serial volatile *interrupt_data);
 
-# 177
+# 188
 uint8_t serial_receive_error(bool clear);
 
 # 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
@@ -4876,32 +4888,35 @@ uint8_t data[0x20];
 };
 
 # 21
-int16_t buffer_pop(struct circular_buffer volatile *buffer);
+int16_t buffer_pop(struct circular_buffer *buffer);
 
-# 27
-bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
+# 28
+bool buffer_push(struct circular_buffer *buffer, uint8_t byte);
 
-# 33
-bool buffer_full(const struct circular_buffer volatile *buffer);
+# 34
+bool buffer_full(const struct circular_buffer *buffer);
 
-# 39
-bool buffer_empty(const struct circular_buffer volatile *buffer);
+# 40
+bool buffer_empty(const struct circular_buffer *buffer);
 
-# 45
-uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+# 46
+uint8_t buffer_count(const struct circular_buffer *buffer);
 
-# 51
-uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+# 52
+uint8_t buffer_space(const struct circular_buffer *buffer);
 
 # 16 "extended_serial.h"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
 
 # 22
-int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+int8_t eserial_send_data(struct circular_buffer *buffer);
 
-void eserial_receive(struct circular_buffer volatile *buffer);
+void eserial_receive(struct circular_buffer *buffer,
+bool (*stop_function)(void),
+void (*timer_start)(int16_t),
+bool (*timer_up)(void));
 
-# 20 "extended_serial.c"
+# 21 "extended_serial.c"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
 {
 ANSELbits.ANS5 = 0;
@@ -4911,16 +4926,15 @@ TRISCbits.RC0 = 0;
 TRISCbits.RC1 = 1;
 
 setup_simple_serial(baudrate_bits, baudrate_value);
-serial_interrupts(0x01);
 
-LATCbits.LATC0 = 0;
+LATCbits.LATC0 = 1;
 }
 
-# 38
-int8_t eserial_send_data(struct circular_buffer volatile *buffer)
+
+int8_t eserial_send_data(struct circular_buffer *buffer)
 {
 
-# 43
+# 40
 int8_t i = 0;
 int16_t value = buffer_pop(buffer);
 while (value != -1) {
@@ -4929,21 +4943,40 @@ value = buffer_pop(buffer);
 i++;
 }
 
-if (buffer_empty(buffer))
-LATCbits.LATC0 = 0;
-
 return i;
 }
 
-void eserial_receive(struct circular_buffer volatile *buffer)
+void eserial_receive(struct circular_buffer *buffer,
+bool (*stop_function)(void),
+void (*timer_start)(int16_t),
+bool (*timer_up)(void))
 {
-
-# 75
-if (buffer_space(buffer) <= 0x05)
-LATCbits.LATC0 = 1;
-else
+uint8_t value;
 LATCbits.LATC0 = 0;
 
-uint8_t value = serial_get_byte();
+if (stop_function == (0)) {
+while (buffer_space(buffer) > 0x05) {
+if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
+}
+}
+} else {
+bool test = 0;
+while ((buffer_space(buffer) > 0x05) &&
+!test) {
+if (serial_peek_receive(1, &value)) {
+buffer_push(buffer, value);
+}
+test = (*stop_function)();
+}
+}
+
+LATCbits.LATC0 = 1;
+(*timer_start)(40535);
+
+while (!(*timer_up)()) {
+if (serial_peek_receive(1, &value)) {
+buffer_push(buffer, value);
+}
+}
 }

@@ -1,5 +1,6 @@
 #include <xc.h>
-#include "spi.h"
+#include "extended_spi.h"
+#include "timers_pic.h"
 
 // CONFIG1H
 #pragma config FOSC = IRC       // Oscillator Selection bits (Internal RC oscillator)
@@ -10,14 +11,17 @@
 int main() {
     OSCCONbits.IRCF = 0x07;  //16 MHz internal oscillator
     
-    struct spi_receive_buffer my_data = {0, 0};
+    espi_setup(MASTER_F4);
+    setup_timer3(TMR3_16BIT_MODE | TMR3_PRESCALE_1 | TMR3_TIMER_ON);
     
-    set_spi(MM_FOSC4, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
+    struct circular_buffer buffer = {0, 0, {0}};
     
-    char data[] = "Manuel";
-    
+
     while (1) {
-        send_data_spi(&data, 6);
+
+        espi_master_receive(&buffer, &set_timer3, &timer3_up);
+        espi_master_send(&buffer, &set_timer3, &timer3_up);
+
     }
     
     return 0;

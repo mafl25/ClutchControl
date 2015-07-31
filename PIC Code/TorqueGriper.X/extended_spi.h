@@ -1,0 +1,44 @@
+/* 
+ * File:   extended_spi.h
+ * Author: Manuel
+ *
+ * Created on July 30, 2015, 12:37 PM
+ */
+
+#include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include "spi_pic.h"
+#include "circular_buffer.h"
+#include "encoding.h"
+
+#ifndef EXTENDED_SPI_H
+#define	EXTENDED_SPI_H
+
+#define TX_CHAR     0x10
+#define RX_CHAR     0x20
+#define END_CHAR    0x30
+#define ERROR_CHAR  0x70
+
+
+void espi_setup(uint8_t mode);
+
+void espi_slave_receive(struct circular_buffer *buffer);
+void espi_slave_send(struct circular_buffer *buffer);
+
+int espi_master_send(struct circular_buffer *buffer,
+                      void (*timer_start)(int16_t),
+                      bool (*timer)(void));
+int espi_master_receive(struct circular_buffer *buffer,
+                        void (*timer_start)(int16_t),
+                        bool (*timer)(void));
+bool espi_master_rts(void);
+
+
+void espi_slave_send_receive(struct circular_buffer *receive, 
+                             struct circular_buffer *send);
+void espi_master_send_receive(struct circular_buffer *receive, //To use or not use buffers...
+                              struct circular_buffer *send);
+
+#endif	/* EXTENDED_SPI_H */
+

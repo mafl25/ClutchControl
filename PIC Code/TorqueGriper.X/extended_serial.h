@@ -19,9 +19,12 @@ void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
  * the number of bytes sent. That can be used to ensure that all your data 
  * is sent later. I need to include encoding.
  */
-int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+int8_t eserial_send_data(struct circular_buffer *buffer);
 
-void eserial_receive(struct circular_buffer volatile *buffer);
+void eserial_receive(struct circular_buffer *buffer, 
+                     bool (*stop_function)(void), 
+                     void (*timer_start)(int16_t),
+                     bool (*timer_up)(void));
 
 #endif	/* EXTENDED_SERIAL_H */
 

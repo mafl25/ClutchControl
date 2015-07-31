@@ -4831,44 +4831,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.h"
-void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
-uint16_t baudrate_value);
-
-# 101
-void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
-
-# 109
-bool serial_peek_receive(bool get_byte, uint8_t *byte);
-
-# 115
-uint8_t serial_get_byte(void);
-
-# 123
-int8_t serial_get_data(uint8_t *data, int8_t size);
-
-# 129
-void serial_send_byte(uint8_t byte);
-
-# 136
-int8_t serial_send_data(uint8_t *data, int8_t size);
-
-# 144
-void serial_interrupts(uint8_t interrupts);
-
-# 153
-void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
-
-# 161
-void serial_load_buffer(uint8_t *buffer, int8_t size);
-
-# 168
-int8_t serial_send_buffer(void);
-
-# 177
-uint8_t serial_receive_error(bool clear);
-
-# 3 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c"
+# 87 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.h"
 struct interrupt_serial
 {
 bool tx_int_enable;
@@ -4877,8 +4840,47 @@ int8_t length;
 int8_t position;
 };
 
-static struct interrupt_serial interrupt_data;
+# 100
+void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+uint16_t baudrate_value);
 
+# 109
+void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+
+# 117
+bool serial_peek_receive(bool get_byte, uint8_t *byte);
+
+# 123
+uint8_t serial_get_byte(void);
+
+# 131
+int8_t serial_get_data(uint8_t *data, int8_t size);
+
+# 137
+void serial_send_byte(uint8_t byte);
+
+# 144
+int8_t serial_send_data(uint8_t *data, int8_t size);
+
+# 152
+void serial_interrupts(uint8_t interrupts,
+struct interrupt_serial volatile *interrupt_data);
+
+# 162
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts,
+struct interrupt_serial volatile *interrupt_data);
+
+# 171
+void serial_load_buffer(uint8_t *buffer, int8_t size,
+struct interrupt_serial volatile *interrupt_data);
+
+# 179
+int8_t serial_send_buffer(struct interrupt_serial volatile *interrupt_data);
+
+# 188
+uint8_t serial_receive_error(bool clear);
+
+# 3 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c"
 void setup_serial(uint8_t TXSTA_reg, uint8_t RCSTA_reg, uint8_t BAUDCON_reg,
 uint16_t baudrate_value)
 {
@@ -4964,16 +4966,18 @@ serial_send_byte(data[i]);
 return i;
 }
 
-void serial_interrupts(uint8_t interrupts)
+void serial_interrupts(uint8_t interrupts,
+struct interrupt_serial volatile *interrupt_data)
 {
 if (interrupts & (0x01 | 0x02)) {
 INTCON |= 0xC0;
 RCIE = (interrupts & 0x01) ? 1 : 0;
-interrupt_data.tx_int_enable = (interrupts & 0x02) ? 1 : 0;
+interrupt_data->tx_int_enable = (interrupts & 0x02) ? 1 : 0;
 }
 }
 
-void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts)
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts,
+struct interrupt_serial volatile *interrupt_data)
 {
 if (all_interrupts)
 INTCON &= 0x3F;
@@ -4982,38 +4986,39 @@ if (interrupts & 0x01)
 RCIE = 0;
 
 if (interrupts & 0x02)
-interrupt_data.tx_int_enable = 0;
+interrupt_data->tx_int_enable = 0;
 }
 
-void serial_load_buffer(uint8_t *buffer, int8_t size)
+void serial_load_buffer(uint8_t *buffer, int8_t size,
+struct interrupt_serial volatile *interrupt_data)
 {
-if (interrupt_data.tx_int_enable) {
-interrupt_data.data = buffer;
-interrupt_data.length = size;
-interrupt_data.position = 0;
+if (interrupt_data->tx_int_enable) {
+interrupt_data->data = buffer;
+interrupt_data->length = size;
+interrupt_data->position = 0;
 
 TXIE = 1;
 }
 }
 
-int8_t serial_send_buffer(void)
+int8_t serial_send_buffer(struct interrupt_serial volatile *interrupt_data)
 {
 if (TXIF && TXIE) {
-if (interrupt_data.length < 0) {
-if (interrupt_data.data[interrupt_data.position] != 0) {
-serial_send_byte(interrupt_data.data[interrupt_data.position]);
-interrupt_data.position++;
+if (interrupt_data->length < 0) {
+if (interrupt_data->data[interrupt_data->position] != 0) {
+serial_send_byte(interrupt_data->data[interrupt_data->position]);
+interrupt_data->position++;
 } else {
 TXIE = 0;
 }
-} else if (interrupt_data.position < interrupt_data.length) {
-serial_send_byte(interrupt_data.data[interrupt_data.position]);
-interrupt_data.position++;
-if (interrupt_data.position == interrupt_data.length)
+} else if (interrupt_data->position < interrupt_data->length) {
+serial_send_byte(interrupt_data->data[interrupt_data->position]);
+interrupt_data->position++;
+if (interrupt_data->position == interrupt_data->length)
 TXIE = 0;
 }
 
-return interrupt_data.position;
+return interrupt_data->position;
 } else {
 return -1;
 }

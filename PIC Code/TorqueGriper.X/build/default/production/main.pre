@@ -4831,41 +4831,53 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 92 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+# 87 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h"
+struct interrupt_serial
+{
+bool tx_int_enable;
+uint8_t *data;
+int8_t length;
+int8_t position;
+};
+
+# 100
 void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
 uint16_t baudrate_value);
 
-# 101
+# 109
 void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
 
-# 109
+# 117
 bool serial_peek_receive(bool get_byte, uint8_t *byte);
 
-# 115
+# 123
 uint8_t serial_get_byte(void);
 
-# 123
+# 131
 int8_t serial_get_data(uint8_t *data, int8_t size);
 
-# 129
+# 137
 void serial_send_byte(uint8_t byte);
 
-# 136
+# 144
 int8_t serial_send_data(uint8_t *data, int8_t size);
 
-# 144
-void serial_interrupts(uint8_t interrupts);
+# 152
+void serial_interrupts(uint8_t interrupts,
+struct interrupt_serial volatile *interrupt_data);
 
-# 153
-void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
+# 162
+void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts,
+struct interrupt_serial volatile *interrupt_data);
 
-# 161
-void serial_load_buffer(uint8_t *buffer, int8_t size);
+# 171
+void serial_load_buffer(uint8_t *buffer, int8_t size,
+struct interrupt_serial volatile *interrupt_data);
 
-# 168
-int8_t serial_send_buffer(void);
+# 179
+int8_t serial_send_buffer(struct interrupt_serial volatile *interrupt_data);
 
-# 177
+# 188
 uint8_t serial_receive_error(bool clear);
 
 # 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
@@ -4876,58 +4888,127 @@ uint8_t data[0x20];
 };
 
 # 21
-int16_t buffer_pop(struct circular_buffer volatile *buffer);
+int16_t buffer_pop(struct circular_buffer *buffer);
 
-# 27
-bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
+# 28
+bool buffer_push(struct circular_buffer *buffer, uint8_t byte);
 
-# 33
-bool buffer_full(const struct circular_buffer volatile *buffer);
+# 34
+bool buffer_full(const struct circular_buffer *buffer);
 
-# 39
-bool buffer_empty(const struct circular_buffer volatile *buffer);
+# 40
+bool buffer_empty(const struct circular_buffer *buffer);
 
-# 45
-uint8_t buffer_count(const struct circular_buffer volatile *buffer);
+# 46
+uint8_t buffer_count(const struct circular_buffer *buffer);
 
-# 51
-uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+# 52
+uint8_t buffer_space(const struct circular_buffer *buffer);
 
 # 16 "extended_serial.h"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
 
 # 22
-int8_t eserial_send_data(struct circular_buffer volatile *buffer);
+int8_t eserial_send_data(struct circular_buffer *buffer);
 
-void eserial_receive(struct circular_buffer volatile *buffer);
+void eserial_receive(struct circular_buffer *buffer,
+bool (*stop_function)(void),
+void (*timer_start)(int16_t),
+bool (*timer_up)(void));
+
+# 28 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h"
+void setup_spi(uint8_t register_1, uint8_t register_2);
 
 
-# 13 "main.c"
+uint8_t spi_send_get_byte(uint8_t byte);
+bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+
+# 43
+int16_t spi_slave_get_byte(void);
+
+# 27 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h"
+void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
+
+# 34
+int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
+
+# 24 "extended_spi.h"
+void espi_setup(uint8_t mode);
+
+void espi_slave_receive(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer_up)(void));
+
+void espi_slave_send(struct circular_buffer *buffer);
+
+int espi_master_send(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer)(void));
+
+int espi_master_receive(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer)(void));
+bool espi_master_rts(void);
+
+
+void espi_slave_send_receive(struct circular_buffer *receive,
+struct circular_buffer *send);
+void espi_master_send_receive(struct circular_buffer *receive,
+struct circular_buffer *send);
+
+# 24 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h"
+void setup_timer3(uint8_t register_1);
+void set_timer3(int16_t value);
+void timer3_interrupt(bool toggle);
+bool timer3_up(void);
+
+
+# 16 "main.c"
 #pragma config FOSC = HS
 #pragma config LVP = OFF
 
 
 
 
-volatile struct circular_buffer my_buffer = {0, 0, {0}};
-
-void interrupt isr(void);
+bool return_false(void)
+{
+return 0;
+}
 
 int main() {
 
-eserial_setup(0x08 | 0x04, 0x13);
+struct circular_buffer pic_to_pic = {0, 0, {0}};
+struct circular_buffer pic_to_pc = {0, 0, {0}};
+
+espi_setup(0x05);
+eserial_setup(0x08 | 0x04, 0x2A);
+setup_timer3(0x80 | 0x00 | 0x01);
+
+uint8_t value;
+char wat[] = "UUUUU";
 
 while (1) {
-if(buffer_count(&my_buffer) > 0x20 - 4)
-eserial_send_data(&my_buffer);
+
+int i;
+
+if (buffer_empty(&pic_to_pc))
+for (i = 0; wat[i] != 0; i++)
+buffer_push(&pic_to_pc, wat[i]);
+
+int16_t value;
+if (spi_slave_peek_receive(1, &value)) {
+serial_send_byte(value);
+if (value == 0x20)
+espi_slave_send(&pic_to_pc);
+else if (value == 0x10)
+espi_slave_receive(&pic_to_pic, &set_timer3, &timer3_up);
+}
+eserial_send_data(&pic_to_pic);
+
+
+
+
 }
 
 return (0);
-}
-
-void interrupt isr(void)
-{
-if (RCIF && RCIE) {
-eserial_receive(&my_buffer);
-}
 }

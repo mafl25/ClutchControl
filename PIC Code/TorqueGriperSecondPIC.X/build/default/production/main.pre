@@ -4529,22 +4529,17 @@ void OpenRB1INT( unsigned char config);
 # 211
 void OpenRB2INT( unsigned char config);
 
-# 85 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\pwm.h"
-union PWMDC
-{
-unsigned int lpwm;
-char bpwm[2];
-};
+# 27 "../TorqueGriper.X\pwm.h"
+typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
+typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
 
-# 467
-void OpenPWM1 ( char period);
-void SetDCPWM1 ( unsigned int duty_cycle);
+void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+unsigned char outputs);
+void setPulseWidth(unsigned int width);
+void selectOutput(unsigned char outputs, unsigned char toggle);
 
-# 474
-void SetOutputPWM1 ( unsigned char output_config,
-unsigned char pwm_mode);
-
-void ClosePWM1 (void);
+void pmwHalfBridgeSetUp();
+void pmwFullBridgeSetUp();
 
 # 16 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\reset.h"
 char isMCLR(void);
@@ -4731,28 +4726,172 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 28 "spi.h"
-enum spi_mode {MM_FOSC4, MM_FOSC16, MM_FOSC64, MM_TMR22, SM_SS, SM_NSS};
-enum spi_clk_pol {IDLE_LOW, IDLE_HIGH};
-enum spi_trans_sel {IDLE_ACTIVE, ACTIVE_IDLE};
-enum spi_sampling {MIDDLE, END};
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
 
-struct spi_receive_buffer
-{
-unsigned char buffer[30];
-int length;
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
+# 28 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h"
+void setup_spi(uint8_t register_1, uint8_t register_2);
+
+
+uint8_t spi_send_get_byte(uint8_t byte);
+bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+
+# 43
+int16_t spi_slave_get_byte(void);
+
+# 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
+struct circular_buffer {
+uint8_t position;
+uint8_t count;
+uint8_t data[0x20];
 };
 
-void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
-enum spi_trans_sel selection, enum spi_sampling sample);
-unsigned char spi_write(unsigned char data);
-unsigned char spi_read(void);
-void send_data_spi(unsigned char *data, char size);
-void master_receive_data(struct spi_receive_buffer *buffer);
-void slave_receive_data(struct spi_receive_buffer *buffer);
+# 21
+int16_t buffer_pop(struct circular_buffer *buffer);
+
+# 28
+bool buffer_push(struct circular_buffer *buffer, uint8_t byte);
+
+# 34
+bool buffer_full(const struct circular_buffer *buffer);
+
+# 40
+bool buffer_empty(const struct circular_buffer *buffer);
+
+# 46
+uint8_t buffer_count(const struct circular_buffer *buffer);
+
+# 52
+uint8_t buffer_space(const struct circular_buffer *buffer);
+
+# 27 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h"
+void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
+
+# 34
+int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
+
+# 24 "../TorqueGriper.X\extended_spi.h"
+void espi_setup(uint8_t mode);
+
+void espi_slave_receive(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer_up)(void));
+
+void espi_slave_send(struct circular_buffer *buffer);
+
+int espi_master_send(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer)(void));
+
+int espi_master_receive(struct circular_buffer *buffer,
+void (*timer_start)(int16_t),
+bool (*timer)(void));
+bool espi_master_rts(void);
 
 
-# 5 "main.c"
+void espi_slave_send_receive(struct circular_buffer *receive,
+struct circular_buffer *send);
+void espi_master_send_receive(struct circular_buffer *receive,
+struct circular_buffer *send);
+
+# 24 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h"
+void setup_timer3(uint8_t register_1);
+void set_timer3(int16_t value);
+void timer3_interrupt(bool toggle);
+bool timer3_up(void);
+
+
+# 6 "main.c"
 #pragma config FOSC = IRC
 #pragma config LVP = OFF
 
@@ -4761,14 +4900,17 @@ void slave_receive_data(struct spi_receive_buffer *buffer);
 int main() {
 OSCCONbits.IRCF = 0x07;
 
-struct spi_receive_buffer my_data = {0, 0};
+espi_setup(0x00);
+setup_timer3(0x80 | 0x00 | 0x01);
 
-set_spi(MM_FOSC4, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
+struct circular_buffer buffer = {0, 0, {0}};
 
-char data[] = "Manuel";
 
 while (1) {
-send_data_spi(&data, 6);
+
+espi_master_receive(&buffer, &set_timer3, &timer3_up);
+espi_master_send(&buffer, &set_timer3, &timer3_up);
+
 }
 
 return 0;

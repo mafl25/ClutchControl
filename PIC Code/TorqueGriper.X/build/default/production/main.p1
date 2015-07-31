@@ -1,20 +1,34 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
-[s S374 `uc 1 `uc 1 `uc -> 32 `i ]
-[n S374 circular_buffer position count data ]
 [p mainexit ]
+"10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[s S375 `uc 1 `uc 1 `uc -> 32 `i ]
+[n S375 circular_buffer position count data ]
+"24 extended_spi.h
+[v _espi_setup `(v ~T0 @X0 0 ef1`uc ]
 "16 extended_serial.h
 [v _eserial_setup `(v ~T0 @X0 0 ef2`uc`ui ]
-"45 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
-[v _buffer_count `(uc ~T0 @X0 0 ef1`*CVS374 ]
+"24 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+[v _setup_timer3 `(v ~T0 @X0 0 ef1`uc ]
+"40 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[v _buffer_empty `(uc ~T0 @X0 0 ef1`*CS375 ]
+"28
+[v _buffer_push `(uc ~T0 @X0 0 ef2`*S375`uc ]
+"32 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h
+[v _spi_slave_peek_receive `(uc ~T0 @X0 0 ef2`uc`*i ]
+"137 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h
+[v _serial_send_byte `(v ~T0 @X0 0 ef1`uc ]
+"30 extended_spi.h
+[v _espi_slave_send `(v ~T0 @X0 0 ef1`*S375 ]
+[v F4000 `(v ~T0 @X0 0 tf1`i ]
+[v F4003 `(uc ~T0 @X0 0 tf ]
+"26
+[v _espi_slave_receive `(v ~T0 @X0 0 ef3`*S375`*F4000`*F4003 ]
+"25 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+[v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
+"27
+[v _timer3_up `(uc ~T0 @X0 0 ef ]
 "22 extended_serial.h
-[v _eserial_send_data `(c ~T0 @X0 0 ef1`*VS374 ]
-"7327 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"7325
-[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
-"24 extended_serial.h
-[v _eserial_receive `(v ~T0 @X0 0 ef1`*VS374 ]
+[v _eserial_send_data `(c ~T0 @X0 0 ef1`*S375 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3578,40 +3592,102 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;PICLibraries.X\serial_pic.h: 92: void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
-[; ;PICLibraries.X\serial_pic.h: 93: uint16_t baudrate_value);
-[; ;PICLibraries.X\serial_pic.h: 101: void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
-[; ;PICLibraries.X\serial_pic.h: 109: bool serial_peek_receive(bool get_byte, uint8_t *byte);
-[; ;PICLibraries.X\serial_pic.h: 115: uint8_t serial_get_byte(void);
-[; ;PICLibraries.X\serial_pic.h: 123: int8_t serial_get_data(uint8_t *data, int8_t size);
-[; ;PICLibraries.X\serial_pic.h: 129: void serial_send_byte(uint8_t byte);
-[; ;PICLibraries.X\serial_pic.h: 136: int8_t serial_send_data(uint8_t *data, int8_t size);
-[; ;PICLibraries.X\serial_pic.h: 144: void serial_interrupts(uint8_t interrupts);
-[; ;PICLibraries.X\serial_pic.h: 153: void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts);
-[; ;PICLibraries.X\serial_pic.h: 161: void serial_load_buffer(uint8_t *buffer, int8_t size);
-[; ;PICLibraries.X\serial_pic.h: 168: int8_t serial_send_buffer(void);
-[; ;PICLibraries.X\serial_pic.h: 177: uint8_t serial_receive_error(bool clear);
+[; ;PICLibraries.X\serial_pic.h: 87: struct interrupt_serial
+[; ;PICLibraries.X\serial_pic.h: 88: {
+[; ;PICLibraries.X\serial_pic.h: 89: bool tx_int_enable;
+[; ;PICLibraries.X\serial_pic.h: 90: uint8_t *data;
+[; ;PICLibraries.X\serial_pic.h: 91: int8_t length;
+[; ;PICLibraries.X\serial_pic.h: 92: int8_t position;
+[; ;PICLibraries.X\serial_pic.h: 93: };
+[; ;PICLibraries.X\serial_pic.h: 100: void setup_serial(uint8_t register_1, uint8_t register_2, uint8_t register_3,
+[; ;PICLibraries.X\serial_pic.h: 101: uint16_t baudrate_value);
+[; ;PICLibraries.X\serial_pic.h: 109: void setup_simple_serial(uint8_t baudrate_bits, uint16_t baudrate_value);
+[; ;PICLibraries.X\serial_pic.h: 117: bool serial_peek_receive(bool get_byte, uint8_t *byte);
+[; ;PICLibraries.X\serial_pic.h: 123: uint8_t serial_get_byte(void);
+[; ;PICLibraries.X\serial_pic.h: 131: int8_t serial_get_data(uint8_t *data, int8_t size);
+[; ;PICLibraries.X\serial_pic.h: 137: void serial_send_byte(uint8_t byte);
+[; ;PICLibraries.X\serial_pic.h: 144: int8_t serial_send_data(uint8_t *data, int8_t size);
+[; ;PICLibraries.X\serial_pic.h: 152: void serial_interrupts(uint8_t interrupts,
+[; ;PICLibraries.X\serial_pic.h: 153: struct interrupt_serial volatile *interrupt_data);
+[; ;PICLibraries.X\serial_pic.h: 162: void serial_disable_interrupts(uint8_t interrupts, bool all_interrupts,
+[; ;PICLibraries.X\serial_pic.h: 163: struct interrupt_serial volatile *interrupt_data);
+[; ;PICLibraries.X\serial_pic.h: 171: void serial_load_buffer(uint8_t *buffer, int8_t size,
+[; ;PICLibraries.X\serial_pic.h: 172: struct interrupt_serial volatile *interrupt_data);
+[; ;PICLibraries.X\serial_pic.h: 179: int8_t serial_send_buffer(struct interrupt_serial volatile *interrupt_data);
+[; ;PICLibraries.X\serial_pic.h: 188: uint8_t serial_receive_error(bool clear);
 [; ;PICLibraries.X\circular_buffer.h: 10: struct circular_buffer {
 [; ;PICLibraries.X\circular_buffer.h: 11: uint8_t position;
 [; ;PICLibraries.X\circular_buffer.h: 12: uint8_t count;
 [; ;PICLibraries.X\circular_buffer.h: 13: uint8_t data[0x20];
 [; ;PICLibraries.X\circular_buffer.h: 14: };
-[; ;PICLibraries.X\circular_buffer.h: 21: int16_t buffer_pop(struct circular_buffer volatile *buffer);
-[; ;PICLibraries.X\circular_buffer.h: 27: bool buffer_push(struct circular_buffer volatile *buffer, uint8_t byte);
-[; ;PICLibraries.X\circular_buffer.h: 33: bool buffer_full(const struct circular_buffer volatile *buffer);
-[; ;PICLibraries.X\circular_buffer.h: 39: bool buffer_empty(const struct circular_buffer volatile *buffer);
-[; ;PICLibraries.X\circular_buffer.h: 45: uint8_t buffer_count(const struct circular_buffer volatile *buffer);
-[; ;PICLibraries.X\circular_buffer.h: 51: uint8_t buffer_space(const struct circular_buffer volatile *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 21: int16_t buffer_pop(struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 28: bool buffer_push(struct circular_buffer *buffer, uint8_t byte);
+[; ;PICLibraries.X\circular_buffer.h: 34: bool buffer_full(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 40: bool buffer_empty(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
 [; ;extended_serial.h: 16: void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
-[; ;extended_serial.h: 22: int8_t eserial_send_data(struct circular_buffer volatile *buffer);
-[; ;extended_serial.h: 24: void eserial_receive(struct circular_buffer volatile *buffer);
-"13 main.c
+[; ;extended_serial.h: 22: int8_t eserial_send_data(struct circular_buffer *buffer);
+[; ;extended_serial.h: 24: void eserial_receive(struct circular_buffer *buffer,
+[; ;extended_serial.h: 25: bool (*stop_function)(void),
+[; ;extended_serial.h: 26: void (*timer_start)(int16_t),
+[; ;extended_serial.h: 27: bool (*timer_up)(void));
+[; ;PICLibraries.X\spi_pic.h: 28: void setup_spi(uint8_t register_1, uint8_t register_2);
+[; ;PICLibraries.X\spi_pic.h: 31: uint8_t spi_send_get_byte(uint8_t byte);
+[; ;PICLibraries.X\spi_pic.h: 32: bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+[; ;PICLibraries.X\spi_pic.h: 43: int16_t spi_slave_get_byte(void);
+[; ;PICLibraries.X\encoding.h: 27: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
+[; ;PICLibraries.X\encoding.h: 34: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
+[; ;extended_spi.h: 24: void espi_setup(uint8_t mode);
+[; ;extended_spi.h: 26: void espi_slave_receive(struct circular_buffer *buffer,
+[; ;extended_spi.h: 27: void (*timer_start)(int16_t),
+[; ;extended_spi.h: 28: bool (*timer_up)(void));
+[; ;extended_spi.h: 30: void espi_slave_send(struct circular_buffer *buffer);
+[; ;extended_spi.h: 32: int espi_master_send(struct circular_buffer *buffer,
+[; ;extended_spi.h: 33: void (*timer_start)(int16_t),
+[; ;extended_spi.h: 34: bool (*timer)(void));
+[; ;extended_spi.h: 36: int espi_master_receive(struct circular_buffer *buffer,
+[; ;extended_spi.h: 37: void (*timer_start)(int16_t),
+[; ;extended_spi.h: 38: bool (*timer)(void));
+[; ;extended_spi.h: 39: bool espi_master_rts(void);
+[; ;extended_spi.h: 42: void espi_slave_send_receive(struct circular_buffer *receive,
+[; ;extended_spi.h: 43: struct circular_buffer *send);
+[; ;extended_spi.h: 44: void espi_master_send_receive(struct circular_buffer *receive,
+[; ;extended_spi.h: 45: struct circular_buffer *send);
+[; ;PICLibraries.X\timers_pic.h: 24: void setup_timer3(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 25: void set_timer3(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 26: void timer3_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 27: bool timer3_up(void);
+"16 main.c
 [p x FOSC=HS ]
-"14
+"17
 [p x LVP=OFF ]
-"19
-[v _my_buffer `VS374 ~T0 @X0 1 e ]
-[i _my_buffer
+"22
+[v _return_false `(uc ~T0 @X0 1 ef ]
+"23
+{
+[; ;main.c: 22: bool return_false(void)
+[; ;main.c: 23: {
+[e :U _return_false ]
+[f ]
+[; ;main.c: 24: return 0;
+"24
+[e ) -> -> 0 `i `uc ]
+[e $UE 376  ]
+[; ;main.c: 25: }
+"25
+[e :UE 376 ]
+}
+"27
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[; ;main.c: 27: int main() {
+[e :U _main ]
+[f ]
+"29
+[v _pic_to_pic `S375 ~T0 @X0 1 a ]
+[v F4043 `S375 ~T0 @X0 1 s ]
+[i F4043
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -3622,64 +3698,122 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;main.c: 19: volatile struct circular_buffer my_buffer = {0, 0, {0}};
-[; ;main.c: 21: void interrupt isr(void);
-"23
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[; ;main.c: 23: int main() {
-[e :U _main ]
-[f ]
-[; ;main.c: 25: eserial_setup(0x08 | 0x04, 0x13);
-"25
-[e ( _eserial_setup (2 , -> | -> 8 `i -> 4 `i `uc -> -> 19 `i `ui ]
-[; ;main.c: 27: while (1) {
-"27
-[e :U 377 ]
-{
-[; ;main.c: 28: if(buffer_count(&my_buffer) > 0x20 - 4)
-"28
-[e $ ! > -> ( _buffer_count (1 -> &U _my_buffer `*CVS374 `i - -> 32 `i -> 4 `i 379  ]
-[; ;main.c: 29: eserial_send_data(&my_buffer);
-"29
-[e ( _eserial_send_data (1 &U _my_buffer ]
-[e :U 379 ]
+[; ;main.c: 29: struct circular_buffer pic_to_pic = {0, 0, {0}};
+[e = _pic_to_pic F4043 ]
 "30
-}
-[e :U 376 ]
-"27
-[e $U 377  ]
-[e :U 378 ]
-[; ;main.c: 30: }
-[; ;main.c: 32: return (0);
+[v _pic_to_pc `S375 ~T0 @X0 1 a ]
+[v F4045 `S375 ~T0 @X0 1 s ]
+[i F4045
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+:U ..
+-> -> 0 `i `uc
+..
+..
+..
+]
+[; ;main.c: 30: struct circular_buffer pic_to_pc = {0, 0, {0}};
+[e = _pic_to_pc F4045 ]
+[; ;main.c: 32: espi_setup(0x05);
 "32
-[e ) -> 0 `i ]
-[e $UE 375  ]
-[; ;main.c: 33: }
+[e ( _espi_setup (1 -> -> 5 `i `uc ]
+[; ;main.c: 33: eserial_setup(0x08 | 0x04, 0x2A);
 "33
-[e :UE 375 ]
-}
-[v F3963 `(v ~T0 @X0 1 tf ]
-"35
-[v _isr `IF3963 ~T0 @X0 1 e ]
+[e ( _eserial_setup (2 , -> | -> 8 `i -> 4 `i `uc -> -> 42 `i `ui ]
+[; ;main.c: 34: setup_timer3(0x80 | 0x00 | 0x01);
+"34
+[e ( _setup_timer3 (1 -> | | -> 128 `i -> 0 `i -> 1 `i `uc ]
 "36
-{
-[; ;main.c: 35: void interrupt isr(void)
-[; ;main.c: 36: {
-[e :U _isr ]
-[f ]
-[; ;main.c: 37: if (RCIF && RCIE) {
+[v _value `uc ~T0 @X0 1 a ]
+[v F4048 `uc ~T0 @X0 -> 0 `x s ]
+[i F4048
+:U ..
+-> 85 `c
+-> 85 `c
+-> 85 `c
+-> 85 `c
+-> 85 `c
+-> 0 `c
+..
+]
 "37
-[e $ ! && _RCIF _RCIE 381  ]
-{
-[; ;main.c: 38: eserial_receive(&my_buffer);
-"38
-[e ( _eserial_receive (1 &U _my_buffer ]
+[v _wat `uc ~T0 @X0 6  a ]
+[; ;main.c: 36: uint8_t value;
+[; ;main.c: 37: char wat[] = "UUUUU";
+[e = _wat F4048 ]
+[; ;main.c: 39: while (1) {
 "39
+[e :U 379 ]
+{
+"41
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 41: int i;
+[; ;main.c: 43: if (buffer_empty(&pic_to_pc))
+"43
+[e $ ! != -> ( _buffer_empty (1 -> &U _pic_to_pc `*CS375 `i -> -> -> 0 `i `uc `i 381  ]
+[; ;main.c: 44: for (i = 0; wat[i] != 0; i++)
+"44
+{
+[e = _i -> 0 `i ]
+[e $U 385  ]
+"45
+[e :U 382 ]
+[; ;main.c: 45: buffer_push(&pic_to_pc, wat[i]);
+[e ( _buffer_push (2 , &U _pic_to_pc *U + &U _wat * -> -> _i `ui `ux -> -> # *U &U _wat `ui `ux ]
+"44
+[e ++ _i -> 1 `i ]
+[e :U 385 ]
+[e $ != -> *U + &U _wat * -> -> _i `ui `ux -> -> # *U &U _wat `ui `ux `i -> 0 `i 382  ]
+[e :U 383 ]
+"45
 }
 [e :U 381 ]
-[; ;main.c: 39: }
-[; ;main.c: 40: }
-"40
-[e :UE 380 ]
+[v _value `i ~T0 @X0 1 a ]
+[; ;main.c: 47: int16_t value;
+[; ;main.c: 48: if (spi_slave_peek_receive(1, &value)) {
+"48
+[e $ ! != -> ( _spi_slave_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 386  ]
+{
+[; ;main.c: 49: serial_send_byte(value);
+"49
+[e ( _serial_send_byte (1 -> _value `uc ]
+[; ;main.c: 50: if (value == 0x20)
+"50
+[e $ ! == _value -> 32 `i 387  ]
+[; ;main.c: 51: espi_slave_send(&pic_to_pc);
+"51
+[e ( _espi_slave_send (1 &U _pic_to_pc ]
+[e $U 388  ]
+"52
+[e :U 387 ]
+[; ;main.c: 52: else if (value == 0x10)
+[e $ ! == _value -> 16 `i 389  ]
+[; ;main.c: 53: espi_slave_receive(&pic_to_pic, &set_timer3, &timer3_up);
+"53
+[e ( _espi_slave_receive (3 , , &U _pic_to_pic &U _set_timer3 &U _timer3_up ]
+[e :U 389 ]
+"54
+[e :U 388 ]
+}
+[e :U 386 ]
+[; ;main.c: 54: }
+[; ;main.c: 55: eserial_send_data(&pic_to_pic);
+"55
+[e ( _eserial_send_data (1 &U _pic_to_pic ]
+"60
+}
+[e :U 378 ]
+"39
+[e $U 379  ]
+[e :U 380 ]
+[; ;main.c: 60: }
+[; ;main.c: 62: return (0);
+"62
+[e ) -> 0 `i ]
+[e $UE 377  ]
+[; ;main.c: 63: }
+"63
+[e :UE 377 ]
 }

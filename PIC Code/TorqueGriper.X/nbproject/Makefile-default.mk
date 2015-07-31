@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c extended_serial.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c extended_serial.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c extended_spi.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/serial_pic.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/extended_serial.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d ${OBJECTDIR}/extended_serial.p1.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/serial_pic.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/extended_serial.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/extended_spi.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d ${OBJECTDIR}/extended_serial.p1.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d ${OBJECTDIR}/extended_spi.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/serial_pic.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/extended_serial.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/serial_pic.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/extended_serial.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/extended_spi.p1
 
 # Source Files
-SOURCEFILES=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c extended_serial.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+SOURCEFILES=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c extended_serial.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c extended_spi.c
 
 
 CFLAGS=
@@ -85,7 +85,7 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -93,7 +93,7 @@ ${OBJECTDIR}/_ext/772281530/serial_pic.p1: C:/Users/Manuel/Documents/PICLibrary/
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/serial_pic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/serial_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/serial_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/serial_pic.d ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -101,7 +101,7 @@ ${OBJECTDIR}/_ext/772281530/encoding.p1: C:/Users/Manuel/Documents/PICLibrary/PI
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/encoding.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/encoding.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/encoding.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/encoding.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/encoding.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/encoding.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -109,7 +109,7 @@ ${OBJECTDIR}/extended_serial.p1: extended_serial.c  nbproject/Makefile-${CND_CON
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/extended_serial.p1.d 
 	@${RM} ${OBJECTDIR}/extended_serial.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_serial.p1  extended_serial.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_serial.p1  extended_serial.c 
 	@-${MV} ${OBJECTDIR}/extended_serial.d ${OBJECTDIR}/extended_serial.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/extended_serial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -117,24 +117,40 @@ ${OBJECTDIR}/_ext/772281530/circular_buffer.p1: C:/Users/Manuel/Documents/PICLib
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/circular_buffer.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/circular_buffer.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/circular_buffer.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/772281530/timers_pic.p1: C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
+	@${RM} ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/772281530/timers_pic.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/timers_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c 
+	@-${MV} ${OBJECTDIR}/_ext/772281530/timers_pic.d ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/772281530/spi_pic.p1: C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/spi_pic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/spi_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/spi_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/spi_pic.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/extended_spi.p1: extended_spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/extended_spi.p1.d 
+	@${RM} ${OBJECTDIR}/extended_spi.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_spi.p1  extended_spi.c 
+	@-${MV} ${OBJECTDIR}/extended_spi.d ${OBJECTDIR}/extended_spi.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/extended_spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -142,7 +158,7 @@ ${OBJECTDIR}/_ext/772281530/serial_pic.p1: C:/Users/Manuel/Documents/PICLibrary/
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/serial_pic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/serial_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/serial_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/serial_pic.d ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/serial_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -150,7 +166,7 @@ ${OBJECTDIR}/_ext/772281530/encoding.p1: C:/Users/Manuel/Documents/PICLibrary/PI
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/encoding.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/encoding.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/encoding.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/encoding.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/encoding.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/encoding.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -158,7 +174,7 @@ ${OBJECTDIR}/extended_serial.p1: extended_serial.c  nbproject/Makefile-${CND_CON
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/extended_serial.p1.d 
 	@${RM} ${OBJECTDIR}/extended_serial.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_serial.p1  extended_serial.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_serial.p1  extended_serial.c 
 	@-${MV} ${OBJECTDIR}/extended_serial.d ${OBJECTDIR}/extended_serial.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/extended_serial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -166,17 +182,33 @@ ${OBJECTDIR}/_ext/772281530/circular_buffer.p1: C:/Users/Manuel/Documents/PICLib
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/circular_buffer.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/circular_buffer.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/circular_buffer.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/772281530/timers_pic.p1: C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
+	@${RM} ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/772281530/timers_pic.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/timers_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c 
+	@-${MV} ${OBJECTDIR}/_ext/772281530/timers_pic.d ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/772281530/spi_pic.p1: C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/772281530" 
 	@${RM} ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/772281530/spi_pic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/spi_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/772281530/spi_pic.p1  C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c 
 	@-${MV} ${OBJECTDIR}/_ext/772281530/spi_pic.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/extended_spi.p1: extended_spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/extended_spi.p1.d 
+	@${RM} ${OBJECTDIR}/extended_spi.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/extended_spi.p1  extended_spi.c 
+	@-${MV} ${OBJECTDIR}/extended_spi.d ${OBJECTDIR}/extended_spi.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/extended_spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -191,13 +223,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     --rom=default,-1e00-1fff  --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     --rom=default,-1e00-1fff  --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.map  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.map  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriperSecondPIC.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/TorqueGriper.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 endif
 

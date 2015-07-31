@@ -11,22 +11,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S308 . . . ]
 "5673
 [v _OSCCONbits `VS308 ~T0 @X0 0 e@4051 ]
-"33 spi.h
-[s S373 `uc -> 30 `i `i 1 ]
-[n S373 spi_receive_buffer buffer length ]
-"15 main.c
-[c E3852 0 1 2 3 4 5 .. ]
-[n E3852 spi_mode MM_FOSC4 MM_FOSC16 MM_FOSC64 MM_TMR22 SM_SS SM_NSS  ]
-[c E3859 0 1 .. ]
-[n E3859 spi_clk_pol IDLE_LOW IDLE_HIGH  ]
-[c E3862 0 1 .. ]
-[n E3862 spi_trans_sel IDLE_ACTIVE ACTIVE_IDLE  ]
-[c E3865 0 1 .. ]
-[n E3865 spi_sampling MIDDLE END  ]
-"39 spi.h
-[v _set_spi `(v ~T0 @X0 0 ef4`E3852`E3859`E3862`E3865 ]
-"43
-[v _send_data_spi `(v ~T0 @X0 0 ef2`*uc`uc ]
+"24 ../TorqueGriper.X\extended_spi.h
+[v _espi_setup `(v ~T0 @X0 0 ef1`uc ]
+"24 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+[v _setup_timer3 `(v ~T0 @X0 0 ef1`uc ]
+"10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[s S372 `uc 1 `uc 1 `uc -> 32 `i ]
+[n S372 circular_buffer position count data ]
+[v F3950 `(v ~T0 @X0 0 tf1`i ]
+[v F3953 `(uc ~T0 @X0 0 tf ]
+"36 ../TorqueGriper.X\extended_spi.h
+[v _espi_master_receive `(i ~T0 @X0 0 ef3`*S372`*F3950`*F3953 ]
+"25 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+[v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
+"27
+[v _timer3_up `(uc ~T0 @X0 0 ef ]
+[v F3942 `(v ~T0 @X0 0 tf1`i ]
+[v F3945 `(uc ~T0 @X0 0 tf ]
+"32 ../TorqueGriper.X\extended_spi.h
+[v _espi_master_send `(i ~T0 @X0 0 ef3`*S372`*F3942`*F3945 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3447,16 +3450,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;portb.h: 176: void OpenRB0INT( unsigned char config);
 [; ;portb.h: 194: void OpenRB1INT( unsigned char config);
 [; ;portb.h: 211: void OpenRB2INT( unsigned char config);
-[; ;pwm.h: 85: union PWMDC
-[; ;pwm.h: 86: {
-[; ;pwm.h: 87: unsigned int lpwm;
-[; ;pwm.h: 88: char bpwm[2];
-[; ;pwm.h: 89: };
-[; ;pwm.h: 467: void OpenPWM1 ( char period);
-[; ;pwm.h: 468: void SetDCPWM1 ( unsigned int duty_cycle);
-[; ;pwm.h: 474: void SetOutputPWM1 ( unsigned char output_config,
-[; ;pwm.h: 475: unsigned char pwm_mode);
-[; ;pwm.h: 477: void ClosePWM1 (void);
+[; ;TorqueGriper.X\pwm.h: 27: typedef enum {PACH_PBDH,PACH_PBDL, PACL_PBDH, PACL_PBDL} sModes;
+[; ;TorqueGriper.X\pwm.h: 28: typedef enum {TMRP_1, TMRP_4, TMRP_16} tmrPre;
+[; ;TorqueGriper.X\pwm.h: 30: void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
+[; ;TorqueGriper.X\pwm.h: 31: unsigned char outputs);
+[; ;TorqueGriper.X\pwm.h: 32: void setPulseWidth(unsigned int width);
+[; ;TorqueGriper.X\pwm.h: 33: void selectOutput(unsigned char outputs, unsigned char toggle);
+[; ;TorqueGriper.X\pwm.h: 35: void pmwHalfBridgeSetUp();
+[; ;TorqueGriper.X\pwm.h: 36: void pmwFullBridgeSetUp();
 [; ;reset.h: 16: char isMCLR(void);
 [; ;reset.h: 17: void StatusReset(void);
 [; ;reset.h: 18: char isPOR(void);
@@ -3552,88 +3553,129 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;spi.h: 28: enum spi_mode {MM_FOSC4, MM_FOSC16, MM_FOSC64, MM_TMR22, SM_SS, SM_NSS};
-[; ;spi.h: 29: enum spi_clk_pol {IDLE_LOW, IDLE_HIGH};
-[; ;spi.h: 30: enum spi_trans_sel {IDLE_ACTIVE, ACTIVE_IDLE};
-[; ;spi.h: 31: enum spi_sampling {MIDDLE, END};
-[; ;spi.h: 33: struct spi_receive_buffer
-[; ;spi.h: 34: {
-[; ;spi.h: 35: unsigned char buffer[30];
-[; ;spi.h: 36: int length;
-[; ;spi.h: 37: };
-[; ;spi.h: 39: void set_spi(enum spi_mode mode, enum spi_clk_pol polarity,
-[; ;spi.h: 40: enum spi_trans_sel selection, enum spi_sampling sample);
-[; ;spi.h: 41: unsigned char spi_write(unsigned char data);
-[; ;spi.h: 42: unsigned char spi_read(void);
-[; ;spi.h: 43: void send_data_spi(unsigned char *data, char size);
-[; ;spi.h: 44: void master_receive_data(struct spi_receive_buffer *buffer);
-[; ;spi.h: 45: void slave_receive_data(struct spi_receive_buffer *buffer);
-"5 main.c
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;PICLibraries.X\spi_pic.h: 28: void setup_spi(uint8_t register_1, uint8_t register_2);
+[; ;PICLibraries.X\spi_pic.h: 31: uint8_t spi_send_get_byte(uint8_t byte);
+[; ;PICLibraries.X\spi_pic.h: 32: bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+[; ;PICLibraries.X\spi_pic.h: 43: int16_t spi_slave_get_byte(void);
+[; ;PICLibraries.X\circular_buffer.h: 10: struct circular_buffer {
+[; ;PICLibraries.X\circular_buffer.h: 11: uint8_t position;
+[; ;PICLibraries.X\circular_buffer.h: 12: uint8_t count;
+[; ;PICLibraries.X\circular_buffer.h: 13: uint8_t data[0x20];
+[; ;PICLibraries.X\circular_buffer.h: 14: };
+[; ;PICLibraries.X\circular_buffer.h: 21: int16_t buffer_pop(struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 28: bool buffer_push(struct circular_buffer *buffer, uint8_t byte);
+[; ;PICLibraries.X\circular_buffer.h: 34: bool buffer_full(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 40: bool buffer_empty(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\encoding.h: 27: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
+[; ;PICLibraries.X\encoding.h: 34: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
+[; ;TorqueGriper.X\extended_spi.h: 24: void espi_setup(uint8_t mode);
+[; ;TorqueGriper.X\extended_spi.h: 26: void espi_slave_receive(struct circular_buffer *buffer,
+[; ;TorqueGriper.X\extended_spi.h: 27: void (*timer_start)(int16_t),
+[; ;TorqueGriper.X\extended_spi.h: 28: bool (*timer_up)(void));
+[; ;TorqueGriper.X\extended_spi.h: 30: void espi_slave_send(struct circular_buffer *buffer);
+[; ;TorqueGriper.X\extended_spi.h: 32: int espi_master_send(struct circular_buffer *buffer,
+[; ;TorqueGriper.X\extended_spi.h: 33: void (*timer_start)(int16_t),
+[; ;TorqueGriper.X\extended_spi.h: 34: bool (*timer)(void));
+[; ;TorqueGriper.X\extended_spi.h: 36: int espi_master_receive(struct circular_buffer *buffer,
+[; ;TorqueGriper.X\extended_spi.h: 37: void (*timer_start)(int16_t),
+[; ;TorqueGriper.X\extended_spi.h: 38: bool (*timer)(void));
+[; ;TorqueGriper.X\extended_spi.h: 39: bool espi_master_rts(void);
+[; ;TorqueGriper.X\extended_spi.h: 42: void espi_slave_send_receive(struct circular_buffer *receive,
+[; ;TorqueGriper.X\extended_spi.h: 43: struct circular_buffer *send);
+[; ;TorqueGriper.X\extended_spi.h: 44: void espi_master_send_receive(struct circular_buffer *receive,
+[; ;TorqueGriper.X\extended_spi.h: 45: struct circular_buffer *send);
+[; ;PICLibraries.X\timers_pic.h: 24: void setup_timer3(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 25: void set_timer3(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 26: void timer3_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 27: bool timer3_up(void);
+"6 main.c
 [p x FOSC=IRC ]
-"6
+"7
 [p x LVP=OFF ]
-"10
+"11
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 10: int main() {
+[; ;main.c: 11: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 11: OSCCONbits.IRCF = 0x07;
-"11
+[; ;main.c: 12: OSCCONbits.IRCF = 0x07;
+"12
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-"13
-[v _my_data `S373 ~T0 @X0 1 a ]
-[v F3889 `S373 ~T0 @X0 1 s ]
-[i F3889
-:U ..
-:U ..
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-..
-..
-]
-[; ;main.c: 13: struct spi_receive_buffer my_data = {0, 0};
-[e = _my_data F3889 ]
-[; ;main.c: 15: set_spi(MM_FOSC4, IDLE_LOW, IDLE_ACTIVE, MIDDLE);
+[; ;main.c: 14: espi_setup(0x00);
+"14
+[e ( _espi_setup (1 -> -> 0 `i `uc ]
+[; ;main.c: 15: setup_timer3(0x80 | 0x00 | 0x01);
 "15
-[e ( _set_spi (4 , , , . `E3852 0 . `E3859 0 . `E3862 0 . `E3865 0 ]
-[v F3891 `uc ~T0 @X0 -> 0 `x s ]
-[i F3891
+[e ( _setup_timer3 (1 -> | | -> 128 `i -> 0 `i -> 1 `i `uc ]
+"17
+[v _buffer `S372 ~T0 @X0 1 a ]
+[v F3973 `S372 ~T0 @X0 1 s ]
+[i F3973
 :U ..
--> 77 `c
--> 97 `c
--> 110 `c
--> 117 `c
--> 101 `c
--> 108 `c
--> 0 `c
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+:U ..
+-> -> 0 `i `uc
+..
+..
 ..
 ]
-"17
-[v _data `uc ~T0 @X0 7  a ]
-[; ;main.c: 17: char data[] = "Manuel";
-[e = _data F3891 ]
-[; ;main.c: 19: while (1) {
-"19
-[e :U 376 ]
-{
-[; ;main.c: 20: send_data_spi(&data, 6);
+[; ;main.c: 17: struct circular_buffer buffer = {0, 0, {0}};
+[e = _buffer F3973 ]
+[; ;main.c: 20: while (1) {
 "20
-[e ( _send_data_spi (2 , &U _data -> -> 6 `i `uc ]
-"21
-}
 [e :U 375 ]
-"19
-[e $U 376  ]
-[e :U 377 ]
-[; ;main.c: 21: }
-[; ;main.c: 23: return 0;
+{
+[; ;main.c: 22: espi_master_receive(&buffer, &set_timer3, &timer3_up);
+"22
+[e ( _espi_master_receive (3 , , &U _buffer &U _set_timer3 &U _timer3_up ]
+[; ;main.c: 23: espi_master_send(&buffer, &set_timer3, &timer3_up);
 "23
+[e ( _espi_master_send (3 , , &U _buffer &U _set_timer3 &U _timer3_up ]
+"25
+}
+[e :U 374 ]
+"20
+[e $U 375  ]
+[e :U 376 ]
+[; ;main.c: 25: }
+[; ;main.c: 27: return 0;
+"27
 [e ) -> 0 `i ]
-[e $UE 374  ]
-[; ;main.c: 24: }
-"24
-[e :UE 374 ]
+[e $UE 373  ]
+[; ;main.c: 28: }
+"28
+[e :UE 373 ]
 }
