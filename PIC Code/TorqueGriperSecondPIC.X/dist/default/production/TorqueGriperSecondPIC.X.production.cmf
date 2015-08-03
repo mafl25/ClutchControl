@@ -11,32 +11,33 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\TorqueGriperSecondPIC.X.production.obj
-cinit CODE 0 1B4E 1B4E 16 1
-text0 CODE 0 1CF2 1CF2 64 1
-text1 CODE 0 1AF4 1AF4 8 1
-text2 CODE 0 1BA8 1BA8 38 1
-text3 CODE 0 1C1C 1C1C 3E 1
-text4 CODE 0 1EE6 1EE6 11A 1
-text5 CODE 0 1C5A 1C5A 46 1
-text6 CODE 0 1DBC 1DBC 70 1
-text7 CODE 0 1CA0 1CA0 52 1
-text8 CODE 0 1B12 1B12 12 1
-text9 CODE 0 1E2C 1E2C BA 1
-text10 CODE 0 1B80 1B80 28 1
-text11 CODE 0 1B06 1B06 C 1
-text12 CODE 0 1B24 1B24 14 1
-text13 CODE 0 1AFC 1AFC A 1
-text14 CODE 0 1BE0 1BE0 3C 1
-text15 CODE 0 1B38 1B38 16 1
-text16 CODE 0 1D56 1D56 66 1
-text17 CODE 0 1B64 1B64 1C 1
-cstackCOMRAM COMRAM 1 1 1 34 1
-bssCOMRAM COMRAM 1 35 35 23 1
-$C:\Users\Manuel\AppData\Local\Temp\s798.obj
+$C:\Users\Manuel\AppData\Local\Temp\s614.obj
 idloc IDLOC 0 200000 200000 8 1
 end_init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
+$dist/default/production\TorqueGriperSecondPIC.X.production.obj
+cinit CODE 0 1B80 1B80 16 1
+text0 CODE 0 1CFC 1CFC 64 1
+text1 CODE 0 1B18 1B18 8 1
+text2 CODE 0 1BB2 1BB2 38 1
+text3 CODE 0 1C26 1C26 3E 1
+text4 CODE 0 1F4C 1F4C B4 1
+text5 CODE 0 1C64 1C64 46 1
+text6 CODE 0 1E36 1E36 70 1
+text7 CODE 0 1CAA 1CAA 52 1
+text8 CODE 0 1B44 1B44 12 1
+text9 CODE 0 1EA6 1EA6 A6 1
+text10 CODE 0 1DC6 1DC6 70 1
+text11 CODE 0 1B36 1B36 E 1
+text12 CODE 0 1B56 1B56 14 1
+text13 CODE 0 1B2A 1B2A C 1
+text14 CODE 0 1B20 1B20 A 1
+text15 CODE 0 1BEA 1BEA 3C 1
+text16 CODE 0 1B6A 1B6A 16 1
+text17 CODE 0 1D60 1D60 66 1
+text18 CODE 0 1B96 1B96 1C 1
+cstackCOMRAM COMRAM 1 1 1 35 1
+bssCOMRAM COMRAM 1 36 36 23 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -46,14 +47,14 @@ config CONFIG 0 300000 300000 E 1
 RAM 60-FF 1
 SFR F60-FFF 1
 BANK0 60-FF 1
-CONST 4-1AF3 1
+CONST 4-1B17 1
 STACK 60-FF 1
-SMALLCONST 100-1AF3 1
-CODE 4-1AF3 1
-BIGRAM 58-FF 1
-COMRAM 58-5F 1
+SMALLCONST 100-1B17 1
+CODE 4-1B17 1
+BIGRAM 59-FF 1
+COMRAM 59-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 100-1AF3 1
+MEDIUMCONST 100-1B17 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -68,177 +69,172 @@ MEDIUMCONST 100-1AF3 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\TorqueGriperSecondPIC.X.production.obj
-1AF4 text1 CODE >3:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1AF6 text1 CODE >5:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1AFA text1 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1AFC text13 CODE >19:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1AFC text13 CODE >21:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1B04 text13 CODE >22:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1B06 text11 CODE >8:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1B06 text11 CODE >10:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1B08 text11 CODE >11:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1B10 text11 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-1B12 text8 CODE >4:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B12 text8 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B22 text8 CODE >7:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B24 text12 CODE >33:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B26 text12 CODE >35:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B2A text12 CODE >36:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B30 text12 CODE >37:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B32 text12 CODE >38:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B34 text12 CODE >39:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B36 text12 CODE >40:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1B38 text15 CODE >9:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B38 text15 CODE >11:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B4C text15 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B4E cinit CODE >1367:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B4E cinit CODE >1369:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B4E cinit CODE >1372:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B4E cinit CODE >1384:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B52 cinit CODE >1385:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B54 cinit CODE >1386:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B54 cinit CODE >1387:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B56 cinit CODE >1388:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B58 cinit CODE >1389:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B5A cinit CODE >1395:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B5A cinit CODE >1397:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B5C cinit CODE >1398:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B5E cinit CODE >1399:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B60 cinit CODE >1400:C:\Users\Manuel\AppData\Local\Temp\s798.
-1B64 text17 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B64 text17 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B7E text17 CODE >17:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1B80 text10 CODE >114:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1B80 text10 CODE >117:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BA0 text10 CODE >118:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BA0 text10 CODE >123:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BA4 text10 CODE >124:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BA6 text10 CODE >125:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BA8 text2 CODE >24:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BAA text2 CODE >26:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BB6 text2 CODE >28:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BB8 text2 CODE >29:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BBA text2 CODE >31:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BCA text2 CODE >32:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BCC text2 CODE >33:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BCE text2 CODE >34:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BD0 text2 CODE >35:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BD2 text2 CODE >36:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BD4 text2 CODE >37:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BD6 text2 CODE >38:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BD8 text2 CODE >39:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BDA text2 CODE >40:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BDE text2 CODE >44:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1BE0 text14 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1BE0 text14 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1BEC text14 CODE >15:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1BF0 text14 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1BFC text14 CODE >17:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C00 text14 CODE >19:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C1A text14 CODE >22:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C1C text3 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C1E text3 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C20 text3 CODE >15:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C22 text3 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C24 text3 CODE >18:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C28 text3 CODE >19:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C2C text3 CODE >21:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C40 text3 CODE >22:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C42 text3 CODE >23:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C4C text3 CODE >24:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C4E text3 CODE >25:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C50 text3 CODE >26:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C50 text3 CODE >27:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C52 text3 CODE >28:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C54 text3 CODE >29:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C58 text3 CODE >31:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-1C5A text5 CODE >3:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C5C text5 CODE >5:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C68 text5 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C74 text5 CODE >8:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C8A text5 CODE >9:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1C9E text5 CODE >10:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-1CA0 text7 CODE >55:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CA0 text7 CODE >57:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CB2 text7 CODE >58:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CB8 text7 CODE >61:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CE6 text7 CODE >63:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CF0 text7 CODE >64:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1CF2 text0 CODE >6971:C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-1CF2 text0 CODE >11:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1CF2 text0 CODE >12:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1CF8 text0 CODE >14:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1CFE text0 CODE >15:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D04 text0 CODE >17:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D18 text0 CODE >22:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D34 text0 CODE >23:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D50 text0 CODE >20:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D52 text0 CODE >28:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
-1D56 text16 CODE >24:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1D56 text16 CODE >26:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1D6C text16 CODE >27:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1D6E text16 CODE >30:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1D8E text16 CODE >31:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DAA text16 CODE >32:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DBA text16 CODE >35:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DBC text6 CODE >37:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DBC text6 CODE >39:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DD0 text6 CODE >40:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1DD2 text6 CODE >43:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1E00 text6 CODE >44:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1E1A text6 CODE >45:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1E2A text6 CODE >48:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-1E2C text9 CODE >173:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E2C text9 CODE >177:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E3E text9 CODE >178:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E44 text9 CODE >180:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E5A text9 CODE >185:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E5C text9 CODE >186:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E64 text9 CODE >187:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E6E text9 CODE >188:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E70 text9 CODE >189:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E74 text9 CODE >190:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E7C text9 CODE >191:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E86 text9 CODE >192:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E88 text9 CODE >193:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1E8C text9 CODE >195:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EA0 text9 CODE >196:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EB2 text9 CODE >185:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EC8 text9 CODE >199:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1ED8 text9 CODE >200:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EDE text9 CODE >201:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EE2 text9 CODE >203:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EE4 text9 CODE >206:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EE6 text4 CODE >127:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EE6 text4 CODE >131:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EF8 text4 CODE >132:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1EFE text4 CODE >134:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F14 text4 CODE >136:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F28 text4 CODE >139:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F3E text4 CODE >141:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F46 text4 CODE >142:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F4A text4 CODE >143:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F52 text4 CODE >144:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F56 text4 CODE >146:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F58 text4 CODE >147:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F64 text4 CODE >148:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F78 text4 CODE >149:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F84 text4 CODE >150:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F86 text4 CODE >152:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1F9C text4 CODE >154:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FA4 text4 CODE >155:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FA8 text4 CODE >156:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FB2 text4 CODE >157:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FB4 text4 CODE >158:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FBC text4 CODE >159:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FC0 text4 CODE >160:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FCA text4 CODE >161:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FCE text4 CODE >146:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1B18 text1 CODE >3:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B1A text1 CODE >5:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B1E text1 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B20 text14 CODE >19:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1B20 text14 CODE >21:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1B28 text14 CODE >22:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1B2A text13 CODE >8:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B2A text13 CODE >10:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B2C text13 CODE >11:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B34 text13 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B36 text11 CODE >22:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B36 text11 CODE >24:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B42 text11 CODE >25:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+1B44 text8 CODE >4:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B44 text8 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B54 text8 CODE >7:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B56 text12 CODE >33:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B58 text12 CODE >35:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B5C text12 CODE >36:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B62 text12 CODE >37:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B64 text12 CODE >38:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B66 text12 CODE >39:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B68 text12 CODE >40:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1B6A text16 CODE >9:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B6A text16 CODE >11:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B7E text16 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B80 cinit CODE >1366:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B80 cinit CODE >1368:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B80 cinit CODE >1371:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B80 cinit CODE >1383:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B84 cinit CODE >1384:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B86 cinit CODE >1385:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B86 cinit CODE >1386:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B88 cinit CODE >1387:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B8A cinit CODE >1388:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B8C cinit CODE >1394:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B8C cinit CODE >1396:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B8E cinit CODE >1397:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B90 cinit CODE >1398:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B92 cinit CODE >1399:C:\Users\Manuel\AppData\Local\Temp\s614.
+1B96 text18 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1B96 text18 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1BB0 text18 CODE >17:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1BB2 text2 CODE >24:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BB4 text2 CODE >26:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BC0 text2 CODE >28:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BC2 text2 CODE >29:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BC4 text2 CODE >31:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BD4 text2 CODE >32:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BD6 text2 CODE >33:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BD8 text2 CODE >34:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BDA text2 CODE >35:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BDC text2 CODE >36:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BDE text2 CODE >37:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BE0 text2 CODE >38:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BE2 text2 CODE >39:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BE4 text2 CODE >40:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BE8 text2 CODE >44:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1BEA text15 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1BEA text15 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1BF6 text15 CODE >15:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1BFA text15 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C06 text15 CODE >17:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C0A text15 CODE >19:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C24 text15 CODE >22:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C26 text3 CODE >12:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C28 text3 CODE >14:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C2A text3 CODE >15:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C2C text3 CODE >16:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C2E text3 CODE >18:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C32 text3 CODE >19:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C36 text3 CODE >21:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C4A text3 CODE >22:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C4C text3 CODE >23:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C56 text3 CODE >24:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C58 text3 CODE >25:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C5A text3 CODE >26:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C5A text3 CODE >27:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C5C text3 CODE >28:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C5E text3 CODE >29:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C62 text3 CODE >31:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+1C64 text5 CODE >3:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C66 text5 CODE >5:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C72 text5 CODE >6:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C7E text5 CODE >8:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1C94 text5 CODE >9:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1CA8 text5 CODE >10:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+1CAA text7 CODE >55:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CAA text7 CODE >57:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CBC text7 CODE >58:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CC2 text7 CODE >61:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CF0 text7 CODE >63:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CFA text7 CODE >64:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1CFC text0 CODE >6971:C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+1CFC text0 CODE >11:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1CFC text0 CODE >12:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D02 text0 CODE >14:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D08 text0 CODE >15:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D0E text0 CODE >17:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D22 text0 CODE >22:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D3E text0 CODE >23:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D5A text0 CODE >20:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D5C text0 CODE >28:D:\Documents\ClutchControl\PIC Code\TorqueGriperSecondPIC.X\main.c
+1D60 text17 CODE >24:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1D60 text17 CODE >26:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1D76 text17 CODE >27:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1D78 text17 CODE >30:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1D98 text17 CODE >31:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1DB4 text17 CODE >32:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1DC4 text17 CODE >35:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1DC6 text10 CODE >122:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1DC8 text10 CODE >125:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1DE8 text10 CODE >127:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E06 text10 CODE >128:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E0C text10 CODE >129:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E2C text10 CODE >130:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E2E text10 CODE >126:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E32 text10 CODE >132:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E34 text10 CODE >133:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1E36 text6 CODE >37:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1E36 text6 CODE >39:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1E4A text6 CODE >40:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1E4C text6 CODE >43:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1E7A text6 CODE >44:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1E94 text6 CODE >45:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1EA4 text6 CODE >48:C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+1EA6 text9 CODE >174:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EA6 text9 CODE >178:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EB8 text9 CODE >179:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EBE text9 CODE >181:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1ED4 text9 CODE >187:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1ED6 text9 CODE >188:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EDE text9 CODE >189:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EE2 text9 CODE >190:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EEC text9 CODE >191:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EEE text9 CODE >193:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EF6 text9 CODE >194:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1EFA text9 CODE >195:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F04 text9 CODE >196:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F06 text9 CODE >198:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F1A text9 CODE >199:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F2C text9 CODE >187:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F3E text9 CODE >202:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F44 text9 CODE >203:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F4A text9 CODE >205:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F4C text4 CODE >135:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F4C text4 CODE >139:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F5E text4 CODE >140:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F64 text4 CODE >142:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F7C text4 CODE >151:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F90 text4 CODE >152:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F9C text4 CODE >153:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1F9E text4 CODE >154:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FB4 text4 CODE >156:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FBC text4 CODE >157:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FC0 text4 CODE >158:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FCA text4 CODE >159:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FCC text4 CODE >161:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FD4 text4 CODE >162:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FD8 text4 CODE >163:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
 1FE2 text4 CODE >164:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FF2 text4 CODE >165:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FF8 text4 CODE >166:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FFC text4 CODE >168:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
-1FFE text4 CODE >171:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FE4 text4 CODE >166:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FF0 text4 CODE >150:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FF2 text4 CODE >169:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FF8 text4 CODE >170:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
+1FFE text4 CODE >172:D:\Documents\ClutchControl\PIC Code/TorqueGriper.X/extended_spi.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -255,78 +251,81 @@ $dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_peek@byte 5 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__Hspace_1 58 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__Hspace_1 59 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_set_timer3 1B12 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_set_timer3 1B36 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Manuel\AppData\Local\Temp\s798.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Manuel\AppData\Local\Temp\s614.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_encode_data 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _TMR3 FB2 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s798.obj
-_main 1CF2 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s614.obj
+_main 1CFC 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_peek 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_push 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-start 0 0 CODE 0 init C:\Users\Manuel\AppData\Local\Temp\s798.obj
+start 0 0 CODE 0 init C:\Users\Manuel\AppData\Local\Temp\s614.obj
+__end_of_timer3_up 1B44 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_espi_master_receive 1E2C 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_espi_master_receive 1EA6 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_count 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_empty 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__size_of_timer3_up 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __end_of_espi_master_send 2000 0 CODE 0 text4 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_space 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_buffer_pop 1E2C 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_buffer_pop 1EA6 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 encode_data@data 6 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@timer B 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@timer C 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_espi_master_send 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_decode_data 1C1C 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_decode_data 1C26 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_push@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_wait_pulse 1B80 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_wait_pulse 1DC6 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_send_delay 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_timer3_up 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s798.obj
-intlevel0 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s798.obj
-intlevel1 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s798.obj
-intlevel2 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s798.obj
-intlevel3 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s798.obj
-__end_of_buffer_count 1B24 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_buffer_empty 1B80 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_timer3_up 1B36 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s614.obj
+intlevel0 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s614.obj
+intlevel1 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s614.obj
+intlevel2 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s614.obj
+intlevel3 0 0 CODE 0 text C:\Users\Manuel\AppData\Local\Temp\s614.obj
+__end_of_buffer_count 1B56 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_buffer_empty 1BB2 0 CODE 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_buffer_space 1B4E 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_buffer_space 1B80 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _OSCCONbits FD3 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_spi_send_get_byte 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_espi_setup 1BA8 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_espi_setup 1BB2 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 wait_pulse@timer 5 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_setup_spi 1C5A 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+wait_pulse@value 7 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_setup_spi 1C64 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_setup_spi 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s798.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s798.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s614.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Manuel\AppData\Local\Temp\s614.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_setup_spi 1C1C 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_setup_spi 1C26 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_count@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_wait_pulse 1BA8 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_wait_pulse 1E36 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __CFG_FOSC$IRC 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_peek@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@timer_start 9 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@timer_start A 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _INT2IF 7F81 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _INTCON FF2 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_espi_master_receive 1EE6 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_espi_master_receive 1F4C 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_push@current_position 5 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 decode_data@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_espi_setup 1BE0 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_espi_setup 1BEA 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _INTCON2bits FF1 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _INTCON3bits FF0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\TorqueGriperSecondPIC.X.production.obj
-start_initialization 1B4E 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@timer_start 9 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+start_initialization 1B80 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@timer_start A 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _TRISAbits F92 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _TRISBbits F93 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -335,14 +334,14 @@ _TRISCbits F94 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.product
 buffer_pop@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _SSPBUF FC9 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_encode_data 1C5A 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_encode_data 1C64 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_decode_data 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@byte_to_send D 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@byte_to_send 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 setup_spi@SSPCON1_reg 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 setup_timer3@T3CON_reg 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_spi_send_get_byte 1B38 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_peek 1CA0 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_push 1D56 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_spi_send_get_byte 1B6A 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_peek 1CAA 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_push 1D60 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_buffer_pop 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -365,7 +364,7 @@ __Htext8 0 0 ABS 0 text8 dist/default/production\TorqueGriperSecondPIC.X.product
 __Htext9 0 0 ABS 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Manuel\AppData\Local\Temp\s798.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Manuel\AppData\Local\Temp\s614.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -408,22 +407,22 @@ __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\TorqueGriperSecon
 __Hintret 0 0 ABS 0 intret dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__S1 58 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__S1 59 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 wait_pulse@timer_start 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\TorqueGriperSecondPIC.X.production.obj
 setup_spi@SSPSTAT_reg 2 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@buffer 7 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@buffer 8 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_wait_pulse 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 decode_data@byte_1 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 decode_data@byte_2 4 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hramtop 100 0 RAM 0 ramtop dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_setup_timer3 1AF4 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_setup_timer3 1B18 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_spi_send_get_byte 1B24 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_spi_send_get_byte 1B56 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Htext10 0 0 ABS 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Htext11 0 0 ABS 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -434,17 +433,19 @@ __Htext15 0 0 ABS 0 text15 dist/default/production\TorqueGriperSecondPIC.X.produ
 __Htext16 0 0 ABS 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Htext17 0 0 ABS 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Htext18 0 0 ABS 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _PIE2bits FA0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_espi_setup 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext10 1B80 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext11 1B06 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext12 1B24 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext13 1AFC 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext14 1BE0 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext15 1B38 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext16 1D56 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext17 1B64 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext18 0 0 CODE 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext10 1DC6 0 CODE 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext11 1B36 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext12 1B56 0 CODE 0 text12 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext13 1B2A 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext14 1B20 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext15 1BEA 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext16 1B6A 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext17 1D60 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext18 1B96 0 CODE 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext19 0 0 CODE 0 text19 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -454,55 +455,55 @@ _LATCbits F8B 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.producti
 encode_data@byte_1 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 encode_data@byte_2 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_space@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-main@F3971 35 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+main@F3971 36 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_send_delay 1AFC 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_send_delay 1B20 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 set_timer3@value 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_setup_timer3 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@received_1 F 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@received_2 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-stackhi FF 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s798.obj
-stacklo 60 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s798.obj
+espi_master_send@received_1 E 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@received_2 F 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+stackhi FF 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s614.obj
+stacklo 60 0 ABS 0 - C:\Users\Manuel\AppData\Local\Temp\s614.obj
 __Lintcode 0 0 CODE 0 intcode dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-main@buffer 13 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+main@buffer 14 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_decode_data 1BE0 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__pbssCOMRAM 35 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_decode_data 1BEA 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__pbssCOMRAM 36 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _PIR2bits FA1 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lend_init 0 0 CODE 0 end_init dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_dummy_byte 57 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_setup_timer3 1AFC 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-end_of_initialization 1B5A 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_dummy_byte 58 0 COMRAM 1 bssCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_setup_timer3 1B20 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+end_of_initialization 1B8C 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_pop@byte 5 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@timer B 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@value E 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@timer C 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@value 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@received_1 F 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_receive@received_2 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@received_1 E 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_receive@received_2 F 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lramtop 100 0 RAM 0 ramtop dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_encode_data 1CA0 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_encode_data 1CAA 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__pcinit 1B4E 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__pcinit 1B80 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _SSPCON1bits FC6 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext0 1CF2 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext1 1AF4 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext2 1BA8 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext3 1C1C 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext4 1EE6 0 CODE 0 text4 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext5 1C5A 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext6 1DBC 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext7 1CA0 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext8 1B12 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ptext9 1E2C 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext0 1CFC 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext1 1B18 0 CODE 0 text1 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext2 1BB2 0 CODE 0 text2 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext3 1C26 0 CODE 0 text3 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext4 1F4C 0 CODE 0 text4 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext5 1C64 0 CODE 0 text5 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext6 1E36 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext7 1CAA 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext8 1B44 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ptext9 1EA6 0 CODE 0 text9 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -513,10 +514,11 @@ __Ltext15 0 0 ABS 0 text15 dist/default/production\TorqueGriperSecondPIC.X.produ
 __Ltext16 0 0 ABS 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Ltext17 0 0 ABS 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Ltext18 0 0 ABS 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__ramtop 100 0 RAM 0 ramtop C:\Users\Manuel\AppData\Local\Temp\s798.obj
-__end_of_buffer_peek 1CF2 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_buffer_push 1DBC 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_send_delay 1B06 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__ramtop 100 0 RAM 0 ramtop C:\Users\Manuel\AppData\Local\Temp\s614.obj
+__end_of_buffer_peek 1CFC 0 CODE 0 text7 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_buffer_push 1DC6 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_send_delay 1B2A 0 CODE 0 text14 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\TorqueGriperSecondPIC.X.production.obj
 spi_send_get_byte@byte 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -524,20 +526,20 @@ __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\TorqueGriperSecondPIC.
 buffer_empty@buffer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 ___param_bank 10 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of__initialization 1B5A 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of__initialization 1B8C 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _ANSELbits F7E 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_set_timer3 1B06 0 CODE 0 text11 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_set_timer3 1B2A 0 CODE 0 text13 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _SSPCON1 FC6 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _SSPSTAT FC7 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hend_init 4 0 CODE 0 end_init dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_espi_master_send 1EE6 0 CODE 0 text4 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@buffer 7 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@byte_1 11 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-espi_master_send@byte_2 12 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__end_of_main 1D56 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_espi_master_send 1F4C 0 CODE 0 text4 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@buffer 8 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@byte_1 12 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+espi_master_send@byte_2 13 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__end_of_main 1D60 0 CODE 0 text0 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _T3CON FB1 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hbss 0 0 RAM 1 bss dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -548,17 +550,17 @@ __Lbss 0 0 RAM 1 bss dist/default/production\TorqueGriperSecondPIC.X.production.
 __Lram 0 0 ABS 0 ram dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _SSPSTATbits FC7 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_pop 1DBC 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-__initialization 1B4E 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_pop 1E36 0 CODE 0 text6 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+__initialization 1B80 0 CODE 0 cinit dist/default/production\TorqueGriperSecondPIC.X.production.obj
 buffer_push@byte 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __size_of_espi_master_receive 0 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\TorqueGriperSecondPIC.X.production.obj
 espi_setup@mode 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_count 1B12 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_empty 1B64 0 CODE 0 text17 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_count 1B44 0 CODE 0 text8 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_empty 1B96 0 CODE 0 text18 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\TorqueGriperSecondPIC.X.production.obj
-_buffer_space 1B38 0 CODE 0 text15 dist/default/production\TorqueGriperSecondPIC.X.production.obj
+_buffer_space 1B6A 0 CODE 0 text16 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 _ANSELHbits F7F 0 ABS 0 - dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\TorqueGriperSecondPIC.X.production.obj
 __Hintcode 0 0 CODE 0 intcode dist/default/production\TorqueGriperSecondPIC.X.production.obj
@@ -586,26 +588,27 @@ __Hintcode 0 0 CODE 0 intcode dist/default/production\TorqueGriperSecondPIC.X.pr
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 1B4E 1B4E 16 1
+cinit 0 1B80 1B80 16 1
 idloc 0 200000 200000 8 1
-text0 0 1CF2 1CF2 64 1
-text1 0 1AF4 1AF4 8 1
-text2 0 1BA8 1BA8 38 1
-text3 0 1C1C 1C1C 3E 1
-text4 0 1EE6 1EE6 11A 1
-text5 0 1C5A 1C5A 46 1
-text6 0 1DBC 1DBC 70 1
-text7 0 1CA0 1CA0 52 1
-text8 0 1B12 1B12 12 1
-text9 0 1E2C 1E2C BA 1
-text10 0 1B80 1B80 28 1
-text11 0 1B06 1B06 C 1
-text12 0 1B24 1B24 14 1
-text13 0 1AFC 1AFC A 1
-text14 0 1BE0 1BE0 3C 1
-text15 0 1B38 1B38 16 1
-text16 0 1D56 1D56 66 1
-text17 0 1B64 1B64 1C 1
-cstackCOMRAM 1 1 1 57 1
+text0 0 1CFC 1CFC 64 1
+text1 0 1B18 1B18 8 1
+text2 0 1BB2 1BB2 38 1
+text3 0 1C26 1C26 3E 1
+text4 0 1F4C 1F4C B4 1
+text5 0 1C64 1C64 46 1
+text6 0 1E36 1E36 70 1
+text7 0 1CAA 1CAA 52 1
+text8 0 1B44 1B44 12 1
+text9 0 1EA6 1EA6 A6 1
+text10 0 1DC6 1DC6 70 1
+text11 0 1B36 1B36 E 1
+text12 0 1B56 1B56 14 1
+text13 0 1B2A 1B2A C 1
+text14 0 1B20 1B20 A 1
+text15 0 1BEA 1BEA 3C 1
+text16 0 1B6A 1B6A 16 1
+text17 0 1D60 1D60 66 1
+text18 0 1B96 1B96 1C 1
+cstackCOMRAM 1 1 1 58 1
 reset_vec 0 0 0 4 1
 config 0 300000 300000 E 1

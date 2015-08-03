@@ -4922,7 +4922,7 @@ bool (*stop_function)(void),
 void (*timer_start)(int16_t),
 bool (*timer_up)(void));
 
-# 21 "extended_serial.c"
+# 17 "extended_serial.c"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
 {
 ANSELbits.ANS5 = 0;
@@ -4940,7 +4940,7 @@ LATCbits.LATC0 = 1;
 int8_t eserial_send_data(struct circular_buffer *buffer)
 {
 
-# 40
+# 36
 int8_t i = 0;
 int16_t value = buffer_pop(buffer);
 while (value != -1) {
@@ -4957,18 +4957,19 @@ bool (*stop_function)(void),
 void (*timer_start)(int16_t),
 bool (*timer_up)(void))
 {
+if (buffer_empty(buffer)) {
 uint8_t value;
 LATCbits.LATC0 = 0;
 
 if (stop_function == (0)) {
-while (buffer_space(buffer) > 0x05) {
+while (buffer_space(buffer) > 0x04) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
 }
 }
 } else {
 bool test = 0;
-while ((buffer_space(buffer) > 0x05) &&
+while ((buffer_space(buffer) > 0x04) &&
 !test) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
@@ -4978,11 +4979,12 @@ test = (*stop_function)();
 }
 
 LATCbits.LATC0 = 1;
-(*timer_start)(40535);
+(*timer_start)(65035);
 
 while (!(*timer_up)()) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
+}
 }
 }
 }

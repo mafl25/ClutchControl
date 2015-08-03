@@ -1,22 +1,22 @@
-_buffer_peek 1CA0 0 CODE 0
+_buffer_peek 1CAA 0 CODE 0
 ?_buffer_peek 1 0 COMRAM 1
-espi_master_send@buffer 7 0 COMRAM 1
+espi_master_send@buffer 8 0 COMRAM 1
 __S0 30000E 0 ABS 0
-__S1 58 0 ABS 0
+__S1 59 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 setup_spi@SSPSTAT_reg 2 0 COMRAM 1
-espi_master_receive@timer_start 9 0 COMRAM 1
+espi_master_receive@timer_start A 0 COMRAM 1
 _TMR3 FB2 0 ABS 0
 __size_of_setup_timer3 0 0 ABS 0
-__end_of_send_delay 1B06 0 CODE 0
+__end_of_send_delay 1B2A 0 CODE 0
 buffer_push@byte 3 0 COMRAM 1
 decode_data@data 1 0 COMRAM 1
 encode_data@data 6 0 COMRAM 1
-_buffer_empty 1B64 0 CODE 0
+_buffer_empty 1B96 0 CODE 0
 buffer_pop@byte 5 0 COMRAM 1
-_main 1CF2 0 CODE 0
+_main 1CFC 0 CODE 0
 ___sp 0 0 STACK 2
 __CFG_FOSC$IRC 0 0 ABS 0
 buffer_peek@buffer 1 0 COMRAM 1
@@ -32,7 +32,7 @@ __size_of_send_delay 0 0 ABS 0
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 COMRAM 1
-__end_of_espi_master_receive 1EE6 0 CODE 0
+__end_of_espi_master_receive 1F4C 0 CODE 0
 __Lrparam 0 0 COMRAM 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
@@ -41,15 +41,15 @@ __Lcomram 0 0 ABS 0
 __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 buffer_pop@buffer 1 0 COMRAM 1
-_espi_master_receive 1E2C 0 CODE 0
+_espi_master_receive 1EA6 0 CODE 0
 __Hbss 0 0 RAM 1
 __Lbss 0 0 RAM 1
-main@F3971 35 0 COMRAM 1
+main@F3971 36 0 COMRAM 1
 ___param_bank 10 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 __end_of_espi_master_send 2000 0 CODE 0
-espi_master_receive@received_2 10 0 COMRAM 1
+espi_master_receive@received_2 F 0 COMRAM 1
 buffer_push@current_position 5 0 COMRAM 1
 _PIE2bits FA0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
@@ -83,6 +83,7 @@ __Lfardata 0 0 FARRAM 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 _INTCON FF2 0 ABS 0
+__size_of_timer3_up 0 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
 buffer_push@buffer 1 0 COMRAM 1
@@ -99,30 +100,31 @@ __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
 __Lintcodelo 0 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_wait_pulse 1BA8 0 CODE 0
-__end_of_main 1D56 0 CODE 0
+__end_of_wait_pulse 1E36 0 CODE 0
+__end_of_main 1D60 0 CODE 0
 __Lrbss 0 0 COMRAM 1
-_timer3_up 0 0 ABS 0
+_timer3_up 1B36 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-_setup_spi 1C1C 0 CODE 0
-end_of_initialization 1B5A 0 CODE 0
-__end_of_setup_timer3 1AFC 0 CODE 0
+_setup_spi 1C26 0 CODE 0
+end_of_initialization 1B8C 0 CODE 0
+__end_of_setup_timer3 1B20 0 CODE 0
 _SSPCON1 FC6 0 ABS 0
-_buffer_push 1D56 0 CODE 0
+_buffer_push 1D60 0 CODE 0
 _TRISAbits F92 0 ABS 0
 _TRISBbits F93 0 ABS 0
 _TRISCbits F94 0 ABS 0
 _PORTCbits F82 0 ABS 0
 _ANSELbits F7E 0 ABS 0
-_buffer_space 1B38 0 CODE 0
+_buffer_space 1B6A 0 CODE 0
+wait_pulse@value 7 0 COMRAM 1
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
 __Lifardata 0 0 CODE 0
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
-espi_master_send@timer_start 9 0 COMRAM 1
+espi_master_send@timer_start A 0 COMRAM 1
 __Hpowerup 0 0 CODE 0
 _SSPSTAT FC7 0 ABS 0
 __Lpowerup 0 0 CODE 0
@@ -131,46 +133,47 @@ __Ltext0 0 0 ABS 0
 _SSPCON1bits FC6 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 1CF2 0 CODE 0
+__ptext0 1CFC 0 CODE 0
 __size_of_set_timer3 0 0 ABS 0
 _INTCON2bits FF1 0 ABS 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 1AF4 0 CODE 0
+__ptext1 1B18 0 CODE 0
 _INTCON3bits FF0 0 ABS 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 1BA8 0 CODE 0
+__ptext2 1BB2 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 1C1C 0 CODE 0
-_set_timer3 1B06 0 CODE 0
+__ptext3 1C26 0 CODE 0
+_set_timer3 1B2A 0 CODE 0
 __size_of_spi_send_get_byte 0 0 ABS 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 1EE6 0 CODE 0
-__end_of_decode_data 1C1C 0 CODE 0
+__ptext4 1F4C 0 CODE 0
+__end_of_decode_data 1C26 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 1C5A 0 CODE 0
+__ptext5 1C64 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
-__ptext6 1DBC 0 CODE 0
+__ptext6 1E36 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
-__ptext7 1CA0 0 CODE 0
-__pbssCOMRAM 35 0 COMRAM 1
+__ptext7 1CAA 0 CODE 0
+__pbssCOMRAM 36 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __Ltext9 0 0 ABS 0
-__ptext8 1B12 0 CODE 0
-__ptext9 1E2C 0 CODE 0
+__ptext8 1B44 0 CODE 0
+__end_of_timer3_up 1B44 0 CODE 0
+__ptext9 1EA6 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-_buffer_count 1B12 0 CODE 0
+_buffer_count 1B44 0 CODE 0
 buffer_space@buffer 1 0 COMRAM 1
-__end_of__initialization 1B5A 0 CODE 0
+__end_of__initialization 1B8C 0 CODE 0
 ___rparam_used 1 0 ABS 0
 setup_spi@SSPCON1_reg 1 0 COMRAM 1
 _SSPSTATbits FC7 0 ABS 0
@@ -183,7 +186,7 @@ __Hidloc 200008 0 IDLOC 0
 __Lidloc 200000 0 IDLOC 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-espi_master_send@byte_to_send D 0 COMRAM 1
+espi_master_send@byte_to_send 10 0 COMRAM 1
 __Hparam 0 0 COMRAM 1
 __Lparam 0 0 COMRAM 1
 __Hspace_0 30000E 0 ABS 0
@@ -191,19 +194,19 @@ __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __pcstackCOMRAM 1 0 COMRAM 1
-__Hspace_1 58 0 ABS 0
+__Hspace_1 59 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
-_wait_pulse 1B80 0 CODE 0
+_wait_pulse 1DC6 0 CODE 0
 __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
-__end_of_setup_spi 1C5A 0 CODE 0
+__end_of_setup_spi 1C64 0 CODE 0
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 1B4E 0 CODE 0
+__pcinit 1B80 0 CODE 0
 __size_of_encode_data 0 0 ABS 0
 __ramtop 100 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
@@ -211,69 +214,72 @@ __size_of_main 0 0 ABS 0
 __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
 wait_pulse@timer 5 0 COMRAM 1
-_dummy_byte 57 0 COMRAM 1
+_dummy_byte 58 0 COMRAM 1
 __size_of_wait_pulse 0 0 ABS 0
 setup_timer3@T3CON_reg 1 0 COMRAM 1
-main@buffer 13 0 COMRAM 1
-__end_of_encode_data 1CA0 0 CODE 0
-espi_master_receive@value E 0 COMRAM 1
+main@buffer 14 0 COMRAM 1
+__end_of_encode_data 1CAA 0 CODE 0
+espi_master_receive@value 10 0 COMRAM 1
 __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
-__ptext10 1B80 0 CODE 0
+__ptext10 1DC6 0 CODE 0
 __Htext11 0 0 ABS 0
 __Ltext11 0 0 ABS 0
-__ptext11 1B06 0 CODE 0
-__end_of_set_timer3 1B12 0 CODE 0
+__ptext11 1B36 0 CODE 0
+__end_of_set_timer3 1B36 0 CODE 0
 __Htext12 0 0 ABS 0
 __Ltext12 0 0 ABS 0
-__ptext12 1B24 0 CODE 0
-espi_master_receive@timer B 0 COMRAM 1
+__ptext12 1B56 0 CODE 0
+espi_master_receive@timer C 0 COMRAM 1
 __Htext13 0 0 ABS 0
 __Ltext13 0 0 ABS 0
-__ptext13 1AFC 0 CODE 0
+__ptext13 1B2A 0 CODE 0
 __Htext14 0 0 ABS 0
 __Ltext14 0 0 ABS 0
-__ptext14 1BE0 0 CODE 0
+__ptext14 1B20 0 CODE 0
 __Htext15 0 0 ABS 0
 __Ltext15 0 0 ABS 0
-__ptext15 1B38 0 CODE 0
+__ptext15 1BEA 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 __Htext16 0 0 ABS 0
 __Ltext16 0 0 ABS 0
-__ptext16 1D56 0 CODE 0
+__ptext16 1B6A 0 CODE 0
 __Htext17 0 0 ABS 0
 __Ltext17 0 0 ABS 0
-__ptext17 1B64 0 CODE 0
+__ptext17 1D60 0 CODE 0
 __Htext18 0 0 ABS 0
 __Ltext18 0 0 ABS 0
-__ptext18 0 0 CODE 0
+__ptext18 1B96 0 CODE 0
+__Htext19 0 0 ABS 0
+__Ltext19 0 0 ABS 0
 _ANSELHbits F7F 0 ABS 0
+__ptext19 0 0 CODE 0
 ___intlo_sp 0 0 STACK 2
-_buffer_pop 1DBC 0 CODE 0
+_buffer_pop 1E36 0 CODE 0
 _OSCCONbits FD3 0 ABS 0
-__end_of_buffer_pop 1E2C 0 CODE 0
+__end_of_buffer_pop 1EA6 0 CODE 0
 __Hend_init 4 0 CODE 0
 wait_pulse@timer_start 3 0 COMRAM 1
 __Lend_init 0 0 CODE 0
-_send_delay 1AFC 0 CODE 0
-__end_of_buffer_peek 1CF2 0 CODE 0
+_send_delay 1B20 0 CODE 0
+__end_of_buffer_peek 1CFC 0 CODE 0
 decode_data@byte_1 3 0 COMRAM 1
 decode_data@byte_2 4 0 COMRAM 1
 encode_data@byte_1 1 0 COMRAM 1
 encode_data@byte_2 3 0 COMRAM 1
-__end_of_buffer_push 1DBC 0 CODE 0
-_decode_data 1BE0 0 CODE 0
-_encode_data 1C5A 0 CODE 0
+__end_of_buffer_push 1DC6 0 CODE 0
+_decode_data 1BEA 0 CODE 0
+_encode_data 1C64 0 CODE 0
 __size_of_espi_setup 0 0 ABS 0
-_setup_timer3 1AF4 0 CODE 0
+_setup_timer3 1B18 0 CODE 0
 __smallconst 0 0 SMALLCONST 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __size_of_buffer_pop 0 0 ABS 0
-__end_of_buffer_space 1B4E 0 CODE 0
+__end_of_buffer_space 1B80 0 CODE 0
 __size_of_espi_master_receive 0 0 ABS 0
-__end_of_buffer_count 1B24 0 CODE 0
-__end_of_buffer_empty 1B80 0 CODE 0
+__end_of_buffer_count 1B56 0 CODE 0
+__end_of_buffer_empty 1BB2 0 CODE 0
 __accesstop 60 0 ABS 0
 set_timer3@value 1 0 COMRAM 1
 __Hintcode_body 0 0 ABS 0
@@ -286,244 +292,241 @@ intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 __size_of_espi_master_send 0 0 ABS 0
 intlevel3 0 0 CODE 0
-_espi_setup 1BA8 0 CODE 0
-_espi_master_send 1EE6 0 CODE 0
-espi_master_receive@buffer 7 0 COMRAM 1
-espi_master_send@timer B 0 COMRAM 1
-__end_of_espi_setup 1BE0 0 CODE 0
+_espi_setup 1BB2 0 CODE 0
+_espi_master_send 1F4C 0 CODE 0
+espi_master_receive@buffer 8 0 COMRAM 1
+espi_master_send@timer C 0 COMRAM 1
+__end_of_espi_setup 1BEA 0 CODE 0
 buffer_peek@byte 5 0 COMRAM 1
-__end_of_spi_send_get_byte 1B38 0 CODE 0
-start_initialization 1B4E 0 CODE 0
+__end_of_spi_send_get_byte 1B6A 0 CODE 0
+start_initialization 1B80 0 CODE 0
 __size_of_buffer_space 0 0 ABS 0
-espi_master_send@received_1 F 0 COMRAM 1
+espi_master_send@received_1 E 0 COMRAM 1
 __size_of_buffer_count 0 0 ABS 0
 __size_of_buffer_empty 0 0 ABS 0
-espi_master_send@byte_1 11 0 COMRAM 1
-espi_master_send@received_2 10 0 COMRAM 1
-espi_master_send@byte_2 12 0 COMRAM 1
+espi_master_send@byte_1 12 0 COMRAM 1
+espi_master_send@received_2 F 0 COMRAM 1
+espi_master_send@byte_2 13 0 COMRAM 1
 spi_send_get_byte@byte 1 0 COMRAM 1
-__initialization 1B4E 0 CODE 0
+__initialization 1B80 0 CODE 0
 __size_of_setup_spi 0 0 ABS 0
 __activetblptr 2 0 ABS 0
-_spi_send_get_byte 1B24 0 CODE 0
+_spi_send_get_byte 1B56 0 CODE 0
 espi_setup@mode 3 0 COMRAM 1
-espi_master_receive@received_1 F 0 COMRAM 1
+espi_master_receive@received_1 E 0 COMRAM 1
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
-cstackCOMRAM 1 57 COMRAM 1 1
-text4 1EE6 1FFF CODE 1EE6 0
-text9 1E2C 1EE5 CODE 1E2C 0
-text6 1DBC 1E2B CODE 1DBC 0
-text16 1D56 1DBB CODE 1D56 0
-text0 1CF2 1D55 CODE 1CF2 0
-text7 1CA0 1CF1 CODE 1CA0 0
-text5 1C5A 1C9F CODE 1C5A 0
-text3 1C1C 1C59 CODE 1C1C 0
-text14 1BE0 1C1B CODE 1BE0 0
-text2 1BA8 1BDF CODE 1BA8 0
-text10 1B80 1BA7 CODE 1B80 0
-text17 1B64 1B7F CODE 1B64 0
-cinit 1B4E 1B63 CODE 1B4E 0
-text15 1B38 1B4D CODE 1B38 0
-text12 1B24 1B37 CODE 1B24 0
-text8 1B12 1B23 CODE 1B12 0
-text11 1B06 1B11 CODE 1B06 0
-text13 1AFC 1B05 CODE 1AFC 0
-text1 1AF4 1AFB CODE 1AF4 0
+cstackCOMRAM 1 58 COMRAM 1 1
+text4 1F4C 1FFF CODE 1F4C 0
+text9 1EA6 1F4B CODE 1EA6 0
+text6 1E36 1EA5 CODE 1E36 0
+text10 1DC6 1E35 CODE 1DC6 0
+text17 1D60 1DC5 CODE 1D60 0
+text0 1CFC 1D5F CODE 1CFC 0
+text7 1CAA 1CFB CODE 1CAA 0
+text5 1C64 1CA9 CODE 1C64 0
+text3 1C26 1C63 CODE 1C26 0
+text15 1BEA 1C25 CODE 1BEA 0
+text2 1BB2 1BE9 CODE 1BB2 0
+text18 1B96 1BB1 CODE 1B96 0
+cinit 1B80 1B95 CODE 1B80 0
+text16 1B6A 1B7F CODE 1B6A 0
+text12 1B56 1B69 CODE 1B56 0
+text8 1B44 1B55 CODE 1B44 0
+text11 1B36 1B43 CODE 1B36 0
+text13 1B2A 1B35 CODE 1B2A 0
+text14 1B20 1B29 CODE 1B20 0
+text1 1B18 1B1F CODE 1B18 0
 %locals
 dist/default/production\TorqueGriperSecondPIC.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-6971 1CF2 0 CODE 0
+6971 1CFC 0 CODE 0
 main.c
-11 1CF2 0 CODE 0
-12 1CF2 0 CODE 0
-14 1CF8 0 CODE 0
-15 1CFE 0 CODE 0
-17 1D04 0 CODE 0
-22 1D18 0 CODE 0
-23 1D34 0 CODE 0
-20 1D50 0 CODE 0
-28 1D52 0 CODE 0
-C:\Users\Manuel\AppData\Local\Temp\s798.
-1367 1B4E 0 CODE 0
-1369 1B4E 0 CODE 0
-1372 1B4E 0 CODE 0
-1384 1B4E 0 CODE 0
-1385 1B52 0 CODE 0
-1386 1B54 0 CODE 0
-1387 1B54 0 CODE 0
-1388 1B56 0 CODE 0
-1389 1B58 0 CODE 0
-1395 1B5A 0 CODE 0
-1397 1B5A 0 CODE 0
-1398 1B5C 0 CODE 0
-1399 1B5E 0 CODE 0
-1400 1B60 0 CODE 0
+11 1CFC 0 CODE 0
+12 1CFC 0 CODE 0
+14 1D02 0 CODE 0
+15 1D08 0 CODE 0
+17 1D0E 0 CODE 0
+22 1D22 0 CODE 0
+23 1D3E 0 CODE 0
+20 1D5A 0 CODE 0
+28 1D5C 0 CODE 0
+C:\Users\Manuel\AppData\Local\Temp\s614.
+1366 1B80 0 CODE 0
+1368 1B80 0 CODE 0
+1371 1B80 0 CODE 0
+1383 1B80 0 CODE 0
+1384 1B84 0 CODE 0
+1385 1B86 0 CODE 0
+1386 1B86 0 CODE 0
+1387 1B88 0 CODE 0
+1388 1B8A 0 CODE 0
+1394 1B8C 0 CODE 0
+1396 1B8C 0 CODE 0
+1397 1B8E 0 CODE 0
+1398 1B90 0 CODE 0
+1399 1B92 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-3 1AF4 0 CODE 0
-5 1AF6 0 CODE 0
-6 1AFA 0 CODE 0
+3 1B18 0 CODE 0
+5 1B1A 0 CODE 0
+6 1B1E 0 CODE 0
 ../TorqueGriper.X/extended_spi.c
-24 1BA8 0 CODE 0
-26 1BAA 0 CODE 0
-28 1BB6 0 CODE 0
-29 1BB8 0 CODE 0
-31 1BBA 0 CODE 0
-32 1BCA 0 CODE 0
-33 1BCC 0 CODE 0
-34 1BCE 0 CODE 0
-35 1BD0 0 CODE 0
-36 1BD2 0 CODE 0
-37 1BD4 0 CODE 0
-38 1BD6 0 CODE 0
-39 1BD8 0 CODE 0
-40 1BDA 0 CODE 0
-44 1BDE 0 CODE 0
+24 1BB2 0 CODE 0
+26 1BB4 0 CODE 0
+28 1BC0 0 CODE 0
+29 1BC2 0 CODE 0
+31 1BC4 0 CODE 0
+32 1BD4 0 CODE 0
+33 1BD6 0 CODE 0
+34 1BD8 0 CODE 0
+35 1BDA 0 CODE 0
+36 1BDC 0 CODE 0
+37 1BDE 0 CODE 0
+38 1BE0 0 CODE 0
+39 1BE2 0 CODE 0
+40 1BE4 0 CODE 0
+44 1BE8 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-12 1C1C 0 CODE 0
-14 1C1E 0 CODE 0
-15 1C20 0 CODE 0
-16 1C22 0 CODE 0
-18 1C24 0 CODE 0
-19 1C28 0 CODE 0
-21 1C2C 0 CODE 0
-22 1C40 0 CODE 0
-23 1C42 0 CODE 0
-24 1C4C 0 CODE 0
-25 1C4E 0 CODE 0
-26 1C50 0 CODE 0
-27 1C50 0 CODE 0
-28 1C52 0 CODE 0
-29 1C54 0 CODE 0
-31 1C58 0 CODE 0
+12 1C26 0 CODE 0
+14 1C28 0 CODE 0
+15 1C2A 0 CODE 0
+16 1C2C 0 CODE 0
+18 1C2E 0 CODE 0
+19 1C32 0 CODE 0
+21 1C36 0 CODE 0
+22 1C4A 0 CODE 0
+23 1C4C 0 CODE 0
+24 1C56 0 CODE 0
+25 1C58 0 CODE 0
+26 1C5A 0 CODE 0
+27 1C5A 0 CODE 0
+28 1C5C 0 CODE 0
+29 1C5E 0 CODE 0
+31 1C62 0 CODE 0
 ../TorqueGriper.X/extended_spi.c
-127 1EE6 0 CODE 0
-131 1EE6 0 CODE 0
-132 1EF8 0 CODE 0
-134 1EFE 0 CODE 0
-136 1F14 0 CODE 0
-139 1F28 0 CODE 0
-141 1F3E 0 CODE 0
-142 1F46 0 CODE 0
-143 1F4A 0 CODE 0
-144 1F52 0 CODE 0
-146 1F56 0 CODE 0
-147 1F58 0 CODE 0
-148 1F64 0 CODE 0
-149 1F78 0 CODE 0
-150 1F84 0 CODE 0
-152 1F86 0 CODE 0
-154 1F9C 0 CODE 0
-155 1FA4 0 CODE 0
-156 1FA8 0 CODE 0
-157 1FB2 0 CODE 0
-158 1FB4 0 CODE 0
-159 1FBC 0 CODE 0
-160 1FC0 0 CODE 0
-161 1FCA 0 CODE 0
-146 1FCE 0 CODE 0
+135 1F4C 0 CODE 0
+139 1F4C 0 CODE 0
+140 1F5E 0 CODE 0
+142 1F64 0 CODE 0
+151 1F7C 0 CODE 0
+152 1F90 0 CODE 0
+153 1F9C 0 CODE 0
+154 1F9E 0 CODE 0
+156 1FB4 0 CODE 0
+157 1FBC 0 CODE 0
+158 1FC0 0 CODE 0
+159 1FCA 0 CODE 0
+161 1FCC 0 CODE 0
+162 1FD4 0 CODE 0
+163 1FD8 0 CODE 0
 164 1FE2 0 CODE 0
-165 1FF2 0 CODE 0
-166 1FF8 0 CODE 0
-168 1FFC 0 CODE 0
-171 1FFE 0 CODE 0
+166 1FE4 0 CODE 0
+150 1FF0 0 CODE 0
+169 1FF2 0 CODE 0
+170 1FF8 0 CODE 0
+172 1FFE 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-3 1C5A 0 CODE 0
-5 1C5C 0 CODE 0
-6 1C68 0 CODE 0
-8 1C74 0 CODE 0
-9 1C8A 0 CODE 0
-10 1C9E 0 CODE 0
+3 1C64 0 CODE 0
+5 1C66 0 CODE 0
+6 1C72 0 CODE 0
+8 1C7E 0 CODE 0
+9 1C94 0 CODE 0
+10 1CA8 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-37 1DBC 0 CODE 0
-39 1DBC 0 CODE 0
-40 1DD0 0 CODE 0
-43 1DD2 0 CODE 0
-44 1E00 0 CODE 0
-45 1E1A 0 CODE 0
-48 1E2A 0 CODE 0
+37 1E36 0 CODE 0
+39 1E36 0 CODE 0
+40 1E4A 0 CODE 0
+43 1E4C 0 CODE 0
+44 1E7A 0 CODE 0
+45 1E94 0 CODE 0
+48 1EA4 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-55 1CA0 0 CODE 0
-57 1CA0 0 CODE 0
-58 1CB2 0 CODE 0
-61 1CB8 0 CODE 0
-63 1CE6 0 CODE 0
-64 1CF0 0 CODE 0
+55 1CAA 0 CODE 0
+57 1CAA 0 CODE 0
+58 1CBC 0 CODE 0
+61 1CC2 0 CODE 0
+63 1CF0 0 CODE 0
+64 1CFA 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-4 1B12 0 CODE 0
-6 1B12 0 CODE 0
-7 1B22 0 CODE 0
+4 1B44 0 CODE 0
+6 1B44 0 CODE 0
+7 1B54 0 CODE 0
 ../TorqueGriper.X/extended_spi.c
-173 1E2C 0 CODE 0
-177 1E2C 0 CODE 0
-178 1E3E 0 CODE 0
-180 1E44 0 CODE 0
-185 1E5A 0 CODE 0
-186 1E5C 0 CODE 0
-187 1E64 0 CODE 0
-188 1E6E 0 CODE 0
-189 1E70 0 CODE 0
-190 1E74 0 CODE 0
-191 1E7C 0 CODE 0
-192 1E86 0 CODE 0
-193 1E88 0 CODE 0
-195 1E8C 0 CODE 0
-196 1EA0 0 CODE 0
-185 1EB2 0 CODE 0
-199 1EC8 0 CODE 0
-200 1ED8 0 CODE 0
-201 1EDE 0 CODE 0
-203 1EE2 0 CODE 0
-206 1EE4 0 CODE 0
+174 1EA6 0 CODE 0
+178 1EA6 0 CODE 0
+179 1EB8 0 CODE 0
+181 1EBE 0 CODE 0
+187 1ED4 0 CODE 0
+188 1ED6 0 CODE 0
+189 1EDE 0 CODE 0
+190 1EE2 0 CODE 0
+191 1EEC 0 CODE 0
+193 1EEE 0 CODE 0
+194 1EF6 0 CODE 0
+195 1EFA 0 CODE 0
+196 1F04 0 CODE 0
+198 1F06 0 CODE 0
+199 1F1A 0 CODE 0
+187 1F2C 0 CODE 0
+202 1F3E 0 CODE 0
+203 1F44 0 CODE 0
+205 1F4A 0 CODE 0
 ../TorqueGriper.X/extended_spi.c
-114 1B80 0 CODE 0
-117 1B80 0 CODE 0
-123 1BA0 0 CODE 0
-118 1BA0 0 CODE 0
-124 1BA4 0 CODE 0
-125 1BA6 0 CODE 0
+122 1DC6 0 CODE 0
+125 1DC8 0 CODE 0
+127 1DE8 0 CODE 0
+128 1E06 0 CODE 0
+129 1E0C 0 CODE 0
+130 1E2C 0 CODE 0
+126 1E2E 0 CODE 0
+132 1E32 0 CODE 0
+133 1E34 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-8 1B06 0 CODE 0
-10 1B06 0 CODE 0
-11 1B08 0 CODE 0
-12 1B10 0 CODE 0
+22 1B36 0 CODE 0
+24 1B36 0 CODE 0
+25 1B42 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-33 1B24 0 CODE 0
-35 1B26 0 CODE 0
-36 1B2A 0 CODE 0
-37 1B30 0 CODE 0
-38 1B32 0 CODE 0
-39 1B34 0 CODE 0
-40 1B36 0 CODE 0
+33 1B56 0 CODE 0
+35 1B58 0 CODE 0
+36 1B5C 0 CODE 0
+37 1B62 0 CODE 0
+38 1B64 0 CODE 0
+39 1B66 0 CODE 0
+40 1B68 0 CODE 0
+C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+8 1B2A 0 CODE 0
+10 1B2A 0 CODE 0
+11 1B2C 0 CODE 0
+12 1B34 0 CODE 0
 ../TorqueGriper.X/extended_spi.c
-19 1AFC 0 CODE 0
-21 1AFC 0 CODE 0
-22 1B04 0 CODE 0
+19 1B20 0 CODE 0
+21 1B20 0 CODE 0
+22 1B28 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-12 1BE0 0 CODE 0
-14 1BE0 0 CODE 0
-15 1BEC 0 CODE 0
-16 1BF0 0 CODE 0
-17 1BFC 0 CODE 0
-19 1C00 0 CODE 0
-22 1C1A 0 CODE 0
+12 1BEA 0 CODE 0
+14 1BEA 0 CODE 0
+15 1BF6 0 CODE 0
+16 1BFA 0 CODE 0
+17 1C06 0 CODE 0
+19 1C0A 0 CODE 0
+22 1C24 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-9 1B38 0 CODE 0
-11 1B38 0 CODE 0
-12 1B4C 0 CODE 0
+9 1B6A 0 CODE 0
+11 1B6A 0 CODE 0
+12 1B7E 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-24 1D56 0 CODE 0
-26 1D56 0 CODE 0
-27 1D6C 0 CODE 0
-30 1D6E 0 CODE 0
-31 1D8E 0 CODE 0
-32 1DAA 0 CODE 0
-35 1DBA 0 CODE 0
+24 1D60 0 CODE 0
+26 1D60 0 CODE 0
+27 1D76 0 CODE 0
+30 1D78 0 CODE 0
+31 1D98 0 CODE 0
+32 1DB4 0 CODE 0
+35 1DC4 0 CODE 0
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-14 1B64 0 CODE 0
-16 1B64 0 CODE 0
-17 1B7E 0 CODE 0
+14 1B96 0 CODE 0
+16 1B96 0 CODE 0
+17 1BB0 0 CODE 0

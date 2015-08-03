@@ -40,7 +40,7 @@ sentence = """It’s been one semester since I came to National Tsing Hua Univer
               and Mandarin Basic Conversation I. For the next semester, I will aim to do the placement test for Mandarin
               Basic II in order to go directly to Mandarin Basic III. 我
               I will forward to the rest of my time at NTHU, as I am sure it will be of great productivity and growth of
-              me as a person and will increase my knowledge and abilities as an engineer and future profession"""
+              me as a person and will increase my knowledge and abilities as an engineer and future professional."""
 data = bytearray(sentence, encoding="utf-8")
 port.flushOutput()
 port.write(data)
@@ -51,6 +51,7 @@ print("Data size:", n_bytes)
 read_data = port.read(n_bytes)
 
 print(read_data.decode(encoding="utf-8"))
+print("Size of received data: ", len(read_data))
 
 if data == read_data:
     print("Test passed.")

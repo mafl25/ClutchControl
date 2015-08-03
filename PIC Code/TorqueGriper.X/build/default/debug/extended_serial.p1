@@ -82,7 +82,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3973 `(uc ~T0 @X0 0 tf ]
 [v F3976 `(v ~T0 @X0 0 tf1`i ]
 [v F3979 `(uc ~T0 @X0 0 tf ]
-"117
+"40 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[v _buffer_empty `(uc ~T0 @X0 0 ef1`*CS375 ]
+"117 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\serial_pic.h
 [v _serial_peek_receive `(uc ~T0 @X0 0 ef2`uc`*uc ]
 "28 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_push `(uc ~T0 @X0 0 ef2`*S375`uc ]
@@ -3798,110 +3800,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer_up `*F3995 ~T0 @X0 1 r4 ]
 "55
 [f ]
+[; ;extended_serial.c: 56: if (buffer_empty(buffer)) {
 "56
-[v _value `uc ~T0 @X0 1 a ]
-[; ;extended_serial.c: 56: uint8_t value;
-[; ;extended_serial.c: 57: LATCbits.LATC0 = 0;
+[e $ ! != -> ( _buffer_empty (1 -> _buffer `*CS375 `i -> -> -> 0 `i `uc `i 382  ]
+{
 "57
+[v _value `uc ~T0 @X0 1 a ]
+[; ;extended_serial.c: 57: uint8_t value;
+[; ;extended_serial.c: 58: LATCbits.LATC0 = 0;
+"58
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;extended_serial.c: 59: if (stop_function == (0)) {
-"59
-[e $ ! == _stop_function -> -> 0 `i `*F3989 382  ]
-{
-[; ;extended_serial.c: 60: while (buffer_space(buffer) > 0x05) {
+[; ;extended_serial.c: 60: if (stop_function == (0)) {
 "60
-[e $U 383  ]
-[e :U 384 ]
+[e $ ! == _stop_function -> -> 0 `i `*F3989 383  ]
 {
-[; ;extended_serial.c: 61: if (serial_peek_receive(1, &value)) {
+[; ;extended_serial.c: 61: while (buffer_space(buffer) > 0x09) {
 "61
-[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 386  ]
+[e $U 384  ]
+[e :U 385 ]
 {
-[; ;extended_serial.c: 62: buffer_push(buffer, value);
+[; ;extended_serial.c: 62: if (serial_peek_receive(1, &value)) {
 "62
-[e ( _buffer_push (2 , _buffer _value ]
+[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 387  ]
+{
+[; ;extended_serial.c: 63: buffer_push(buffer, value);
 "63
-}
-[e :U 386 ]
+[e ( _buffer_push (2 , _buffer _value ]
 "64
 }
-[e :U 383 ]
-"60
-[e $ > -> ( _buffer_space (1 -> _buffer `*CS375 `i -> 5 `i 384  ]
-[e :U 385 ]
+[e :U 387 ]
 "65
 }
-[; ;extended_serial.c: 63: }
-[; ;extended_serial.c: 64: }
-[; ;extended_serial.c: 65: } else {
-[e $U 387  ]
-[e :U 382 ]
-{
+[e :U 384 ]
+"61
+[e $ > -> ( _buffer_space (1 -> _buffer `*CS375 `i -> 9 `i 385  ]
+[e :U 386 ]
 "66
-[v _test `uc ~T0 @X0 1 a ]
-[; ;extended_serial.c: 66: bool test = 0;
-[e = _test -> -> 0 `i `uc ]
-[; ;extended_serial.c: 67: while ((buffer_space(buffer) > 0x05) &&
-[; ;extended_serial.c: 68: !test) {
-"68
+}
+[; ;extended_serial.c: 64: }
+[; ;extended_serial.c: 65: }
+[; ;extended_serial.c: 66: } else {
 [e $U 388  ]
-[e :U 389 ]
+[e :U 383 ]
 {
-[; ;extended_serial.c: 69: if (serial_peek_receive(1, &value)) {
-"69
-[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 391  ]
-{
-[; ;extended_serial.c: 70: buffer_push(buffer, value);
-"70
-[e ( _buffer_push (2 , _buffer _value ]
-"71
-}
-[e :U 391 ]
-[; ;extended_serial.c: 71: }
-[; ;extended_serial.c: 72: test = (*stop_function)();
-"72
-[e = _test ( *U _stop_function ..  ]
-"73
-}
-[e :U 388 ]
 "67
-[e $ && > -> ( _buffer_space (1 -> _buffer `*CS375 `i -> 5 `i ! != -> _test `i -> -> -> 0 `i `uc `i 389  ]
+[v _test `uc ~T0 @X0 1 a ]
+[; ;extended_serial.c: 67: bool test = 0;
+[e = _test -> -> 0 `i `uc ]
+[; ;extended_serial.c: 68: while ((buffer_space(buffer) > 0x09) &&
+[; ;extended_serial.c: 69: !test) {
+"69
+[e $U 389  ]
 [e :U 390 ]
-"74
-}
-[e :U 387 ]
-[; ;extended_serial.c: 73: }
-[; ;extended_serial.c: 74: }
-[; ;extended_serial.c: 76: LATCbits.LATC0 = 1;
-"76
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;extended_serial.c: 77: (*timer_start)(40535);
-"77
-[e ( *U _timer_start (1 -> -> 40535 `l `i ]
-[; ;extended_serial.c: 79: while (!(*timer_up)()) {
-"79
-[e $U 392  ]
-[e :U 393 ]
 {
-[; ;extended_serial.c: 80: if (serial_peek_receive(1, &value)) {
-"80
-[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 395  ]
+[; ;extended_serial.c: 70: if (serial_peek_receive(1, &value)) {
+"70
+[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 392  ]
 {
-[; ;extended_serial.c: 81: buffer_push(buffer, value);
-"81
+[; ;extended_serial.c: 71: buffer_push(buffer, value);
+"71
 [e ( _buffer_push (2 , _buffer _value ]
-"82
-}
-[e :U 395 ]
-"83
+"72
 }
 [e :U 392 ]
-"79
-[e $ ! != -> ( *U _timer_up ..  `i -> -> -> 0 `i `uc `i 393  ]
+[; ;extended_serial.c: 72: }
+[; ;extended_serial.c: 73: test = (*stop_function)();
+"73
+[e = _test ( *U _stop_function ..  ]
+"74
+}
+[e :U 389 ]
+"68
+[e $ && > -> ( _buffer_space (1 -> _buffer `*CS375 `i -> 9 `i ! != -> _test `i -> -> -> 0 `i `uc `i 390  ]
+[e :U 391 ]
+"75
+}
+[e :U 388 ]
+[; ;extended_serial.c: 74: }
+[; ;extended_serial.c: 75: }
+[; ;extended_serial.c: 77: LATCbits.LATC0 = 1;
+"77
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;extended_serial.c: 78: (*timer_start)(65035);
+"78
+[e ( *U _timer_start (1 -> -> 65035 `l `i ]
+[; ;extended_serial.c: 80: while (!(*timer_up)()) {
+"80
+[e $U 393  ]
 [e :U 394 ]
-[; ;extended_serial.c: 82: }
+{
+[; ;extended_serial.c: 81: if (serial_peek_receive(1, &value)) {
+"81
+[e $ ! != -> ( _serial_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 396  ]
+{
+[; ;extended_serial.c: 82: buffer_push(buffer, value);
+"82
+[e ( _buffer_push (2 , _buffer _value ]
+"83
+}
+[e :U 396 ]
+"84
+}
+[e :U 393 ]
+"80
+[e $ ! != -> ( *U _timer_up ..  `i -> -> -> 0 `i `uc `i 394  ]
+[e :U 395 ]
+"85
+}
+[e :U 382 ]
 [; ;extended_serial.c: 83: }
 [; ;extended_serial.c: 84: }
-"84
+[; ;extended_serial.c: 85: }
+[; ;extended_serial.c: 86: }
+"86
 [e :UE 381 ]
 }

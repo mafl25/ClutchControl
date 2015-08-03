@@ -4957,18 +4957,19 @@ bool (*stop_function)(void),
 void (*timer_start)(int16_t),
 bool (*timer_up)(void))
 {
+if (buffer_empty(buffer)) {
 uint8_t value;
 LATCbits.LATC0 = 0;
 
 if (stop_function == (0)) {
-while (buffer_space(buffer) > 0x05) {
+while (buffer_space(buffer) > 0x09) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
 }
 }
 } else {
 bool test = 0;
-while ((buffer_space(buffer) > 0x05) &&
+while ((buffer_space(buffer) > 0x09) &&
 !test) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
@@ -4978,11 +4979,12 @@ test = (*stop_function)();
 }
 
 LATCbits.LATC0 = 1;
-(*timer_start)(40535);
+(*timer_start)(65035);
 
 while (!(*timer_up)()) {
 if (serial_peek_receive(1, &value)) {
 buffer_push(buffer, value);
+}
 }
 }
 }

@@ -21,7 +21,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3948 `(v ~T0 @X0 0 tf1`i ]
 [v F3951 `(uc ~T0 @X0 0 tf ]
 "32 ../TorqueGriper.X\extended_spi.h
-[v _espi_master_receive `(i ~T0 @X0 0 ef3`*S372`*F3948`*F3951 ]
+[v _espi_master_receive `(v ~T0 @X0 0 ef3`*S372`*F3948`*F3951 ]
 "25 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
 "27
@@ -29,7 +29,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3940 `(v ~T0 @X0 0 tf1`i ]
 [v F3943 `(uc ~T0 @X0 0 tf ]
 "29 ../TorqueGriper.X\extended_spi.h
-[v _espi_master_send `(i ~T0 @X0 0 ef3`*S372`*F3940`*F3943 ]
+[v _espi_master_send `(v ~T0 @X0 0 ef3`*S372`*F3940`*F3943 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3604,10 +3604,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TorqueGriper.X\extended_spi.h: 24: void espi_setup(uint8_t mode);
 [; ;TorqueGriper.X\extended_spi.h: 26: void espi_slave_receive(struct circular_buffer *buffer);
 [; ;TorqueGriper.X\extended_spi.h: 27: void espi_slave_send(struct circular_buffer *buffer);
-[; ;TorqueGriper.X\extended_spi.h: 29: int espi_master_send(struct circular_buffer *buffer,
+[; ;TorqueGriper.X\extended_spi.h: 29: void espi_master_send(struct circular_buffer *buffer,
 [; ;TorqueGriper.X\extended_spi.h: 30: void (*timer_start)(int16_t),
 [; ;TorqueGriper.X\extended_spi.h: 31: bool (*timer)(void));
-[; ;TorqueGriper.X\extended_spi.h: 32: int espi_master_receive(struct circular_buffer *buffer,
+[; ;TorqueGriper.X\extended_spi.h: 32: void espi_master_receive(struct circular_buffer *buffer,
 [; ;TorqueGriper.X\extended_spi.h: 33: void (*timer_start)(int16_t),
 [; ;TorqueGriper.X\extended_spi.h: 34: bool (*timer)(void));
 [; ;TorqueGriper.X\extended_spi.h: 35: bool espi_master_rts(void);

@@ -4944,10 +4944,10 @@ void espi_setup(uint8_t mode);
 void espi_slave_receive(struct circular_buffer *buffer);
 void espi_slave_send(struct circular_buffer *buffer);
 
-int espi_master_send(struct circular_buffer *buffer,
+void espi_master_send(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
-int espi_master_receive(struct circular_buffer *buffer,
+void espi_master_receive(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
 bool espi_master_rts(void);
@@ -4974,7 +4974,7 @@ bool timer3_up(void);
 
 bool return_false(void)
 {
-return 0;
+return spi_slave_peek_receive(0, (0));
 }
 
 int main() {
@@ -4983,29 +4983,25 @@ struct circular_buffer pic_to_pic = {0, 0, {0}};
 struct circular_buffer pic_to_pc = {0, 0, {0}};
 
 espi_setup(0x05);
-eserial_setup(0x08 | 0x04, 0x2A);
+eserial_setup(0x08 | 0x04, 0x10);
 setup_timer3(0x80 | 0x00 | 0x01);
 
 uint8_t value;
 
-
 while (1) {
-int i;
 
-if (buffer_empty(&pic_to_pic))
-for (i = 0; !buffer_push(&pic_to_pic, i); i++);
+
+eserial_receive(&pic_to_pic, &return_false, &set_timer3, &timer3_up);
 
 int16_t value;
 if (spi_slave_peek_receive(1, &value)) {
-serial_send_byte(value);
 if (value == 0x20) {
 espi_slave_send(&pic_to_pic);
-serial_send_byte('S');
 } else if (value == 0x10) {
 espi_slave_receive(&pic_to_pc);
-serial_send_byte('R');
 }
 }
+
 eserial_send_data(&pic_to_pc);
 }
 
