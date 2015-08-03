@@ -10,13 +10,8 @@
 #define INACTIVE 1
 #define ACTIVE 0
 
-#define BYTES_SENT_AFTER_FTDI    0x04
-
-
-#define ESER_BUFFER_SIZE    0x10
-#define MAX_BUFFER_EMPTY    0x05
-
-#define FTDI_WAIT_TIME  40535
+#define MAX_BUFFER_EMPTY    0x04
+#define FTDI_WAIT_TIME      65035 //Check how many bytes afterwards the ftdi sends
 
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
 {
@@ -30,7 +25,6 @@ void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
     
     RTS = INACTIVE;
 }
-
 
 int8_t eserial_send_data(struct circular_buffer *buffer)
 {
@@ -53,9 +47,10 @@ void eserial_receive(struct circular_buffer *buffer,
                      void (*timer_start)(int16_t),
                      bool (*timer_up)(void))
 {  
+    if (buffer_empty(buffer)) {
         uint8_t value;
         RTS = ACTIVE;
-        
+
         if (stop_function == NULL) {
             while (buffer_space(buffer) > MAX_BUFFER_EMPTY) {      
                 if (serial_peek_receive(true, &value)) {
@@ -72,13 +67,14 @@ void eserial_receive(struct circular_buffer *buffer,
                 test = (*stop_function)();
             }
         }
-        
+
         RTS = INACTIVE;
         (*timer_start)(FTDI_WAIT_TIME);
-        
+
         while (!(*timer_up)()) {
             if (serial_peek_receive(true, &value)) {
                 buffer_push(buffer, value);
             }  
         }   
+    }
 }
