@@ -13,7 +13,7 @@
 #define AN_MASTER_SEND      ANSELHbits.ANS8
 
 #define WAIT_TIME       63535
-#define SEND_DELAY      1
+#define SEND_DELAY      100
 #define _XTAL_FREQ      16000000
 
 static void send_delay(void)
@@ -77,7 +77,7 @@ void espi_slave_receive(struct circular_buffer *buffer)
 void espi_slave_send(struct circular_buffer *buffer)
 {
     if (buffer_count(buffer)) {
-        uint16_t byte_to_send = buffer_pop(buffer);
+        uint16_t byte_to_send = buffer_peek(buffer);
         uint8_t byte_1;
         uint8_t byte_2;
         
@@ -86,18 +86,28 @@ void espi_slave_send(struct circular_buffer *buffer)
         WRITE_SLAVE_SEND = 1;
         WRITE_SLAVE_SEND = 0;
 
-        int16_t received_1 = spi_send_get_byte(byte_1); //check if -1
+        int16_t received_1 = spi_send_get_byte(byte_1); //check if End_Char and get out here
         int16_t received_2 = spi_send_get_byte(byte_2);
-        while (received_1 != END_CHAR && received_2 != END_CHAR) {
-            byte_to_send = buffer_pop(buffer);
-            if (byte_to_send == -1)
+        
+        while (received_1 != END_CHAR && received_2 != END_CHAR) { //This is wrong
+            buffer_pop(buffer);
+            serial_send_byte('T');
+            byte_to_send = buffer_peek(buffer);
+            if (byte_to_send == -1)         
                 break;
+            
             encode_data(byte_to_send, &byte_1, &byte_2); //If data is not encoded, send error or something
+            
             received_1 = spi_send_get_byte(byte_1);
+            if (received_1 == END_CHAR)
+                    break;
             received_2 = spi_send_get_byte(byte_2); //This data will be lost if the buffer in the receiver is full.
+            if (received_2 == END_CHAR)
+                    break;
         }   
 
-        spi_send_get_byte(END_CHAR);
+        if (received_1 != END_CHAR && received_2 != END_CHAR)
+            spi_send_get_byte(END_CHAR);
     }
 }
 
@@ -123,7 +133,7 @@ int espi_master_send(struct circular_buffer *buffer,
         
         wait_pulse(TX_CHAR, timer_start, timer);
         
-        uint16_t byte_to_send = buffer_pop(buffer);
+        uint16_t byte_to_send = buffer_peek(buffer);
         uint8_t byte_1;
         uint8_t byte_2;
         encode_data(byte_to_send, &byte_1, &byte_2);
@@ -134,14 +144,21 @@ int espi_master_send(struct circular_buffer *buffer,
         send_delay();
         
         while (received_1 != END_CHAR && received_2 != END_CHAR) {
-            byte_to_send = buffer_pop(buffer);
+            buffer_pop(buffer);  // Maybe make a function that just deletes the next one?
+            byte_to_send = buffer_peek(buffer);
             if (byte_to_send == -1)
                 break;
+            
             encode_data(byte_to_send, &byte_1, &byte_2);
+            
             received_1 = spi_send_get_byte(byte_1);
             send_delay();
+            if (received_1 == END_CHAR)
+                break;
             received_2 = spi_send_get_byte(byte_2); //This data will be lost if the buffer in the receiver is full.
             send_delay();
+            if (received_2 == END_CHAR)
+                break;
         }   
         
         if (received_1 != END_CHAR && received_2 != END_CHAR) {
@@ -162,30 +179,26 @@ int espi_master_receive(struct circular_buffer *buffer,
         
         wait_pulse(RX_CHAR, timer_start, timer);
 
-        uint8_t received_1 = spi_send_get_byte(0xE0);
-        send_delay();
-        uint8_t received_2 = spi_send_get_byte(0xE0);
-        send_delay();
+        uint8_t received_1;
+        uint8_t received_2;
+        uint8_t value;
+        while (buffer_space(buffer) > 30) {
+            received_1 = spi_send_get_byte(0xE0);
+            if (received_1 == END_CHAR)
+                break;
+            send_delay();
+            received_2 = spi_send_get_byte(0xE0);
+            if (received_2 == END_CHAR)
+                break;
+            send_delay();
+
+            decode_data(&value, received_1, received_2);
+            buffer_push(buffer, value);
+        }
+
         if (received_1 != END_CHAR && received_2 != END_CHAR) {
-            uint8_t value;
-            while (buffer_space(buffer) > 5) {
-                decode_data(&value, received_1, received_2);
-                buffer_push(buffer, value);
-                
-                received_1 = spi_send_get_byte(0xE0);
-                if (received_1 == END_CHAR)
-                    break;
-                send_delay();
-                received_2 = spi_send_get_byte(0xE0);
-                if (received_2 == END_CHAR)
-                    break;
-                send_delay();
-            }
-            
-            if (received_1 != END_CHAR && received_2 != END_CHAR) {
-                spi_send_get_byte(END_CHAR);  //Remember, if buffer gets filled, te last byte sent gets lost
-                send_delay();
-            }
+            spi_send_get_byte(END_CHAR);  //Remember, if buffer gets filled, te last byte sent gets lost
+            send_delay();
         }
     }
     

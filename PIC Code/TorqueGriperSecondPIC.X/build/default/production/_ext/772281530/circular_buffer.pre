@@ -119,6 +119,12 @@ uint8_t buffer_count(const struct circular_buffer *buffer);
 # 52
 uint8_t buffer_space(const struct circular_buffer *buffer);
 
+# 57
+void buffer_clear(struct circular_buffer *buffer);
+
+# 63
+uint16_t buffer_peek(const struct circular_buffer *buffer);
+
 # 4 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
 uint8_t buffer_count(const struct circular_buffer *buffer)
 {
@@ -142,15 +148,15 @@ return (buffer->count == 0x20) ? 1 : 0;
 
 bool buffer_push(struct circular_buffer *buffer, uint8_t byte)
 {
+if (buffer->count == 0x20)
+return 0;
+
 uint8_t current_position = (buffer->position + buffer->count)
 & (0x20 - 1);
 buffer->data[current_position] = byte;
 buffer->count++;
 
-if (buffer->count == 0x20)
-return 0;
-else
-return 1;
+return (buffer->count == 0x20) ? 1 : 0;
 }
 
 int16_t buffer_pop(struct circular_buffer *buffer)
@@ -166,3 +172,18 @@ buffer->count--;
 return byte;
 }
 
+void buffer_clear(struct circular_buffer *buffer)
+{
+buffer->count = 0;
+}
+
+uint16_t buffer_peek(const struct circular_buffer *buffer)
+{
+if (buffer->count <= 0) {
+return -1;
+}
+
+int16_t byte = (buffer->data[buffer->position]) & 0xFF;
+
+return byte;
+}

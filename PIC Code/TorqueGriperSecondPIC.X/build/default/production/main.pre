@@ -4854,6 +4854,12 @@ uint8_t buffer_count(const struct circular_buffer *buffer);
 # 52
 uint8_t buffer_space(const struct circular_buffer *buffer);
 
+# 57
+void buffer_clear(struct circular_buffer *buffer);
+
+# 63
+uint16_t buffer_peek(const struct circular_buffer *buffer);
+
 # 27 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h"
 void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
 
@@ -4863,16 +4869,12 @@ int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
 # 24 "../TorqueGriper.X\extended_spi.h"
 void espi_setup(uint8_t mode);
 
-void espi_slave_receive(struct circular_buffer *buffer,
-void (*timer_start)(int16_t),
-bool (*timer_up)(void));
-
+void espi_slave_receive(struct circular_buffer *buffer);
 void espi_slave_send(struct circular_buffer *buffer);
 
 int espi_master_send(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
-
 int espi_master_receive(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));

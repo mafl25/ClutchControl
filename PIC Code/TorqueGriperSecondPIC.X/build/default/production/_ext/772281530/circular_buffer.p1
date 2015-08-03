@@ -42,6 +42,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;circular_buffer.h: 40: bool buffer_empty(const struct circular_buffer *buffer);
 [; ;circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
 [; ;circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
+[; ;circular_buffer.h: 57: void buffer_clear(struct circular_buffer *buffer);
+[; ;circular_buffer.h: 63: uint16_t buffer_peek(const struct circular_buffer *buffer);
 "4 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
 [v _buffer_count `(uc ~T0 @X0 1 ef1`*CS1 ]
 "5
@@ -130,34 +132,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _byte `uc ~T0 @X0 1 r2 ]
 "25
 [f ]
+[; ;circular_buffer.c: 26: if (buffer->count == 0x20)
 "26
-[v _current_position `uc ~T0 @X0 1 a ]
-[; ;circular_buffer.c: 26: uint8_t current_position = (buffer->position + buffer->count)
-[; ;circular_buffer.c: 27: & (0x20 - 1);
-"27
-[e = _current_position -> & + -> . *U _buffer 0 `i -> . *U _buffer 1 `i - -> 32 `i -> 1 `i `uc ]
-[; ;circular_buffer.c: 28: buffer->data[current_position] = byte;
-"28
-[e = *U + &U . *U _buffer 2 * -> _current_position `ux -> -> # *U &U . *U _buffer 2 `ui `ux _byte ]
-[; ;circular_buffer.c: 29: buffer->count++;
-"29
-[e ++ . *U _buffer 1 -> -> 1 `i `uc ]
-[; ;circular_buffer.c: 31: if (buffer->count == 0x20)
-"31
 [e $ ! == -> . *U _buffer 1 `i -> 32 `i 7  ]
-[; ;circular_buffer.c: 32: return 0;
-"32
+[; ;circular_buffer.c: 27: return 0;
+"27
 [e ) -> -> 0 `i `uc ]
 [e $UE 6  ]
-[e $U 8  ]
-"33
 [e :U 7 ]
-[; ;circular_buffer.c: 33: else
-[; ;circular_buffer.c: 34: return 1;
+"29
+[v _current_position `uc ~T0 @X0 1 a ]
+[; ;circular_buffer.c: 29: uint8_t current_position = (buffer->position + buffer->count)
+[; ;circular_buffer.c: 30: & (0x20 - 1);
+"30
+[e = _current_position -> & + -> . *U _buffer 0 `i -> . *U _buffer 1 `i - -> 32 `i -> 1 `i `uc ]
+[; ;circular_buffer.c: 31: buffer->data[current_position] = byte;
+"31
+[e = *U + &U . *U _buffer 2 * -> _current_position `ux -> -> # *U &U . *U _buffer 2 `ui `ux _byte ]
+[; ;circular_buffer.c: 32: buffer->count++;
+"32
+[e ++ . *U _buffer 1 -> -> 1 `i `uc ]
+[; ;circular_buffer.c: 34: return (buffer->count == 0x20) ? 1 : 0;
 "34
-[e ) -> -> 1 `i `uc ]
+[e ) -> ? == -> . *U _buffer 1 `i -> 32 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 6  ]
-[e :U 8 ]
 [; ;circular_buffer.c: 35: }
 "35
 [e :UE 6 ]
@@ -175,15 +173,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;circular_buffer.c: 39: if (buffer->count <= 0) {
 "39
-[e $ ! <= -> . *U _buffer 1 `i -> 0 `i 10  ]
+[e $ ! <= -> . *U _buffer 1 `i -> 0 `i 9  ]
 {
 [; ;circular_buffer.c: 40: return -1;
 "40
 [e ) -U -> 1 `i ]
-[e $UE 9  ]
+[e $UE 8  ]
 "41
 }
-[e :U 10 ]
+[e :U 9 ]
 "43
 [v _byte `i ~T0 @X0 1 a ]
 [; ;circular_buffer.c: 41: }
@@ -198,8 +196,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;circular_buffer.c: 47: return byte;
 "47
 [e ) _byte ]
-[e $UE 9  ]
+[e $UE 8  ]
 [; ;circular_buffer.c: 48: }
 "48
-[e :UE 9 ]
+[e :UE 8 ]
+}
+"50
+[v _buffer_clear `(v ~T0 @X0 1 ef1`*S1 ]
+"51
+{
+[; ;circular_buffer.c: 50: void buffer_clear(struct circular_buffer *buffer)
+[; ;circular_buffer.c: 51: {
+[e :U _buffer_clear ]
+"50
+[v _buffer `*S1 ~T0 @X0 1 r1 ]
+"51
+[f ]
+[; ;circular_buffer.c: 52: buffer->count = 0;
+"52
+[e = . *U _buffer 1 -> -> 0 `i `uc ]
+[; ;circular_buffer.c: 53: }
+"53
+[e :UE 10 ]
+}
+"55
+[v _buffer_peek `(ui ~T0 @X0 1 ef1`*CS1 ]
+"56
+{
+[; ;circular_buffer.c: 55: uint16_t buffer_peek(const struct circular_buffer *buffer)
+[; ;circular_buffer.c: 56: {
+[e :U _buffer_peek ]
+"55
+[v _buffer `*CS1 ~T0 @X0 1 r1 ]
+"56
+[f ]
+[; ;circular_buffer.c: 57: if (buffer->count <= 0) {
+"57
+[e $ ! <= -> . *U _buffer 1 `i -> 0 `i 12  ]
+{
+[; ;circular_buffer.c: 58: return -1;
+"58
+[e ) -> -U -> 1 `i `ui ]
+[e $UE 11  ]
+"59
+}
+[e :U 12 ]
+"61
+[v _byte `i ~T0 @X0 1 a ]
+[; ;circular_buffer.c: 59: }
+[; ;circular_buffer.c: 61: int16_t byte = (buffer->data[buffer->position]) & 0xFF;
+[e = _byte & -> *U + &U . *U _buffer 2 * -> . *U _buffer 0 `ux -> -> # *U &U . *U _buffer 2 `ui `ux `i -> 255 `i ]
+[; ;circular_buffer.c: 63: return byte;
+"63
+[e ) -> _byte `ui ]
+[e $UE 11  ]
+[; ;circular_buffer.c: 64: }
+"64
+[e :UE 11 ]
 }

@@ -4866,6 +4866,12 @@ uint8_t buffer_count(const struct circular_buffer *buffer);
 # 52
 uint8_t buffer_space(const struct circular_buffer *buffer);
 
+# 57
+void buffer_clear(struct circular_buffer *buffer);
+
+# 63
+uint16_t buffer_peek(const struct circular_buffer *buffer);
+
 # 27 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h"
 void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
 
@@ -4875,16 +4881,12 @@ int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
 # 24 "extended_spi.h"
 void espi_setup(uint8_t mode);
 
-void espi_slave_receive(struct circular_buffer *buffer,
-void (*timer_start)(int16_t),
-bool (*timer_up)(void));
-
+void espi_slave_receive(struct circular_buffer *buffer);
 void espi_slave_send(struct circular_buffer *buffer);
 
 int espi_master_send(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
-
 int espi_master_receive(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
@@ -4959,7 +4961,7 @@ bool (*timer_up)(void));
 # 19 "extended_spi.c"
 static void send_delay(void)
 {
-_delay((unsigned long)((1)*(16000000/4000000.0)));
+_delay((unsigned long)((100)*(16000000/4000000.0)));
 }
 
 void espi_setup(uint8_t mode)
@@ -4989,9 +4991,7 @@ bool espi_master_rts(void)
 return PORTCbits.RC6;
 }
 
-void espi_slave_receive(struct circular_buffer *buffer,
-void (*timer_start)(int16_t),
-bool (*timer_up)(void))
+void espi_slave_receive(struct circular_buffer *buffer)
 {
 uint8_t value;
 int8_t received_1;
@@ -5020,7 +5020,7 @@ spi_send_get_byte(0x30);
 void espi_slave_send(struct circular_buffer *buffer)
 {
 if (buffer_count(buffer)) {
-uint16_t byte_to_send = buffer_pop(buffer);
+uint16_t byte_to_send = buffer_peek(buffer);
 uint8_t byte_1;
 uint8_t byte_2;
 
@@ -5032,14 +5032,20 @@ LATAbits.LATA2 = 0;
 int16_t received_1 = spi_send_get_byte(byte_1);
 int16_t received_2 = spi_send_get_byte(byte_2);
 while (received_1 != 0x30 && received_2 != 0x30) {
-byte_to_send = buffer_pop(buffer);
+buffer_pop(buffer);
+byte_to_send = buffer_peek(buffer);
 if (byte_to_send == -1)
 break;
 encode_data(byte_to_send, &byte_1, &byte_2);
 received_1 = spi_send_get_byte(byte_1);
+if (received_1 == 0x30)
+break;
 received_2 = spi_send_get_byte(byte_2);
+if (received_2 == 0x30)
+break;
 }
 
+if (received_1 != 0x30 && received_2 != 0x30)
 spi_send_get_byte(0x30);
 }
 }
@@ -5049,10 +5055,10 @@ bool (*timer)(void))
 {
 (*timer_start)(63535);
 while (!INT2IF) {
-if ((*timer)()) {
-spi_send_get_byte(value);
-(*timer_start)(63535);
-}
+
+
+
+
 }
 INT2IF = 0;
 }
@@ -5066,7 +5072,7 @@ spi_send_get_byte(0x10);
 
 wait_pulse(0x10, timer_start, timer);
 
-uint16_t byte_to_send = buffer_pop(buffer);
+uint16_t byte_to_send = buffer_peek(buffer);
 uint8_t byte_1;
 uint8_t byte_2;
 encode_data(byte_to_send, &byte_1, &byte_2);
@@ -5077,18 +5083,25 @@ uint8_t received_2 = spi_send_get_byte(byte_2);
 send_delay();
 
 while (received_1 != 0x30 && received_2 != 0x30) {
-byte_to_send = buffer_pop(buffer);
+buffer_pop(buffer);
+byte_to_send = buffer_peek(buffer);
 if (byte_to_send == -1)
 break;
 encode_data(byte_to_send, &byte_1, &byte_2);
 received_1 = spi_send_get_byte(byte_1);
 send_delay();
+if (received_1 == 0x30)
+break;
 received_2 = spi_send_get_byte(byte_2);
 send_delay();
+if (received_2 == 0x30)
+break;
 }
 
+if (received_1 != 0x30 && received_2 != 0x30) {
 spi_send_get_byte(0x30);
 send_delay();
+}
 }
 
 return 0;
@@ -5109,7 +5122,7 @@ uint8_t received_2 = spi_send_get_byte(0xE0);
 send_delay();
 if (received_1 != 0x30 && received_2 != 0x30) {
 uint8_t value;
-while (buffer_space(buffer) > 5) {
+while (buffer_space(buffer) > 30) {
 decode_data(&value, received_1, received_2);
 buffer_push(buffer, value);
 
@@ -5122,9 +5135,11 @@ if (received_2 == 0x30)
 break;
 send_delay();
 }
+}
 
-if (received_1 != 0x30 && received_2 != 0x30)
+if (received_1 != 0x30 && received_2 != 0x30) {
 spi_send_get_byte(0x30);
+send_delay();
 }
 }
 

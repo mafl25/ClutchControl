@@ -1,0 +1,102 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;encoding.h: 27: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
+[; ;encoding.h: 34: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
+"3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
+[v _encode_data `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
+"4
+{
+[; ;encoding.c: 3: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2)
+[; ;encoding.c: 4: {
+[e :U _encode_data ]
+"3
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _byte_1 `*uc ~T0 @X0 1 r2 ]
+[v _byte_2 `*uc ~T0 @X0 1 r3 ]
+"4
+[f ]
+[; ;encoding.c: 5: *byte_1 = 0xA0;
+"5
+[e = *U _byte_1 -> -> 160 `i `uc ]
+[; ;encoding.c: 6: *byte_2 = 0xA0;
+"6
+[e = *U _byte_2 -> -> 160 `i `uc ]
+[; ;encoding.c: 8: *byte_1 |= data >> 4;
+"8
+[e =| *U _byte_1 -> >> -> _data `i -> 4 `i `uc ]
+[; ;encoding.c: 9: *byte_2 |= (data & 0x0F);
+"9
+[e =| *U _byte_2 -> & -> _data `i -> 15 `i `uc ]
+[; ;encoding.c: 10: }
+"10
+[e :UE 1 ]
+}
+"12
+[v _decode_data `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
+"13
+{
+[; ;encoding.c: 12: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2)
+[; ;encoding.c: 13: {
+[e :U _decode_data ]
+"12
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _byte_1 `uc ~T0 @X0 1 r2 ]
+[v _byte_2 `uc ~T0 @X0 1 r3 ]
+"13
+[f ]
+[; ;encoding.c: 14: if ((byte_1 & 0xF0) != 0xA0)
+"14
+[e $ ! != & -> _byte_1 `i -> 240 `i -> 160 `i 3  ]
+[; ;encoding.c: 15: return -1;
+"15
+[e ) -> -U -> 1 `i `c ]
+[e $UE 2  ]
+[e $U 4  ]
+"16
+[e :U 3 ]
+[; ;encoding.c: 16: else if ((byte_2 & 0xF0) != 0xA0)
+[e $ ! != & -> _byte_2 `i -> 240 `i -> 160 `i 5  ]
+[; ;encoding.c: 17: return -2;
+"17
+[e ) -> -U -> 2 `i `c ]
+[e $UE 2  ]
+[e :U 5 ]
+"19
+[e :U 4 ]
+[; ;encoding.c: 19: *data = (byte_1 << 4) | (byte_2 & 0x0F);
+[e = *U _data -> | << -> _byte_1 `i -> 4 `i & -> _byte_2 `i -> 15 `i `uc ]
+[; ;encoding.c: 21: return 0;
+"21
+[e ) -> -> 0 `i `c ]
+[e $UE 2  ]
+[; ;encoding.c: 22: }
+"22
+[e :UE 2 ]
+}

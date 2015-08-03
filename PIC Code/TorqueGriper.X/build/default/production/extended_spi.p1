@@ -188,8 +188,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [s S374 `uc 1 `uc 1 `uc -> 32 `i ]
 [n S374 circular_buffer position count data ]
-[v F3943 `(v ~T0 @X0 0 tf1`i ]
-[v F3946 `(uc ~T0 @X0 0 tf ]
 "43 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h
 [v _spi_slave_get_byte `(i ~T0 @X0 0 ef ]
 "34 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h
@@ -202,18 +200,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spi_send_get_byte `(uc ~T0 @X0 0 ef1`uc ]
 "46 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_count `(uc ~T0 @X0 0 ef1`*CS374 ]
-"21
-[v _buffer_pop `(i ~T0 @X0 0 ef1`*S374 ]
+"63
+[v _buffer_peek `(ui ~T0 @X0 0 ef1`*CS374 ]
 "27 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h
 [v _encode_data `(v ~T0 @X0 0 ef3`uc`*uc`*uc ]
-[v F4057 `(v ~T0 @X0 0 tf1`i ]
-[v F4060 `(uc ~T0 @X0 0 tf ]
+"21 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[v _buffer_pop `(i ~T0 @X0 0 ef1`*S374 ]
+[v F4049 `(v ~T0 @X0 0 tf1`i ]
+[v F4052 `(uc ~T0 @X0 0 tf ]
 "6971 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [v _INT2IF `Vb ~T0 @X0 0 e@32641 ]
-[v F3953 `(v ~T0 @X0 0 tf1`i ]
-[v F3956 `(uc ~T0 @X0 0 tf ]
-[v F3961 `(v ~T0 @X0 0 tf1`i ]
-[v F3964 `(uc ~T0 @X0 0 tf ]
+[v F3951 `(v ~T0 @X0 0 tf1`i ]
+[v F3954 `(uc ~T0 @X0 0 tf ]
+[v F3959 `(v ~T0 @X0 0 tf1`i ]
+[v F3962 `(uc ~T0 @X0 0 tf ]
 "40 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_empty `(uc ~T0 @X0 0 ef1`*CS374 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -3794,24 +3794,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PICLibraries.X\circular_buffer.h: 40: bool buffer_empty(const struct circular_buffer *buffer);
 [; ;PICLibraries.X\circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
 [; ;PICLibraries.X\circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 57: void buffer_clear(struct circular_buffer *buffer);
+[; ;PICLibraries.X\circular_buffer.h: 63: uint16_t buffer_peek(const struct circular_buffer *buffer);
 [; ;PICLibraries.X\encoding.h: 27: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
 [; ;PICLibraries.X\encoding.h: 34: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
 [; ;extended_spi.h: 24: void espi_setup(uint8_t mode);
-[; ;extended_spi.h: 26: void espi_slave_receive(struct circular_buffer *buffer,
-[; ;extended_spi.h: 27: void (*timer_start)(int16_t),
-[; ;extended_spi.h: 28: bool (*timer_up)(void));
-[; ;extended_spi.h: 30: void espi_slave_send(struct circular_buffer *buffer);
-[; ;extended_spi.h: 32: int espi_master_send(struct circular_buffer *buffer,
+[; ;extended_spi.h: 26: void espi_slave_receive(struct circular_buffer *buffer);
+[; ;extended_spi.h: 27: void espi_slave_send(struct circular_buffer *buffer);
+[; ;extended_spi.h: 29: int espi_master_send(struct circular_buffer *buffer,
+[; ;extended_spi.h: 30: void (*timer_start)(int16_t),
+[; ;extended_spi.h: 31: bool (*timer)(void));
+[; ;extended_spi.h: 32: int espi_master_receive(struct circular_buffer *buffer,
 [; ;extended_spi.h: 33: void (*timer_start)(int16_t),
 [; ;extended_spi.h: 34: bool (*timer)(void));
-[; ;extended_spi.h: 36: int espi_master_receive(struct circular_buffer *buffer,
-[; ;extended_spi.h: 37: void (*timer_start)(int16_t),
-[; ;extended_spi.h: 38: bool (*timer)(void));
-[; ;extended_spi.h: 39: bool espi_master_rts(void);
-[; ;extended_spi.h: 42: void espi_slave_send_receive(struct circular_buffer *receive,
-[; ;extended_spi.h: 43: struct circular_buffer *send);
-[; ;extended_spi.h: 44: void espi_master_send_receive(struct circular_buffer *receive,
-[; ;extended_spi.h: 45: struct circular_buffer *send);
+[; ;extended_spi.h: 35: bool espi_master_rts(void);
+[; ;extended_spi.h: 38: void espi_slave_send_receive(struct circular_buffer *receive,
+[; ;extended_spi.h: 39: struct circular_buffer *send);
+[; ;extended_spi.h: 40: void espi_master_send_receive(struct circular_buffer *receive,
+[; ;extended_spi.h: 41: struct circular_buffer *send);
 [; ;PICLibraries.X\serial_pic.h: 87: struct interrupt_serial
 [; ;PICLibraries.X\serial_pic.h: 88: {
 [; ;PICLibraries.X\serial_pic.h: 89: bool tx_int_enable;
@@ -3849,9 +3849,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;extended_spi.c: 20: {
 [e :U _send_delay ]
 [f ]
-[; ;extended_spi.c: 21: _delay((unsigned long)((1)*(16000000/4000000.0)));
+[; ;extended_spi.c: 21: _delay((unsigned long)((100)*(16000000/4000000.0)));
 "21
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [; ;extended_spi.c: 22: }
 "22
 [e :UE 376 ]
@@ -3935,448 +3935,479 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 380 ]
 }
 "51
-[v _espi_slave_receive `(v ~T0 @X0 1 ef3`*S374`*F3943`*F3946 ]
-"54
+[v _espi_slave_receive `(v ~T0 @X0 1 ef1`*S374 ]
+"52
 {
-[; ;extended_spi.c: 51: void espi_slave_receive(struct circular_buffer *buffer,
-[; ;extended_spi.c: 52: void (*timer_start)(int16_t),
-[; ;extended_spi.c: 53: bool (*timer_up)(void))
-[; ;extended_spi.c: 54: {
+[; ;extended_spi.c: 51: void espi_slave_receive(struct circular_buffer *buffer)
+[; ;extended_spi.c: 52: {
 [e :U _espi_slave_receive ]
 "51
 [v _buffer `*S374 ~T0 @X0 1 r1 ]
-[v F4038 `(v ~T0 @X0 0 tf1`i ]
 "52
-[v _timer_start `*F4038 ~T0 @X0 1 r2 ]
-[v F4041 `(uc ~T0 @X0 0 tf ]
-"53
-[v _timer_up `*F4041 ~T0 @X0 1 r3 ]
-"54
 [f ]
-"55
+"53
 [v _value `uc ~T0 @X0 1 a ]
-"56
+"54
 [v _received_1 `c ~T0 @X0 1 a ]
-"57
+"55
 [v _received_2 `c ~T0 @X0 1 a ]
-[; ;extended_spi.c: 55: uint8_t value;
-[; ;extended_spi.c: 56: int8_t received_1;
-[; ;extended_spi.c: 57: int8_t received_2;
-[; ;extended_spi.c: 59: LATAbits.LATA2 = 1;
-"59
+[; ;extended_spi.c: 53: uint8_t value;
+[; ;extended_spi.c: 54: int8_t received_1;
+[; ;extended_spi.c: 55: int8_t received_2;
+[; ;extended_spi.c: 57: LATAbits.LATA2 = 1;
+"57
 [e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;extended_spi.c: 60: LATAbits.LATA2 = 0;
-"60
+[; ;extended_spi.c: 58: LATAbits.LATA2 = 0;
+"58
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;extended_spi.c: 62: while (buffer_space(buffer) > 5) {
-"62
+[; ;extended_spi.c: 60: while (buffer_space(buffer) > 5) {
+"60
 [e $U 382  ]
 [e :U 383 ]
 {
-[; ;extended_spi.c: 63: received_1 = spi_slave_get_byte();
-"63
+[; ;extended_spi.c: 61: received_1 = spi_slave_get_byte();
+"61
 [e = _received_1 -> ( _spi_slave_get_byte ..  `c ]
-[; ;extended_spi.c: 64: if (received_1 == 0x30)
-"64
+[; ;extended_spi.c: 62: if (received_1 == 0x30)
+"62
 [e $ ! == -> _received_1 `i -> 48 `i 385  ]
-[; ;extended_spi.c: 65: break;
-"65
+[; ;extended_spi.c: 63: break;
+"63
 [e $U 384  ]
 [e :U 385 ]
-[; ;extended_spi.c: 67: received_2 = spi_slave_get_byte();
-"67
+[; ;extended_spi.c: 65: received_2 = spi_slave_get_byte();
+"65
 [e = _received_2 -> ( _spi_slave_get_byte ..  `c ]
-[; ;extended_spi.c: 68: if (received_2 == 0x30)
-"68
+[; ;extended_spi.c: 66: if (received_2 == 0x30)
+"66
 [e $ ! == -> _received_2 `i -> 48 `i 386  ]
-[; ;extended_spi.c: 69: break;
-"69
+[; ;extended_spi.c: 67: break;
+"67
 [e $U 384  ]
 [e :U 386 ]
-[; ;extended_spi.c: 71: decode_data( &value, (uint8_t)received_1, (uint8_t)received_2);
-"71
+[; ;extended_spi.c: 69: decode_data( &value, (uint8_t)received_1, (uint8_t)received_2);
+"69
 [e ( _decode_data (3 , , &U _value -> _received_1 `uc -> _received_2 `uc ]
-[; ;extended_spi.c: 72: buffer_push(buffer, value);
-"72
+[; ;extended_spi.c: 70: buffer_push(buffer, value);
+"70
 [e ( _buffer_push (2 , _buffer _value ]
-"73
+"71
 }
 [e :U 382 ]
-"62
+"60
 [e $ > -> ( _buffer_space (1 -> _buffer `*CS374 `i -> 5 `i 383  ]
 [e :U 384 ]
-[; ;extended_spi.c: 73: }
-[; ;extended_spi.c: 75: if (received_1 != 0x30 && received_2 != 0x30)
-"75
+[; ;extended_spi.c: 71: }
+[; ;extended_spi.c: 73: if (received_1 != 0x30 && received_2 != 0x30)
+"73
 [e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 387  ]
-[; ;extended_spi.c: 76: spi_send_get_byte(0x30);
-"76
+[; ;extended_spi.c: 74: spi_send_get_byte(0x30);
+"74
 [e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
 [e :U 387 ]
-[; ;extended_spi.c: 77: }
-"77
+[; ;extended_spi.c: 75: }
+"75
 [e :UE 381 ]
 }
-"79
+"77
 [v _espi_slave_send `(v ~T0 @X0 1 ef1`*S374 ]
-"80
+"78
 {
-[; ;extended_spi.c: 79: void espi_slave_send(struct circular_buffer *buffer)
-[; ;extended_spi.c: 80: {
+[; ;extended_spi.c: 77: void espi_slave_send(struct circular_buffer *buffer)
+[; ;extended_spi.c: 78: {
 [e :U _espi_slave_send ]
-"79
+"77
 [v _buffer `*S374 ~T0 @X0 1 r1 ]
-"80
+"78
 [f ]
-[; ;extended_spi.c: 81: if (buffer_count(buffer)) {
-"81
+[; ;extended_spi.c: 79: if (buffer_count(buffer)) {
+"79
 [e $ ! != -> ( _buffer_count (1 -> _buffer `*CS374 `i -> -> -> 0 `i `uc `i 389  ]
 {
-"82
+"80
 [v _byte_to_send `ui ~T0 @X0 1 a ]
-[; ;extended_spi.c: 82: uint16_t byte_to_send = buffer_pop(buffer);
-[e = _byte_to_send -> ( _buffer_pop (1 _buffer `ui ]
-"83
+[; ;extended_spi.c: 80: uint16_t byte_to_send = buffer_peek(buffer);
+[e = _byte_to_send ( _buffer_peek (1 -> _buffer `*CS374 ]
+"81
 [v _byte_1 `uc ~T0 @X0 1 a ]
-"84
+"82
 [v _byte_2 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 83: uint8_t byte_1;
-[; ;extended_spi.c: 84: uint8_t byte_2;
-[; ;extended_spi.c: 86: encode_data(byte_to_send, &byte_1, &byte_2);
-"86
+[; ;extended_spi.c: 81: uint8_t byte_1;
+[; ;extended_spi.c: 82: uint8_t byte_2;
+[; ;extended_spi.c: 84: encode_data(byte_to_send, &byte_1, &byte_2);
+"84
 [e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
-[; ;extended_spi.c: 88: LATAbits.LATA2 = 1;
-"88
+[; ;extended_spi.c: 86: LATAbits.LATA2 = 1;
+"86
 [e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;extended_spi.c: 89: LATAbits.LATA2 = 0;
-"89
+[; ;extended_spi.c: 87: LATAbits.LATA2 = 0;
+"87
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-"91
+"89
 [v _received_1 `i ~T0 @X0 1 a ]
-[; ;extended_spi.c: 91: int16_t received_1 = spi_send_get_byte(byte_1);
+[; ;extended_spi.c: 89: int16_t received_1 = spi_send_get_byte(byte_1);
 [e = _received_1 -> ( _spi_send_get_byte (1 _byte_1 `i ]
-"92
+"90
 [v _received_2 `i ~T0 @X0 1 a ]
-[; ;extended_spi.c: 92: int16_t received_2 = spi_send_get_byte(byte_2);
+[; ;extended_spi.c: 90: int16_t received_2 = spi_send_get_byte(byte_2);
 [e = _received_2 -> ( _spi_send_get_byte (1 _byte_2 `i ]
-[; ;extended_spi.c: 93: while (received_1 != 0x30 && received_2 != 0x30) {
-"93
+[; ;extended_spi.c: 91: while (received_1 != 0x30 && received_2 != 0x30) {
+"91
 [e $U 390  ]
 [e :U 391 ]
 {
-[; ;extended_spi.c: 94: byte_to_send = buffer_pop(buffer);
+[; ;extended_spi.c: 92: buffer_pop(buffer);
+"92
+[e ( _buffer_pop (1 _buffer ]
+[; ;extended_spi.c: 93: byte_to_send = buffer_peek(buffer);
+"93
+[e = _byte_to_send ( _buffer_peek (1 -> _buffer `*CS374 ]
+[; ;extended_spi.c: 94: if (byte_to_send == -1)
 "94
-[e = _byte_to_send -> ( _buffer_pop (1 _buffer `ui ]
-[; ;extended_spi.c: 95: if (byte_to_send == -1)
-"95
 [e $ ! == _byte_to_send -> -U -> 1 `i `ui 393  ]
-[; ;extended_spi.c: 96: break;
-"96
+[; ;extended_spi.c: 95: break;
+"95
 [e $U 392  ]
 [e :U 393 ]
-[; ;extended_spi.c: 97: encode_data(byte_to_send, &byte_1, &byte_2);
-"97
+[; ;extended_spi.c: 96: encode_data(byte_to_send, &byte_1, &byte_2);
+"96
 [e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
-[; ;extended_spi.c: 98: received_1 = spi_send_get_byte(byte_1);
-"98
+[; ;extended_spi.c: 97: received_1 = spi_send_get_byte(byte_1);
+"97
 [e = _received_1 -> ( _spi_send_get_byte (1 _byte_1 `i ]
-[; ;extended_spi.c: 99: received_2 = spi_send_get_byte(byte_2);
+[; ;extended_spi.c: 98: if (received_1 == 0x30)
+"98
+[e $ ! == _received_1 -> 48 `i 394  ]
+[; ;extended_spi.c: 99: break;
 "99
-[e = _received_2 -> ( _spi_send_get_byte (1 _byte_2 `i ]
+[e $U 392  ]
+[e :U 394 ]
+[; ;extended_spi.c: 100: received_2 = spi_send_get_byte(byte_2);
 "100
-}
-[e :U 390 ]
-"93
-[e $ && != _received_1 -> 48 `i != _received_2 -> 48 `i 391  ]
-[e :U 392 ]
-[; ;extended_spi.c: 100: }
-[; ;extended_spi.c: 102: spi_send_get_byte(0x30);
+[e = _received_2 -> ( _spi_send_get_byte (1 _byte_2 `i ]
+[; ;extended_spi.c: 101: if (received_2 == 0x30)
+"101
+[e $ ! == _received_2 -> 48 `i 395  ]
+[; ;extended_spi.c: 102: break;
 "102
-[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
+[e $U 392  ]
+[e :U 395 ]
 "103
 }
-[e :U 389 ]
+[e :U 390 ]
+"91
+[e $ && != _received_1 -> 48 `i != _received_2 -> 48 `i 391  ]
+[e :U 392 ]
 [; ;extended_spi.c: 103: }
-[; ;extended_spi.c: 104: }
-"104
+[; ;extended_spi.c: 105: if (received_1 != 0x30 && received_2 != 0x30)
+"105
+[e $ ! && != _received_1 -> 48 `i != _received_2 -> 48 `i 396  ]
+[; ;extended_spi.c: 106: spi_send_get_byte(0x30);
+"106
+[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
+[e :U 396 ]
+"107
+}
+[e :U 389 ]
+[; ;extended_spi.c: 107: }
+[; ;extended_spi.c: 108: }
+"108
 [e :UE 388 ]
 }
-"106
-[v _wait_pulse `(v ~T0 @X0 1 sf3`uc`*F4057`*F4060 ]
-"108
-{
-[; ;extended_spi.c: 106: static void wait_pulse(uint8_t value, void (*timer_start)(int16_t),
-[; ;extended_spi.c: 107: bool (*timer)(void))
-[; ;extended_spi.c: 108: {
-[e :U _wait_pulse ]
-"106
-[v _value `uc ~T0 @X0 1 r1 ]
-[v _timer_start `*F4057 ~T0 @X0 1 r2 ]
-"107
-[v _timer `*F4060 ~T0 @X0 1 r3 ]
-"108
-[f ]
-[; ;extended_spi.c: 109: (*timer_start)(63535);
-"109
-[e ( *U _timer_start (1 -> -> 63535 `l `i ]
-[; ;extended_spi.c: 110: while (!INT2IF) {
 "110
-[e $U 395  ]
-[e :U 396 ]
-{
-[; ;extended_spi.c: 111: if ((*timer)()) {
-"111
-[e $ ! != -> ( *U _timer ..  `i -> -> -> 0 `i `uc `i 398  ]
-{
-[; ;extended_spi.c: 112: spi_send_get_byte(value);
+[v _wait_pulse `(v ~T0 @X0 1 sf3`uc`*F4049`*F4052 ]
 "112
-[e ( _spi_send_get_byte (1 _value ]
+{
+[; ;extended_spi.c: 110: static void wait_pulse(uint8_t value, void (*timer_start)(int16_t),
+[; ;extended_spi.c: 111: bool (*timer)(void))
+[; ;extended_spi.c: 112: {
+[e :U _wait_pulse ]
+"110
+[v _value `uc ~T0 @X0 1 r1 ]
+[v _timer_start `*F4049 ~T0 @X0 1 r2 ]
+"111
+[v _timer `*F4052 ~T0 @X0 1 r3 ]
+"112
+[f ]
 [; ;extended_spi.c: 113: (*timer_start)(63535);
 "113
 [e ( *U _timer_start (1 -> -> 63535 `l `i ]
+[; ;extended_spi.c: 114: while (!INT2IF) {
 "114
+[e $U 398  ]
+[e :U 399 ]
+{
+"119
 }
 [e :U 398 ]
-"115
-}
-[e :U 395 ]
-"110
-[e $ ! _INT2IF 396  ]
-[e :U 397 ]
-[; ;extended_spi.c: 114: }
-[; ;extended_spi.c: 115: }
-[; ;extended_spi.c: 116: INT2IF = 0;
-"116
-[e = _INT2IF -> -> 0 `i `b ]
-[; ;extended_spi.c: 117: }
-"117
-[e :UE 394 ]
-}
-"119
-[v _espi_master_send `(i ~T0 @X0 1 ef3`*S374`*F3953`*F3956 ]
-"122
-{
-[; ;extended_spi.c: 119: int espi_master_send(struct circular_buffer *buffer,
-[; ;extended_spi.c: 120: void (*timer_start)(int16_t),
-[; ;extended_spi.c: 121: bool (*timer)(void))
-[; ;extended_spi.c: 122: {
-[e :U _espi_master_send ]
-"119
-[v _buffer `*S374 ~T0 @X0 1 r1 ]
-[v F4064 `(v ~T0 @X0 0 tf1`i ]
+"114
+[e $ ! _INT2IF 399  ]
+[e :U 400 ]
+[; ;extended_spi.c: 119: }
+[; ;extended_spi.c: 120: INT2IF = 0;
 "120
-[v _timer_start `*F4064 ~T0 @X0 1 r2 ]
-[v F4067 `(uc ~T0 @X0 0 tf ]
+[e = _INT2IF -> -> 0 `i `b ]
+[; ;extended_spi.c: 121: }
 "121
-[v _timer `*F4067 ~T0 @X0 1 r3 ]
-"122
-[f ]
-[; ;extended_spi.c: 123: if (buffer_count(buffer)) {
+[e :UE 397 ]
+}
 "123
-[e $ ! != -> ( _buffer_count (1 -> _buffer `*CS374 `i -> -> -> 0 `i `uc `i 400  ]
-{
-[; ;extended_spi.c: 124: spi_send_get_byte(0x10);
-"124
-[e ( _spi_send_get_byte (1 -> -> 16 `i `uc ]
-[; ;extended_spi.c: 126: wait_pulse(0x10, timer_start, timer);
+[v _espi_master_send `(i ~T0 @X0 1 ef3`*S374`*F3951`*F3954 ]
 "126
-[e ( _wait_pulse (3 , , -> -> 16 `i `uc _timer_start _timer ]
-"128
-[v _byte_to_send `ui ~T0 @X0 1 a ]
-[; ;extended_spi.c: 128: uint16_t byte_to_send = buffer_pop(buffer);
-[e = _byte_to_send -> ( _buffer_pop (1 _buffer `ui ]
-"129
-[v _byte_1 `uc ~T0 @X0 1 a ]
-"130
-[v _byte_2 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 129: uint8_t byte_1;
-[; ;extended_spi.c: 130: uint8_t byte_2;
-[; ;extended_spi.c: 131: encode_data(byte_to_send, &byte_1, &byte_2);
-"131
-[e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
-"133
-[v _received_1 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 133: uint8_t received_1 = spi_send_get_byte(byte_1);
-[e = _received_1 ( _spi_send_get_byte (1 _byte_1 ]
-[; ;extended_spi.c: 134: send_delay();
-"134
-[e ( _send_delay ..  ]
-"135
-[v _received_2 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 135: uint8_t received_2 = spi_send_get_byte(byte_2);
-[e = _received_2 ( _spi_send_get_byte (1 _byte_2 ]
-[; ;extended_spi.c: 136: send_delay();
-"136
-[e ( _send_delay ..  ]
-[; ;extended_spi.c: 138: while (received_1 != 0x30 && received_2 != 0x30) {
-"138
-[e $U 401  ]
-[e :U 402 ]
 {
-[; ;extended_spi.c: 139: byte_to_send = buffer_pop(buffer);
+[; ;extended_spi.c: 123: int espi_master_send(struct circular_buffer *buffer,
+[; ;extended_spi.c: 124: void (*timer_start)(int16_t),
+[; ;extended_spi.c: 125: bool (*timer)(void))
+[; ;extended_spi.c: 126: {
+[e :U _espi_master_send ]
+"123
+[v _buffer `*S374 ~T0 @X0 1 r1 ]
+[v F4056 `(v ~T0 @X0 0 tf1`i ]
+"124
+[v _timer_start `*F4056 ~T0 @X0 1 r2 ]
+[v F4059 `(uc ~T0 @X0 0 tf ]
+"125
+[v _timer `*F4059 ~T0 @X0 1 r3 ]
+"126
+[f ]
+[; ;extended_spi.c: 127: if (buffer_count(buffer)) {
+"127
+[e $ ! != -> ( _buffer_count (1 -> _buffer `*CS374 `i -> -> -> 0 `i `uc `i 402  ]
+{
+[; ;extended_spi.c: 128: spi_send_get_byte(0x10);
+"128
+[e ( _spi_send_get_byte (1 -> -> 16 `i `uc ]
+[; ;extended_spi.c: 130: wait_pulse(0x10, timer_start, timer);
+"130
+[e ( _wait_pulse (3 , , -> -> 16 `i `uc _timer_start _timer ]
+"132
+[v _byte_to_send `ui ~T0 @X0 1 a ]
+[; ;extended_spi.c: 132: uint16_t byte_to_send = buffer_peek(buffer);
+[e = _byte_to_send ( _buffer_peek (1 -> _buffer `*CS374 ]
+"133
+[v _byte_1 `uc ~T0 @X0 1 a ]
+"134
+[v _byte_2 `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 133: uint8_t byte_1;
+[; ;extended_spi.c: 134: uint8_t byte_2;
+[; ;extended_spi.c: 135: encode_data(byte_to_send, &byte_1, &byte_2);
+"135
+[e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
+"137
+[v _received_1 `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 137: uint8_t received_1 = spi_send_get_byte(byte_1);
+[e = _received_1 ( _spi_send_get_byte (1 _byte_1 ]
+[; ;extended_spi.c: 138: send_delay();
+"138
+[e ( _send_delay ..  ]
 "139
-[e = _byte_to_send -> ( _buffer_pop (1 _buffer `ui ]
-[; ;extended_spi.c: 140: if (byte_to_send == -1)
+[v _received_2 `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 139: uint8_t received_2 = spi_send_get_byte(byte_2);
+[e = _received_2 ( _spi_send_get_byte (1 _byte_2 ]
+[; ;extended_spi.c: 140: send_delay();
 "140
-[e $ ! == _byte_to_send -> -U -> 1 `i `ui 404  ]
-[; ;extended_spi.c: 141: break;
-"141
+[e ( _send_delay ..  ]
+[; ;extended_spi.c: 142: while (received_1 != 0x30 && received_2 != 0x30) {
+"142
 [e $U 403  ]
 [e :U 404 ]
-[; ;extended_spi.c: 142: encode_data(byte_to_send, &byte_1, &byte_2);
-"142
-[e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
-[; ;extended_spi.c: 143: received_1 = spi_send_get_byte(byte_1);
+{
+[; ;extended_spi.c: 143: buffer_pop(buffer);
 "143
-[e = _received_1 ( _spi_send_get_byte (1 _byte_1 ]
-[; ;extended_spi.c: 144: send_delay();
+[e ( _buffer_pop (1 _buffer ]
+[; ;extended_spi.c: 144: byte_to_send = buffer_peek(buffer);
 "144
-[e ( _send_delay ..  ]
-[; ;extended_spi.c: 145: received_2 = spi_send_get_byte(byte_2);
+[e = _byte_to_send ( _buffer_peek (1 -> _buffer `*CS374 ]
+[; ;extended_spi.c: 145: if (byte_to_send == -1)
 "145
-[e = _received_2 ( _spi_send_get_byte (1 _byte_2 ]
-[; ;extended_spi.c: 146: send_delay();
+[e $ ! == _byte_to_send -> -U -> 1 `i `ui 406  ]
+[; ;extended_spi.c: 146: break;
 "146
-[e ( _send_delay ..  ]
-"147
-}
-[e :U 401 ]
-"138
-[e $ && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 402  ]
-[e :U 403 ]
-[; ;extended_spi.c: 147: }
-[; ;extended_spi.c: 149: spi_send_get_byte(0x30);
-"149
-[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
-[; ;extended_spi.c: 150: send_delay();
-"150
-[e ( _send_delay ..  ]
-"151
-}
-[e :U 400 ]
-[; ;extended_spi.c: 151: }
-[; ;extended_spi.c: 153: return 0;
-"153
-[e ) -> 0 `i ]
-[e $UE 399  ]
-[; ;extended_spi.c: 154: }
-"154
-[e :UE 399 ]
-}
-"156
-[v _espi_master_receive `(i ~T0 @X0 1 ef3`*S374`*F3961`*F3964 ]
-"159
-{
-[; ;extended_spi.c: 156: int espi_master_receive(struct circular_buffer *buffer,
-[; ;extended_spi.c: 157: void (*timer_start)(int16_t),
-[; ;extended_spi.c: 158: bool (*timer)(void))
-[; ;extended_spi.c: 159: {
-[e :U _espi_master_receive ]
-"156
-[v _buffer `*S374 ~T0 @X0 1 r1 ]
-[v F4076 `(v ~T0 @X0 0 tf1`i ]
-"157
-[v _timer_start `*F4076 ~T0 @X0 1 r2 ]
-[v F4079 `(uc ~T0 @X0 0 tf ]
-"158
-[v _timer `*F4079 ~T0 @X0 1 r3 ]
-"159
-[f ]
-[; ;extended_spi.c: 160: if (buffer_empty(buffer)) {
-"160
-[e $ ! != -> ( _buffer_empty (1 -> _buffer `*CS374 `i -> -> -> 0 `i `uc `i 406  ]
-{
-[; ;extended_spi.c: 161: spi_send_get_byte(0x20);
-"161
-[e ( _spi_send_get_byte (1 -> -> 32 `i `uc ]
-[; ;extended_spi.c: 163: wait_pulse(0x20, timer_start, timer);
-"163
-[e ( _wait_pulse (3 , , -> -> 32 `i `uc _timer_start _timer ]
-"165
-[v _received_1 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 165: uint8_t received_1 = spi_send_get_byte(0xE0);
-[e = _received_1 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
-[; ;extended_spi.c: 166: send_delay();
-"166
-[e ( _send_delay ..  ]
-"167
-[v _received_2 `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 167: uint8_t received_2 = spi_send_get_byte(0xE0);
-[e = _received_2 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
-[; ;extended_spi.c: 168: send_delay();
-"168
-[e ( _send_delay ..  ]
-[; ;extended_spi.c: 169: if (received_1 != 0x30 && received_2 != 0x30) {
-"169
-[e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 407  ]
-{
-"170
-[v _value `uc ~T0 @X0 1 a ]
-[; ;extended_spi.c: 170: uint8_t value;
-[; ;extended_spi.c: 171: while (buffer_space(buffer) > 5) {
-"171
-[e $U 408  ]
-[e :U 409 ]
-{
-[; ;extended_spi.c: 172: decode_data(&value, received_1, received_2);
-"172
-[e ( _decode_data (3 , , &U _value _received_1 _received_2 ]
-[; ;extended_spi.c: 173: buffer_push(buffer, value);
-"173
-[e ( _buffer_push (2 , _buffer _value ]
-[; ;extended_spi.c: 175: received_1 = spi_send_get_byte(0xE0);
-"175
-[e = _received_1 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
-[; ;extended_spi.c: 176: if (received_1 == 0x30)
-"176
-[e $ ! == -> _received_1 `i -> 48 `i 411  ]
-[; ;extended_spi.c: 177: break;
-"177
-[e $U 410  ]
-[e :U 411 ]
-[; ;extended_spi.c: 178: send_delay();
-"178
-[e ( _send_delay ..  ]
-[; ;extended_spi.c: 179: received_2 = spi_send_get_byte(0xE0);
-"179
-[e = _received_2 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
-[; ;extended_spi.c: 180: if (received_2 == 0x30)
-"180
-[e $ ! == -> _received_2 `i -> 48 `i 412  ]
-[; ;extended_spi.c: 181: break;
-"181
-[e $U 410  ]
-[e :U 412 ]
-[; ;extended_spi.c: 182: send_delay();
-"182
-[e ( _send_delay ..  ]
-"183
-}
-[e :U 408 ]
-"171
-[e $ > -> ( _buffer_space (1 -> _buffer `*CS374 `i -> 5 `i 409  ]
-[e :U 410 ]
-[; ;extended_spi.c: 183: }
-[; ;extended_spi.c: 185: if (received_1 != 0x30 && received_2 != 0x30)
-"185
-[e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 413  ]
-[; ;extended_spi.c: 186: spi_send_get_byte(0x30);
-"186
-[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
-[e :U 413 ]
-"187
-}
-[e :U 407 ]
-"188
-}
+[e $U 405  ]
 [e :U 406 ]
-[; ;extended_spi.c: 187: }
-[; ;extended_spi.c: 188: }
-[; ;extended_spi.c: 190: return 0;
-"190
+[; ;extended_spi.c: 147: encode_data(byte_to_send, &byte_1, &byte_2);
+"147
+[e ( _encode_data (3 , , -> _byte_to_send `uc &U _byte_1 &U _byte_2 ]
+[; ;extended_spi.c: 148: received_1 = spi_send_get_byte(byte_1);
+"148
+[e = _received_1 ( _spi_send_get_byte (1 _byte_1 ]
+[; ;extended_spi.c: 149: send_delay();
+"149
+[e ( _send_delay ..  ]
+[; ;extended_spi.c: 150: if (received_1 == 0x30)
+"150
+[e $ ! == -> _received_1 `i -> 48 `i 407  ]
+[; ;extended_spi.c: 151: break;
+"151
+[e $U 405  ]
+[e :U 407 ]
+[; ;extended_spi.c: 152: received_2 = spi_send_get_byte(byte_2);
+"152
+[e = _received_2 ( _spi_send_get_byte (1 _byte_2 ]
+[; ;extended_spi.c: 153: send_delay();
+"153
+[e ( _send_delay ..  ]
+[; ;extended_spi.c: 154: if (received_2 == 0x30)
+"154
+[e $ ! == -> _received_2 `i -> 48 `i 408  ]
+[; ;extended_spi.c: 155: break;
+"155
+[e $U 405  ]
+[e :U 408 ]
+"156
+}
+[e :U 403 ]
+"142
+[e $ && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 404  ]
+[e :U 405 ]
+[; ;extended_spi.c: 156: }
+[; ;extended_spi.c: 158: if (received_1 != 0x30 && received_2 != 0x30) {
+"158
+[e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 409  ]
+{
+[; ;extended_spi.c: 159: spi_send_get_byte(0x30);
+"159
+[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
+[; ;extended_spi.c: 160: send_delay();
+"160
+[e ( _send_delay ..  ]
+"161
+}
+[e :U 409 ]
+"162
+}
+[e :U 402 ]
+[; ;extended_spi.c: 161: }
+[; ;extended_spi.c: 162: }
+[; ;extended_spi.c: 164: return 0;
+"164
 [e ) -> 0 `i ]
-[e $UE 405  ]
-[; ;extended_spi.c: 191: }
+[e $UE 401  ]
+[; ;extended_spi.c: 165: }
+"165
+[e :UE 401 ]
+}
+"167
+[v _espi_master_receive `(i ~T0 @X0 1 ef3`*S374`*F3959`*F3962 ]
+"170
+{
+[; ;extended_spi.c: 167: int espi_master_receive(struct circular_buffer *buffer,
+[; ;extended_spi.c: 168: void (*timer_start)(int16_t),
+[; ;extended_spi.c: 169: bool (*timer)(void))
+[; ;extended_spi.c: 170: {
+[e :U _espi_master_receive ]
+"167
+[v _buffer `*S374 ~T0 @X0 1 r1 ]
+[v F4068 `(v ~T0 @X0 0 tf1`i ]
+"168
+[v _timer_start `*F4068 ~T0 @X0 1 r2 ]
+[v F4071 `(uc ~T0 @X0 0 tf ]
+"169
+[v _timer `*F4071 ~T0 @X0 1 r3 ]
+"170
+[f ]
+[; ;extended_spi.c: 171: if (buffer_empty(buffer)) {
+"171
+[e $ ! != -> ( _buffer_empty (1 -> _buffer `*CS374 `i -> -> -> 0 `i `uc `i 411  ]
+{
+[; ;extended_spi.c: 172: spi_send_get_byte(0x20);
+"172
+[e ( _spi_send_get_byte (1 -> -> 32 `i `uc ]
+[; ;extended_spi.c: 174: wait_pulse(0x20, timer_start, timer);
+"174
+[e ( _wait_pulse (3 , , -> -> 32 `i `uc _timer_start _timer ]
+"176
+[v _received_1 `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 176: uint8_t received_1 = spi_send_get_byte(0xE0);
+[e = _received_1 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
+[; ;extended_spi.c: 177: send_delay();
+"177
+[e ( _send_delay ..  ]
+"178
+[v _received_2 `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 178: uint8_t received_2 = spi_send_get_byte(0xE0);
+[e = _received_2 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
+[; ;extended_spi.c: 179: send_delay();
+"179
+[e ( _send_delay ..  ]
+[; ;extended_spi.c: 180: if (received_1 != 0x30 && received_2 != 0x30) {
+"180
+[e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 412  ]
+{
+"181
+[v _value `uc ~T0 @X0 1 a ]
+[; ;extended_spi.c: 181: uint8_t value;
+[; ;extended_spi.c: 182: while (buffer_space(buffer) > 30) {
+"182
+[e $U 413  ]
+[e :U 414 ]
+{
+[; ;extended_spi.c: 183: decode_data(&value, received_1, received_2);
+"183
+[e ( _decode_data (3 , , &U _value _received_1 _received_2 ]
+[; ;extended_spi.c: 184: buffer_push(buffer, value);
+"184
+[e ( _buffer_push (2 , _buffer _value ]
+[; ;extended_spi.c: 186: received_1 = spi_send_get_byte(0xE0);
+"186
+[e = _received_1 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
+[; ;extended_spi.c: 187: if (received_1 == 0x30)
+"187
+[e $ ! == -> _received_1 `i -> 48 `i 416  ]
+[; ;extended_spi.c: 188: break;
+"188
+[e $U 415  ]
+[e :U 416 ]
+[; ;extended_spi.c: 189: send_delay();
+"189
+[e ( _send_delay ..  ]
+[; ;extended_spi.c: 190: received_2 = spi_send_get_byte(0xE0);
+"190
+[e = _received_2 ( _spi_send_get_byte (1 -> -> 224 `i `uc ]
+[; ;extended_spi.c: 191: if (received_2 == 0x30)
 "191
-[e :UE 405 ]
+[e $ ! == -> _received_2 `i -> 48 `i 417  ]
+[; ;extended_spi.c: 192: break;
+"192
+[e $U 415  ]
+[e :U 417 ]
+[; ;extended_spi.c: 193: send_delay();
+"193
+[e ( _send_delay ..  ]
+"194
+}
+[e :U 413 ]
+"182
+[e $ > -> ( _buffer_space (1 -> _buffer `*CS374 `i -> 30 `i 414  ]
+[e :U 415 ]
+"195
+}
+[e :U 412 ]
+[; ;extended_spi.c: 194: }
+[; ;extended_spi.c: 195: }
+[; ;extended_spi.c: 197: if (received_1 != 0x30 && received_2 != 0x30) {
+"197
+[e $ ! && != -> _received_1 `i -> 48 `i != -> _received_2 `i -> 48 `i 418  ]
+{
+[; ;extended_spi.c: 198: spi_send_get_byte(0x30);
+"198
+[e ( _spi_send_get_byte (1 -> -> 48 `i `uc ]
+[; ;extended_spi.c: 199: send_delay();
+"199
+[e ( _send_delay ..  ]
+"200
+}
+[e :U 418 ]
+"201
+}
+[e :U 411 ]
+[; ;extended_spi.c: 200: }
+[; ;extended_spi.c: 201: }
+[; ;extended_spi.c: 203: return 0;
+"203
+[e ) -> 0 `i ]
+[e $UE 410  ]
+[; ;extended_spi.c: 204: }
+"204
+[e :UE 410 ]
 }
