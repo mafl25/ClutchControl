@@ -13,6 +13,15 @@
 #ifndef EXTENDED_SERIAL_H
 #define	EXTENDED_SERIAL_H
 
+/* 
+ * This library seeks to extend the functionality of "serial_pic" in order to 
+ * have it work with an FTDI IC. It implements hardware flow control, uses 
+ * "circular_buffer" to store data, and will need to use timers to use as 
+ * timeouts in order to work properly with the FTDI chip (the user will provide
+ * function pointers to implement the timeout functionality, so he/she can 
+ * choose which timer use).
+ */
+
 /*
  * The function "eserial_setup" sets up a connection with an FTDI serial 
  * interface IC. As input, it simply takes the baudrate configuration bits
@@ -30,8 +39,9 @@ int8_t eserial_send_data(struct circular_buffer *buffer);
 /*
  * The function "eserial_receive" takes as input:
  * - A circular_buffer to store the received data.
- * - A function pointer to a function that will indicate when to stop receiving
- * data. If this functionality is not needed, just pass a NULL pointer.
+ * - A function pointer to a function that will indicate the PIC to stop 
+ * receiving data. If this functionality is not needed, just pass a NULL
+ * pointer.
  * - A function pointer to a function with int16_t as input which will start a
  * timer. This is needed because the FTDI IC keeps sending some more bytes 
  * after having de-asserted the RTS line. This function will cause the PIC to 
