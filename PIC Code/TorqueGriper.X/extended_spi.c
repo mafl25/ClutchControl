@@ -15,7 +15,7 @@
 #define READ_MASTER_SEND    PORTCbits.RC6
 #define AN_MASTER_SEND      ANSELHbits.ANS8
 
-#define WAIT_TIME       64335
+#define WAIT_TIME       54335
 #define SEND_DELAY      5
 #define _XTAL_FREQ      16000000
 
@@ -114,6 +114,11 @@ void espi_slave_send(struct circular_buffer *buffer)
         }   
 
         spi_send_get_byte(END_CHAR);
+    } else {     
+        WRITE_SLAVE_SEND = 1;
+        WRITE_SLAVE_SEND = 0;
+        
+        spi_send_get_byte(END_CHAR);
     }
 }
 
@@ -134,7 +139,7 @@ void espi_master_send(struct circular_buffer *buffer,
                         void (*timer_start)(int16_t),
                         bool (*timer)(void))
 {
-       if (buffer_count(buffer)) {
+    if (buffer_count(buffer)) {
         spi_send_get_byte(TX_CHAR);
         
         wait_pulse(TX_CHAR, timer_start, timer);
@@ -173,7 +178,7 @@ void espi_master_receive(struct circular_buffer *buffer,
                         void (*timer_start)(int16_t),
                         bool (*timer)(void))
 {
-    if (buffer_empty(buffer)) {
+    if (!buffer_full(buffer)) {
         spi_send_get_byte(RX_CHAR);
         
         wait_pulse(RX_CHAR, timer_start, timer);
