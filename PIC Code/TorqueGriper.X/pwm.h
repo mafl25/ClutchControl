@@ -35,8 +35,5 @@ void selectOutput(unsigned char outputs, unsigned char toggle);
 void pmwHalfBridgeSetUp();//For Later
 void pmwFullBridgeSetUp();//For Later
 
-
-
-
 #endif	/* PWM_H */
 

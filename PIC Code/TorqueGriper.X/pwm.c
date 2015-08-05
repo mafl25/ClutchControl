@@ -51,6 +51,7 @@ void pmwSingleModeSetUp(sModes polarity, unsigned char valuePR2, tmrPre scaler,
         TRIS_P1D = 0;
     }
     
+    setPulseWidth(0);
     PR2 = valuePR2;
 }
 
