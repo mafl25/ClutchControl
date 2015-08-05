@@ -14,7 +14,7 @@
 "37
 [v _buffer_pop buffer_pop `(i  1 e 2 0 ]
 "55
-[v _buffer_peek buffer_peek `(ui  1 e 2 0 ]
+[v _buffer_peek buffer_peek `(i  1 e 2 0 ]
 "3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
 [v _encode_data encode_data `(v  1 e 0 0 ]
 "12
@@ -35,12 +35,8 @@
 [v _spi_slave_peek_receive spi_slave_peek_receive `(uc  1 e 1 0 ]
 "111
 [v _spi_slave_get_byte spi_slave_get_byte `(i  1 e 2 0 ]
-"3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+"29 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
 [v _setup_timer3 setup_timer3 `(v  1 e 0 0 ]
-"8
-[v _set_timer3 set_timer3 `(v  1 e 0 0 ]
-"22
-[v _timer3_up timer3_up `(uc  1 e 1 0 ]
 "63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
 "88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
@@ -65,32 +61,28 @@
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"21 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+"16 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
 [v _eserial_setup eserial_setup `(v  1 e 0 0 ]
-"35
+"29
 [v _eserial_send_data eserial_send_data `(c  1 e 1 0 ]
-"51
-[v _eserial_receive eserial_receive `(v  1 e 0 0 ]
-"19 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
+"22 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
 [v _send_delay send_delay `(v  1 s 0 send_delay ]
-"24
-[v _espi_setup espi_setup `(v  1 e 0 0 ]
-"51
-[v _espi_slave_receive espi_slave_receive `(v  1 e 0 0 ]
-"78
-[v _espi_slave_send espi_slave_send `(v  1 e 0 0 ]
-"122
-[v _wait_pulse wait_pulse `(v  1 s 0 wait_pulse ]
-"22 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
-[v _return_false return_false `(uc  1 e 1 0 ]
 "27
+[v _espi_setup espi_setup `(v  1 e 0 0 ]
+"49
+[v _espi_slave_receive espi_slave_receive `(v  1 e 0 0 ]
+"76
+[v _espi_slave_send espi_slave_send `(v  1 e 0 0 ]
+"120
+[v _wait_pulse wait_pulse `(v  1 s 0 wait_pulse ]
+"27 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
 [v _main main `(i  1 e 2 0 ]
 "10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
 [v _dummy_byte dummy_byte `uc  1 s 1 dummy_byte ]
-[s S282 . 1 `uc 1 ANSEL 1 0 :8:0 
+[s S266 . 1 `uc 1 ANSEL 1 0 :8:0 
 ]
 "785 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[s S284 . 1 `uc 1 ANS0 1 0 :1:0 
+[s S268 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -99,7 +91,7 @@
 `uc 1 ANS6 1 0 :1:6 
 `uc 1 ANS7 1 0 :1:7 
 ]
-[s S293 . 1 `uc 1 ANSEL0 1 0 :1:0 
+[s S277 . 1 `uc 1 ANSEL0 1 0 :1:0 
 `uc 1 ANSEL1 1 0 :1:1 
 `uc 1 ANSEL2 1 0 :1:2 
 `uc 1 ANSEL3 1 0 :1:3 
@@ -108,77 +100,24 @@
 `uc 1 ANSEL6 1 0 :1:6 
 `uc 1 ANSEL7 1 0 :1:7 
 ]
-[u S302 . 1 `S282 1 . 1 0 `S284 1 . 1 0 `S293 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES302  1 e 1 @3966 ]
-[s S103 . 1 `uc 1 ANSELH 1 0 :4:0 
+[u S286 . 1 `S266 1 . 1 0 `S268 1 . 1 0 `S277 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES286  1 e 1 @3966 ]
+[s S88 . 1 `uc 1 ANSELH 1 0 :4:0 
 ]
 "896
-[s S105 . 1 `uc 1 ANS8 1 0 :1:0 
+[s S90 . 1 `uc 1 ANS8 1 0 :1:0 
 `uc 1 ANS9 1 0 :1:1 
 `uc 1 ANS10 1 0 :1:2 
 `uc 1 ANS11 1 0 :1:3 
 ]
-[s S110 . 1 `uc 1 ANSEL8 1 0 :1:0 
+[s S95 . 1 `uc 1 ANSEL8 1 0 :1:0 
 `uc 1 ANSEL9 1 0 :1:1 
 `uc 1 ANSEL10 1 0 :1:2 
 `uc 1 ANSEL11 1 0 :1:3 
 ]
-[u S115 . 1 `S103 1 . 1 0 `S105 1 . 1 0 `S110 1 . 1 0 ]
-[v _ANSELHbits ANSELHbits `VES115  1 e 1 @3967 ]
-[s S353 . 1 `uc 1 RC0 1 0 :1:0 
-`uc 1 RC1 1 0 :1:1 
-`uc 1 RC2 1 0 :1:2 
-`uc 1 RC3 1 0 :1:3 
-`uc 1 RC4 1 0 :1:4 
-`uc 1 RC5 1 0 :1:5 
-`uc 1 RC6 1 0 :1:6 
-`uc 1 RC7 1 0 :1:7 
-]
-"1429
-[s S1272 . 1 `uc 1 AN4 1 0 :1:0 
-`uc 1 AN5 1 0 :1:1 
-`uc 1 AN6 1 0 :1:2 
-`uc 1 AN7 1 0 :1:3 
-`uc 1 . 1 0 :2:4 
-`uc 1 AN8 1 0 :1:6 
-`uc 1 AN9 1 0 :1:7 
-]
-[s S1280 . 1 `uc 1 C12INP 1 0 :1:0 
-`uc 1 C12IN1M 1 0 :1:1 
-`uc 1 C12IN2M 1 0 :1:2 
-`uc 1 C12IN3M 1 0 :1:3 
-`uc 1 C12OUT 1 0 :1:4 
-]
-[s S1286 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 P1D 1 0 :1:2 
-`uc 1 P1C 1 0 :1:3 
-`uc 1 P1B 1 0 :1:4 
-`uc 1 P1A 1 0 :1:5 
-`uc 1 SS 1 0 :1:6 
-`uc 1 SDO 1 0 :1:7 
-]
-[s S1294 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 NOT_SS 1 0 :1:6 
-]
-[s S1297 . 1 `uc 1 C2INP 1 0 :1:0 
-`uc 1 . 1 0 :2:1 
-`uc 1 PGM 1 0 :1:3 
-`uc 1 C2OUT 1 0 :1:4 
-`uc 1 CCP1 1 0 :1:5 
-`uc 1 nSS 1 0 :1:6 
-]
-[s S1304 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 CCP2 1 0 :1:1 
-]
-[s S1307 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 PA1 1 0 :1:2 
-]
-[s S1310 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 PA2 1 0 :1:1 
-]
-[u S1313 . 1 `S353 1 . 1 0 `S1272 1 . 1 0 `S1280 1 . 1 0 `S1286 1 . 1 0 `S1294 1 . 1 0 `S1297 1 . 1 0 `S1304 1 . 1 0 `S1307 1 . 1 0 `S1310 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES1313  1 e 1 @3970 ]
-[s S1029 . 1 `uc 1 LATA0 1 0 :1:0 
+[u S100 . 1 `S88 1 . 1 0 `S90 1 . 1 0 `S95 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES100  1 e 1 @3967 ]
+[s S1106 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -186,35 +125,35 @@
 `uc 1 LATA5 1 0 :1:5 
 ]
 "1653
-[s S1036 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1113 . 1 `uc 1 LA0 1 0 :1:0 
 ]
-[s S1038 . 1 `uc 1 . 1 0 :1:0 
+[s S1115 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 ]
-[s S1041 . 1 `uc 1 . 1 0 :2:0 
+[s S1118 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LA2 1 0 :1:2 
 ]
-[s S1044 . 1 `uc 1 . 1 0 :3:0 
+[s S1121 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LA3 1 0 :1:3 
 ]
-[s S1047 . 1 `uc 1 . 1 0 :4:0 
+[s S1124 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LA4 1 0 :1:4 
 ]
-[s S1050 . 1 `uc 1 . 1 0 :5:0 
+[s S1127 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LA5 1 0 :1:5 
 ]
-[s S1053 . 1 `uc 1 . 1 0 :6:0 
+[s S1130 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LA6 1 0 :1:6 
 ]
-[s S1056 . 1 `uc 1 . 1 0 :7:0 
+[s S1133 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LA7 1 0 :1:7 
 ]
-[s S1059 . 1 `uc 1 . 1 0 :7:0 
+[s S1136 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LATA7 1 0 :1:7 
 ]
-[u S1062 . 1 `S1029 1 . 1 0 `S1036 1 . 1 0 `S1038 1 . 1 0 `S1041 1 . 1 0 `S1044 1 . 1 0 `S1047 1 . 1 0 `S1050 1 . 1 0 `S1053 1 . 1 0 `S1056 1 . 1 0 `S1059 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1062  1 e 1 @3977 ]
-[s S385 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S1139 . 1 `S1106 1 . 1 0 `S1113 1 . 1 0 `S1115 1 . 1 0 `S1118 1 . 1 0 `S1121 1 . 1 0 `S1124 1 . 1 0 `S1127 1 . 1 0 `S1130 1 . 1 0 `S1133 1 . 1 0 `S1136 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1139  1 e 1 @3977 ]
+[s S369 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -224,32 +163,32 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1884
-[s S394 . 1 `uc 1 LC0 1 0 :1:0 
+[s S378 . 1 `uc 1 LC0 1 0 :1:0 
 ]
-[s S396 . 1 `uc 1 . 1 0 :1:0 
+[s S380 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 ]
-[s S399 . 1 `uc 1 . 1 0 :2:0 
+[s S383 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LC2 1 0 :1:2 
 ]
-[s S402 . 1 `uc 1 . 1 0 :3:0 
+[s S386 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LC3 1 0 :1:3 
 ]
-[s S405 . 1 `uc 1 . 1 0 :4:0 
+[s S389 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LC4 1 0 :1:4 
 ]
-[s S408 . 1 `uc 1 . 1 0 :5:0 
+[s S392 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LC5 1 0 :1:5 
 ]
-[s S411 . 1 `uc 1 . 1 0 :6:0 
+[s S395 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LC6 1 0 :1:6 
 ]
-[s S414 . 1 `uc 1 . 1 0 :7:0 
+[s S398 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S417 . 1 `S385 1 . 1 0 `S394 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 `S414 1 . 1 0 ]
-[v _LATCbits LATCbits `VES417  1 e 1 @3979 ]
-[s S997 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S401 . 1 `S369 1 . 1 0 `S378 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 `S386 1 . 1 0 `S389 1 . 1 0 `S392 1 . 1 0 `S395 1 . 1 0 `S398 1 . 1 0 ]
+[v _LATCbits LATCbits `VES401  1 e 1 @3979 ]
+[s S1074 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -257,31 +196,31 @@
 `uc 1 TRISA5 1 0 :1:5 
 ]
 "1996
-[s S1004 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1081 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 RA4 1 0 :1:4 
 `uc 1 RA5 1 0 :1:5 
 ]
-[u S1011 . 1 `S997 1 . 1 0 `S1004 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES1011  1 e 1 @3986 ]
-[s S712 . 1 `uc 1 . 1 0 :4:0 
+[u S1088 . 1 `S1074 1 . 1 0 `S1081 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES1088  1 e 1 @3986 ]
+[s S769 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TRISB4 1 0 :1:4 
 `uc 1 TRISB5 1 0 :1:5 
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2147
-[s S718 . 1 `uc 1 . 1 0 :4:0 
+[s S775 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RB4 1 0 :1:4 
 `uc 1 RB5 1 0 :1:5 
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S724 . 1 `S712 1 . 1 0 `S718 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES724  1 e 1 @3987 ]
-[s S344 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S781 . 1 `S769 1 . 1 0 `S775 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES781  1 e 1 @3987 ]
+[s S328 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -291,9 +230,18 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "2282
-[u S362 . 1 `S344 1 . 1 0 `S353 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES362  1 e 1 @3988 ]
-[s S622 . 1 `uc 1 . 1 0 :1:0 
+[s S337 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S346 . 1 `S328 1 . 1 0 `S337 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES346  1 e 1 @3988 ]
+[s S664 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -303,12 +251,12 @@
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "2780
-[s S631 . 1 `uc 1 . 1 0 :6:0 
+[s S673 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIE 1 0 :1:6 
 ]
-[u S634 . 1 `S622 1 . 1 0 `S631 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES634  1 e 1 @4000 ]
-[s S592 . 1 `uc 1 . 1 0 :1:0 
+[u S676 . 1 `S664 1 . 1 0 `S673 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES676  1 e 1 @4000 ]
+[s S635 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -318,14 +266,14 @@
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "2840
-[s S601 . 1 `uc 1 . 1 0 :6:0 
+[s S644 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIF 1 0 :1:6 
 ]
-[u S604 . 1 `S592 1 . 1 0 `S601 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES604  1 e 1 @4001 ]
+[u S647 . 1 `S635 1 . 1 0 `S644 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES647  1 e 1 @4001 ]
 "3077
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S149 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S134 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -335,22 +283,22 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3118
-[s S158 . 1 `uc 1 . 1 0 :3:0 
+[s S143 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S161 . 1 `uc 1 . 1 0 :5:0 
+[s S146 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S164 . 1 `uc 1 . 1 0 :6:0 
+[s S149 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S167 . 1 `uc 1 . 1 0 :6:0 
+[s S152 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S170 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S155 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S172 . 1 `S149 1 . 1 0 `S158 1 . 1 0 `S161 1 . 1 0 `S164 1 . 1 0 `S167 1 . 1 0 `S170 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES172  1 e 1 @4011 ]
+[u S157 . 1 `S134 1 . 1 0 `S143 1 . 1 0 `S146 1 . 1 0 `S149 1 . 1 0 `S152 1 . 1 0 `S155 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES157  1 e 1 @4011 ]
 "3286
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
 "3583
@@ -369,30 +317,30 @@
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
 "4841
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
-[s S742 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S799 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4861
-[s S748 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S805 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S753 . 1 `S742 1 . 1 0 `S748 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES753  1 e 1 @4038 ]
+[u S810 . 1 `S799 1 . 1 0 `S805 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES810  1 e 1 @4038 ]
 "4910
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
-[s S768 . 1 `uc 1 . 1 0 :2:0 
+[s S825 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "4997
-[s S771 . 1 `uc 1 . 1 0 :5:0 
+[s S828 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S774 . 1 `uc 1 BF 1 0 :1:0 
+[s S831 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -401,60 +349,64 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S783 . 1 `uc 1 . 1 0 :2:0 
+[s S840 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S788 . 1 `uc 1 . 1 0 :2:0 
+[s S845 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S793 . 1 `uc 1 . 1 0 :2:0 
+[s S850 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S798 . 1 `uc 1 . 1 0 :2:0 
+[s S855 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S803 . 1 `uc 1 . 1 0 :2:0 
+[s S860 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S806 . 1 `uc 1 . 1 0 :5:0 
+[s S863 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S809 . 1 `uc 1 . 1 0 :2:0 
+[s S866 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S814 . 1 `uc 1 . 1 0 :5:0 
+[s S871 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S817 . 1 `uc 1 . 1 0 :2:0 
+[s S874 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 ]
-[s S820 . 1 `uc 1 . 1 0 :3:0 
+[s S877 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START 1 0 :1:3 
 ]
-[s S823 . 1 `uc 1 . 1 0 :4:0 
+[s S880 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP 1 0 :1:4 
 ]
-[s S826 . 1 `uc 1 . 1 0 :2:0 
+[s S883 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S829 . 1 `uc 1 . 1 0 :5:0 
+[s S886 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S832 . 1 `S768 1 . 1 0 `S771 1 . 1 0 `S774 1 . 1 0 `S783 1 . 1 0 `S788 1 . 1 0 `S793 1 . 1 0 `S798 1 . 1 0 `S803 1 . 1 0 `S806 1 . 1 0 `S809 1 . 1 0 `S814 1 . 1 0 `S817 1 . 1 0 `S820 1 . 1 0 `S823 1 . 1 0 `S826 1 . 1 0 `S829 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES832  1 e 1 @4039 ]
+[u S889 . 1 `S825 1 . 1 0 `S828 1 . 1 0 `S831 1 . 1 0 `S840 1 . 1 0 `S845 1 . 1 0 `S850 1 . 1 0 `S855 1 . 1 0 `S860 1 . 1 0 `S863 1 . 1 0 `S866 1 . 1 0 `S871 1 . 1 0 `S874 1 . 1 0 `S877 1 . 1 0 `S880 1 . 1 0 `S883 1 . 1 0 `S886 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES889  1 e 1 @4039 ]
 "5147
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
-[s S1223 . 1 `uc 1 INT1IF 1 0 :1:0 
+"5732
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"5801
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+[s S1300 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -464,7 +416,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6085
-[s S1232 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S1309 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -473,13 +425,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S1241 . 1 `S1223 1 . 1 0 `S1232 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES1241  1 e 1 @4080 ]
-[s S1172 . 1 `uc 1 . 1 0 :7:0 
+[u S1318 . 1 `S1300 1 . 1 0 `S1309 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1318  1 e 1 @4080 ]
+[s S1249 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RABPU 1 0 :1:7 
 ]
 "6183
-[s S1175 . 1 `uc 1 RABIP 1 0 :1:0 
+[s S1252 . 1 `uc 1 RABIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -488,20 +440,48 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRABPU 1 0 :1:7 
 ]
-[s S1184 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S1261 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RABPU 1 0 :1:7 
 ]
-[s S1188 . 1 `uc 1 . 1 0 :7:0 
+[s S1265 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
-[s S1191 . 1 `uc 1 . 1 0 :7:0 
+[s S1268 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[u S1194 . 1 `S1172 1 . 1 0 `S1175 1 . 1 0 `S1184 1 . 1 0 `S1188 1 . 1 0 `S1191 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES1194  1 e 1 @4081 ]
+[u S1271 . 1 `S1249 1 . 1 0 `S1252 1 . 1 0 `S1261 1 . 1 0 `S1265 1 . 1 0 `S1268 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1271  1 e 1 @4081 ]
 "6242
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S576 . 1 `uc 1 RABIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RABIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6278
+[s S585 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S594 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S598 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PIE 1 0 :1:6 
+]
+[u S601 . 1 `S576 1 . 1 0 `S585 1 . 1 0 `S594 1 . 1 0 `S598 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES601  1 e 1 @4082 ]
 "6971
 [v _INT2IF INT2IF `VEb  1 e 0 @32641 ]
 "7325
@@ -515,45 +495,54 @@
 "27 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"41
-[v main@value_102 value `i  1 a 2 17 ]
+"38
+[v main@value_87 value `i  1 a 2 51 ]
 [s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"29
-[v main@pic_to_pic pic_to_pic `S27  1 a 34 53 ]
 "30
-[v main@pic_to_pc pic_to_pc `S27  1 a 34 19 ]
+[v main@pic_to_pc pic_to_pc `S27  1 a 34 53 ]
 "29
-[v main@F4041 F4041 `S27  1 s 34 F4041 ]
+[v main@pic_to_pic pic_to_pic `S27  1 a 34 17 ]
+[v main@F4057 F4057 `S27  1 s 34 F4057 ]
 "30
-[v main@F4043 F4043 `S27  1 s 34 F4043 ]
-"56
+[v main@F4059 F4059 `S27  1 s 34 F4059 ]
+"57
 } 0
-"3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
+"42 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+[v _spi_slave_peek_receive spi_slave_peek_receive `(uc  1 e 1 0 ]
+{
+[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
+[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
+[v spi_slave_peek_receive@byte byte `*.39i  1 p 2 3 ]
+"44
+[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 5 ]
+"54
+} 0
+"29 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
 [v _setup_timer3 setup_timer3 `(v  1 e 0 0 ]
 {
 [v setup_timer3@T3CON_reg T3CON_reg `uc  1 a 1 wreg ]
 [v setup_timer3@T3CON_reg T3CON_reg `uc  1 a 1 wreg ]
-"5
+"31
 [v setup_timer3@T3CON_reg T3CON_reg `uc  1 a 1 0 ]
-"6
+"32
 } 0
-"78 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
+"76 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
 [v _espi_slave_send espi_slave_send `(v  1 e 0 0 ]
 {
-"94
+"92
 [v espi_slave_send@received_2 received_2 `i  1 a 2 15 ]
-"90
+"88
 [v espi_slave_send@received_1 received_1 `i  1 a 2 13 ]
-"81
+"79
 [v espi_slave_send@byte_to_send byte_to_send `ui  1 a 2 9 ]
-"83
+"81
 [v espi_slave_send@byte_2 byte_2 `uc  1 a 1 12 ]
-"82
+"80
 [v espi_slave_send@byte_1 byte_1 `uc  1 a 1 11 ]
 [s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"78
+"76
 [v espi_slave_send@buffer buffer `*.39S27  1 p 2 6 ]
-"120
+"118
 } 0
 "3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
 [v _encode_data encode_data `(v  1 e 0 0 ]
@@ -567,7 +556,7 @@
 "10
 } 0
 "55 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-[v _buffer_peek buffer_peek `(ui  1 e 2 0 ]
+[v _buffer_peek buffer_peek `(i  1 e 2 0 ]
 {
 "61
 [v buffer_peek@byte byte `i  1 a 2 4 ]
@@ -583,21 +572,28 @@
 [v buffer_count@buffer buffer `*.39CS27  1 p 2 0 ]
 "7
 } 0
-"51 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
+"49 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
 [v _espi_slave_receive espi_slave_receive `(v  1 e 0 0 ]
 {
-"55
-[v espi_slave_receive@received_2 received_2 `c  1 a 1 9 ]
-"54
-[v espi_slave_receive@received_1 received_1 `c  1 a 1 8 ]
 "53
+[v espi_slave_receive@received_2 received_2 `c  1 a 1 9 ]
+"52
+[v espi_slave_receive@received_1 received_1 `c  1 a 1 8 ]
+"51
 [v espi_slave_receive@value value `uc  1 a 1 7 ]
 [s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"51
+"49
 [v espi_slave_receive@buffer buffer `*.39S27  1 p 2 5 ]
-"76
+"74
 } 0
-"33 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+"111 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+[v _spi_slave_get_byte spi_slave_get_byte `(i  1 e 2 0 ]
+{
+"114
+[v spi_slave_get_byte@byte byte `uc  1 a 1 2 ]
+"121
+} 0
+"33
 [v _spi_send_get_byte spi_send_get_byte `(uc  1 e 1 0 ]
 {
 [v spi_send_get_byte@byte byte `uc  1 a 1 wreg ]
@@ -613,136 +609,6 @@
 [v decode_data@byte_1 byte_1 `uc  1 p 1 2 ]
 [v decode_data@byte_2 byte_2 `uc  1 p 1 3 ]
 "22
-} 0
-"24 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
-[v _espi_setup espi_setup `(v  1 e 0 0 ]
-{
-[v espi_setup@mode mode `uc  1 a 1 wreg ]
-[v espi_setup@mode mode `uc  1 a 1 wreg ]
-"26
-[v espi_setup@mode mode `uc  1 a 1 2 ]
-"44
-} 0
-"12 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-[v _setup_spi setup_spi `(v  1 e 0 0 ]
-{
-[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 wreg ]
-[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 wreg ]
-[v setup_spi@SSPCON1_reg SSPCON1_reg `uc  1 p 1 0 ]
-"14
-[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 1 ]
-"31
-} 0
-"21 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
-[v _eserial_setup eserial_setup `(v  1 e 0 0 ]
-{
-[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
-[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
-[v eserial_setup@baudrate_value baudrate_value `ui  1 p 2 7 ]
-"23
-[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 9 ]
-"32
-} 0
-"18 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
-[v _setup_simple_serial setup_simple_serial `(v  1 e 0 0 ]
-{
-[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
-[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
-[v setup_simple_serial@baudrate_value baudrate_value `ui  1 p 2 0 ]
-"20
-[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 6 ]
-"27
-} 0
-"35 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
-[v _eserial_send_data eserial_send_data `(c  1 e 1 0 ]
-{
-"41
-[v eserial_send_data@value value `i  1 a 2 9 ]
-"40
-[v eserial_send_data@i i `c  1 a 1 8 ]
-[s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"35
-[v eserial_send_data@buffer buffer `*.39S27  1 p 2 6 ]
-"49
-} 0
-"66 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
-[v _serial_send_byte serial_send_byte `(v  1 e 0 0 ]
-{
-[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
-[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
-[v serial_send_byte@byte byte `uc  1 a 1 0 ]
-"70
-} 0
-"37 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-[v _buffer_pop buffer_pop `(i  1 e 2 0 ]
-{
-"43
-[v buffer_pop@byte byte `i  1 a 2 4 ]
-[s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"37
-[v buffer_pop@buffer buffer `*.39S27  1 p 2 0 ]
-"48
-} 0
-"51 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
-[v _eserial_receive eserial_receive `(v  1 e 0 0 ]
-{
-"67
-[v eserial_receive@test test `uc  1 a 1 15 ]
-"57
-[v eserial_receive@value value `uc  1 a 1 16 ]
-[s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-"51
-[v eserial_receive@buffer buffer `*.39S27  1 p 2 6 ]
-"52
-[v eserial_receive@stop_function stop_function `*.37(uc  1 p 2 8 ]
-"53
-[v eserial_receive@timer_start timer_start `*.37(v  1 p 2 10 ]
-"54
-[v eserial_receive@timer_up timer_up `*.37(uc  1 p 2 12 ]
-"86
-} 0
-"22 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-[v _timer3_up timer3_up `(uc  1 e 1 0 ]
-{
-"25
-} 0
-"8
-[v _set_timer3 set_timer3 `(v  1 e 0 0 ]
-{
-[v set_timer3@value value `i  1 p 2 0 ]
-"12
-} 0
-"29 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
-[v _serial_peek_receive serial_peek_receive `(uc  1 e 1 0 ]
-{
-[v serial_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
-[v serial_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
-[v serial_peek_receive@byte byte `*.39uc  1 p 2 0 ]
-"31
-[v serial_peek_receive@get_byte get_byte `uc  1 a 1 2 ]
-"41
-} 0
-"22 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\main.c
-[v _return_false return_false `(uc  1 e 1 0 ]
-{
-"25
-} 0
-"42 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-[v _spi_slave_peek_receive spi_slave_peek_receive `(uc  1 e 1 0 ]
-{
-[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
-[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 wreg ]
-[v spi_slave_peek_receive@byte byte `*.39i  1 p 2 3 ]
-"44
-[v spi_slave_peek_receive@get_byte get_byte `uc  1 a 1 5 ]
-"54
-} 0
-"111
-[v _spi_slave_get_byte spi_slave_get_byte `(i  1 e 2 0 ]
-{
-"114
-[v spi_slave_get_byte@byte byte `uc  1 a 1 2 ]
-"121
 } 0
 "9 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
 [v _buffer_space buffer_space `(uc  1 e 1 0 ]
@@ -762,10 +628,72 @@
 [v buffer_push@byte byte `uc  1 p 1 2 ]
 "35
 } 0
-"14
-[v _buffer_empty buffer_empty `(uc  1 e 1 0 ]
+"27 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_spi.c
+[v _espi_setup espi_setup `(v  1 e 0 0 ]
 {
+[v espi_setup@mode mode `uc  1 a 1 wreg ]
+[v espi_setup@mode mode `uc  1 a 1 wreg ]
+"29
+[v espi_setup@mode mode `uc  1 a 1 2 ]
+"47
+} 0
+"12 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
+[v _setup_spi setup_spi `(v  1 e 0 0 ]
+{
+[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 wreg ]
+[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 wreg ]
+[v setup_spi@SSPCON1_reg SSPCON1_reg `uc  1 p 1 0 ]
+"14
+[v setup_spi@SSPSTAT_reg SSPSTAT_reg `uc  1 a 1 1 ]
+"31
+} 0
+"16 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_setup eserial_setup `(v  1 e 0 0 ]
+{
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v eserial_setup@baudrate_value baudrate_value `ui  1 p 2 7 ]
+"18
+[v eserial_setup@baudrate_bits baudrate_bits `uc  1 a 1 9 ]
+"27
+} 0
+"18 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _setup_simple_serial setup_simple_serial `(v  1 e 0 0 ]
+{
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 wreg ]
+[v setup_simple_serial@baudrate_value baudrate_value `ui  1 p 2 0 ]
+"20
+[v setup_simple_serial@baudrate_bits baudrate_bits `uc  1 a 1 6 ]
+"27
+} 0
+"29 D:\Documents\ClutchControl\PIC Code\TorqueGriper.X\extended_serial.c
+[v _eserial_send_data eserial_send_data `(c  1 e 1 0 ]
+{
+"35
+[v eserial_send_data@value value `i  1 a 2 9 ]
+"34
+[v eserial_send_data@i i `c  1 a 1 8 ]
 [s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
-[v buffer_empty@buffer buffer `*.39CS27  1 p 2 0 ]
-"17
+"29
+[v eserial_send_data@buffer buffer `*.39S27  1 p 2 6 ]
+"43
+} 0
+"66 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
+[v _serial_send_byte serial_send_byte `(v  1 e 0 0 ]
+{
+[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
+[v serial_send_byte@byte byte `uc  1 a 1 wreg ]
+[v serial_send_byte@byte byte `uc  1 a 1 0 ]
+"70
+} 0
+"37 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
+[v _buffer_pop buffer_pop `(i  1 e 2 0 ]
+{
+"43
+[v buffer_pop@byte byte `i  1 a 2 4 ]
+[s S27 circular_buffer 34 `uc 1 position 1 0 `uc 1 count 1 1 `[32]uc 1 data 32 2 ]
+"37
+[v buffer_pop@buffer buffer `*.39S27  1 p 2 0 ]
+"48
 } 0

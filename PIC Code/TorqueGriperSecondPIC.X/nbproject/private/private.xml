@@ -5,7 +5,7 @@
             <url>main.c</url>
             <bookmark id="1">
                 <name/>
-                <line>13</line>
+                <line>15</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,10 +13,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Documents/ClutchControl/PIC%20Code/TorqueGriperSecondPIC.X/main.c</file>
-            <file>file:/D:/Documents/ClutchControl/PIC%20Code/TorqueGriper.X/extended_spi.h</file>
-            <file>file:/D:/Documents/ClutchControl/PIC%20Code/TorqueGriper.X/extended_spi.c</file>
-            <file>file:/C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.h</file>
-            <file>file:/C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c</file>
         </group>
     </open-files>
 </project-private>

@@ -5,7 +5,7 @@ Linker command line:
 -W9 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
   -h+dist/default/production\TorqueGriper.X.production.sym \
   --cmf=dist/default/production\TorqueGriper.X.production.cmf -z -Q18F13K22 \
-  -oC:\Users\Manuel\AppData\Local\Temp\s53c.6 \
+  -oC:\Users\Manuel\AppData\Local\Temp\s3us.6 \
   -Mdist/default/production/TorqueGriper.X.production.map -E1 -ver=XC8 \
   -ASTACK=0A4h-0ffh -pstack=STACK -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
   -ASMALLCONST=0100h-01FFhx31 -AMEDIUMCONST=0100h-01FFFh -ACOMRAM=01h-05Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Manuel\AppData\Local\Temp\s53c.obj \
+  C:\Users\Manuel\AppData\Local\Temp\s3us.obj \
   dist/default/production\TorqueGriper.X.production.obj 
 
 Object code version is 3.11
@@ -32,74 +32,74 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Manuel\AppData\Local\Temp\s53c.obj
+C:\Users\Manuel\AppData\Local\Temp\s3us.obj
                 end_init                              0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\TorqueGriper.X.production.obj
-                text25                             18C0     18C0       1C      C60       0
-                text24                             1B52     1B52       66      DA9       0
-                text23                             1892     1892       16      C49       0
-                text22                             18F8     18F8       1E      C7C       0
-                text21                             197C     197C       3A      CBE       0
-                text20                             185A     185A       12      C2D       0
-                text19                             1916     1916       2E      C8B       0
-                text18                             1832     1832        C      C19       0
-                text17                             183E     183E        E      C1F       0
-                text16                             1D86     1D86      12C      EC3       0
-                text15                             1BB8     1BB8       7A      DDC       0
-                text14                             184C     184C        E      C26       0
-                text13                             1A30     1A30       44      D18       0
-                text12                             1A74     1A74       46      D3A       0
-                text11                             18DC     18DC       1C      C6E       0
-                text10                             19F2     19F2       3E      CF9       0
-                text9                              1944     1944       38      CA2       0
-                text8                              19B6     19B6       3C      CDB       0
-                text7                              187E     187E       14      C3F       0
-                text6                              1C32     1C32       9A      E19       0
-                text5                              186C     186C       12      C36       0
-                text4                              1B00     1B00       52      D80       0
-                text3                              1ABA     1ABA       46      D5D       0
-                text2                              1EB2     1EB2      14E      F59       0
-                text1                              182A     182A        8      C15       0
+                text25                             18B4     18B4       1C      C5A       0
+                text24                             1B46     1B46       66      DA3       0
+                text23                             1886     1886       16      C43       0
+                text22                             18EC     18EC       1E      C76       0
+                text21                             1970     1970       3A      CB8       0
+                text20                             184E     184E       12      C27       0
+                text19                             190A     190A       2E      C85       0
+                text18                             1826     1826        C      C13       0
+                text17                             1832     1832        E      C19       0
+                text16                             1D7A     1D7A      12C      EBD       0
+                text15                             1BAC     1BAC       7A      DD6       0
+                text14                             1840     1840        E      C20       0
+                text13                             1A24     1A24       44      D12       0
+                text12                             1A68     1A68       46      D34       0
+                text11                             18D0     18D0       1C      C68       0
+                text10                             19E6     19E6       3E      CF3       0
+                text9                              1938     1938       38      C9C       0
+                text8                              19AA     19AA       3C      CD5       0
+                text7                              1872     1872       14      C39       0
+                text6                              1C26     1C26       9A      E13       0
+                text5                              1860     1860       12      C30       0
+                text4                              1AF4     1AF4       52      D7A       0
+                text3                              1AAE     1AAE       46      D57       0
+                text2                              1EA6     1EA6      15A      F53       0
+                text1                              181E     181E        8      C0F       0
                 cstackCOMRAM                          1        1       57        1       1
                 bssBANK0                             60       60       44       60       1
                 bssCOMRAM                            58       58        1        1       1
-                cinit                              18A8     18A8       18      C54       0
-                text0                              1CCC     1CCC       BA      E66       0
+                cinit                              189C     189C       18      C4E       0
+                text0                              1CC0     1CC0       BA      E60       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        4         0
-                text25                             18C0     18C0       1C         0
-                text24                             1B52     1B52       66         0
-                text23                             1892     1892       16         0
-                text22                             18F8     18F8       1E         0
-                text21                             197C     197C       3A         0
-                text20                             185A     185A       12         0
-                text19                             1916     1916       2E         0
-                text18                             1832     1832        C         0
-                text17                             183E     183E        E         0
-                text16                             1D86     1D86      12C         0
-                text15                             1BB8     1BB8       7A         0
-                text14                             184C     184C        E         0
-                text13                             1A30     1A30       44         0
-                text12                             1A74     1A74       46         0
-                text11                             18DC     18DC       1C         0
-                text10                             19F2     19F2       3E         0
-                text9                              1944     1944       38         0
-                text8                              19B6     19B6       3C         0
-                text7                              187E     187E       14         0
-                text6                              1C32     1C32       9A         0
-                text5                              186C     186C       12         0
-                text4                              1B00     1B00       52         0
-                text3                              1ABA     1ABA       46         0
-                text2                              1EB2     1EB2      14E         0
-                text1                              182A     182A        8         0
-                cinit                              18A8     18A8       18         0
-                text0                              1CCC     1CCC       BA         0
+                text25                             18B4     18B4       1C         0
+                text24                             1B46     1B46       66         0
+                text23                             1886     1886       16         0
+                text22                             18EC     18EC       1E         0
+                text21                             1970     1970       3A         0
+                text20                             184E     184E       12         0
+                text19                             190A     190A       2E         0
+                text18                             1826     1826        C         0
+                text17                             1832     1832        E         0
+                text16                             1D7A     1D7A      12C         0
+                text15                             1BAC     1BAC       7A         0
+                text14                             1840     1840        E         0
+                text13                             1A24     1A24       44         0
+                text12                             1A68     1A68       46         0
+                text11                             18D0     18D0       1C         0
+                text10                             19E6     19E6       3E         0
+                text9                              1938     1938       38         0
+                text8                              19AA     19AA       3C         0
+                text7                              1872     1872       14         0
+                text6                              1C26     1C26       9A         0
+                text5                              1860     1860       12         0
+                text4                              1AF4     1AF4       52         0
+                text3                              1AAE     1AAE       46         0
+                text2                              1EA6     1EA6      15A         0
+                text1                              181E     181E        8         0
+                cinit                              189C     189C       18         0
+                text0                              1CC0     1CC0       BA         0
 
         CLASS   CONST          
 
@@ -139,33 +139,33 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000058  000059         1       1  COMRAM  
                 bssBANK0                       000060  000044  0000A4        60       1  BANK0   
-                text1                          00182A  000008  001832       C15       0  CODE    
-                text18                         001832  00000C  00183E       C19       0  CODE    
-                text17                         00183E  00000E  00184C       C1F       0  CODE    
-                text14                         00184C  00000E  00185A       C26       0  CODE    
-                text20                         00185A  000012  00186C       C2D       0  CODE    
-                text5                          00186C  000012  00187E       C36       0  CODE    
-                text7                          00187E  000014  001892       C3F       0  CODE    
-                text23                         001892  000016  0018A8       C49       0  CODE    
-                cinit                          0018A8  000018  0018C0       C54       0  CODE    
-                text25                         0018C0  00001C  0018DC       C60       0  CODE    
-                text11                         0018DC  00001C  0018F8       C6E       0  CODE    
-                text22                         0018F8  00001E  001916       C7C       0  CODE    
-                text19                         001916  00002E  001944       C8B       0  CODE    
-                text9                          001944  000038  00197C       CA2       0  CODE    
-                text21                         00197C  00003A  0019B6       CBE       0  CODE    
-                text8                          0019B6  00003C  0019F2       CDB       0  CODE    
-                text10                         0019F2  00003E  001A30       CF9       0  CODE    
-                text13                         001A30  000044  001A74       D18       0  CODE    
-                text12                         001A74  000046  001ABA       D3A       0  CODE    
-                text3                          001ABA  000046  001B00       D5D       0  CODE    
-                text4                          001B00  000052  001B52       D80       0  CODE    
-                text24                         001B52  000066  001BB8       DA9       0  CODE    
-                text15                         001BB8  00007A  001C32       DDC       0  CODE    
-                text6                          001C32  00009A  001CCC       E19       0  CODE    
-                text0                          001CCC  0000BA  001D86       E66       0  CODE    
-                text16                         001D86  00012C  001EB2       EC3       0  CODE    
-                text2                          001EB2  00014E  002000       F59       0  CODE    
+                text1                          00181E  000008  001826       C0F       0  CODE    
+                text18                         001826  00000C  001832       C13       0  CODE    
+                text17                         001832  00000E  001840       C19       0  CODE    
+                text14                         001840  00000E  00184E       C20       0  CODE    
+                text20                         00184E  000012  001860       C27       0  CODE    
+                text5                          001860  000012  001872       C30       0  CODE    
+                text7                          001872  000014  001886       C39       0  CODE    
+                text23                         001886  000016  00189C       C43       0  CODE    
+                cinit                          00189C  000018  0018B4       C4E       0  CODE    
+                text25                         0018B4  00001C  0018D0       C5A       0  CODE    
+                text11                         0018D0  00001C  0018EC       C68       0  CODE    
+                text22                         0018EC  00001E  00190A       C76       0  CODE    
+                text19                         00190A  00002E  001938       C85       0  CODE    
+                text9                          001938  000038  001970       C9C       0  CODE    
+                text21                         001970  00003A  0019AA       CB8       0  CODE    
+                text8                          0019AA  00003C  0019E6       CD5       0  CODE    
+                text10                         0019E6  00003E  001A24       CF3       0  CODE    
+                text13                         001A24  000044  001A68       D12       0  CODE    
+                text12                         001A68  000046  001AAE       D34       0  CODE    
+                text3                          001AAE  000046  001AF4       D57       0  CODE    
+                text4                          001AF4  000052  001B46       D7A       0  CODE    
+                text24                         001B46  000066  001BAC       DA3       0  CODE    
+                text15                         001BAC  00007A  001C26       DD6       0  CODE    
+                text6                          001C26  00009A  001CC0       E13       0  CODE    
+                text0                          001CC0  0000BA  001D7A       E60       0  CODE    
+                text16                         001D7A  00012C  001EA6       EBD       0  CODE    
+                text2                          001EA6  00015A  002000       F53       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -176,14 +176,14 @@ UNUSED ADDRESS RANGES
         BANK0            0000A4-0000FF               5C
         BIGRAM           000059-00005F                7
                          0000A4-0000FF               5C
-        CODE             000004-001829             1826
+        CODE             000004-00181D             181A
         COMRAM           000059-00005F                7
-        CONST            000004-001829             1826
+        CONST            000004-00181D             181A
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000100-001829             172A
+        MEDIUMCONST      000100-00181D             171E
         RAM              0000A4-0000FF               5C
         SFR              000F60-000FFF               A0
-        SMALLCONST       000100-001829              100
+        SMALLCONST       000100-00181D              100
         STACK            0000A4-0000FF               5C
 
                                   Symbol Table
@@ -198,11 +198,11 @@ _INT2IF                            (abs)        007F81
 _INTCON                            (abs)        000FF2
 _INTCON2bits                       (abs)        000FF1
 _INTCON3bits                       (abs)        000FF0
+_INTCONbits                        (abs)        000FF2
 _LATAbits                          (abs)        000F89
 _LATCbits                          (abs)        000F8B
 _PIE2bits                          (abs)        000FA0
 _PIR2bits                          (abs)        000FA1
-_PORTCbits                         (abs)        000F82
 _RCIE                              (abs)        007CED
 _RCIF                              (abs)        007CF5
 _RCREG                             (abs)        000FAE
@@ -215,7 +215,9 @@ _SSPCON1                           (abs)        000FC6
 _SSPCON1bits                       (abs)        000FC6
 _SSPSTAT                           (abs)        000FC7
 _SSPSTATbits                       (abs)        000FC7
+_T0CON                             (abs)        000FD5
 _T3CON                             (abs)        000FB1
+_TMR0                              (abs)        000FD6
 _TMR3                              (abs)        000FB2
 _TRISAbits                         (abs)        000F92
 _TRISBbits                         (abs)        000F93
@@ -398,66 +400,66 @@ ___rparam_used                     (abs)        000001
 ___sp                              stack        000000
 __accesstop                        (abs)        000060
 __activetblptr                     (abs)        000002
-__end_of__initialization           cinit        0018B6
-__end_of_buffer_count              text5        00187E
-__end_of_buffer_empty              text25       0018DC
-__end_of_buffer_peek               text4        001B52
-__end_of_buffer_pop                text15       001C32
-__end_of_buffer_push               text24       001BB8
-__end_of_buffer_space              text23       0018A8
-__end_of_decode_data               text8        0019F2
-__end_of_encode_data               text3        001B00
-__end_of_eserial_receive           text16       001EB2
-__end_of_eserial_send_data         text13       001A74
-__end_of_eserial_setup             text11       0018F8
-__end_of_espi_setup                text9        00197C
-__end_of_espi_slave_receive        text6        001CCC
+__end_of__initialization           cinit        0018AA
+__end_of_buffer_count              text5        001872
+__end_of_buffer_empty              text25       0018D0
+__end_of_buffer_peek               text4        001B46
+__end_of_buffer_pop                text15       001C26
+__end_of_buffer_push               text24       001BAC
+__end_of_buffer_space              text23       00189C
+__end_of_decode_data               text8        0019E6
+__end_of_encode_data               text3        001AF4
+__end_of_eserial_receive           text16       001EA6
+__end_of_eserial_send_data         text13       001A68
+__end_of_eserial_setup             text11       0018EC
+__end_of_espi_setup                text9        001970
+__end_of_espi_slave_receive        text6        001CC0
 __end_of_espi_slave_send           text2        002000
-__end_of_main                      text0        001D86
-__end_of_return_false              text20       00186C
-__end_of_serial_peek_receive       text19       001944
-__end_of_serial_send_byte          text14       00185A
-__end_of_set_timer3                text18       00183E
-__end_of_setup_simple_serial       text12       001ABA
-__end_of_setup_spi                 text10       001A30
-__end_of_setup_timer3              text1        001832
-__end_of_spi_send_get_byte         text7        001892
-__end_of_spi_slave_get_byte        text22       001916
-__end_of_spi_slave_peek_receive    text21       0019B6
-__end_of_timer3_up                 text17       00184C
-__initialization                   cinit        0018A8
+__end_of_main                      text0        001D7A
+__end_of_return_false              text20       001860
+__end_of_serial_peek_receive       text19       001938
+__end_of_serial_send_byte          text14       00184E
+__end_of_set_timer3                text18       001832
+__end_of_setup_simple_serial       text12       001AAE
+__end_of_setup_spi                 text10       001A24
+__end_of_setup_timer3              text1        001826
+__end_of_spi_send_get_byte         text7        001886
+__end_of_spi_slave_get_byte        text22       00190A
+__end_of_spi_slave_peek_receive    text21       0019AA
+__end_of_timer3_up                 text17       001840
+__initialization                   cinit        00189C
 __mediumconst                      mediumconst  000000
 __pbssBANK0                        bssBANK0     000060
 __pbssCOMRAM                       bssCOMRAM    000058
-__pcinit                           cinit        0018A8
+__pcinit                           cinit        00189C
 __pcstackCOMRAM                    cstackCOMRAM 000001
-__ptext0                           text0        001CCC
-__ptext1                           text1        00182A
-__ptext10                          text10       0019F2
-__ptext11                          text11       0018DC
-__ptext12                          text12       001A74
-__ptext13                          text13       001A30
-__ptext14                          text14       00184C
-__ptext15                          text15       001BB8
-__ptext16                          text16       001D86
-__ptext17                          text17       00183E
-__ptext18                          text18       001832
-__ptext19                          text19       001916
-__ptext2                           text2        001EB2
-__ptext20                          text20       00185A
-__ptext21                          text21       00197C
-__ptext22                          text22       0018F8
-__ptext23                          text23       001892
-__ptext24                          text24       001B52
-__ptext25                          text25       0018C0
+__ptext0                           text0        001CC0
+__ptext1                           text1        00181E
+__ptext10                          text10       0019E6
+__ptext11                          text11       0018D0
+__ptext12                          text12       001A68
+__ptext13                          text13       001A24
+__ptext14                          text14       001840
+__ptext15                          text15       001BAC
+__ptext16                          text16       001D7A
+__ptext17                          text17       001832
+__ptext18                          text18       001826
+__ptext19                          text19       00190A
+__ptext2                           text2        001EA6
+__ptext20                          text20       00184E
+__ptext21                          text21       001970
+__ptext22                          text22       0018EC
+__ptext23                          text23       001886
+__ptext24                          text24       001B46
+__ptext25                          text25       0018B4
 __ptext26                          text26       000000
-__ptext3                           text3        001ABA
-__ptext4                           text4        001B00
-__ptext5                           text5        00186C
-__ptext6                           text6        001C32
-__ptext7                           text7        00187E
-__ptext8                           text8        0019B6
-__ptext9                           text9        001944
+__ptext3                           text3        001AAE
+__ptext4                           text4        001AF4
+__ptext5                           text5        001860
+__ptext6                           text6        001C26
+__ptext7                           text7        001872
+__ptext8                           text8        0019AA
+__ptext9                           text9        001938
 __ramtop                           ramtop       000100
 __size_of_buffer_count             (abs)        000000
 __size_of_buffer_empty             (abs)        000000
@@ -486,35 +488,35 @@ __size_of_spi_slave_get_byte       (abs)        000000
 __size_of_spi_slave_peek_receive   (abs)        000000
 __size_of_timer3_up                (abs)        000000
 __smallconst                       smallconst   000000
-_buffer_count                      text5        00186C
-_buffer_empty                      text25       0018C0
-_buffer_peek                       text4        001B00
-_buffer_pop                        text15       001BB8
-_buffer_push                       text24       001B52
-_buffer_space                      text23       001892
-_decode_data                       text8        0019B6
+_buffer_count                      text5        001860
+_buffer_empty                      text25       0018B4
+_buffer_peek                       text4        001AF4
+_buffer_pop                        text15       001BAC
+_buffer_push                       text24       001B46
+_buffer_space                      text23       001886
+_decode_data                       text8        0019AA
 _dummy_byte                        bssCOMRAM    000058
-_encode_data                       text3        001ABA
-_eserial_receive                   text16       001D86
-_eserial_send_data                 text13       001A30
-_eserial_setup                     text11       0018DC
-_espi_setup                        text9        001944
-_espi_slave_receive                text6        001C32
-_espi_slave_send                   text2        001EB2
-_main                              text0        001CCC
-_return_false                      text20       00185A
-_serial_peek_receive               text19       001916
-_serial_send_byte                  text14       00184C
-_set_timer3                        text18       001832
-_setup_simple_serial               text12       001A74
+_encode_data                       text3        001AAE
+_eserial_receive                   text16       001D7A
+_eserial_send_data                 text13       001A24
+_eserial_setup                     text11       0018D0
+_espi_setup                        text9        001938
+_espi_slave_receive                text6        001C26
+_espi_slave_send                   text2        001EA6
+_main                              text0        001CC0
+_return_false                      text20       00184E
+_serial_peek_receive               text19       00190A
+_serial_send_byte                  text14       001840
+_set_timer3                        text18       001826
+_setup_simple_serial               text12       001A68
 _setup_simple_serial$215           cstackCOMRAM 000003
 _setup_simple_serial$216           cstackCOMRAM 000005
-_setup_spi                         text10       0019F2
-_setup_timer3                      text1        00182A
-_spi_send_get_byte                 text7        00187E
-_spi_slave_get_byte                text22       0018F8
-_spi_slave_peek_receive            text21       00197C
-_timer3_up                         text17       00183E
+_setup_spi                         text10       0019E6
+_setup_timer3                      text1        00181E
+_spi_send_get_byte                 text7        001872
+_spi_slave_get_byte                text22       0018EC
+_spi_slave_peek_receive            text21       001970
+_timer3_up                         text17       001832
 buffer_count@buffer                cstackCOMRAM 000001
 buffer_empty@buffer                cstackCOMRAM 000001
 buffer_peek@buffer                 cstackCOMRAM 000001
@@ -531,7 +533,7 @@ decode_data@data                   cstackCOMRAM 000001
 encode_data@byte_1                 cstackCOMRAM 000001
 encode_data@byte_2                 cstackCOMRAM 000003
 encode_data@data                   cstackCOMRAM 000006
-end_of_initialization              cinit        0018B6
+end_of_initialization              cinit        0018AA
 eserial_receive@buffer             cstackCOMRAM 000007
 eserial_receive@stop_function      cstackCOMRAM 000009
 eserial_receive@test               cstackCOMRAM 000010
@@ -558,8 +560,8 @@ intlevel0                          text         000000
 intlevel1                          text         000000
 intlevel2                          text         000000
 intlevel3                          text         000000
-main@F4041                         bssBANK0     000060
-main@F4043                         bssBANK0     000082
+main@F4057                         bssBANK0     000060
+main@F4059                         bssBANK0     000082
 main@pic_to_pc                     cstackCOMRAM 000014
 main@pic_to_pic                    cstackCOMRAM 000036
 main@value_102                     cstackCOMRAM 000012
@@ -579,7 +581,7 @@ spi_slave_peek_receive@get_byte    cstackCOMRAM 000006
 stackhi                            (abs)        0000FF
 stacklo                            (abs)        0000A4
 start                              init         000000
-start_initialization               cinit        0018A8
+start_initialization               cinit        00189C
 
 
 FUNCTION INFORMATION:
@@ -625,7 +627,7 @@ Total ram usage:       70 bytes
 
  *************** function _setup_timer3 *****************
  Defined at:
-		line 3 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
+		line 29 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
  Parameters:    Size  Location     Type
   T3CON_reg       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -654,7 +656,7 @@ Total ram usage:        1 bytes
 
  *************** function _espi_slave_send *****************
  Defined at:
-		line 78 in file "extended_spi.c"
+		line 76 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   buffer          2    6[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pic(34), 
@@ -734,7 +736,7 @@ Total ram usage:        6 bytes
  Auto vars:     Size  Location     Type
   byte            2    4[COMRAM] int 
  Return value:  Size  Location     Type
-                  2    0[COMRAM] unsigned int 
+                  2    0[COMRAM] int 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
  Tracked objects:
@@ -789,7 +791,7 @@ Total ram usage:        2 bytes
 
  *************** function _espi_slave_receive *****************
  Defined at:
-		line 51 in file "extended_spi.c"
+		line 49 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   buffer          2    5[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pc(34), 
@@ -851,6 +853,8 @@ Total ram usage:        1 bytes
  This function is called by:
 		_espi_slave_receive
 		_espi_slave_send
+		_spi_send_data
+		_spi_master_get_data
 		_wait_pulse
 		_espi_master_send
 		_espi_master_receive
@@ -892,7 +896,7 @@ Total ram usage:        5 bytes
 
  *************** function _espi_setup *****************
  Defined at:
-		line 24 in file "extended_spi.c"
+		line 27 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   mode            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -952,7 +956,7 @@ Total ram usage:        2 bytes
 
  *************** function _eserial_setup *****************
  Defined at:
-		line 17 in file "extended_serial.c"
+		line 16 in file "extended_serial.c"
  Parameters:    Size  Location     Type
   baudrate_bit    1    wreg     unsigned char 
   baudrate_val    2    7[COMRAM] unsigned int 
@@ -1013,7 +1017,7 @@ Total ram usage:        7 bytes
 
  *************** function _eserial_send_data *****************
  Defined at:
-		line 31 in file "extended_serial.c"
+		line 29 in file "extended_serial.c"
  Parameters:    Size  Location     Type
   buffer          2    6[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pc(34), 
@@ -1109,7 +1113,7 @@ Total ram usage:        6 bytes
 
  *************** function _eserial_receive *****************
  Defined at:
-		line 47 in file "extended_serial.c"
+		line 45 in file "extended_serial.c"
  Parameters:    Size  Location     Type
   buffer          2    6[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pic(34), 
@@ -1153,7 +1157,7 @@ Total ram usage:       11 bytes
 
  *************** function _timer3_up *****************
  Defined at:
-		line 22 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
+		line 48 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1183,7 +1187,7 @@ Total ram usage:        0 bytes
 
  *************** function _set_timer3 *****************
  Defined at:
-		line 8 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
+		line 34 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
  Parameters:    Size  Location     Type
   value           2    0[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -1333,6 +1337,7 @@ Total ram usage:        3 bytes
  This function is called by:
 		_spi_slave_peek_receive
 		_espi_slave_receive
+		_spi_slave_get_data
  This function uses a non-reentrant model
 
 
@@ -1437,65 +1442,65 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-		_setup_timer3  		CODE           	182A	0000	9
-		_timer3_up     		CODE           	183E	0000	15
-		_set_timer3    		CODE           	1832	0000	13
+		_setup_timer3  		CODE           	181E	0000	9
+		_timer3_up     		CODE           	1832	0000	15
+		_set_timer3    		CODE           	1826	0000	13
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c estimated size: 37
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-		_decode_data   		CODE           	19B6	0000	61
-		_encode_data   		CODE           	1ABA	0000	71
+		_decode_data   		CODE           	19AA	0000	61
+		_encode_data   		CODE           	1AAE	0000	71
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c estimated size: 132
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
-		_setup_simple_s		CODE           	1A74	0000	71
-		_serial_peek_re		CODE           	1916	0000	47
-		_serial_send_by		CODE           	184C	0000	15
+		_setup_simple_s		CODE           	1A68	0000	71
+		_serial_peek_re		CODE           	190A	0000	47
+		_serial_send_by		CODE           	1840	0000	15
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c estimated size: 133
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-		_setup_spi     		CODE           	19F2	0000	63
-		_spi_slave_get_		CODE           	18F8	0000	31
-		_spi_slave_peek		CODE           	197C	0000	59
-		_spi_send_get_b		CODE           	187E	0000	21
+		_setup_spi     		CODE           	19E6	0000	63
+		_spi_slave_get_		CODE           	18EC	0000	31
+		_spi_slave_peek		CODE           	1970	0000	59
+		_spi_send_get_b		CODE           	1872	0000	21
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c estimated size: 174
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-		_buffer_pop    		CODE           	1BB8	0000	123
-		_buffer_peek   		CODE           	1B00	0000	83
-		_buffer_push   		CODE           	1B52	0000	103
-		_buffer_space  		CODE           	1892	0000	23
-		_buffer_count  		CODE           	186C	0000	19
-		_buffer_empty  		CODE           	18C0	0000	29
+		_buffer_pop    		CODE           	1BAC	0000	123
+		_buffer_peek   		CODE           	1AF4	0000	83
+		_buffer_push   		CODE           	1B46	0000	103
+		_buffer_space  		CODE           	1886	0000	23
+		_buffer_count  		CODE           	1860	0000	19
+		_buffer_empty  		CODE           	18B4	0000	29
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c estimated size: 380
 
 shared
-		__initializatio		CODE           	18A8	0000	15
+		__initializatio		CODE           	189C	0000	15
 
 shared estimated size: 15
 
 extended_serial.c
-		_eserial_receiv		CODE           	1D86	0000	301
-		_eserial_setup 		CODE           	18DC	0000	29
-		_eserial_send_d		CODE           	1A30	0000	69
+		_eserial_receiv		CODE           	1D7A	0000	301
+		_eserial_setup 		CODE           	18D0	0000	29
+		_eserial_send_d		CODE           	1A24	0000	69
 
 extended_serial.c estimated size: 399
 
 extended_spi.c
-		_espi_slave_rec		CODE           	1C32	0000	155
-		_espi_slave_sen		CODE           	1EB2	0000	335
-		_espi_setup    		CODE           	1944	0000	57
+		_espi_slave_rec		CODE           	1C26	0000	155
+		_espi_slave_sen		CODE           	1EA6	0000	347
+		_espi_setup    		CODE           	1938	0000	57
 
-extended_spi.c estimated size: 547
+extended_spi.c estimated size: 559
 
 main.c
-		_main          		CODE           	1CCC	0000	187
-		_return_false  		CODE           	185A	0000	19
+		_main          		CODE           	1CC0	0000	187
+		_return_false  		CODE           	184E	0000	19
 
 main.c estimated size: 206
 

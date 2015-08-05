@@ -43,7 +43,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
 [; ;circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
 [; ;circular_buffer.h: 57: void buffer_clear(struct circular_buffer *buffer);
-[; ;circular_buffer.h: 63: uint16_t buffer_peek(const struct circular_buffer *buffer);
+[; ;circular_buffer.h: 63: int16_t buffer_peek(const struct circular_buffer *buffer);
 "4 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
 [v _buffer_count `(uc ~T0 @X0 1 ef1`*CS1 ]
 "5
@@ -220,10 +220,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 10 ]
 }
 "55
-[v _buffer_peek `(ui ~T0 @X0 1 ef1`*CS1 ]
+[v _buffer_peek `(i ~T0 @X0 1 ef1`*CS1 ]
 "56
 {
-[; ;circular_buffer.c: 55: uint16_t buffer_peek(const struct circular_buffer *buffer)
+[; ;circular_buffer.c: 55: int16_t buffer_peek(const struct circular_buffer *buffer)
 [; ;circular_buffer.c: 56: {
 [e :U _buffer_peek ]
 "55
@@ -236,7 +236,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;circular_buffer.c: 58: return -1;
 "58
-[e ) -> -U -> 1 `i `ui ]
+[e ) -U -> 1 `i ]
 [e $UE 11  ]
 "59
 }
@@ -248,7 +248,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _byte & -> *U + &U . *U _buffer 2 * -> . *U _buffer 0 `ux -> -> # *U &U . *U _buffer 2 `ui `ux `i -> 255 `i ]
 [; ;circular_buffer.c: 63: return byte;
 "63
-[e ) -> _byte `ui ]
+[e ) _byte ]
 [e $UE 11  ]
 [; ;circular_buffer.c: 64: }
 "64

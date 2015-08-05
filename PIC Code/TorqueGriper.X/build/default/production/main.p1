@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"32 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h
+"64 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h
 [v _spi_slave_peek_receive `(uc ~T0 @X0 0 ef2`uc`*i ]
 [p mainexit ]
 "10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
@@ -7,24 +7,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S375 circular_buffer position count data ]
 "24 extended_spi.h
 [v _espi_setup `(v ~T0 @X0 0 ef1`uc ]
-"16 extended_serial.h
+"31 extended_serial.h
 [v _eserial_setup `(v ~T0 @X0 0 ef2`uc`ui ]
-"24 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"44 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _setup_timer3 `(v ~T0 @X0 0 ef1`uc ]
 [v F3973 `(uc ~T0 @X0 0 tf ]
 [v F3976 `(v ~T0 @X0 0 tf1`i ]
 [v F3979 `(uc ~T0 @X0 0 tf ]
-"24 extended_serial.h
+"52 extended_serial.h
 [v _eserial_receive `(v ~T0 @X0 0 ef4`*S375`*F3973`*F3976`*F3979 ]
-"25 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"45 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
-"27
+"47
 [v _timer3_up `(uc ~T0 @X0 0 ef ]
 "27 extended_spi.h
 [v _espi_slave_send `(v ~T0 @X0 0 ef1`*S375 ]
 "26
 [v _espi_slave_receive `(v ~T0 @X0 0 ef1`*S375 ]
-"22 extended_serial.h
+"37 extended_serial.h
 [v _eserial_send_data `(c ~T0 @X0 0 ef1`*S375 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3624,17 +3624,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PICLibraries.X\circular_buffer.h: 46: uint8_t buffer_count(const struct circular_buffer *buffer);
 [; ;PICLibraries.X\circular_buffer.h: 52: uint8_t buffer_space(const struct circular_buffer *buffer);
 [; ;PICLibraries.X\circular_buffer.h: 57: void buffer_clear(struct circular_buffer *buffer);
-[; ;PICLibraries.X\circular_buffer.h: 63: uint16_t buffer_peek(const struct circular_buffer *buffer);
-[; ;extended_serial.h: 16: void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
-[; ;extended_serial.h: 22: int8_t eserial_send_data(struct circular_buffer *buffer);
-[; ;extended_serial.h: 24: void eserial_receive(struct circular_buffer *buffer,
-[; ;extended_serial.h: 25: bool (*stop_function)(void),
-[; ;extended_serial.h: 26: void (*timer_start)(int16_t),
-[; ;extended_serial.h: 27: bool (*timer_up)(void));
-[; ;PICLibraries.X\spi_pic.h: 28: void setup_spi(uint8_t register_1, uint8_t register_2);
-[; ;PICLibraries.X\spi_pic.h: 31: uint8_t spi_send_get_byte(uint8_t byte);
-[; ;PICLibraries.X\spi_pic.h: 32: bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
-[; ;PICLibraries.X\spi_pic.h: 43: int16_t spi_slave_get_byte(void);
+[; ;PICLibraries.X\circular_buffer.h: 63: int16_t buffer_peek(const struct circular_buffer *buffer);
+[; ;extended_serial.h: 31: void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
+[; ;extended_serial.h: 37: int8_t eserial_send_data(struct circular_buffer *buffer);
+[; ;extended_serial.h: 52: void eserial_receive(struct circular_buffer *buffer,
+[; ;extended_serial.h: 53: bool (*stop_function)(void),
+[; ;extended_serial.h: 54: void (*timer_start)(int16_t),
+[; ;extended_serial.h: 55: bool (*timer_up)(void));
+[; ;PICLibraries.X\spi_pic.h: 57: void setup_spi(uint8_t register_1, uint8_t register_2);
+[; ;PICLibraries.X\spi_pic.h: 63: uint8_t spi_send_get_byte(uint8_t byte);
+[; ;PICLibraries.X\spi_pic.h: 64: bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+[; ;PICLibraries.X\spi_pic.h: 65: void spi_load_buffer(uint8_t byte);
+[; ;PICLibraries.X\spi_pic.h: 67: int8_t spi_send_data(uint8_t *data, int8_t size, uint8_t *returned_data);
+[; ;PICLibraries.X\spi_pic.h: 68: int8_t spi_master_get_data(uint8_t *data, int8_t size);
+[; ;PICLibraries.X\spi_pic.h: 70: void spi_set_dummy_byte(uint8_t byte);
+[; ;PICLibraries.X\spi_pic.h: 71: uint8_t spi_get_dummy_byte(void);
+[; ;PICLibraries.X\spi_pic.h: 73: int16_t spi_slave_get_byte(void);
+[; ;PICLibraries.X\spi_pic.h: 74: uint8_t spi_slave_get_data(uint8_t *data, int8_t size);
 [; ;PICLibraries.X\encoding.h: 27: void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
 [; ;PICLibraries.X\encoding.h: 34: int8_t decode_data(uint8_t *data, uint8_t byte_1, uint8_t byte_2);
 [; ;extended_spi.h: 24: void espi_setup(uint8_t mode);
@@ -3646,15 +3652,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;extended_spi.h: 32: void espi_master_receive(struct circular_buffer *buffer,
 [; ;extended_spi.h: 33: void (*timer_start)(int16_t),
 [; ;extended_spi.h: 34: bool (*timer)(void));
-[; ;extended_spi.h: 35: bool espi_master_rts(void);
-[; ;extended_spi.h: 38: void espi_slave_send_receive(struct circular_buffer *receive,
-[; ;extended_spi.h: 39: struct circular_buffer *send);
-[; ;extended_spi.h: 40: void espi_master_send_receive(struct circular_buffer *receive,
-[; ;extended_spi.h: 41: struct circular_buffer *send);
-[; ;PICLibraries.X\timers_pic.h: 24: void setup_timer3(uint8_t register_1);
-[; ;PICLibraries.X\timers_pic.h: 25: void set_timer3(int16_t value);
-[; ;PICLibraries.X\timers_pic.h: 26: void timer3_interrupt(bool toggle);
-[; ;PICLibraries.X\timers_pic.h: 27: bool timer3_up(void);
+[; ;PICLibraries.X\timers_pic.h: 29: void setup_timer0(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 30: void set_timer0(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 31: void timer0_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 32: bool timer0_up(void);
+[; ;PICLibraries.X\timers_pic.h: 44: void setup_timer3(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 45: void set_timer3(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 46: void timer3_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 47: bool timer3_up(void);
 "16 main.c
 [p x FOSC=HS ]
 "17
@@ -3683,8 +3688,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "29
 [v _pic_to_pic `S375 ~T0 @X0 1 a ]
-[v F4041 `S375 ~T0 @X0 1 s ]
-[i F4041
+[v F4057 `S375 ~T0 @X0 1 s ]
+[i F4057
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -3696,11 +3701,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;main.c: 29: struct circular_buffer pic_to_pic = {0, 0, {0}};
-[e = _pic_to_pic F4041 ]
+[e = _pic_to_pic F4057 ]
 "30
 [v _pic_to_pc `S375 ~T0 @X0 1 a ]
-[v F4043 `S375 ~T0 @X0 1 s ]
-[i F4043
+[v F4059 `S375 ~T0 @X0 1 s ]
+[i F4059
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -3712,7 +3717,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;main.c: 30: struct circular_buffer pic_to_pc = {0, 0, {0}};
-[e = _pic_to_pc F4043 ]
+[e = _pic_to_pc F4059 ]
 [; ;main.c: 32: espi_setup(0x05);
 "32
 [e ( _espi_setup (1 -> -> 5 `i `uc ]

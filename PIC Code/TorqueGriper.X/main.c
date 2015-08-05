@@ -43,7 +43,7 @@ int main() {
         int16_t value;
         if (spi_slave_peek_receive(true, &value)) {
             if (value == RX_CHAR) {
-                        espi_slave_send(&pic_to_pic);
+                espi_slave_send(&pic_to_pic);
             } else if (value == TX_CHAR) {
                 espi_slave_receive(&pic_to_pc);
             }

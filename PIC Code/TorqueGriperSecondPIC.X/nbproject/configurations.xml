@@ -9,6 +9,7 @@
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.h</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.h</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h</itemPath>
+      <itemPath>../TorqueGriper.X/pwm.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c</itemPath>
+      <itemPath>../TorqueGriper.X/pwm.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -140,6 +142,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

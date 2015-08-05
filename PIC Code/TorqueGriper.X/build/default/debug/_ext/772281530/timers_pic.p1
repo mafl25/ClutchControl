@@ -1,5 +1,28 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3622 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+"5732 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
+"6248
+[s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6258
+[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S331 . RBIF INT0F T0IF RBIE INT0E T0IE PEIE GIE ]
+"6268
+[s S332 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S332 . . GIEL GIEH ]
+"6273
+[s S333 :6 `uc 1 :1 `uc 1 ]
+[n S333 . . PIE ]
+"6247
+[u S329 `S330 1 `S331 1 `S332 1 `S333 1 ]
+[n S329 . . . . . ]
+"6278
+[v _INTCONbits `VS329 ~T0 @X0 0 e@4082 ]
+"5801
+[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
+"6242
+[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
+"3622
 [v _T3CON `Vuc ~T0 @X0 0 e@4017 ]
 "2825
 [s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -14,8 +37,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR2bits `VS143 ~T0 @X0 0 e@4001 ]
 "3730
 [v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
-"6242
-[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
 "2765
 [s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S141 . . TMR3IE . BCLIE EEIE C2IE C1IE OSCFIE ]
@@ -3590,56 +3611,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;timers_pic.h: 24: void setup_timer3(uint8_t register_1);
-[; ;timers_pic.h: 25: void set_timer3(int16_t value);
-[; ;timers_pic.h: 26: void timer3_interrupt(bool toggle);
-[; ;timers_pic.h: 27: bool timer3_up(void);
+[; ;timers_pic.h: 29: void setup_timer0(uint8_t register_1);
+[; ;timers_pic.h: 30: void set_timer0(int16_t value);
+[; ;timers_pic.h: 31: void timer0_interrupt(bool toggle);
+[; ;timers_pic.h: 32: bool timer0_up(void);
+[; ;timers_pic.h: 44: void setup_timer3(uint8_t register_1);
+[; ;timers_pic.h: 45: void set_timer3(int16_t value);
+[; ;timers_pic.h: 46: void timer3_interrupt(bool toggle);
+[; ;timers_pic.h: 47: bool timer3_up(void);
 "3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-[v _setup_timer3 `(v ~T0 @X0 1 ef1`uc ]
+[v _setup_timer0 `(v ~T0 @X0 1 ef1`uc ]
 "4
 {
-[; ;timers_pic.c: 3: void setup_timer3(uint8_t T3CON_reg)
+[; ;timers_pic.c: 3: void setup_timer0(uint8_t T0CON_reg)
 [; ;timers_pic.c: 4: {
-[e :U _setup_timer3 ]
+[e :U _setup_timer0 ]
 "3
-[v _T3CON_reg `uc ~T0 @X0 1 r1 ]
+[v _T0CON_reg `uc ~T0 @X0 1 r1 ]
 "4
 [f ]
-[; ;timers_pic.c: 5: T3CON = T3CON_reg;
+[; ;timers_pic.c: 5: T0CON = T0CON_reg;
 "5
-[e = _T3CON _T3CON_reg ]
+[e = _T0CON _T0CON_reg ]
 [; ;timers_pic.c: 6: }
 "6
 [e :UE 374 ]
 }
 "8
-[v _set_timer3 `(v ~T0 @X0 1 ef1`i ]
+[v _set_timer0 `(v ~T0 @X0 1 ef1`i ]
 "9
 {
-[; ;timers_pic.c: 8: void set_timer3(int16_t value)
+[; ;timers_pic.c: 8: void set_timer0(int16_t value)
 [; ;timers_pic.c: 9: {
-[e :U _set_timer3 ]
+[e :U _set_timer0 ]
 "8
 [v _value `i ~T0 @X0 1 r1 ]
 "9
 [f ]
-[; ;timers_pic.c: 10: PIR2bits.TMR3IF = 0;
+[; ;timers_pic.c: 10: INTCONbits.TMR0IF = 0;
 "10
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;timers_pic.c: 11: TMR3 = value;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;timers_pic.c: 11: TMR0 = value;
 "11
-[e = _TMR3 -> _value `us ]
+[e = _TMR0 -> _value `us ]
 [; ;timers_pic.c: 12: }
 "12
 [e :UE 375 ]
 }
 "14
-[v _timer3_interrupt `(v ~T0 @X0 1 ef1`uc ]
+[v _timer0_interrupt `(v ~T0 @X0 1 ef1`uc ]
 "15
 {
-[; ;timers_pic.c: 14: void timer3_interrupt(bool toggle)
+[; ;timers_pic.c: 14: void timer0_interrupt(bool toggle)
 [; ;timers_pic.c: 15: {
-[e :U _timer3_interrupt ]
+[e :U _timer0_interrupt ]
 "14
 [v _toggle `uc ~T0 @X0 1 r1 ]
 "15
@@ -3651,26 +3676,106 @@ Version 3.2 HI-TECH Software Intermediate Code
 "17
 [e =| _INTCON -> -> 192 `i `uc ]
 [e :U 377 ]
-[; ;timers_pic.c: 19: PIE2bits.TMR3IE = (toggle) ? 1: 0;
+[; ;timers_pic.c: 19: INTCONbits.TMR0IE = (toggle) ? 1: 0;
 "19
-[e = . . _PIE2bits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[e = . . _INTCONbits 0 5 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
 [; ;timers_pic.c: 20: }
 "20
 [e :UE 376 ]
 }
 "22
-[v _timer3_up `(uc ~T0 @X0 1 ef ]
+[v _timer0_up `(uc ~T0 @X0 1 ef ]
 "23
 {
-[; ;timers_pic.c: 22: bool timer3_up(void)
+[; ;timers_pic.c: 22: bool timer0_up(void)
 [; ;timers_pic.c: 23: {
-[e :U _timer3_up ]
+[e :U _timer0_up ]
 [f ]
-[; ;timers_pic.c: 24: return (PIR2bits.TMR3IF) ? 1 : 0;
+[; ;timers_pic.c: 24: return (INTCONbits.TMR0IF) ? 1 : 0;
 "24
-[e ) -> ? != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
+[e ) -> ? != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 378  ]
 [; ;timers_pic.c: 25: }
 "25
 [e :UE 378 ]
+}
+"29
+[v _setup_timer3 `(v ~T0 @X0 1 ef1`uc ]
+"30
+{
+[; ;timers_pic.c: 29: void setup_timer3(uint8_t T3CON_reg)
+[; ;timers_pic.c: 30: {
+[e :U _setup_timer3 ]
+"29
+[v _T3CON_reg `uc ~T0 @X0 1 r1 ]
+"30
+[f ]
+[; ;timers_pic.c: 31: T3CON = T3CON_reg;
+"31
+[e = _T3CON _T3CON_reg ]
+[; ;timers_pic.c: 32: }
+"32
+[e :UE 379 ]
+}
+"34
+[v _set_timer3 `(v ~T0 @X0 1 ef1`i ]
+"35
+{
+[; ;timers_pic.c: 34: void set_timer3(int16_t value)
+[; ;timers_pic.c: 35: {
+[e :U _set_timer3 ]
+"34
+[v _value `i ~T0 @X0 1 r1 ]
+"35
+[f ]
+[; ;timers_pic.c: 36: PIR2bits.TMR3IF = 0;
+"36
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[; ;timers_pic.c: 37: TMR3 = value;
+"37
+[e = _TMR3 -> _value `us ]
+[; ;timers_pic.c: 38: }
+"38
+[e :UE 380 ]
+}
+"40
+[v _timer3_interrupt `(v ~T0 @X0 1 ef1`uc ]
+"41
+{
+[; ;timers_pic.c: 40: void timer3_interrupt(bool toggle)
+[; ;timers_pic.c: 41: {
+[e :U _timer3_interrupt ]
+"40
+[v _toggle `uc ~T0 @X0 1 r1 ]
+"41
+[f ]
+[; ;timers_pic.c: 42: if (toggle)
+"42
+[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 382  ]
+[; ;timers_pic.c: 43: INTCON |= 0xC0;
+"43
+[e =| _INTCON -> -> 192 `i `uc ]
+[e :U 382 ]
+[; ;timers_pic.c: 45: PIE2bits.TMR3IE = (toggle) ? 1: 0;
+"45
+[e = . . _PIE2bits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[; ;timers_pic.c: 46: }
+"46
+[e :UE 381 ]
+}
+"48
+[v _timer3_up `(uc ~T0 @X0 1 ef ]
+"49
+{
+[; ;timers_pic.c: 48: bool timer3_up(void)
+[; ;timers_pic.c: 49: {
+[e :U _timer3_up ]
+[f ]
+[; ;timers_pic.c: 50: return (PIR2bits.TMR3IF) ? 1 : 0;
+"50
+[e ) -> ? != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
+[e $UE 383  ]
+[; ;timers_pic.c: 51: }
+"51
+[e :UE 383 ]
 }

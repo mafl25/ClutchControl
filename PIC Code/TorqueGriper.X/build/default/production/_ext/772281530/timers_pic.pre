@@ -4831,13 +4831,45 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 24 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h"
+# 29 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h"
+void setup_timer0(uint8_t register_1);
+void set_timer0(int16_t value);
+void timer0_interrupt(bool toggle);
+bool timer0_up(void);
+
+# 44
 void setup_timer3(uint8_t register_1);
 void set_timer3(int16_t value);
 void timer3_interrupt(bool toggle);
 bool timer3_up(void);
 
 # 3 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
+void setup_timer0(uint8_t T0CON_reg)
+{
+T0CON = T0CON_reg;
+}
+
+void set_timer0(int16_t value)
+{
+INTCONbits.TMR0IF = 0;
+TMR0 = value;
+}
+
+void timer0_interrupt(bool toggle)
+{
+if (toggle)
+INTCON |= 0xC0;
+
+INTCONbits.TMR0IE = (toggle) ? 1: 0;
+}
+
+bool timer0_up(void)
+{
+return (INTCONbits.TMR0IF) ? 1 : 0;
+}
+
+
+
 void setup_timer3(uint8_t T3CON_reg)
 {
 T3CON = T3CON_reg;

@@ -49,10 +49,6 @@ int main() {
             }
         }
         
-        value = buffer_peek(&receive);
-        if (value != 0xAC && value != 0xAA)
-            buffer_clear(&receive);
-        
         //espi_master_send(&buffer, &set_timer3, &timer3_up);
             
         if (timer0_up()) {

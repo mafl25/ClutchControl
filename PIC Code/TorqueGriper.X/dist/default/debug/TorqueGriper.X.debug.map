@@ -5,7 +5,7 @@ Linker command line:
 -W9 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
   -h+dist/default/debug\TorqueGriper.X.debug.sym \
   --cmf=dist/default/debug\TorqueGriper.X.debug.cmf -z -Q18F13K22 \
-  -oC:\Users\Manuel\AppData\Local\Temp\s6ss.6 \
+  -oC:\Users\Manuel\AppData\Local\Temp\s6ug.6 \
   -Mdist/default/debug/TorqueGriper.X.debug.map -E1 -ver=XC8 \
   -ASTACK=0A4h-0ffh -pstack=STACK -ACODE=00h-01DFFh -ACONST=00h-01DFFh \
   -ASMALLCONST=0100h-01FFhx29 -AMEDIUMCONST=0100h-01DFFh -ACOMRAM=01h-05Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Manuel\AppData\Local\Temp\s6ss.obj \
+  C:\Users\Manuel\AppData\Local\Temp\s6ug.obj \
   dist/default/debug\TorqueGriper.X.debug.obj 
 
 Object code version is 3.11
@@ -32,42 +32,36 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Manuel\AppData\Local\Temp\s6ss.obj
+C:\Users\Manuel\AppData\Local\Temp\s6ug.obj
                 end_init                              2        2        4        0       0
                 reset_vec                             0        0        2        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/debug\TorqueGriper.X.debug.obj
-                text25                             16C0     16C0       1C      B60       0
-                text24                             1952     1952       66      CA9       0
-                text23                             1692     1692       16      B49       0
-                text22                             16F8     16F8       1E      B7C       0
-                text21                             177C     177C       3A      BBE       0
-                text20                             165A     165A       12      B2D       0
-                text19                             1716     1716       2E      B8B       0
-                text18                             1632     1632        C      B19       0
-                text17                             163E     163E        E      B1F       0
-                text16                             1B86     1B86      12C      DC3       0
-                text15                             19B8     19B8       7A      CDC       0
-                text14                             164C     164C        E      B26       0
-                text13                             1830     1830       44      C18       0
-                text12                             1874     1874       46      C3A       0
-                text11                             16DC     16DC       1C      B6E       0
-                text10                             17F2     17F2       3E      BF9       0
-                text9                              1744     1744       38      BA2       0
-                text8                              17B6     17B6       3C      BDB       0
-                text7                              167E     167E       14      B3F       0
-                text6                              1A32     1A32       9A      D19       0
-                text5                              166C     166C       12      B36       0
-                text4                              1900     1900       52      C80       0
-                text3                              18BA     18BA       46      C5D       0
-                text2                              1CB2     1CB2      14E      E59       0
-                text1                              162A     162A        8      B15       0
+                text19                             1B02     1B02       7A      D81       0
+                text18                             17F2     17F2        E      BF9       0
+                text17                             197A     197A       44      CBD       0
+                text16                             19BE     19BE       46      CDF       0
+                text15                             1854     1854       1C      C2A       0
+                text14                             193C     193C       3E      C9E       0
+                text13                             188E     188E       38      C47       0
+                text12                             1A9C     1A9C       66      D4E       0
+                text11                             1826     1826       16      C13       0
+                text10                             1900     1900       3C      C80       0
+                text9                              1812     1812       14      C09       0
+                text8                              1870     1870       1E      C38       0
+                text7                              1B7C     1B7C       9A      DBE       0
+                text6                              1800     1800       12      C00       0
+                text5                              1A4A     1A4A       52      D25       0
+                text4                              1A04     1A04       46      D02       0
+                text3                              1CB2     1CB2      14E      E59       0
+                text2                              17EA     17EA        8      BF5       0
+                text1                              18C6     18C6       3A      C63       0
                 cstackCOMRAM                          1        1       57        1       1
                 bssBANK0                             60       60       44       60       1
                 bssCOMRAM                            58       58        1        1       1
-                cinit                              16A8     16A8       18      B54       0
-                text0                              1ACC     1ACC       BA      D66       0
+                cinit                              183C     183C       18      C1E       0
+                text0                              1C16     1C16       9C      E0B       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -75,33 +69,27 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              2        2        4         0
                 reset_vec                             0        0        2         0
-                text25                             16C0     16C0       1C         0
-                text24                             1952     1952       66         0
-                text23                             1692     1692       16         0
-                text22                             16F8     16F8       1E         0
-                text21                             177C     177C       3A         0
-                text20                             165A     165A       12         0
-                text19                             1716     1716       2E         0
-                text18                             1632     1632        C         0
-                text17                             163E     163E        E         0
-                text16                             1B86     1B86      12C         0
-                text15                             19B8     19B8       7A         0
-                text14                             164C     164C        E         0
-                text13                             1830     1830       44         0
-                text12                             1874     1874       46         0
-                text11                             16DC     16DC       1C         0
-                text10                             17F2     17F2       3E         0
-                text9                              1744     1744       38         0
-                text8                              17B6     17B6       3C         0
-                text7                              167E     167E       14         0
-                text6                              1A32     1A32       9A         0
-                text5                              166C     166C       12         0
-                text4                              1900     1900       52         0
-                text3                              18BA     18BA       46         0
-                text2                              1CB2     1CB2      14E         0
-                text1                              162A     162A        8         0
-                cinit                              16A8     16A8       18         0
-                text0                              1ACC     1ACC       BA         0
+                text19                             1B02     1B02       7A         0
+                text18                             17F2     17F2        E         0
+                text17                             197A     197A       44         0
+                text16                             19BE     19BE       46         0
+                text15                             1854     1854       1C         0
+                text14                             193C     193C       3E         0
+                text13                             188E     188E       38         0
+                text12                             1A9C     1A9C       66         0
+                text11                             1826     1826       16         0
+                text10                             1900     1900       3C         0
+                text9                              1812     1812       14         0
+                text8                              1870     1870       1E         0
+                text7                              1B7C     1B7C       9A         0
+                text6                              1800     1800       12         0
+                text5                              1A4A     1A4A       52         0
+                text4                              1A04     1A04       46         0
+                text3                              1CB2     1CB2      14E         0
+                text2                              17EA     17EA        8         0
+                text1                              18C6     18C6       3A         0
+                cinit                              183C     183C       18         0
+                text0                              1C16     1C16       9C         0
 
         CLASS   CONST          
 
@@ -141,33 +129,27 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000006  000006         0       0  CODE    
                 cstackCOMRAM                   000001  000058  000059         1       1  COMRAM  
                 bssBANK0                       000060  000044  0000A4        60       1  BANK0   
-                text1                          00162A  000008  001632       B15       0  CODE    
-                text18                         001632  00000C  00163E       B19       0  CODE    
-                text17                         00163E  00000E  00164C       B1F       0  CODE    
-                text14                         00164C  00000E  00165A       B26       0  CODE    
-                text20                         00165A  000012  00166C       B2D       0  CODE    
-                text5                          00166C  000012  00167E       B36       0  CODE    
-                text7                          00167E  000014  001692       B3F       0  CODE    
-                text23                         001692  000016  0016A8       B49       0  CODE    
-                cinit                          0016A8  000018  0016C0       B54       0  CODE    
-                text25                         0016C0  00001C  0016DC       B60       0  CODE    
-                text11                         0016DC  00001C  0016F8       B6E       0  CODE    
-                text22                         0016F8  00001E  001716       B7C       0  CODE    
-                text19                         001716  00002E  001744       B8B       0  CODE    
-                text9                          001744  000038  00177C       BA2       0  CODE    
-                text21                         00177C  00003A  0017B6       BBE       0  CODE    
-                text8                          0017B6  00003C  0017F2       BDB       0  CODE    
-                text10                         0017F2  00003E  001830       BF9       0  CODE    
-                text13                         001830  000044  001874       C18       0  CODE    
-                text12                         001874  000046  0018BA       C3A       0  CODE    
-                text3                          0018BA  000046  001900       C5D       0  CODE    
-                text4                          001900  000052  001952       C80       0  CODE    
-                text24                         001952  000066  0019B8       CA9       0  CODE    
-                text15                         0019B8  00007A  001A32       CDC       0  CODE    
-                text6                          001A32  00009A  001ACC       D19       0  CODE    
-                text0                          001ACC  0000BA  001B86       D66       0  CODE    
-                text16                         001B86  00012C  001CB2       DC3       0  CODE    
-                text2                          001CB2  00014E  001E00       E59       0  CODE    
+                text2                          0017EA  000008  0017F2       BF5       0  CODE    
+                text18                         0017F2  00000E  001800       BF9       0  CODE    
+                text6                          001800  000012  001812       C00       0  CODE    
+                text9                          001812  000014  001826       C09       0  CODE    
+                text11                         001826  000016  00183C       C13       0  CODE    
+                cinit                          00183C  000018  001854       C1E       0  CODE    
+                text15                         001854  00001C  001870       C2A       0  CODE    
+                text8                          001870  00001E  00188E       C38       0  CODE    
+                text13                         00188E  000038  0018C6       C47       0  CODE    
+                text1                          0018C6  00003A  001900       C63       0  CODE    
+                text10                         001900  00003C  00193C       C80       0  CODE    
+                text14                         00193C  00003E  00197A       C9E       0  CODE    
+                text17                         00197A  000044  0019BE       CBD       0  CODE    
+                text16                         0019BE  000046  001A04       CDF       0  CODE    
+                text4                          001A04  000046  001A4A       D02       0  CODE    
+                text5                          001A4A  000052  001A9C       D25       0  CODE    
+                text12                         001A9C  000066  001B02       D4E       0  CODE    
+                text19                         001B02  00007A  001B7C       D81       0  CODE    
+                text7                          001B7C  00009A  001C16       DBE       0  CODE    
+                text0                          001C16  00009C  001CB2       E0B       0  CODE    
+                text3                          001CB2  00014E  001E00       E59       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -178,14 +160,14 @@ UNUSED ADDRESS RANGES
         BANK0            0000A4-0000FF               5C
         BIGRAM           000059-00005F                7
                          0000A4-0000FF               5C
-        CODE             000006-001629             1624
+        CODE             000006-0017E9             17E4
         COMRAM           000059-00005F                7
-        CONST            000006-001629             1624
+        CONST            000006-0017E9             17E4
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000100-001629             152A
+        MEDIUMCONST      000100-0017E9             16EA
         RAM              0000A4-0000FF               5C
         SFR              000F60-000FFC               9D
-        SMALLCONST       000100-001629              100
+        SMALLCONST       000100-0017E9              100
         STACK            0000A4-0000FF               5C
 
                                   Symbol Table
@@ -200,11 +182,11 @@ _INT2IF                            (abs)        007F81
 _INTCON                            (abs)        000FF2
 _INTCON2bits                       (abs)        000FF1
 _INTCON3bits                       (abs)        000FF0
+_INTCONbits                        (abs)        000FF2
 _LATAbits                          (abs)        000F89
 _LATCbits                          (abs)        000F8B
 _PIE2bits                          (abs)        000FA0
 _PIR2bits                          (abs)        000FA1
-_PORTCbits                         (abs)        000F82
 _RCIE                              (abs)        007CED
 _RCIF                              (abs)        007CF5
 _RCREG                             (abs)        000FAE
@@ -217,7 +199,9 @@ _SSPCON1                           (abs)        000FC6
 _SSPCON1bits                       (abs)        000FC6
 _SSPSTAT                           (abs)        000FC7
 _SSPSTATbits                       (abs)        000FC7
+_T0CON                             (abs)        000FD5
 _T3CON                             (abs)        000FB1
+_TMR0                              (abs)        000FD6
 _TMR3                              (abs)        000FB2
 _TRISAbits                         (abs)        000F92
 _TRISBbits                         (abs)        000F93
@@ -295,13 +279,6 @@ __Htext17                          text17       000000
 __Htext18                          text18       000000
 __Htext19                          text19       000000
 __Htext2                           text2        000000
-__Htext20                          text20       000000
-__Htext21                          text21       000000
-__Htext22                          text22       000000
-__Htext23                          text23       000000
-__Htext24                          text24       000000
-__Htext25                          text25       000000
-__Htext26                          text26       000000
 __Htext3                           text3        000000
 __Htext4                           text4        000000
 __Htext5                           text5        000000
@@ -376,13 +353,6 @@ __Ltext17                          text17       000000
 __Ltext18                          text18       000000
 __Ltext19                          text19       000000
 __Ltext2                           text2        000000
-__Ltext20                          text20       000000
-__Ltext21                          text21       000000
-__Ltext22                          text22       000000
-__Ltext23                          text23       000000
-__Ltext24                          text24       000000
-__Ltext25                          text25       000000
-__Ltext26                          text26       000000
 __Ltext3                           text3        000000
 __Ltext4                           text4        000000
 __Ltext5                           text5        000000
@@ -400,125 +370,99 @@ ___rparam_used                     (abs)        000001
 ___sp                              stack        000000
 __accesstop                        (abs)        000060
 __activetblptr                     (abs)        000002
-__end_of__initialization           cinit        0016B6
-__end_of_buffer_count              text5        00167E
-__end_of_buffer_empty              text25       0016DC
-__end_of_buffer_peek               text4        001952
-__end_of_buffer_pop                text15       001A32
-__end_of_buffer_push               text24       0019B8
-__end_of_buffer_space              text23       0016A8
-__end_of_decode_data               text8        0017F2
-__end_of_encode_data               text3        001900
-__end_of_eserial_receive           text16       001CB2
-__end_of_eserial_send_data         text13       001874
-__end_of_eserial_setup             text11       0016F8
-__end_of_espi_setup                text9        00177C
-__end_of_espi_slave_receive        text6        001ACC
-__end_of_espi_slave_send           text2        001E00
-__end_of_main                      text0        001B86
-__end_of_return_false              text20       00166C
-__end_of_serial_peek_receive       text19       001744
-__end_of_serial_send_byte          text14       00165A
-__end_of_set_timer3                text18       00163E
-__end_of_setup_simple_serial       text12       0018BA
-__end_of_setup_spi                 text10       001830
-__end_of_setup_timer3              text1        001632
-__end_of_spi_send_get_byte         text7        001692
-__end_of_spi_slave_get_byte        text22       001716
-__end_of_spi_slave_peek_receive    text21       0017B6
-__end_of_timer3_up                 text17       00164C
-__initialization                   cinit        0016A8
+__end_of__initialization           cinit        00184A
+__end_of_buffer_count              text6        001812
+__end_of_buffer_peek               text5        001A9C
+__end_of_buffer_pop                text19       001B7C
+__end_of_buffer_push               text12       001B02
+__end_of_buffer_space              text11       00183C
+__end_of_decode_data               text10       00193C
+__end_of_encode_data               text4        001A4A
+__end_of_eserial_send_data         text17       0019BE
+__end_of_eserial_setup             text15       001870
+__end_of_espi_setup                text13       0018C6
+__end_of_espi_slave_receive        text7        001C16
+__end_of_espi_slave_send           text3        001E00
+__end_of_main                      text0        001CB2
+__end_of_serial_send_byte          text18       001800
+__end_of_setup_simple_serial       text16       001A04
+__end_of_setup_spi                 text14       00197A
+__end_of_setup_timer3              text2        0017F2
+__end_of_spi_send_get_byte         text9        001826
+__end_of_spi_slave_get_byte        text8        00188E
+__end_of_spi_slave_peek_receive    text1        001900
+__initialization                   cinit        00183C
 __mediumconst                      mediumconst  000000
 __pbssBANK0                        bssBANK0     000060
 __pbssCOMRAM                       bssCOMRAM    000058
-__pcinit                           cinit        0016A8
+__pcinit                           cinit        00183C
 __pcstackCOMRAM                    cstackCOMRAM 000001
-__ptext0                           text0        001ACC
-__ptext1                           text1        00162A
-__ptext10                          text10       0017F2
-__ptext11                          text11       0016DC
-__ptext12                          text12       001874
-__ptext13                          text13       001830
-__ptext14                          text14       00164C
-__ptext15                          text15       0019B8
-__ptext16                          text16       001B86
-__ptext17                          text17       00163E
-__ptext18                          text18       001632
-__ptext19                          text19       001716
-__ptext2                           text2        001CB2
-__ptext20                          text20       00165A
-__ptext21                          text21       00177C
-__ptext22                          text22       0016F8
-__ptext23                          text23       001692
-__ptext24                          text24       001952
-__ptext25                          text25       0016C0
-__ptext26                          text26       000000
-__ptext3                           text3        0018BA
-__ptext4                           text4        001900
-__ptext5                           text5        00166C
-__ptext6                           text6        001A32
-__ptext7                           text7        00167E
-__ptext8                           text8        0017B6
-__ptext9                           text9        001744
+__ptext0                           text0        001C16
+__ptext1                           text1        0018C6
+__ptext10                          text10       001900
+__ptext11                          text11       001826
+__ptext12                          text12       001A9C
+__ptext13                          text13       00188E
+__ptext14                          text14       00193C
+__ptext15                          text15       001854
+__ptext16                          text16       0019BE
+__ptext17                          text17       00197A
+__ptext18                          text18       0017F2
+__ptext19                          text19       001B02
+__ptext2                           text2        0017EA
+__ptext3                           text3        001CB2
+__ptext4                           text4        001A04
+__ptext5                           text5        001A4A
+__ptext6                           text6        001800
+__ptext7                           text7        001B7C
+__ptext8                           text8        001870
+__ptext9                           text9        001812
 __ramtop                           ramtop       000100
 __size_of_buffer_count             (abs)        000000
-__size_of_buffer_empty             (abs)        000000
 __size_of_buffer_peek              (abs)        000000
 __size_of_buffer_pop               (abs)        000000
 __size_of_buffer_push              (abs)        000000
 __size_of_buffer_space             (abs)        000000
 __size_of_decode_data              (abs)        000000
 __size_of_encode_data              (abs)        000000
-__size_of_eserial_receive          (abs)        000000
 __size_of_eserial_send_data        (abs)        000000
 __size_of_eserial_setup            (abs)        000000
 __size_of_espi_setup               (abs)        000000
 __size_of_espi_slave_receive       (abs)        000000
 __size_of_espi_slave_send          (abs)        000000
 __size_of_main                     (abs)        000000
-__size_of_return_false             (abs)        000000
-__size_of_serial_peek_receive      (abs)        000000
 __size_of_serial_send_byte         (abs)        000000
-__size_of_set_timer3               (abs)        000000
 __size_of_setup_simple_serial      (abs)        000000
 __size_of_setup_spi                (abs)        000000
 __size_of_setup_timer3             (abs)        000000
 __size_of_spi_send_get_byte        (abs)        000000
 __size_of_spi_slave_get_byte       (abs)        000000
 __size_of_spi_slave_peek_receive   (abs)        000000
-__size_of_timer3_up                (abs)        000000
 __smallconst                       smallconst   000000
-_buffer_count                      text5        00166C
-_buffer_empty                      text25       0016C0
-_buffer_peek                       text4        001900
-_buffer_pop                        text15       0019B8
-_buffer_push                       text24       001952
-_buffer_space                      text23       001692
-_decode_data                       text8        0017B6
+_buffer_count                      text6        001800
+_buffer_peek                       text5        001A4A
+_buffer_pop                        text19       001B02
+_buffer_push                       text12       001A9C
+_buffer_space                      text11       001826
+_decode_data                       text10       001900
 _dummy_byte                        bssCOMRAM    000058
-_encode_data                       text3        0018BA
-_eserial_receive                   text16       001B86
-_eserial_send_data                 text13       001830
-_eserial_setup                     text11       0016DC
-_espi_setup                        text9        001744
-_espi_slave_receive                text6        001A32
-_espi_slave_send                   text2        001CB2
-_main                              text0        001ACC
-_return_false                      text20       00165A
-_serial_peek_receive               text19       001716
-_serial_send_byte                  text14       00164C
-_set_timer3                        text18       001632
-_setup_simple_serial               text12       001874
-_setup_simple_serial$215           cstackCOMRAM 000003
-_setup_simple_serial$216           cstackCOMRAM 000005
-_setup_spi                         text10       0017F2
-_setup_timer3                      text1        00162A
-_spi_send_get_byte                 text7        00167E
-_spi_slave_get_byte                text22       0016F8
-_spi_slave_peek_receive            text21       00177C
-_timer3_up                         text17       00163E
+_encode_data                       text4        001A04
+_eserial_send_data                 text17       00197A
+_eserial_setup                     text15       001854
+_espi_setup                        text13       00188E
+_espi_slave_receive                text7        001B7C
+_espi_slave_send                   text3        001CB2
+_main                              text0        001C16
+_serial_send_byte                  text18       0017F2
+_setup_simple_serial               text16       0019BE
+_setup_simple_serial$200           cstackCOMRAM 000003
+_setup_simple_serial$201           cstackCOMRAM 000005
+_setup_spi                         text14       00193C
+_setup_timer3                      text2        0017EA
+_spi_send_get_byte                 text9        001812
+_spi_slave_get_byte                text8        001870
+_spi_slave_peek_receive            text1        0018C6
 buffer_count@buffer                cstackCOMRAM 000001
-buffer_empty@buffer                cstackCOMRAM 000001
 buffer_peek@buffer                 cstackCOMRAM 000001
 buffer_peek@byte                   cstackCOMRAM 000005
 buffer_pop@buffer                  cstackCOMRAM 000001
@@ -533,13 +477,7 @@ decode_data@data                   cstackCOMRAM 000001
 encode_data@byte_1                 cstackCOMRAM 000001
 encode_data@byte_2                 cstackCOMRAM 000003
 encode_data@data                   cstackCOMRAM 000006
-end_of_initialization              cinit        0016B6
-eserial_receive@buffer             cstackCOMRAM 000007
-eserial_receive@stop_function      cstackCOMRAM 000009
-eserial_receive@test               cstackCOMRAM 000010
-eserial_receive@timer_start        cstackCOMRAM 00000B
-eserial_receive@timer_up           cstackCOMRAM 00000D
-eserial_receive@value              cstackCOMRAM 000011
+end_of_initialization              cinit        00184A
 eserial_send_data@buffer           cstackCOMRAM 000007
 eserial_send_data@i                cstackCOMRAM 000009
 eserial_send_data@value            cstackCOMRAM 00000A
@@ -560,15 +498,12 @@ intlevel0                          text         000000
 intlevel1                          text         000000
 intlevel2                          text         000000
 intlevel3                          text         000000
-main@F4041                         bssBANK0     000060
-main@F4043                         bssBANK0     000082
-main@pic_to_pc                     cstackCOMRAM 000014
-main@pic_to_pic                    cstackCOMRAM 000036
-main@value_102                     cstackCOMRAM 000012
-serial_peek_receive@byte           cstackCOMRAM 000001
-serial_peek_receive@get_byte       cstackCOMRAM 000003
+main@F4057                         bssBANK0     000060
+main@F4059                         bssBANK0     000082
+main@pic_to_pc                     cstackCOMRAM 000036
+main@pic_to_pic                    cstackCOMRAM 000012
+main@value_87                      cstackCOMRAM 000034
 serial_send_byte@byte              cstackCOMRAM 000001
-set_timer3@value                   cstackCOMRAM 000001
 setup_simple_serial@baudrate_bits  cstackCOMRAM 000007
 setup_simple_serial@baudrate_value cstackCOMRAM 000001
 setup_spi@SSPCON1_reg              cstackCOMRAM 000001
@@ -581,7 +516,7 @@ spi_slave_peek_receive@get_byte    cstackCOMRAM 000006
 stackhi                            (abs)        0000FF
 stacklo                            (abs)        0000A4
 start                              init         000002
-start_initialization               cinit        0016A8
+start_initialization               cinit        00183C
 
 
 FUNCTION INFORMATION:
@@ -592,14 +527,14 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  value           2   17[COMRAM] int 
-  pic_to_pic     34   53[COMRAM] struct circular_buffer
-  pic_to_pc      34   19[COMRAM] struct circular_buffer
+  value           2   51[COMRAM] int 
+  pic_to_pc      34   53[COMRAM] struct circular_buffer
+  pic_to_pic     34   17[COMRAM] struct circular_buffer
   value           1    0        unsigned char 
  Return value:  Size  Location     Type
-                  2   25[None  ] int 
+                  2   21[None  ] int 
  Registers used:
-		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, prodl, prodh, cstack
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -610,14 +545,14 @@ FUNCTION INFORMATION:
       Temps:          0       0
       Totals:        70       0
 Total ram usage:       70 bytes
- Hardware stack levels required when called:    4
+ Hardware stack levels required when called:    2
  This function calls:
-		_eserial_receive
 		_eserial_send_data
 		_eserial_setup
 		_espi_setup
 		_espi_slave_receive
 		_espi_slave_send
+		_serial_send_byte
 		_setup_timer3
 		_spi_slave_peek_receive
  This function is called by:
@@ -625,9 +560,42 @@ Total ram usage:       70 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _spi_slave_peek_receive *****************
+ Defined at:
+		line 42 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c"
+ Parameters:    Size  Location     Type
+  get_byte        1    wreg     unsigned char 
+  byte            2    3[COMRAM] PTR int 
+		 -> main@value_87(2), NULL(0), 
+ Auto vars:     Size  Location     Type
+  get_byte        1    5[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0
+      Params:         2       0
+      Locals:         1       0
+      Temps:          0       0
+      Totals:         3       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_spi_slave_get_byte
+ This function is called by:
+		_main
+		_return_false
+ This function uses a non-reentrant model
+
+
  *************** function _setup_timer3 *****************
  Defined at:
-		line 3 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
+		line 29 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
  Parameters:    Size  Location     Type
   T3CON_reg       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -656,7 +624,7 @@ Total ram usage:        1 bytes
 
  *************** function _espi_slave_send *****************
  Defined at:
-		line 78 in file "extended_spi.c"
+		line 76 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   buffer          2    6[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pic(34), 
@@ -736,7 +704,7 @@ Total ram usage:        6 bytes
  Auto vars:     Size  Location     Type
   byte            2    4[COMRAM] int 
  Return value:  Size  Location     Type
-                  2    0[COMRAM] unsigned int 
+                  2    0[COMRAM] int 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
  Tracked objects:
@@ -791,7 +759,7 @@ Total ram usage:        2 bytes
 
  *************** function _espi_slave_receive *****************
  Defined at:
-		line 51 in file "extended_spi.c"
+		line 49 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   buffer          2    5[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pc(34), 
@@ -826,6 +794,37 @@ Total ram usage:        5 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _spi_slave_get_byte *****************
+ Defined at:
+		line 111 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  byte            1    2[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] int 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0
+      Params:         2       0
+      Locals:         1       0
+      Temps:          0       0
+      Totals:         3       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_spi_slave_peek_receive
+		_espi_slave_receive
+		_spi_slave_get_data
+ This function uses a non-reentrant model
+
+
  *************** function _spi_send_get_byte *****************
  Defined at:
 		line 33 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c"
@@ -853,6 +852,8 @@ Total ram usage:        1 bytes
  This function is called by:
 		_espi_slave_receive
 		_espi_slave_send
+		_spi_send_data
+		_spi_master_get_data
 		_wait_pulse
 		_espi_master_send
 		_espi_master_receive
@@ -892,9 +893,74 @@ Total ram usage:        5 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _buffer_space *****************
+ Defined at:
+		line 9 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
+ Parameters:    Size  Location     Type
+  buffer          2    0[COMRAM] PTR const struct circula
+		 -> main@pic_to_pc(34), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0
+      Params:         2       0
+      Locals:         0       0
+      Temps:          0       0
+      Totals:         2       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_espi_slave_receive
+		_eserial_receive
+		_espi_master_receive
+ This function uses a non-reentrant model
+
+
+ *************** function _buffer_push *****************
+ Defined at:
+		line 24 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
+ Parameters:    Size  Location     Type
+  buffer          2    0[COMRAM] PTR struct circular_buff
+		 -> main@pic_to_pc(34), 
+  byte            1    2[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  current_posi    1    4[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0
+      Params:         3       0
+      Locals:         1       0
+      Temps:          1       0
+      Totals:         5       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_espi_slave_receive
+		_eserial_receive
+		_espi_master_receive
+ This function uses a non-reentrant model
+
+
  *************** function _espi_setup *****************
  Defined at:
-		line 24 in file "extended_spi.c"
+		line 27 in file "extended_spi.c"
  Parameters:    Size  Location     Type
   mode            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -954,7 +1020,7 @@ Total ram usage:        2 bytes
 
  *************** function _eserial_setup *****************
  Defined at:
-		line 21 in file "extended_serial.c"
+		line 16 in file "extended_serial.c"
  Parameters:    Size  Location     Type
   baudrate_bit    1    wreg     unsigned char 
   baudrate_val    2    7[COMRAM] unsigned int 
@@ -1015,7 +1081,7 @@ Total ram usage:        7 bytes
 
  *************** function _eserial_send_data *****************
  Defined at:
-		line 35 in file "extended_serial.c"
+		line 29 in file "extended_serial.c"
  Parameters:    Size  Location     Type
   buffer          2    6[COMRAM] PTR struct circular_buff
 		 -> main@pic_to_pc(34), 
@@ -1071,6 +1137,7 @@ Total ram usage:        1 bytes
  This function calls:
 		Nothing
  This function is called by:
+		_main
 		_eserial_send_data
 		_serial_send_data
 		_serial_send_buffer
@@ -1109,395 +1176,64 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _eserial_receive *****************
- Defined at:
-		line 51 in file "extended_serial.c"
- Parameters:    Size  Location     Type
-  buffer          2    6[COMRAM] PTR struct circular_buff
-		 -> main@pic_to_pic(34), 
-  stop_functio    2    8[COMRAM] PTR FTN()unsigned char 
-		 -> return_false(1), 
-  timer_start     2   10[COMRAM] PTR FTN(int ,)void 
-		 -> set_timer3(0), 
-  timer_up        2   12[COMRAM] PTR FTN()unsigned char 
-		 -> timer3_up(1), 
- Auto vars:     Size  Location     Type
-  test            1   15[COMRAM] unsigned char 
-  value           1   16[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, pclat, tosl, prodl, prodh, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         8       0
-      Locals:         2       0
-      Temps:          1       0
-      Totals:        11       0
-Total ram usage:       11 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_buffer_empty
-		_buffer_push
-		_buffer_space
-		_return_false
-		_serial_peek_receive
-		_set_timer3
-		_timer3_up
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _timer3_up *****************
- Defined at:
-		line 22 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         0       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
-		_eserial_receive
- This function uses a non-reentrant model
-
-
- *************** function _set_timer3 *****************
- Defined at:
-		line 8 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c"
- Parameters:    Size  Location     Type
-  value           2    0[COMRAM] int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         2       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
-		_eserial_receive
- This function uses a non-reentrant model
-
-
- *************** function _serial_peek_receive *****************
- Defined at:
-		line 29 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c"
- Parameters:    Size  Location     Type
-  get_byte        1    wreg     unsigned char 
-  byte            2    0[COMRAM] PTR unsigned char 
-		 -> eserial_receive@value(1), 
- Auto vars:     Size  Location     Type
-  get_byte        1    2[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         1       0
-      Temps:          0       0
-      Totals:         3       0
-Total ram usage:        3 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_eserial_receive
- This function uses a non-reentrant model
-
-
- *************** function _return_false *****************
- Defined at:
-		line 22 in file "main.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         0       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_spi_slave_peek_receive
- This function is called by:
-		_main
-		_eserial_receive
- This function uses a non-reentrant model
-
-
- *************** function _spi_slave_peek_receive *****************
- Defined at:
-		line 42 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c"
- Parameters:    Size  Location     Type
-  get_byte        1    wreg     unsigned char 
-  byte            2    3[COMRAM] PTR int 
-		 -> main@value_102(2), NULL(0), 
- Auto vars:     Size  Location     Type
-  get_byte        1    5[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         1       0
-      Temps:          0       0
-      Totals:         3       0
-Total ram usage:        3 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		_spi_slave_get_byte
- This function is called by:
-		_return_false
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _spi_slave_get_byte *****************
- Defined at:
-		line 111 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-  byte            1    2[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  2    0[COMRAM] int 
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         1       0
-      Temps:          0       0
-      Totals:         3       0
-Total ram usage:        3 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_spi_slave_peek_receive
-		_espi_slave_receive
- This function uses a non-reentrant model
-
-
- *************** function _buffer_space *****************
- Defined at:
-		line 9 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
- Parameters:    Size  Location     Type
-  buffer          2    0[COMRAM] PTR const struct circula
-		 -> main@pic_to_pc(34), main@pic_to_pic(34), 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         2       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_eserial_receive
-		_espi_slave_receive
-		_espi_master_receive
- This function uses a non-reentrant model
-
-
- *************** function _buffer_push *****************
- Defined at:
-		line 24 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
- Parameters:    Size  Location     Type
-  buffer          2    0[COMRAM] PTR struct circular_buff
-		 -> main@pic_to_pc(34), main@pic_to_pic(34), 
-  byte            1    2[COMRAM] unsigned char 
- Auto vars:     Size  Location     Type
-  current_posi    1    4[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         3       0
-      Locals:         1       0
-      Temps:          1       0
-      Totals:         5       0
-Total ram usage:        5 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_eserial_receive
-		_espi_slave_receive
-		_espi_master_receive
- This function uses a non-reentrant model
-
-
- *************** function _buffer_empty *****************
- Defined at:
-		line 14 in file "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
- Parameters:    Size  Location     Type
-  buffer          2    0[COMRAM] PTR const struct circula
-		 -> main@pic_to_pic(34), 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0
-      Params:         2       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         2       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_eserial_receive
-		_espi_master_receive
- This function uses a non-reentrant model
-
-
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-		_setup_timer3  		CODE           	162A	0000	9
-		_timer3_up     		CODE           	163E	0000	15
-		_set_timer3    		CODE           	1632	0000	13
+		_setup_timer3  		CODE           	17EA	0000	9
 
-C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c estimated size: 37
+C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c estimated size: 9
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c
-		_decode_data   		CODE           	17B6	0000	61
-		_encode_data   		CODE           	18BA	0000	71
+		_decode_data   		CODE           	1900	0000	61
+		_encode_data   		CODE           	1A04	0000	71
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c estimated size: 132
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c
-		_setup_simple_s		CODE           	1874	0000	71
-		_serial_peek_re		CODE           	1716	0000	47
-		_serial_send_by		CODE           	164C	0000	15
+		_setup_simple_s		CODE           	19BE	0000	71
+		_serial_send_by		CODE           	17F2	0000	15
 
-C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c estimated size: 133
+C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/serial_pic.c estimated size: 86
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c
-		_setup_spi     		CODE           	17F2	0000	63
-		_spi_slave_get_		CODE           	16F8	0000	31
-		_spi_slave_peek		CODE           	177C	0000	59
-		_spi_send_get_b		CODE           	167E	0000	21
+		_setup_spi     		CODE           	193C	0000	63
+		_spi_slave_get_		CODE           	1870	0000	31
+		_spi_slave_peek		CODE           	18C6	0000	59
+		_spi_send_get_b		CODE           	1812	0000	21
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c estimated size: 174
 
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c
-		_buffer_pop    		CODE           	19B8	0000	123
-		_buffer_peek   		CODE           	1900	0000	83
-		_buffer_push   		CODE           	1952	0000	103
-		_buffer_space  		CODE           	1692	0000	23
-		_buffer_count  		CODE           	166C	0000	19
-		_buffer_empty  		CODE           	16C0	0000	29
+		_buffer_pop    		CODE           	1B02	0000	123
+		_buffer_peek   		CODE           	1A4A	0000	83
+		_buffer_push   		CODE           	1A9C	0000	103
+		_buffer_space  		CODE           	1826	0000	23
+		_buffer_count  		CODE           	1800	0000	19
 
-C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c estimated size: 380
+C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c estimated size: 351
 
 shared
-		__initializatio		CODE           	16A8	0000	15
+		__initializatio		CODE           	183C	0000	15
 
 shared estimated size: 15
 
 extended_serial.c
-		_eserial_receiv		CODE           	1B86	0000	301
-		_eserial_setup 		CODE           	16DC	0000	29
-		_eserial_send_d		CODE           	1830	0000	69
+		_eserial_setup 		CODE           	1854	0000	29
+		_eserial_send_d		CODE           	197A	0000	69
 
-extended_serial.c estimated size: 399
+extended_serial.c estimated size: 98
 
 extended_spi.c
-		_espi_slave_rec		CODE           	1A32	0000	155
+		_espi_slave_rec		CODE           	1B7C	0000	155
 		_espi_slave_sen		CODE           	1CB2	0000	335
-		_espi_setup    		CODE           	1744	0000	57
+		_espi_setup    		CODE           	188E	0000	57
 
 extended_spi.c estimated size: 547
 
 main.c
-		_main          		CODE           	1ACC	0000	187
-		_return_false  		CODE           	165A	0000	19
+		_main          		CODE           	1C16	0000	157
 
-main.c estimated size: 206
+main.c estimated size: 157
 

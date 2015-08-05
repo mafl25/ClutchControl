@@ -4819,15 +4819,22 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 28 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h"
+# 57 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h"
 void setup_spi(uint8_t register_1, uint8_t register_2);
 
-
+# 63
 uint8_t spi_send_get_byte(uint8_t byte);
 bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
+void spi_load_buffer(uint8_t byte);
 
-# 43
+int8_t spi_send_data(uint8_t *data, int8_t size, uint8_t *returned_data);
+int8_t spi_master_get_data(uint8_t *data, int8_t size);
+
+void spi_set_dummy_byte(uint8_t byte);
+uint8_t spi_get_dummy_byte(void);
+
 int16_t spi_slave_get_byte(void);
+uint8_t spi_slave_get_data(uint8_t *data, int8_t size);
 
 # 10 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h"
 struct circular_buffer {
@@ -4858,7 +4865,7 @@ uint8_t buffer_space(const struct circular_buffer *buffer);
 void buffer_clear(struct circular_buffer *buffer);
 
 # 63
-uint16_t buffer_peek(const struct circular_buffer *buffer);
+int16_t buffer_peek(const struct circular_buffer *buffer);
 
 # 27 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\encoding.h"
 void encode_data(uint8_t data, uint8_t *byte_1, uint8_t *byte_2);
@@ -4878,43 +4885,92 @@ bool (*timer)(void));
 void espi_master_receive(struct circular_buffer *buffer,
 void (*timer_start)(int16_t),
 bool (*timer)(void));
-bool espi_master_rts(void);
 
+# 29 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h"
+void setup_timer0(uint8_t register_1);
+void set_timer0(int16_t value);
+void timer0_interrupt(bool toggle);
+bool timer0_up(void);
 
-void espi_slave_send_receive(struct circular_buffer *receive,
-struct circular_buffer *send);
-void espi_master_send_receive(struct circular_buffer *receive,
-struct circular_buffer *send);
-
-# 24 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h"
+# 44
 void setup_timer3(uint8_t register_1);
 void set_timer3(int16_t value);
 void timer3_interrupt(bool toggle);
 bool timer3_up(void);
 
 
-# 6 "main.c"
+# 7 "main.c"
 #pragma config FOSC = IRC
 #pragma config LVP = OFF
 
 
+
+bool load_buffer(struct circular_buffer *buffer, char *str, int size);
 
 int main() {
 OSCCONbits.IRCF = 0x07;
 
 espi_setup(0x00);
 setup_timer3(0x80 | 0x00 | 0x01);
+setup_timer0(0x07 | 0x80);
+pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x01 | 0x02);
 
-struct circular_buffer buffer = {0, 0, {0}};
+struct circular_buffer send = {0, 0, {0}};
+struct circular_buffer receive = {0, 0, {0}};
 
+char name[3] = {0x55, 0xDD, 0x00};
 
+set_timer0(55000);
 while (1) {
 
-espi_master_receive(&buffer, &set_timer3, &timer3_up);
-espi_master_send(&buffer, &set_timer3, &timer3_up);
+espi_master_receive(&receive, &set_timer3, &timer3_up);
 
+if (buffer_count(&receive) >= 3) {
+uint8_t byte_1;
+uint8_t byte_2;
+int16_t value = buffer_pop(&receive);
+
+switch (value) {
+case 0xAC:
+byte_1 = buffer_pop(&receive);
+byte_2 = buffer_pop(&receive);
+setPulseWidth(byte_1 << 2 | byte_2);
+break;
+case 0xAA:
+byte_1 = buffer_pop(&receive);
+byte_2 = buffer_pop(&receive);
+selectOutput(byte_1, byte_2);
+break;
+}
+}
+
+
+
+if (timer0_up()) {
+load_buffer(&send, name, 3);
+espi_master_send(&send, &set_timer3, &timer3_up);
+set_timer0(55000);
+}
 }
 
 return 0;
+}
+
+bool load_buffer(struct circular_buffer *buffer, char *str, int size)
+{
+int i;
+if (size < 0) {
+for (i = 0; str[i] != 0; i++) {
+if (buffer_push(buffer, str[i]))
+return 0;
+}
+} else {
+for (i = 0; i < size; i++) {
+if (buffer_push(buffer, str[i]))
+return 0;
+}
+}
+
+return 1;
 }
 

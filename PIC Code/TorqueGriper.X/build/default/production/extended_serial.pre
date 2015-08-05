@@ -4909,20 +4909,21 @@ uint8_t buffer_space(const struct circular_buffer *buffer);
 void buffer_clear(struct circular_buffer *buffer);
 
 # 63
-uint16_t buffer_peek(const struct circular_buffer *buffer);
+int16_t buffer_peek(const struct circular_buffer *buffer);
 
-# 16 "extended_serial.h"
+# 31 "extended_serial.h"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value);
 
-# 22
+# 37
 int8_t eserial_send_data(struct circular_buffer *buffer);
 
+# 52
 void eserial_receive(struct circular_buffer *buffer,
 bool (*stop_function)(void),
 void (*timer_start)(int16_t),
 bool (*timer_up)(void));
 
-# 17 "extended_serial.c"
+# 16 "extended_serial.c"
 void eserial_setup(uint8_t baudrate_bits, uint16_t baudrate_value)
 {
 ANSELbits.ANS5 = 0;
@@ -4936,11 +4937,10 @@ setup_simple_serial(baudrate_bits, baudrate_value);
 LATCbits.LATC0 = 1;
 }
 
-
 int8_t eserial_send_data(struct circular_buffer *buffer)
 {
 
-# 36
+# 34
 int8_t i = 0;
 int16_t value = buffer_pop(buffer);
 while (value != -1) {

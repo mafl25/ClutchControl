@@ -123,7 +123,7 @@ uint8_t buffer_space(const struct circular_buffer *buffer);
 void buffer_clear(struct circular_buffer *buffer);
 
 # 63
-uint16_t buffer_peek(const struct circular_buffer *buffer);
+int16_t buffer_peek(const struct circular_buffer *buffer);
 
 # 4 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c"
 uint8_t buffer_count(const struct circular_buffer *buffer)
@@ -177,7 +177,7 @@ void buffer_clear(struct circular_buffer *buffer)
 buffer->count = 0;
 }
 
-uint16_t buffer_peek(const struct circular_buffer *buffer)
+int16_t buffer_peek(const struct circular_buffer *buffer)
 {
 if (buffer->count <= 0) {
 return -1;
