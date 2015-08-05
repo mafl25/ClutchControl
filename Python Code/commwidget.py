@@ -89,7 +89,7 @@ class CommWidget(tk.Frame):
             port_sel = self.com.get()
             if port_sel.startswith("COM"):
                 try:
-                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=100,
+                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=1000,
                                              packet_size=self.p_size.get())
                 except ErrorConnection as error:
                     print(error)

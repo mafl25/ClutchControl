@@ -1,6 +1,6 @@
 __author__ = 'Manuel'
 
-import serialport as sp
+import serial
 import time
 from threading import Thread
 from queue import Queue
@@ -27,8 +27,7 @@ class PIC18F13K22:
         self._start_time = 0
         self._out_q = Queue()
         self.p_size = packet_size
-        self.baud_rates = (2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 460800, 500000, 576000, 921600, 1000000,
-                           1152000, 1500000, 2000000, 2500000, 3000000)
+        self.baud_rates = (2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 300000)
 
         # PWM stuff
         self.pwm_outputs = ("P1A", "P1B", "P1C", "P1D")  # Make this a Dictionary
@@ -42,8 +41,8 @@ class PIC18F13K22:
         if packet_size > self.p_size:
             raise ErrorConnection("Packet size too big")
         try:
-            self.port = sp.MPort(packet_size=packet_size, port=port, baudrate=baudrate, timeout=0.0)
-        except sp.SerialException as error:
+            self.port = serial.Serial(port=port, baudrate=baudrate, timeout=0.0, rtscts=True)
+        except serial.SerialException as error:
             raise ErrorConnection(error.args)
 
         self._t = Thread(target=self._connect_pic, args=(disconnect,), daemon=True)
@@ -55,16 +54,16 @@ class PIC18F13K22:
             self._rx_processing(disconnect=disconnect)
             if not self._out_q.empty():
                 data = self._out_q.get()
-                self.port.send_data(data)
+                self.port.write(data)  # TODO:Check size
 
     def _rx_processing(self, disconnect):
 
-        n_bytes = self.port.bytes_in_buffer()
+        n_bytes = self.port.inWaiting()
 
         if n_bytes >= 3:
 
             self._start_time = time.monotonic()
-            self._received_data.extend(self.port.read_data())
+            self._received_data.extend(self.port.read(n_bytes))
 
             self._check_pic_online()
 
@@ -135,6 +134,6 @@ class PIC18F13K22:
         outputs_dict = {"P1A": 1, "P1B": 2, "P1C": 4, "P1D": 8}
         out = outputs_dict[selection]
         if toggle:
-            self._out_q.put([0xAA, out])
+            self._out_q.put([0xAA, out, 1])
         else:
-            self._out_q.put([0xAB, out])
+            self._out_q.put([0xAA, out, 0])
