@@ -6,4 +6,5 @@ C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.h  \
 ../TorqueGriper.X/extended_spi.h  \
 ../TorqueGriper.X/pwm.h  \
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h  \
+stepper_motor.h  \
 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.h 

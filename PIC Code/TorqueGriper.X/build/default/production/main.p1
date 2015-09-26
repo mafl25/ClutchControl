@@ -9,21 +9,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _espi_setup `(v ~T0 @X0 0 ef1`uc ]
 "31 extended_serial.h
 [v _eserial_setup `(v ~T0 @X0 0 ef2`uc`ui ]
-"44 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"60 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _setup_timer3 `(v ~T0 @X0 0 ef1`uc ]
 [v F3973 `(uc ~T0 @X0 0 tf ]
 [v F3976 `(v ~T0 @X0 0 tf1`i ]
 [v F3979 `(uc ~T0 @X0 0 tf ]
 "52 extended_serial.h
 [v _eserial_receive `(v ~T0 @X0 0 ef4`*S375`*F3973`*F3976`*F3979 ]
-"45 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"61 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
-"47
+"63
 [v _timer3_up `(uc ~T0 @X0 0 ef ]
 "27 extended_spi.h
 [v _espi_slave_send `(v ~T0 @X0 0 ef1`*S375 ]
 "26
 [v _espi_slave_receive `(v ~T0 @X0 0 ef1`*S375 ]
+"4847 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S255 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S255 . SSPM CKP SSPEN SSPOV WCOL ]
+"4854
+[s S256 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S256 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"4846
+[u S254 `S255 1 `S256 1 ]
+[n S254 . . . ]
+"4861
+[v _SSPCON1bits `VS254 ~T0 @X0 0 e@4038 ]
 "37 extended_serial.h
 [v _eserial_send_data `(c ~T0 @X0 0 ef1`*S375 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -3656,56 +3667,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PICLibraries.X\timers_pic.h: 30: void set_timer0(int16_t value);
 [; ;PICLibraries.X\timers_pic.h: 31: void timer0_interrupt(bool toggle);
 [; ;PICLibraries.X\timers_pic.h: 32: bool timer0_up(void);
-[; ;PICLibraries.X\timers_pic.h: 44: void setup_timer3(uint8_t register_1);
-[; ;PICLibraries.X\timers_pic.h: 45: void set_timer3(int16_t value);
-[; ;PICLibraries.X\timers_pic.h: 46: void timer3_interrupt(bool toggle);
-[; ;PICLibraries.X\timers_pic.h: 47: bool timer3_up(void);
+[; ;PICLibraries.X\timers_pic.h: 45: void setup_timer1(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 46: void set_timer1(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 47: void timer1_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 48: bool timer1_up(void);
+[; ;PICLibraries.X\timers_pic.h: 60: void setup_timer3(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 61: void set_timer3(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 62: void timer3_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 63: bool timer3_up(void);
 "16 main.c
 [p x FOSC=HS ]
 "17
 [p x LVP=OFF ]
-"22
-[v _return_false `(uc ~T0 @X0 1 ef ]
+"18
+[p x WDTEN=OFF ]
 "23
+[v _return_false `(uc ~T0 @X0 1 ef ]
+"24
 {
-[; ;main.c: 22: bool return_false(void)
-[; ;main.c: 23: {
+[; ;main.c: 23: bool return_false(void)
+[; ;main.c: 24: {
 [e :U _return_false ]
 [f ]
-[; ;main.c: 24: return spi_slave_peek_receive(0, (0));
-"24
+[; ;main.c: 25: return spi_slave_peek_receive(0, (0));
+"25
 [e ) ( _spi_slave_peek_receive (2 , -> -> 0 `i `uc -> -> 0 `i `*i ]
 [e $UE 376  ]
-[; ;main.c: 25: }
-"25
+[; ;main.c: 26: }
+"26
 [e :UE 376 ]
 }
-"27
+"28
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 27: int main() {
+[; ;main.c: 28: int main() {
 [e :U _main ]
 [f ]
-"29
-[v _pic_to_pic `S375 ~T0 @X0 1 a ]
-[v F4057 `S375 ~T0 @X0 1 s ]
-[i F4057
-:U ..
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
-:U ..
--> -> 0 `i `uc
-..
-..
-..
-]
-[; ;main.c: 29: struct circular_buffer pic_to_pic = {0, 0, {0}};
-[e = _pic_to_pic F4057 ]
 "30
-[v _pic_to_pc `S375 ~T0 @X0 1 a ]
-[v F4059 `S375 ~T0 @X0 1 s ]
-[i F4059
+[v _pic_to_pic `S375 ~T0 @X0 1 a ]
+[v F4065 `S375 ~T0 @X0 1 s ]
+[i F4065
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -3716,74 +3717,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;main.c: 30: struct circular_buffer pic_to_pc = {0, 0, {0}};
-[e = _pic_to_pc F4059 ]
-[; ;main.c: 32: espi_setup(0x05);
-"32
-[e ( _espi_setup (1 -> -> 5 `i `uc ]
-[; ;main.c: 33: eserial_setup(0x08 | 0x04, 0x10);
+[; ;main.c: 30: struct circular_buffer pic_to_pic = {0, 0, {0}};
+[e = _pic_to_pic F4065 ]
+"31
+[v _pic_to_pc `S375 ~T0 @X0 1 a ]
+[v F4067 `S375 ~T0 @X0 1 s ]
+[i F4067
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+:U ..
+-> -> 0 `i `uc
+..
+..
+..
+]
+[; ;main.c: 31: struct circular_buffer pic_to_pc = {0, 0, {0}};
+[e = _pic_to_pc F4067 ]
+[; ;main.c: 33: espi_setup(0x05);
 "33
-[e ( _eserial_setup (2 , -> | -> 8 `i -> 4 `i `uc -> -> 16 `i `ui ]
-[; ;main.c: 34: setup_timer3(0x80 | 0x00 | 0x01);
+[e ( _espi_setup (1 -> -> 5 `i `uc ]
+[; ;main.c: 34: eserial_setup(0x08 | 0x04, 0x10);
 "34
+[e ( _eserial_setup (2 , -> | -> 8 `i -> 4 `i `uc -> -> 16 `i `ui ]
+[; ;main.c: 35: setup_timer3(0x80 | 0x00 | 0x01);
+"35
 [e ( _setup_timer3 (1 -> | | -> 128 `i -> 0 `i -> 1 `i `uc ]
-"36
+"37
 [v _value `uc ~T0 @X0 1 a ]
-[; ;main.c: 36: uint8_t value;
-[; ;main.c: 38: while (1) {
 "38
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 37: uint8_t value;
+[; ;main.c: 38: int i = 0;
+[e = _i -> 0 `i ]
+[; ;main.c: 39: while (1) {
+"39
 [e :U 379 ]
 {
-[; ;main.c: 41: eserial_receive(&pic_to_pic, &return_false, &set_timer3, &timer3_up);
-"41
+[; ;main.c: 42: eserial_receive(&pic_to_pic, &return_false, &set_timer3, &timer3_up);
+"42
 [e ( _eserial_receive (4 , , , &U _pic_to_pic &U _return_false &U _set_timer3 &U _timer3_up ]
 [v _value `i ~T0 @X0 1 a ]
-[; ;main.c: 43: int16_t value;
-[; ;main.c: 44: if (spi_slave_peek_receive(1, &value)) {
-"44
+[; ;main.c: 44: int16_t value;
+[; ;main.c: 45: if (spi_slave_peek_receive(1, &value)) {
+"45
 [e $ ! != -> ( _spi_slave_peek_receive (2 , -> -> 1 `i `uc &U _value `i -> -> -> 0 `i `uc `i 381  ]
 {
-[; ;main.c: 45: if (value == 0x20) {
-"45
+[; ;main.c: 47: if (value == 0x20) {
+"47
 [e $ ! == _value -> 32 `i 382  ]
 {
-[; ;main.c: 46: espi_slave_send(&pic_to_pic);
-"46
+[; ;main.c: 48: espi_slave_send(&pic_to_pic);
+"48
 [e ( _espi_slave_send (1 &U _pic_to_pic ]
-"47
+"49
 }
-[; ;main.c: 47: } else if (value == 0x10) {
+[; ;main.c: 49: } else if (value == 0x10) {
 [e $U 383  ]
 [e :U 382 ]
 [e $ ! == _value -> 16 `i 384  ]
 {
-[; ;main.c: 48: espi_slave_receive(&pic_to_pc);
-"48
-[e ( _espi_slave_receive (1 &U _pic_to_pc ]
-"49
-}
-[e :U 384 ]
+[; ;main.c: 50: espi_slave_receive(&pic_to_pc);
 "50
+[e ( _espi_slave_receive (1 &U _pic_to_pc ]
+"51
+}
+[; ;main.c: 51: } else {
+[e $U 385  ]
+[e :U 384 ]
+{
+[; ;main.c: 52: i++;
+"52
+[e ++ _i -> 1 `i ]
+[; ;main.c: 54: if (i > 3) {
+"54
+[e $ ! > _i -> 3 `i 386  ]
+{
+[; ;main.c: 55: SSPCON1bits.SSPEN = 0;
+"55
+[e = . . _SSPCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 56: SSPCON1bits.SSPEN = 1;
+"56
+[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 57: i = 0;
+"57
+[e = _i -> 0 `i ]
+"58
+}
+[e :U 386 ]
+"59
+}
+[e :U 385 ]
 [e :U 383 ]
+"60
 }
 [e :U 381 ]
-[; ;main.c: 49: }
-[; ;main.c: 50: }
-[; ;main.c: 52: eserial_send_data(&pic_to_pc);
-"52
+[; ;main.c: 58: }
+[; ;main.c: 59: }
+[; ;main.c: 60: }
+[; ;main.c: 62: eserial_send_data(&pic_to_pc);
+"62
 [e ( _eserial_send_data (1 &U _pic_to_pc ]
-"53
+"63
 }
 [e :U 378 ]
-"38
+"39
 [e $U 379  ]
 [e :U 380 ]
-[; ;main.c: 53: }
-[; ;main.c: 55: return (0);
-"55
+[; ;main.c: 63: }
+[; ;main.c: 65: return (0);
+"65
 [e ) -> 0 `i ]
 [e $UE 377  ]
-[; ;main.c: 56: }
-"56
+[; ;main.c: 66: }
+"66
 [e :UE 377 ]
 }

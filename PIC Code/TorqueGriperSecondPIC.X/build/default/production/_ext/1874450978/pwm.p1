@@ -77,7 +77,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S119 . . . ]
 "2282
 [v _TRISCbits `VS119 ~T0 @X0 0 e@3988 ]
-"5223
+"32 ../TorqueGriper.X\pwm.h
+[v _setPulseWidth `(v ~T0 @X0 0 ef1`ui ]
+"5223 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
 [v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
 "4502
 [v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
@@ -3777,100 +3779,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 387 ]
 [; ;pwm.c: 52: }
-[; ;pwm.c: 54: PR2 = valuePR2;
+[; ;pwm.c: 54: setPulseWidth(0);
 "54
-[e = _PR2 _valuePR2 ]
-[; ;pwm.c: 55: }
+[e ( _setPulseWidth (1 -> -> 0 `i `ui ]
+[; ;pwm.c: 55: PR2 = valuePR2;
 "55
+[e = _PR2 _valuePR2 ]
+[; ;pwm.c: 56: }
+"56
 [e :UE 372 ]
 }
-"57
+"58
 [v _setPulseWidth `(v ~T0 @X0 1 ef1`ui ]
-"58
-{
-[; ;pwm.c: 57: void setPulseWidth(unsigned int width)
-[; ;pwm.c: 58: {
-[e :U _setPulseWidth ]
-"57
-[v _width `ui ~T0 @X0 1 r1 ]
-"58
-[f ]
-[; ;pwm.c: 59: CCP1CONbits.DC1B = width;
 "59
-[e = . . _CCP1CONbits 0 1 -> _width `uc ]
-[; ;pwm.c: 60: CCPR1L = width >> 2;
+{
+[; ;pwm.c: 58: void setPulseWidth(unsigned int width)
+[; ;pwm.c: 59: {
+[e :U _setPulseWidth ]
+"58
+[v _width `ui ~T0 @X0 1 r1 ]
+"59
+[f ]
+[; ;pwm.c: 60: CCP1CONbits.DC1B = width;
 "60
-[e = _CCPR1L -> >> _width -> 2 `i `uc ]
-[; ;pwm.c: 61: }
+[e = . . _CCP1CONbits 0 1 -> _width `uc ]
+[; ;pwm.c: 61: CCPR1L = width >> 2;
 "61
+[e = _CCPR1L -> >> _width -> 2 `i `uc ]
+[; ;pwm.c: 62: }
+"62
 [e :UE 388 ]
 }
-"63
-[v _selectOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 "64
+[v _selectOutput `(v ~T0 @X0 1 ef2`uc`uc ]
+"65
 {
-[; ;pwm.c: 63: void selectOutput(unsigned char outputs, unsigned char toggle)
-[; ;pwm.c: 64: {
+[; ;pwm.c: 64: void selectOutput(unsigned char outputs, unsigned char toggle)
+[; ;pwm.c: 65: {
 [e :U _selectOutput ]
-"63
+"64
 [v _outputs `uc ~T0 @X0 1 r1 ]
 [v _toggle `uc ~T0 @X0 1 r2 ]
-"64
-[f ]
-[; ;pwm.c: 65: switch (outputs){
 "65
+[f ]
+[; ;pwm.c: 66: switch (outputs){
+"66
 [e $U 391  ]
 {
-[; ;pwm.c: 66: case 0:
-"66
-[e :U 392 ]
-[; ;pwm.c: 67: PSTRCON = 0xF0;
+[; ;pwm.c: 67: case 0:
 "67
-[e = _PSTRCON -> -> 240 `i `uc ]
-[; ;pwm.c: 68: break;
+[e :U 392 ]
+[; ;pwm.c: 68: PSTRCON = 0xF0;
 "68
-[e $U 390  ]
-[; ;pwm.c: 69: case 0x01:
+[e = _PSTRCON -> -> 240 `i `uc ]
+[; ;pwm.c: 69: break;
 "69
-[e :U 393 ]
-[; ;pwm.c: 70: PSTRCONbits.STRA = (toggle) ? 1 : 0;
+[e $U 390  ]
+[; ;pwm.c: 70: case 0x01:
 "70
-[e = . . _PSTRCONbits 0 0 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 71: break;
+[e :U 393 ]
+[; ;pwm.c: 71: PSTRCONbits.STRA = (toggle) ? 1 : 0;
 "71
-[e $U 390  ]
-[; ;pwm.c: 72: case 0x02:
+[e = . . _PSTRCONbits 0 0 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[; ;pwm.c: 72: break;
 "72
-[e :U 394 ]
-[; ;pwm.c: 73: PSTRCONbits.STRB = (toggle) ? 1 : 0;
+[e $U 390  ]
+[; ;pwm.c: 73: case 0x02:
 "73
-[e = . . _PSTRCONbits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 74: break;
+[e :U 394 ]
+[; ;pwm.c: 74: PSTRCONbits.STRB = (toggle) ? 1 : 0;
 "74
-[e $U 390  ]
-[; ;pwm.c: 75: case 0x04:
+[e = . . _PSTRCONbits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[; ;pwm.c: 75: break;
 "75
-[e :U 395 ]
-[; ;pwm.c: 76: PSTRCONbits.STRC = (toggle) ? 1 : 0;
+[e $U 390  ]
+[; ;pwm.c: 76: case 0x04:
 "76
-[e = . . _PSTRCONbits 0 2 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 77: break;
+[e :U 395 ]
+[; ;pwm.c: 77: PSTRCONbits.STRC = (toggle) ? 1 : 0;
 "77
-[e $U 390  ]
-[; ;pwm.c: 78: case 0x08:
+[e = . . _PSTRCONbits 0 2 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[; ;pwm.c: 78: break;
 "78
-[e :U 396 ]
-[; ;pwm.c: 79: PSTRCONbits.STRD = (toggle) ? 1 : 0;
+[e $U 390  ]
+[; ;pwm.c: 79: case 0x08:
 "79
-[e = . . _PSTRCONbits 0 3 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;pwm.c: 80: break;
+[e :U 396 ]
+[; ;pwm.c: 80: PSTRCONbits.STRD = (toggle) ? 1 : 0;
 "80
-[e $U 390  ]
+[e = . . _PSTRCONbits 0 3 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
+[; ;pwm.c: 81: break;
 "81
-}
-[; ;pwm.c: 81: }
 [e $U 390  ]
-"65
+"82
+}
+[; ;pwm.c: 82: }
+[e $U 390  ]
+"66
 [e :U 391 ]
 [e [\ _outputs , $ -> -> 0 `i `uc 392
  , $ -> -> 1 `i `uc 393
@@ -3878,9 +3883,9 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 4 `i `uc 395
  , $ -> -> 8 `i `uc 396
  390 ]
-"81
-[e :U 390 ]
-[; ;pwm.c: 82: }
 "82
+[e :U 390 ]
+[; ;pwm.c: 83: }
+"83
 [e :UE 389 ]
 }

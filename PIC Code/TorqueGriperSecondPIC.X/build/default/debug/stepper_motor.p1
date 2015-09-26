@@ -1,85 +1,49 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"5732 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
-[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
-"6248
-[s S330 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S330 . RABIF INT0IF TMR0IF RABIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"6258
-[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S331 . RBIF INT0F T0IF RBIE INT0E T0IE PEIE GIE ]
-"6268
-[s S332 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S332 . . GIEL GIEH ]
-"6273
-[s S333 :6 `uc 1 :1 `uc 1 ]
-[n S333 . . PIE ]
-"6247
-[u S329 `S330 1 `S331 1 `S332 1 `S333 1 ]
-[n S329 . . . . . ]
-"6278
-[v _INTCONbits `VS329 ~T0 @X0 0 e@4082 ]
-"5801
-[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
-"6242
-[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
-"5338
-[v _T1CON `Vuc ~T0 @X0 0 e@4045 ]
-"2619
-[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S133 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"2628
-[s S134 :5 `uc 1 :1 `uc 1 ]
-[n S134 . . RC1IF ]
-"2632
-[s S135 :4 `uc 1 :1 `uc 1 ]
-[n S135 . . TX1IF ]
-"2618
-[u S132 `S133 1 `S134 1 `S135 1 ]
-[n S132 . . . . ]
-"2637
-[v _PIR1bits `VS132 ~T0 @X0 0 e@3998 ]
-"5442
-[v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
-"2546
-[s S129 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S129 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"2555
-[s S130 :5 `uc 1 :1 `uc 1 ]
-[n S130 . . RC1IE ]
-"2559
-[s S131 :4 `uc 1 :1 `uc 1 ]
-[n S131 . . TX1IE ]
-"2545
-[u S128 `S129 1 `S130 1 `S131 1 ]
-[n S128 . . . . ]
-"2564
-[v _PIE1bits `VS128 ~T0 @X0 0 e@3997 ]
-"3622
-[v _T3CON `Vuc ~T0 @X0 0 e@4017 ]
-"2825
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . . TMR3IF . BCLIF EEIF C2IF C1IF OSCFIF ]
-"2835
-[s S145 :6 `uc 1 :1 `uc 1 ]
-[n S145 . . CMIF ]
-"2824
-[u S143 `S144 1 `S145 1 ]
-[n S143 . . . ]
-"2840
-[v _PIR2bits `VS143 ~T0 @X0 0 e@4001 ]
-"3730
-[v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
-"2765
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . . TMR3IE . BCLIE EEIE C2IE C1IE OSCFIE ]
-"2775
-[s S142 :6 `uc 1 :1 `uc 1 ]
-[n S142 . . CMIE ]
-"2764
-[u S140 `S141 1 `S142 1 ]
-[n S140 . . . ]
-"2780
-[v _PIE2bits `VS140 ~T0 @X0 0 e@4000 ]
+"1842 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f13k22.h
+[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S98 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1852
+[s S99 :1 `uc 1 ]
+[n S99 . LC0 ]
+"1855
+[s S100 :1 `uc 1 :1 `uc 1 ]
+[n S100 . . LC1 ]
+"1859
+[s S101 :2 `uc 1 :1 `uc 1 ]
+[n S101 . . LC2 ]
+"1863
+[s S102 :3 `uc 1 :1 `uc 1 ]
+[n S102 . . LC3 ]
+"1867
+[s S103 :4 `uc 1 :1 `uc 1 ]
+[n S103 . . LC4 ]
+"1871
+[s S104 :5 `uc 1 :1 `uc 1 ]
+[n S104 . . LC5 ]
+"1875
+[s S105 :6 `uc 1 :1 `uc 1 ]
+[n S105 . . LC6 ]
+"1879
+[s S106 :7 `uc 1 :1 `uc 1 ]
+[n S106 . . LC7 ]
+"1841
+[u S97 `S98 1 `S99 1 `S100 1 `S101 1 `S102 1 `S103 1 `S104 1 `S105 1 `S106 1 ]
+[n S97 . . . . . . . . . . ]
+"1884
+[v _LATCbits `VS97 ~T0 @X0 0 e@3979 ]
+"2261
+[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S120 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2271
+[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2260
+[u S119 `S120 1 `S121 1 ]
+[n S119 . . . ]
+"2282
+[v _TRISCbits `VS119 ~T0 @X0 0 e@3988 ]
+"1836
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -3603,7 +3567,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -3632,255 +3595,104 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;timers_pic.h: 29: void setup_timer0(uint8_t register_1);
-[; ;timers_pic.h: 30: void set_timer0(int16_t value);
-[; ;timers_pic.h: 31: void timer0_interrupt(bool toggle);
-[; ;timers_pic.h: 32: bool timer0_up(void);
-[; ;timers_pic.h: 45: void setup_timer1(uint8_t register_1);
-[; ;timers_pic.h: 46: void set_timer1(int16_t value);
-[; ;timers_pic.h: 47: void timer1_interrupt(bool toggle);
-[; ;timers_pic.h: 48: bool timer1_up(void);
-[; ;timers_pic.h: 60: void setup_timer3(uint8_t register_1);
-[; ;timers_pic.h: 61: void set_timer3(int16_t value);
-[; ;timers_pic.h: 62: void timer3_interrupt(bool toggle);
-[; ;timers_pic.h: 63: bool timer3_up(void);
-"3 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c
-[v _setup_timer0 `(v ~T0 @X0 1 ef1`uc ]
+[; ;stepper_motor.h: 23: void stepper_motor_setup(void);
+[; ;stepper_motor.h: 24: void step_forward(void);
+[; ;stepper_motor.h: 25: void step_backward(void);
+"3 stepper_motor.c
+[v _current_state `uc ~T0 @X0 1 s ]
+[; ;stepper_motor.c: 3: static uint8_t current_state;
 "4
-{
-[; ;timers_pic.c: 3: void setup_timer0(uint8_t T0CON_reg)
-[; ;timers_pic.c: 4: {
-[e :U _setup_timer0 ]
-"3
-[v _T0CON_reg `uc ~T0 @X0 1 r1 ]
-"4
-[f ]
-[; ;timers_pic.c: 5: T0CON = T0CON_reg;
+[v _output_value `uc ~T0 @X0 -> 8 `i s ]
+[i _output_value
+:U ..
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 2 `i `uc
+-> -> 6 `i `uc
 "5
-[e = _T0CON _T0CON_reg ]
-[; ;timers_pic.c: 6: }
-"6
+-> -> 4 `i `uc
+-> -> 12 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+..
+]
+[; ;stepper_motor.c: 4: static uint8_t output_value[8] = {0x01, 0x03, 0x02, 0x06,
+[; ;stepper_motor.c: 5: 0x04, 0x0C, 0x08, 0x09};
+"7
+[v _stepper_motor_setup `(v ~T0 @X0 1 ef ]
+"8
+{
+[; ;stepper_motor.c: 7: void stepper_motor_setup(void)
+[; ;stepper_motor.c: 8: {
+[e :U _stepper_motor_setup ]
+[f ]
+[; ;stepper_motor.c: 9: LATCbits.LATC0 = 0;
+"9
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 10: LATCbits.LATC1 = 0;
+"10
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 11: LATCbits.LATC2 = 0;
+"11
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 12: LATCbits.LATC3 = 0;
+"12
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 14: TRISCbits.RC0 = 0;
+"14
+[e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 15: TRISCbits.RC1 = 0;
+"15
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 16: TRISCbits.RC2 = 0;
+"16
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 17: TRISCbits.RC3 = 0;
+"17
+[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
+[; ;stepper_motor.c: 18: }
+"18
 [e :UE 372 ]
 }
-"8
-[v _set_timer0 `(v ~T0 @X0 1 ef1`i ]
-"9
+"20
+[v _step_forward `(v ~T0 @X0 1 ef ]
+"21
 {
-[; ;timers_pic.c: 8: void set_timer0(int16_t value)
-[; ;timers_pic.c: 9: {
-[e :U _set_timer0 ]
-"8
-[v _value `i ~T0 @X0 1 r1 ]
-"9
+[; ;stepper_motor.c: 20: void step_forward(void)
+[; ;stepper_motor.c: 21: {
+[e :U _step_forward ]
 [f ]
-[; ;timers_pic.c: 10: INTCONbits.TMR0IF = 0;
-"10
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;timers_pic.c: 11: TMR0 = value;
-"11
-[e = _TMR0 -> _value `us ]
-[; ;timers_pic.c: 12: }
-"12
+[; ;stepper_motor.c: 22: current_state++;
+"22
+[e ++ _current_state -> -> 1 `i `uc ]
+[; ;stepper_motor.c: 23: current_state &= 0x07;
+"23
+[e =& _current_state -> -> 7 `i `uc ]
+[; ;stepper_motor.c: 25: LATC = (LATC & 0xF0) | output_value[current_state];
+"25
+[e = _LATC -> | & -> _LATC `i -> 240 `i -> *U + &U _output_value * -> _current_state `ux -> -> # *U &U _output_value `ui `ux `i `uc ]
+[; ;stepper_motor.c: 26: }
+"26
 [e :UE 373 ]
 }
-"14
-[v _timer0_interrupt `(v ~T0 @X0 1 ef1`uc ]
-"15
-{
-[; ;timers_pic.c: 14: void timer0_interrupt(bool toggle)
-[; ;timers_pic.c: 15: {
-[e :U _timer0_interrupt ]
-"14
-[v _toggle `uc ~T0 @X0 1 r1 ]
-"15
-[f ]
-[; ;timers_pic.c: 16: if (toggle)
-"16
-[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 375  ]
-[; ;timers_pic.c: 17: INTCON |= 0xC0;
-"17
-[e =| _INTCON -> -> 192 `i `uc ]
-[e :U 375 ]
-[; ;timers_pic.c: 19: INTCONbits.TMR0IE = (toggle) ? 1: 0;
-"19
-[e = . . _INTCONbits 0 5 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;timers_pic.c: 20: }
-"20
-[e :UE 374 ]
-}
-"22
-[v _timer0_up `(uc ~T0 @X0 1 ef ]
-"23
-{
-[; ;timers_pic.c: 22: bool timer0_up(void)
-[; ;timers_pic.c: 23: {
-[e :U _timer0_up ]
-[f ]
-[; ;timers_pic.c: 24: return (INTCONbits.TMR0IF) ? 1 : 0;
-"24
-[e ) -> ? != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 376  ]
-[; ;timers_pic.c: 25: }
-"25
-[e :UE 376 ]
-}
+"28
+[v _step_backward `(v ~T0 @X0 1 ef ]
 "29
-[v _setup_timer1 `(v ~T0 @X0 1 ef1`uc ]
-"30
 {
-[; ;timers_pic.c: 29: void setup_timer1(uint8_t T1CON_reg)
-[; ;timers_pic.c: 30: {
-[e :U _setup_timer1 ]
-"29
-[v _T1CON_reg `uc ~T0 @X0 1 r1 ]
-"30
+[; ;stepper_motor.c: 28: void step_backward(void)
+[; ;stepper_motor.c: 29: {
+[e :U _step_backward ]
 [f ]
-[; ;timers_pic.c: 31: T1CON = T1CON_reg;
+[; ;stepper_motor.c: 30: current_state--;
+"30
+[e -- _current_state -> -> 1 `i `uc ]
+[; ;stepper_motor.c: 31: current_state &= 0x07;
 "31
-[e = _T1CON _T1CON_reg ]
-[; ;timers_pic.c: 32: }
-"32
-[e :UE 377 ]
-}
+[e =& _current_state -> -> 7 `i `uc ]
+[; ;stepper_motor.c: 33: LATC = (LATC & 0xF0) | output_value[current_state];
+"33
+[e = _LATC -> | & -> _LATC `i -> 240 `i -> *U + &U _output_value * -> _current_state `ux -> -> # *U &U _output_value `ui `ux `i `uc ]
+[; ;stepper_motor.c: 34: }
 "34
-[v _set_timer1 `(v ~T0 @X0 1 ef1`i ]
-"35
-{
-[; ;timers_pic.c: 34: void set_timer1(int16_t value)
-[; ;timers_pic.c: 35: {
-[e :U _set_timer1 ]
-"34
-[v _value `i ~T0 @X0 1 r1 ]
-"35
-[f ]
-[; ;timers_pic.c: 36: PIR1bits.TMR1IF = 0;
-"36
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;timers_pic.c: 37: TMR1 = value;
-"37
-[e = _TMR1 -> _value `us ]
-[; ;timers_pic.c: 38: }
-"38
-[e :UE 378 ]
-}
-"40
-[v _timer1_interrupt `(v ~T0 @X0 1 ef1`uc ]
-"41
-{
-[; ;timers_pic.c: 40: void timer1_interrupt(bool toggle)
-[; ;timers_pic.c: 41: {
-[e :U _timer1_interrupt ]
-"40
-[v _toggle `uc ~T0 @X0 1 r1 ]
-"41
-[f ]
-[; ;timers_pic.c: 42: if (toggle)
-"42
-[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 380  ]
-[; ;timers_pic.c: 43: INTCON |= 0xC0;
-"43
-[e =| _INTCON -> -> 192 `i `uc ]
-[e :U 380 ]
-[; ;timers_pic.c: 45: PIE1bits.TMR1IE = (toggle) ? 1: 0;
-"45
-[e = . . _PIE1bits 0 0 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;timers_pic.c: 46: }
-"46
-[e :UE 379 ]
-}
-"48
-[v _timer1_up `(uc ~T0 @X0 1 ef ]
-"49
-{
-[; ;timers_pic.c: 48: bool timer1_up(void)
-[; ;timers_pic.c: 49: {
-[e :U _timer1_up ]
-[f ]
-[; ;timers_pic.c: 50: return (PIR1bits.TMR1IF) ? 1 : 0;
-"50
-[e ) -> ? != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 381  ]
-[; ;timers_pic.c: 51: }
-"51
-[e :UE 381 ]
-}
-"55
-[v _setup_timer3 `(v ~T0 @X0 1 ef1`uc ]
-"56
-{
-[; ;timers_pic.c: 55: void setup_timer3(uint8_t T3CON_reg)
-[; ;timers_pic.c: 56: {
-[e :U _setup_timer3 ]
-"55
-[v _T3CON_reg `uc ~T0 @X0 1 r1 ]
-"56
-[f ]
-[; ;timers_pic.c: 57: T3CON = T3CON_reg;
-"57
-[e = _T3CON _T3CON_reg ]
-[; ;timers_pic.c: 58: }
-"58
-[e :UE 382 ]
-}
-"60
-[v _set_timer3 `(v ~T0 @X0 1 ef1`i ]
-"61
-{
-[; ;timers_pic.c: 60: void set_timer3(int16_t value)
-[; ;timers_pic.c: 61: {
-[e :U _set_timer3 ]
-"60
-[v _value `i ~T0 @X0 1 r1 ]
-"61
-[f ]
-[; ;timers_pic.c: 62: PIR2bits.TMR3IF = 0;
-"62
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;timers_pic.c: 63: TMR3 = value;
-"63
-[e = _TMR3 -> _value `us ]
-[; ;timers_pic.c: 64: }
-"64
-[e :UE 383 ]
-}
-"66
-[v _timer3_interrupt `(v ~T0 @X0 1 ef1`uc ]
-"67
-{
-[; ;timers_pic.c: 66: void timer3_interrupt(bool toggle)
-[; ;timers_pic.c: 67: {
-[e :U _timer3_interrupt ]
-"66
-[v _toggle `uc ~T0 @X0 1 r1 ]
-"67
-[f ]
-[; ;timers_pic.c: 68: if (toggle)
-"68
-[e $ ! != -> _toggle `i -> -> -> 0 `i `uc `i 385  ]
-[; ;timers_pic.c: 69: INTCON |= 0xC0;
-"69
-[e =| _INTCON -> -> 192 `i `uc ]
-[e :U 385 ]
-[; ;timers_pic.c: 71: PIE2bits.TMR3IE = (toggle) ? 1: 0;
-"71
-[e = . . _PIE2bits 0 1 -> ? != -> _toggle `i -> -> -> 0 `i `uc `i : -> 1 `i -> 0 `i `uc ]
-[; ;timers_pic.c: 72: }
-"72
-[e :UE 384 ]
-}
-"74
-[v _timer3_up `(uc ~T0 @X0 1 ef ]
-"75
-{
-[; ;timers_pic.c: 74: bool timer3_up(void)
-[; ;timers_pic.c: 75: {
-[e :U _timer3_up ]
-[f ]
-[; ;timers_pic.c: 76: return (PIR2bits.TMR3IF) ? 1 : 0;
-"76
-[e ) -> ? != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 386  ]
-[; ;timers_pic.c: 77: }
-"77
-[e :UE 386 ]
+[e :UE 374 ]
 }

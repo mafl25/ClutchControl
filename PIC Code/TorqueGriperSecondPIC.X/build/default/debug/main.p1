@@ -13,17 +13,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OSCCONbits `VS308 ~T0 @X0 0 e@4051 ]
 "24 ../TorqueGriper.X\extended_spi.h
 [v _espi_setup `(v ~T0 @X0 0 ef1`uc ]
-"44 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"60 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _setup_timer3 `(v ~T0 @X0 0 ef1`uc ]
 "29
 [v _setup_timer0 `(v ~T0 @X0 0 ef1`uc ]
-"20 main.c
+"23 main.c
 [c E3665 0 1 2 3 .. ]
 [n E3665 . PACH_PBDH PACH_PBDL PACL_PBDH PACL_PBDL  ]
 [c E3671 0 1 2 .. ]
 [n E3671 . TMRP_1 TMRP_4 TMRP_16  ]
 "30 ../TorqueGriper.X\pwm.h
 [v _pmwSingleModeSetUp `(v ~T0 @X0 0 ef4`E3665`uc`E3671`uc ]
+"23 stepper_motor.h
+[v _stepper_motor_setup `(v ~T0 @X0 0 ef ]
 "10 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [s S372 `uc 1 `uc 1 `uc -> 32 `i ]
 [n S372 circular_buffer position count data ]
@@ -33,9 +35,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3967 `(uc ~T0 @X0 0 tf ]
 "32 ../TorqueGriper.X\extended_spi.h
 [v _espi_master_receive `(v ~T0 @X0 0 ef3`*S372`*F3964`*F3967 ]
-"45 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
+"61 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _set_timer3 `(v ~T0 @X0 0 ef1`i ]
-"47
+"63
 [v _timer3_up `(uc ~T0 @X0 0 ef ]
 "21 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_pop `(i ~T0 @X0 0 ef1`*S372 ]
@@ -45,18 +47,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _selectOutput `(v ~T0 @X0 0 ef2`uc`uc ]
 "46 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_count `(uc ~T0 @X0 0 ef1`*CS372 ]
-"63
-[v _buffer_peek `(i ~T0 @X0 0 ef1`*CS372 ]
-"57
-[v _buffer_clear `(v ~T0 @X0 0 ef1`*S372 ]
 "32 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\timers_pic.h
 [v _timer0_up `(uc ~T0 @X0 0 ef ]
-"12 main.c
+"15 main.c
 [v _load_buffer `(uc ~T0 @X0 0 ef3`*S372`*uc`i ]
 [v F3956 `(v ~T0 @X0 0 tf1`i ]
 [v F3959 `(uc ~T0 @X0 0 tf ]
 "29 ../TorqueGriper.X\extended_spi.h
 [v _espi_master_send `(v ~T0 @X0 0 ef3`*S372`*F3956`*F3959 ]
+"24 stepper_motor.h
+[v _step_forward `(v ~T0 @X0 0 ef ]
+"25
+[v _step_backward `(v ~T0 @X0 0 ef ]
 "28 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
 [v _buffer_push `(uc ~T0 @X0 0 ef2`*S372`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -3582,6 +3584,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -3610,7 +3613,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;PICLibraries.X\spi_pic.h: 57: void setup_spi(uint8_t register_1, uint8_t register_2);
 [; ;PICLibraries.X\spi_pic.h: 63: uint8_t spi_send_get_byte(uint8_t byte);
 [; ;PICLibraries.X\spi_pic.h: 64: bool spi_slave_peek_receive(bool get_byte, int16_t *byte);
@@ -3649,56 +3651,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PICLibraries.X\timers_pic.h: 30: void set_timer0(int16_t value);
 [; ;PICLibraries.X\timers_pic.h: 31: void timer0_interrupt(bool toggle);
 [; ;PICLibraries.X\timers_pic.h: 32: bool timer0_up(void);
-[; ;PICLibraries.X\timers_pic.h: 44: void setup_timer3(uint8_t register_1);
-[; ;PICLibraries.X\timers_pic.h: 45: void set_timer3(int16_t value);
-[; ;PICLibraries.X\timers_pic.h: 46: void timer3_interrupt(bool toggle);
-[; ;PICLibraries.X\timers_pic.h: 47: bool timer3_up(void);
-"7 main.c
+[; ;PICLibraries.X\timers_pic.h: 45: void setup_timer1(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 46: void set_timer1(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 47: void timer1_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 48: bool timer1_up(void);
+[; ;PICLibraries.X\timers_pic.h: 60: void setup_timer3(uint8_t register_1);
+[; ;PICLibraries.X\timers_pic.h: 61: void set_timer3(int16_t value);
+[; ;PICLibraries.X\timers_pic.h: 62: void timer3_interrupt(bool toggle);
+[; ;PICLibraries.X\timers_pic.h: 63: bool timer3_up(void);
+[; ;stepper_motor.h: 23: void stepper_motor_setup(void);
+[; ;stepper_motor.h: 24: void step_forward(void);
+[; ;stepper_motor.h: 25: void step_backward(void);
+"9 main.c
 [p x FOSC=IRC ]
-"8
+"10
 [p x LVP=OFF ]
-[; ;main.c: 12: bool load_buffer(struct circular_buffer *buffer, char *str, int size);
-"14
+"11
+[p x WDTEN=OFF ]
+[; ;main.c: 15: bool load_buffer(struct circular_buffer *buffer, char *str, int size);
+"17
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 14: int main() {
+[; ;main.c: 17: int main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 15: OSCCONbits.IRCF = 0x07;
-"15
-[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;main.c: 17: espi_setup(0x00);
-"17
-[e ( _espi_setup (1 -> -> 0 `i `uc ]
-[; ;main.c: 18: setup_timer3(0x80 | 0x00 | 0x01);
+[; ;main.c: 18: OSCCONbits.IRCF = 0x07;
 "18
-[e ( _setup_timer3 (1 -> | | -> 128 `i -> 0 `i -> 1 `i `uc ]
-[; ;main.c: 19: setup_timer0(0x07 | 0x80);
-"19
-[e ( _setup_timer0 (1 -> | -> 7 `i -> 128 `i `uc ]
-[; ;main.c: 20: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x01 | 0x02);
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
+[; ;main.c: 20: espi_setup(0x00);
 "20
-[e ( _pmwSingleModeSetUp (4 , , , . `E3665 0 -> -> 254 `i `uc . `E3671 0 -> | -> 1 `i -> 2 `i `uc ]
+[e ( _espi_setup (1 -> -> 0 `i `uc ]
+[; ;main.c: 21: setup_timer3(0x80 | 0x00 | 0x01);
+"21
+[e ( _setup_timer3 (1 -> | | -> 128 `i -> 0 `i -> 1 `i `uc ]
+[; ;main.c: 22: setup_timer0(0x02 | 0x80);
 "22
-[v _send `S372 ~T0 @X0 1 a ]
-[v F3991 `S372 ~T0 @X0 1 s ]
-[i F3991
-:U ..
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
-:U ..
--> -> 0 `i `uc
-..
-..
-..
-]
-[; ;main.c: 22: struct circular_buffer send = {0, 0, {0}};
-[e = _send F3991 ]
+[e ( _setup_timer0 (1 -> | -> 2 `i -> 128 `i `uc ]
+[; ;main.c: 23: pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x01 | 0x02);
 "23
-[v _receive `S372 ~T0 @X0 1 a ]
-[v F3993 `S372 ~T0 @X0 1 s ]
-[i F3993
+[e ( _pmwSingleModeSetUp (4 , , , . `E3665 0 -> -> 254 `i `uc . `E3671 0 -> | -> 1 `i -> 2 `i `uc ]
+[; ;main.c: 24: stepper_motor_setup();
+"24
+[e ( _stepper_motor_setup ..  ]
+"26
+[v _send `S372 ~T0 @X0 1 a ]
+[v F4005 `S372 ~T0 @X0 1 s ]
+[i F4005
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -3709,226 +3707,308 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;main.c: 23: struct circular_buffer receive = {0, 0, {0}};
-[e = _receive F3993 ]
-[v F3995 `uc ~T0 @X0 -> 3 `i s ]
-[i F3995
+[; ;main.c: 26: struct circular_buffer send = {0, 0, {0}};
+[e = _send F4005 ]
+"27
+[v _receive `S372 ~T0 @X0 1 a ]
+[v F4007 `S372 ~T0 @X0 1 s ]
+[i F4007
 :U ..
-"25
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+:U ..
+-> -> 0 `i `uc
+..
+..
+..
+]
+[; ;main.c: 27: struct circular_buffer receive = {0, 0, {0}};
+[e = _receive F4007 ]
+[v F4009 `uc ~T0 @X0 -> 3 `i s ]
+[i F4009
+:U ..
+"29
 -> -> 85 `i `uc
 -> -> 221 `i `uc
 -> -> 0 `i `uc
 ..
 ]
 [v _name `uc ~T0 @X0 -> 3 `i a ]
-[; ;main.c: 25: char name[3] = {0x55, 0xDD, 0x00};
-[e = _name F3995 ]
-[; ;main.c: 27: set_timer0(55000);
-"27
-[e ( _set_timer0 (1 -> -> 55000 `l `i ]
-[; ;main.c: 28: while (1) {
-"28
+[; ;main.c: 29: char name[3] = {0x55, 0xDD, 0x00};
+[e = _name F4009 ]
+"30
+[v _count `c ~T0 @X0 1 a ]
+[; ;main.c: 30: int8_t count = 0;
+[e = _count -> -> 0 `i `c ]
+"31
+[v _right `uc ~T0 @X0 1 a ]
+[; ;main.c: 31: bool right = 1;
+[e = _right -> -> 1 `i `uc ]
+"32
+[v _continuous `uc ~T0 @X0 1 a ]
+[; ;main.c: 32: bool continuous = 0;
+[e = _continuous -> -> 0 `i `uc ]
+[; ;main.c: 34: set_timer0(65050);
+"34
+[e ( _set_timer0 (1 -> -> 65050 `l `i ]
+[; ;main.c: 35: while (1) {
+"35
 [e :U 375 ]
 {
-[; ;main.c: 30: espi_master_receive(&receive, &set_timer3, &timer3_up);
-"30
+[; ;main.c: 37: espi_master_receive(&receive, &set_timer3, &timer3_up);
+"37
 [e ( _espi_master_receive (3 , , &U _receive &U _set_timer3 &U _timer3_up ]
-"31
+"38
 [v _value `i ~T0 @X0 1 a ]
-[; ;main.c: 31: int16_t value;
-[; ;main.c: 33: while (buffer_count(&receive) >= 3) {
-"33
+[; ;main.c: 38: int16_t value;
+[; ;main.c: 40: while (buffer_count(&receive) >= 3) {
+"40
 [e $U 377  ]
 [e :U 378 ]
 {
-"34
-[v _byte_1 `uc ~T0 @X0 1 a ]
-"35
-[v _byte_2 `uc ~T0 @X0 1 a ]
-[; ;main.c: 34: uint8_t byte_1;
-[; ;main.c: 35: uint8_t byte_2;
-[; ;main.c: 36: value = buffer_pop(&receive);
-"36
+[; ;main.c: 41: value = buffer_pop(&receive);
+"41
 [e = _value ( _buffer_pop (1 &U _receive ]
-[; ;main.c: 38: switch (value) {
-"38
+"42
+[v _byte_1 `uc ~T0 @X0 1 a ]
+"43
+[v _byte_2 `uc ~T0 @X0 1 a ]
+[; ;main.c: 42: uint8_t byte_1;
+[; ;main.c: 43: uint8_t byte_2;
+[; ;main.c: 45: switch (value) {
+"45
 [e $U 381  ]
 {
-[; ;main.c: 39: case 0xAC:
-"39
-[e :U 382 ]
-[; ;main.c: 40: byte_1 = buffer_pop(&receive);
-"40
-[e = _byte_1 -> ( _buffer_pop (1 &U _receive `uc ]
-[; ;main.c: 41: byte_2 = buffer_pop(&receive);
-"41
-[e = _byte_2 -> ( _buffer_pop (1 &U _receive `uc ]
-[; ;main.c: 42: setPulseWidth(byte_1 << 2 | byte_2);
-"42
-[e ( _setPulseWidth (1 -> | << -> _byte_1 `i -> 2 `i -> _byte_2 `i `ui ]
-[; ;main.c: 43: break;
-"43
-[e $U 380  ]
-[; ;main.c: 44: case 0xAA:
-"44
-[e :U 383 ]
-[; ;main.c: 45: byte_1 = buffer_pop(&receive);
-"45
-[e = _byte_1 -> ( _buffer_pop (1 &U _receive `uc ]
-[; ;main.c: 46: byte_2 = buffer_pop(&receive);
+[; ;main.c: 46: case 0xAC:
 "46
-[e = _byte_2 -> ( _buffer_pop (1 &U _receive `uc ]
-[; ;main.c: 47: selectOutput(byte_1, byte_2);
+[e :U 382 ]
+[; ;main.c: 47: byte_1 = buffer_pop(&receive);
 "47
-[e ( _selectOutput (2 , _byte_1 _byte_2 ]
-[; ;main.c: 48: break;
+[e = _byte_1 -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 48: byte_2 = buffer_pop(&receive);
 "48
-[e $U 380  ]
+[e = _byte_2 -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 49: setPulseWidth(byte_1 << 2 | byte_2);
 "49
-}
-[; ;main.c: 49: }
+[e ( _setPulseWidth (1 -> | << -> _byte_1 `i -> 2 `i -> _byte_2 `i `ui ]
+[; ;main.c: 50: break;
+"50
 [e $U 380  ]
-"38
+[; ;main.c: 51: case 0xAA:
+"51
+[e :U 383 ]
+[; ;main.c: 52: byte_1 = buffer_pop(&receive);
+"52
+[e = _byte_1 -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 53: byte_2 = buffer_pop(&receive);
+"53
+[e = _byte_2 -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 54: selectOutput(byte_1, byte_2);
+"54
+[e ( _selectOutput (2 , _byte_1 _byte_2 ]
+[; ;main.c: 55: break;
+"55
+[e $U 380  ]
+[; ;main.c: 56: case 0xBA:
+"56
+[e :U 384 ]
+[; ;main.c: 57: right = buffer_pop(&receive);
+"57
+[e = _right -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 58: count = buffer_pop(&receive);
+"58
+[e = _count -> ( _buffer_pop (1 &U _receive `c ]
+[; ;main.c: 59: continuous = 0;
+"59
+[e = _continuous -> -> 0 `i `uc ]
+[; ;main.c: 60: break;
+"60
+[e $U 380  ]
+[; ;main.c: 61: case 0xBB:
+"61
+[e :U 385 ]
+[; ;main.c: 62: right = buffer_pop(&receive);
+"62
+[e = _right -> ( _buffer_pop (1 &U _receive `uc ]
+[; ;main.c: 63: buffer_pop(&receive);
+"63
+[e ( _buffer_pop (1 &U _receive ]
+[; ;main.c: 64: count = 0;
+"64
+[e = _count -> -> 0 `i `c ]
+[; ;main.c: 65: continuous = 1;
+"65
+[e = _continuous -> -> 1 `i `uc ]
+[; ;main.c: 66: break;
+"66
+[e $U 380  ]
+"67
+}
+[; ;main.c: 67: }
+[e $U 380  ]
+"45
 [e :U 381 ]
 [e [\ _value , $ -> 172 `i 382
  , $ -> 170 `i 383
+ , $ -> 186 `i 384
+ , $ -> 187 `i 385
  380 ]
-"49
+"67
 [e :U 380 ]
-"50
+"68
 }
 [e :U 377 ]
-"33
+"40
 [e $ >= -> ( _buffer_count (1 -> &U _receive `*CS372 `i -> 3 `i 378  ]
 [e :U 379 ]
-[; ;main.c: 50: }
-[; ;main.c: 52: value = buffer_peek(&receive);
-"52
-[e = _value ( _buffer_peek (1 -> &U _receive `*CS372 ]
-[; ;main.c: 53: if (value != 0xAC && value != 0xAA)
-"53
-[e $ ! && != _value -> 172 `i != _value -> 170 `i 384  ]
-[; ;main.c: 54: buffer_clear(&receive);
-"54
-[e ( _buffer_clear (1 &U _receive ]
-[e :U 384 ]
-[; ;main.c: 58: if (timer0_up()) {
-"58
-[e $ ! != -> ( _timer0_up ..  `i -> -> -> 0 `i `uc `i 385  ]
+[; ;main.c: 68: }
+[; ;main.c: 70: if (timer0_up()) {
+"70
+[e $ ! != -> ( _timer0_up ..  `i -> -> -> 0 `i `uc `i 386  ]
 {
-[; ;main.c: 59: load_buffer(&send, name, 3);
-"59
+[; ;main.c: 71: load_buffer(&send, name, 3);
+"71
 [e ( _load_buffer (3 , , &U _send &U _name -> 3 `i ]
-[; ;main.c: 60: espi_master_send(&send, &set_timer3, &timer3_up);
-"60
+[; ;main.c: 72: espi_master_send(&send, &set_timer3, &timer3_up);
+"72
 [e ( _espi_master_send (3 , , &U _send &U _set_timer3 &U _timer3_up ]
-[; ;main.c: 61: set_timer0(55000);
-"61
-[e ( _set_timer0 (1 -> -> 55000 `l `i ]
-"62
+[; ;main.c: 73: if (count || continuous) {
+"73
+[e $ ! || != -> _count `i -> -> -> 0 `i `c `i != -> _continuous `i -> -> -> 0 `i `uc `i 387  ]
+{
+[; ;main.c: 74: if (right)
+"74
+[e $ ! != -> _right `i -> -> -> 0 `i `uc `i 388  ]
+[; ;main.c: 75: step_forward();
+"75
+[e ( _step_forward ..  ]
+[e $U 389  ]
+"76
+[e :U 388 ]
+[; ;main.c: 76: else
+[; ;main.c: 77: step_backward();
+"77
+[e ( _step_backward ..  ]
+[e :U 389 ]
+[; ;main.c: 79: if (count)
+"79
+[e $ ! != -> _count `i -> -> -> 0 `i `c `i 390  ]
+[; ;main.c: 80: count--;
+"80
+[e -- _count -> -> 1 `i `c ]
+[e :U 390 ]
+"81
 }
-[e :U 385 ]
-"63
+[e :U 387 ]
+[; ;main.c: 81: }
+[; ;main.c: 82: set_timer0(60050);
+"82
+[e ( _set_timer0 (1 -> -> 60050 `l `i ]
+"83
+}
+[e :U 386 ]
+"84
 }
 [e :U 374 ]
-"28
+"35
 [e $U 375  ]
 [e :U 376 ]
-[; ;main.c: 62: }
-[; ;main.c: 63: }
-[; ;main.c: 65: return 0;
-"65
+[; ;main.c: 83: }
+[; ;main.c: 84: }
+[; ;main.c: 86: return 0;
+"86
 [e ) -> 0 `i ]
 [e $UE 373  ]
-[; ;main.c: 66: }
-"66
+[; ;main.c: 87: }
+"87
 [e :UE 373 ]
 }
-"68
+"89
 [v _load_buffer `(uc ~T0 @X0 1 ef3`*S372`*uc`i ]
-"69
+"90
 {
-[; ;main.c: 68: bool load_buffer(struct circular_buffer *buffer, char *str, int size)
-[; ;main.c: 69: {
+[; ;main.c: 89: bool load_buffer(struct circular_buffer *buffer, char *str, int size)
+[; ;main.c: 90: {
 [e :U _load_buffer ]
-"68
+"89
 [v _buffer `*S372 ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [v _size `i ~T0 @X0 1 r3 ]
-"69
+"90
 [f ]
-"70
+"91
 [v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 70: int i;
-[; ;main.c: 71: if (size < 0) {
-"71
-[e $ ! < _size -> 0 `i 387  ]
+[; ;main.c: 91: int i;
+[; ;main.c: 92: if (size < 0) {
+"92
+[e $ ! < _size -> 0 `i 392  ]
 {
-[; ;main.c: 72: for (i = 0; str[i] != 0; i++) {
-"72
-{
-[e = _i -> 0 `i ]
-[e $U 391  ]
-[e :U 388 ]
-{
-[; ;main.c: 73: if (buffer_push(buffer, str[i]))
-"73
-[e $ ! != -> ( _buffer_push (2 , _buffer *U + _str * -> _i `x -> -> # *U _str `i `x `i -> -> -> 0 `i `uc `i 392  ]
-[; ;main.c: 74: return 0;
-"74
-[e ) -> -> 0 `i `uc ]
-[e $UE 386  ]
-[e :U 392 ]
-"75
-}
-"72
-[e ++ _i -> 1 `i ]
-[e :U 391 ]
-[e $ != -> *U + _str * -> _i `x -> -> # *U _str `i `x `i -> 0 `i 388  ]
-[e :U 389 ]
-"75
-}
-"76
-}
-[; ;main.c: 75: }
-[; ;main.c: 76: } else {
-[e $U 393  ]
-[e :U 387 ]
-{
-[; ;main.c: 77: for (i = 0; i < size; i++) {
-"77
+[; ;main.c: 93: for (i = 0; str[i] != 0; i++) {
+"93
 {
 [e = _i -> 0 `i ]
-[e $U 397  ]
-[e :U 394 ]
-{
-[; ;main.c: 78: if (buffer_push(buffer, str[i]))
-"78
-[e $ ! != -> ( _buffer_push (2 , _buffer *U + _str * -> _i `x -> -> # *U _str `i `x `i -> -> -> 0 `i `uc `i 398  ]
-[; ;main.c: 79: return 0;
-"79
-[e ) -> -> 0 `i `uc ]
-[e $UE 386  ]
-[e :U 398 ]
-"80
-}
-"77
-[e ++ _i -> 1 `i ]
-[e :U 397 ]
-[e $ < _i _size 394  ]
-[e :U 395 ]
-"80
-}
-"81
-}
+[e $U 396  ]
 [e :U 393 ]
-[; ;main.c: 80: }
-[; ;main.c: 81: }
-[; ;main.c: 83: return 1;
-"83
+{
+[; ;main.c: 94: if (buffer_push(buffer, str[i]))
+"94
+[e $ ! != -> ( _buffer_push (2 , _buffer *U + _str * -> _i `x -> -> # *U _str `i `x `i -> -> -> 0 `i `uc `i 397  ]
+[; ;main.c: 95: return 0;
+"95
+[e ) -> -> 0 `i `uc ]
+[e $UE 391  ]
+[e :U 397 ]
+"96
+}
+"93
+[e ++ _i -> 1 `i ]
+[e :U 396 ]
+[e $ != -> *U + _str * -> _i `x -> -> # *U _str `i `x `i -> 0 `i 393  ]
+[e :U 394 ]
+"96
+}
+"97
+}
+[; ;main.c: 96: }
+[; ;main.c: 97: } else {
+[e $U 398  ]
+[e :U 392 ]
+{
+[; ;main.c: 98: for (i = 0; i < size; i++) {
+"98
+{
+[e = _i -> 0 `i ]
+[e $U 402  ]
+[e :U 399 ]
+{
+[; ;main.c: 99: if (buffer_push(buffer, str[i]))
+"99
+[e $ ! != -> ( _buffer_push (2 , _buffer *U + _str * -> _i `x -> -> # *U _str `i `x `i -> -> -> 0 `i `uc `i 403  ]
+[; ;main.c: 100: return 0;
+"100
+[e ) -> -> 0 `i `uc ]
+[e $UE 391  ]
+[e :U 403 ]
+"101
+}
+"98
+[e ++ _i -> 1 `i ]
+[e :U 402 ]
+[e $ < _i _size 399  ]
+[e :U 400 ]
+"101
+}
+"102
+}
+[e :U 398 ]
+[; ;main.c: 101: }
+[; ;main.c: 102: }
+[; ;main.c: 104: return 1;
+"104
 [e ) -> -> 1 `i `uc ]
-[e $UE 386  ]
-[; ;main.c: 84: }
-"84
-[e :UE 386 ]
+[e $UE 391  ]
+[; ;main.c: 105: }
+"105
+[e :UE 391 ]
 }

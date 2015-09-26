@@ -4726,6 +4726,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
 typedef signed char int8_t;
 
@@ -4816,9 +4819,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
-typedef unsigned char bool;
-
 # 57 "C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\spi_pic.h"
 void setup_spi(uint8_t register_1, uint8_t register_2);
 
@@ -4892,16 +4892,28 @@ void set_timer0(int16_t value);
 void timer0_interrupt(bool toggle);
 bool timer0_up(void);
 
-# 44
+# 45
+void setup_timer1(uint8_t register_1);
+void set_timer1(int16_t value);
+void timer1_interrupt(bool toggle);
+bool timer1_up(void);
+
+# 60
 void setup_timer3(uint8_t register_1);
 void set_timer3(int16_t value);
 void timer3_interrupt(bool toggle);
 bool timer3_up(void);
 
+# 23 "stepper_motor.h"
+void stepper_motor_setup(void);
+void step_forward(void);
+void step_backward(void);
 
-# 7 "main.c"
+
+# 9 "main.c"
 #pragma config FOSC = IRC
 #pragma config LVP = OFF
+#pragma config WDTEN = OFF
 
 
 
@@ -4912,23 +4924,30 @@ OSCCONbits.IRCF = 0x07;
 
 espi_setup(0x00);
 setup_timer3(0x80 | 0x00 | 0x01);
-setup_timer0(0x07 | 0x80);
+setup_timer0(0x00 | 0x80);
 pmwSingleModeSetUp(PACH_PBDH, 254, TMRP_1, 0x01 | 0x02);
+stepper_motor_setup();
 
 struct circular_buffer send = {0, 0, {0}};
 struct circular_buffer receive = {0, 0, {0}};
 
 char name[3] = {0x55, 0xDD, 0x00};
+int8_t count = 0;
+bool right = 1;
+bool continuous = 0;
 
-set_timer0(55000);
+set_timer0(65050);
 while (1) {
 
 espi_master_receive(&receive, &set_timer3, &timer3_up);
+int16_t value;
 
-if (buffer_count(&receive) >= 3) {
+int8_t message_count = 0;
+
+while (buffer_count(&receive) >= 3) {
+value = buffer_pop(&receive);
 uint8_t byte_1;
 uint8_t byte_2;
-int16_t value = buffer_pop(&receive);
 
 switch (value) {
 case 0xAC:
@@ -4941,15 +4960,38 @@ byte_1 = buffer_pop(&receive);
 byte_2 = buffer_pop(&receive);
 selectOutput(byte_1, byte_2);
 break;
+case 0xBA:
+right = buffer_pop(&receive);
+count = buffer_pop(&receive);
+continuous = 0;
+break;
+case 0xBB:
+right = buffer_pop(&receive);
+buffer_pop(&receive);
+count = 0;
+continuous = 1;
+break;
 }
 }
-
-
 
 if (timer0_up()) {
+if (message_count == 0) {
 load_buffer(&send, name, 3);
 espi_master_send(&send, &set_timer3, &timer3_up);
-set_timer0(55000);
+}
+
+message_count++;
+
+if (count || continuous) {
+if (right)
+step_forward();
+else
+step_backward();
+
+if (count)
+count--;
+}
+set_timer0(64000);
 }
 }
 

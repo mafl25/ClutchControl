@@ -182,8 +182,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3959 `(uc ~T0 @X0 0 tf ]
 [v F3964 `(v ~T0 @X0 0 tf1`i ]
 [v F3967 `(uc ~T0 @X0 0 tf ]
-"40 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
-[v _buffer_empty `(uc ~T0 @X0 0 ef1`*CS372 ]
+"34 C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X\circular_buffer.h
+[v _buffer_full `(uc ~T0 @X0 0 ef1`*CS372 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f13k22.h: 49: extern volatile unsigned char SRCON0 @ 0xF68;
@@ -4263,9 +4263,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer `*F4067 ~T0 @X0 1 r3 ]
 "180
 [f ]
-[; ;extended_spi.c: 181: if (buffer_empty(buffer)) {
+[; ;extended_spi.c: 181: if (!buffer_full(buffer)) {
 "181
-[e $ ! != -> ( _buffer_empty (1 -> _buffer `*CS372 `i -> -> -> 0 `i `uc `i 409  ]
+[e $ ! ! != -> ( _buffer_full (1 -> _buffer `*CS372 `i -> -> -> 0 `i `uc `i 409  ]
 {
 [; ;extended_spi.c: 182: spi_send_get_byte(0x20);
 "182

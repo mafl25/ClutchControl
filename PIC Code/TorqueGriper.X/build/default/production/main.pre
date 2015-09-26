@@ -4965,7 +4965,13 @@ void set_timer0(int16_t value);
 void timer0_interrupt(bool toggle);
 bool timer0_up(void);
 
-# 44
+# 45
+void setup_timer1(uint8_t register_1);
+void set_timer1(int16_t value);
+void timer1_interrupt(bool toggle);
+bool timer1_up(void);
+
+# 60
 void setup_timer3(uint8_t register_1);
 void set_timer3(int16_t value);
 void timer3_interrupt(bool toggle);
@@ -4975,6 +4981,7 @@ bool timer3_up(void);
 # 16 "main.c"
 #pragma config FOSC = HS
 #pragma config LVP = OFF
+#pragma config WDTEN = OFF
 
 
 
@@ -4994,7 +5001,7 @@ eserial_setup(0x08 | 0x04, 0x10);
 setup_timer3(0x80 | 0x00 | 0x01);
 
 uint8_t value;
-
+int i = 0;
 while (1) {
 
 
@@ -5002,10 +5009,19 @@ eserial_receive(&pic_to_pic, &return_false, &set_timer3, &timer3_up);
 
 int16_t value;
 if (spi_slave_peek_receive(1, &value)) {
+
 if (value == 0x20) {
 espi_slave_send(&pic_to_pic);
 } else if (value == 0x10) {
 espi_slave_receive(&pic_to_pc);
+} else {
+i++;
+
+if (i > 3) {
+SSPCON1bits.SSPEN = 0;
+SSPCON1bits.SSPEN = 1;
+i = 0;
+}
 }
 }
 

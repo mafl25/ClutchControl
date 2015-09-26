@@ -3,7 +3,7 @@
 
 
 #define TRIS_SLAVE_SEND     TRISAbits.RA2
-#define WRITE_SLAVE_SEND    LATAbits.LATA2
+#define WRITE_SLAVE_SEND    LATAbits.LATA2  //Yellow
 #define READ_SLAVE_SEND     PORTAbits.RA2
 #define AN_SLAVE_SEND       ANSELbits.ANS2
 #define SLAVE_INT_EDGE_SEL  INTCON2bits.INTEDG2

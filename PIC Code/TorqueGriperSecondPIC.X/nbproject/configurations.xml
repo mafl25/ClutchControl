@@ -10,6 +10,7 @@
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.h</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.h</itemPath>
       <itemPath>../TorqueGriper.X/pwm.h</itemPath>
+      <itemPath>stepper_motor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c</itemPath>
       <itemPath>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c</itemPath>
       <itemPath>../TorqueGriper.X/pwm.c</itemPath>
+      <itemPath>stepper_motor.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -35,6 +37,7 @@
   <sourceRootList>
     <Elem>C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X</Elem>
     <Elem>../TorqueGriper.X</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

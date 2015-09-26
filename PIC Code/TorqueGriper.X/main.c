@@ -15,6 +15,7 @@
 
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config LVP = OFF        // Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
+#pragma config WDTEN = OFF      // Watchdog Timer Enable bit (WDT is controlled by SWDTEN bit of the WDTCON register)
 
 
 #define _XTAL_FREQ 20000000
@@ -34,7 +35,7 @@ int main() {
     setup_timer3(TMR3_16BIT_MODE | TMR3_PRESCALE_1 | TMR3_TIMER_ON);
     
     uint8_t value;
-    
+    int i = 0;
     while (1) {
         
         
@@ -46,6 +47,13 @@ int main() {
                 espi_slave_send(&pic_to_pic);
             } else if (value == TX_CHAR) {
                 espi_slave_receive(&pic_to_pc);
+            } else {             
+                if (i > 3) {
+                    SSPCON1bits.SSPEN = 0;
+                    SSPCON1bits.SSPEN = 1;
+                    i = 0;
+                }
+                i++;
             }
         }
         

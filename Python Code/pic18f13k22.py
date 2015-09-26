@@ -137,3 +137,21 @@ class PIC18F13K22:
             self._out_q.put([0xAA, out, 1])
         else:
             self._out_q.put([0xAA, out, 0])
+
+    def stepper_step_forward(self, steps):
+        self._out_q.put([0xBA, 1, steps])
+
+    def stepper_step_backward(self, steps):
+        self._out_q.put([0xBA, 0, steps])
+
+    def stepper_move_forward(self):
+        self._out_q.put([0xBB, 1, 0])
+
+    def stepper_move_backward(self):
+        self._out_q.put([0xBB, 0, 0])
+
+    def set_stepper_interval(self, value):
+        low = value % 256
+        high = value // 256
+        data = [0xBC, high, low]
+        self._out_q.put(data)

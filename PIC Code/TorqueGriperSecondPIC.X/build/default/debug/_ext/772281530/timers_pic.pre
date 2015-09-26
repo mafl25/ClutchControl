@@ -4825,7 +4825,13 @@ void set_timer0(int16_t value);
 void timer0_interrupt(bool toggle);
 bool timer0_up(void);
 
-# 44
+# 45
+void setup_timer1(uint8_t register_1);
+void set_timer1(int16_t value);
+void timer1_interrupt(bool toggle);
+bool timer1_up(void);
+
+# 60
 void setup_timer3(uint8_t register_1);
 void set_timer3(int16_t value);
 void timer3_interrupt(bool toggle);
@@ -4854,6 +4860,32 @@ INTCONbits.TMR0IE = (toggle) ? 1: 0;
 bool timer0_up(void)
 {
 return (INTCONbits.TMR0IF) ? 1 : 0;
+}
+
+
+
+void setup_timer1(uint8_t T1CON_reg)
+{
+T1CON = T1CON_reg;
+}
+
+void set_timer1(int16_t value)
+{
+PIR1bits.TMR1IF = 0;
+TMR1 = value;
+}
+
+void timer1_interrupt(bool toggle)
+{
+if (toggle)
+INTCON |= 0xC0;
+
+PIE1bits.TMR1IE = (toggle) ? 1: 0;
+}
+
+bool timer1_up(void)
+{
+return (PIR1bits.TMR1IF) ? 1 : 0;
 }
 
 

@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c ../TorqueGriper.X/extended_spi.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c ../TorqueGriper.X/pwm.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c ../TorqueGriper.X/extended_spi.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c ../TorqueGriper.X/pwm.c stepper_motor.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/_ext/1874450978/extended_spi.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/1874450978/pwm.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d ${OBJECTDIR}/_ext/1874450978/extended_spi.p1.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d ${OBJECTDIR}/_ext/1874450978/pwm.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/_ext/1874450978/extended_spi.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/1874450978/pwm.p1 ${OBJECTDIR}/stepper_motor.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/_ext/772281530/spi_pic.p1.d ${OBJECTDIR}/_ext/1874450978/extended_spi.p1.d ${OBJECTDIR}/_ext/772281530/circular_buffer.p1.d ${OBJECTDIR}/_ext/772281530/encoding.p1.d ${OBJECTDIR}/_ext/772281530/timers_pic.p1.d ${OBJECTDIR}/_ext/1874450978/pwm.p1.d ${OBJECTDIR}/stepper_motor.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/_ext/1874450978/extended_spi.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/1874450978/pwm.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/772281530/spi_pic.p1 ${OBJECTDIR}/_ext/1874450978/extended_spi.p1 ${OBJECTDIR}/_ext/772281530/circular_buffer.p1 ${OBJECTDIR}/_ext/772281530/encoding.p1 ${OBJECTDIR}/_ext/772281530/timers_pic.p1 ${OBJECTDIR}/_ext/1874450978/pwm.p1 ${OBJECTDIR}/stepper_motor.p1
 
 # Source Files
-SOURCEFILES=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c ../TorqueGriper.X/extended_spi.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c ../TorqueGriper.X/pwm.c
+SOURCEFILES=main.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/spi_pic.c ../TorqueGriper.X/extended_spi.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/circular_buffer.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/encoding.c C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X/timers_pic.c ../TorqueGriper.X/pwm.c stepper_motor.c
 
 
 CFLAGS=
@@ -137,6 +137,14 @@ ${OBJECTDIR}/_ext/1874450978/pwm.p1: ../TorqueGriper.X/pwm.c  nbproject/Makefile
 	@-${MV} ${OBJECTDIR}/_ext/1874450978/pwm.d ${OBJECTDIR}/_ext/1874450978/pwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1874450978/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/stepper_motor.p1: stepper_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/stepper_motor.p1.d 
+	@${RM} ${OBJECTDIR}/stepper_motor.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriper.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/stepper_motor.p1  stepper_motor.c 
+	@-${MV} ${OBJECTDIR}/stepper_motor.d ${OBJECTDIR}/stepper_motor.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/stepper_motor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -193,6 +201,14 @@ ${OBJECTDIR}/_ext/1874450978/pwm.p1: ../TorqueGriper.X/pwm.c  nbproject/Makefile
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriper.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1874450978/pwm.p1  ../TorqueGriper.X/pwm.c 
 	@-${MV} ${OBJECTDIR}/_ext/1874450978/pwm.d ${OBJECTDIR}/_ext/1874450978/pwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1874450978/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/stepper_motor.p1: stepper_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/stepper_motor.p1.d 
+	@${RM} ${OBJECTDIR}/stepper_motor.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 -I"C:/Users/Manuel/Documents/PICLibrary/PICLibraries.X" -I"../TorqueGriper.X" -V --warn=9 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/stepper_motor.p1  stepper_motor.c 
+	@-${MV} ${OBJECTDIR}/stepper_motor.d ${OBJECTDIR}/stepper_motor.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/stepper_motor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
