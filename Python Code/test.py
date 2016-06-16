@@ -18,7 +18,7 @@ port.close()
 import serial
 import time
 
-port = serial.Serial(port="COM3", baudrate=300000, timeout=2, rtscts=True)
+port = serial.Serial(port="COM3", baudrate=2000000, timeout=2, rtscts=True)
 sentence = """It’s been one semester since I came to National Tsing Hua University and it’s been a wonderful experience.
               My time so far in the Power Mechanical Engineering Department has let me meet other wonderful students
               and great professors, as well as learning a great deal from the courses I have taken so far and my work
@@ -59,3 +59,17 @@ else:
     print("Test FAILED!!!")
 
 port.close()
+
+import pylab
+
+list_of_files = [("""C:\Users\Manuel\Documents\ForPlotting.csv""", "Torque vs Magnet Engagement")]
+
+datalist = [(pylab.loadtxt(filename), label) for filename, label in list_of_files ]
+
+for data, label in datalist:
+    pylab.plot(data[:, 0], data[:, 1], label=label )
+
+pylab.legend()
+pylab.title("Title of Plot")
+pylab.xlabel("X Axis Label")
+pylab.ylabel("Y Axis Label")

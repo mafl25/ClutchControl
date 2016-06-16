@@ -34,26 +34,17 @@ class CommWidget(tk.Frame):
 
         # Baudrate port menu
         self.rate = tk.IntVar()
-        rate_menu = ttk.OptionMenu(self, self.rate, self.pic.baud_rates[4], *self.pic.baud_rates)
+        rate_menu = ttk.OptionMenu(self, self.rate, self.pic.baud_rates[8], *self.pic.baud_rates)
         rate_menu.grid(row=2, column=1)
 
         label3 = tk.Label(self, text="Choose BaudRate", font=LARGE_FONT)
         label3.grid(row=2, column=0, sticky=tk.W, pady=10, padx=10)
 
-        # Packet Size entry
-        self.p_size = tk.IntVar()
-        self.p_size.set(self.pic.p_size)
-        p_size_entry = ttk.Entry(self, width=15, justify=tk.CENTER, textvariable=self.p_size)
-        p_size_entry.grid(row=3, column=1)
-
-        label4 = tk.Label(self, text="Choose Packet Size", font=LARGE_FONT)
-        label4.grid(row=3, column=0, sticky=tk.W, pady=10, padx=10)
-
         # Warning label
         self.warning = tk.StringVar()
         warning_label = tk.Label(self, font=SMALL_FONT, textvariable=self.warning, width=30,
                                  height=2, justify=tk.LEFT)
-        warning_label.grid(row=4, column=0, sticky=tk.W, pady=10, padx=10)
+        warning_label.grid(row=3, column=0, sticky=tk.W, pady=10, padx=10)
 
         # Online/Offline label
         self.on_off_line = tk.StringVar()
@@ -72,31 +63,18 @@ class CommWidget(tk.Frame):
 
     def open_close_pressed(self):
 
-        # Gets the value of the packet size
-        try:
-            size = self.p_size.get()
-            if 0 < size <= self.pic.p_size:
-                self.warning.set("")
-            else:
-                self.warning.set("Value of the packet size must be an\ninteger between 1 and {0}."
-                                 .format(self.pic.p_size))
-                return -1
-        except ValueError:
-            self.warning.set("Please enter an integer between 1\nand {0} in the \"Packet Size\" entry."
-                             .format(self.pic.p_size))
-
         if self.open_close.get() == "Open Port":
             port_sel = self.com.get()
             if port_sel.startswith("COM"):
                 try:
-                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=1000,
-                                             packet_size=self.p_size.get())
+                    self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=500)
                 except ErrorConnection as error:
                     print(error)
                     return -1
                 self.open_close.set("Close Port")
+                self.warning.set("")
             else:
-                self.warning.set("No Port Selected")  # Fluff while I get the real thing.
+                self.warning.set("No Port Selected")
 
         else:
             self.pic.close_connection()
@@ -121,4 +99,4 @@ def update_on_off(label, parent):  # Analyze more this function later
         parent.on_off_line.set("PIC Online")
     else:
         parent.on_off_line.set("PIC Offline")
-    label.after(100, update_on_off, label, parent)  # Have to call it again to kee it running
+    label.after(300, update_on_off, label, parent)  # Have to call it again to kee it running

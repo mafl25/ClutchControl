@@ -35,11 +35,11 @@ class PIC18F13K22:
                                 "P1A, P1C active-high; P1B, P1D active-low",
                                 "P1A, P1C active-low; P1B, P1D active-high",
                                 "P1A, P1C active-low; P1B, P1D active-low")
+        self.stepper_position = "Unknown"
+        self.motor_speed = "Unknown"
 
-    def open_connection(self, port, packet_size, baudrate=9600, disconnect=50):
+    def open_connection(self, port, baudrate=9600, disconnect=50):
 
-        if packet_size > self.p_size:
-            raise ErrorConnection("Packet size too big")
         try:
             self.port = serial.Serial(port=port, baudrate=baudrate, timeout=0.0, rtscts=True)
         except serial.SerialException as error:
@@ -50,6 +50,8 @@ class PIC18F13K22:
         self._t.start()
 
     def _connect_pic(self, disconnect):
+        with self._out_q.mutex:
+            self._out_q.queue.clear()
         while self._running:
             self._rx_processing(disconnect=disconnect)
             if not self._out_q.empty():
@@ -104,7 +106,17 @@ class PIC18F13K22:
         return received_data
 
     def _message_processing(self, message):
-        print(message)
+        if message[0] == 0xEE:
+            self.stepper_position = str(message[1] << 8 | message[2])
+            message = message[3:]
+        if message[0] == 0xEA:
+            time = message[1] << 16 | message[2] << 8 | message[3]
+            if time < 8388608:
+                time *= 0.0000005 * 16
+                time = 1/time
+                self.motor_speed = time * 60
+            else:
+                self.motor_speed = 0
 
     def _check_pic_online(self):
         # If the PIC was offline, This checks for it to be online again.
@@ -125,6 +137,10 @@ class PIC18F13K22:
             self.port.close()
 
     def set_pwm(self, value):
+        if value > 1023:
+            value = 1023
+        if value < 0:
+            value = 0
         low = value % 4
         high = (value - low) // 4
         data = [0xAC, high, low]
@@ -154,4 +170,12 @@ class PIC18F13K22:
         low = value % 256
         high = value // 256
         data = [0xBC, high, low]
+        self._out_q.put(data)
+
+    def speed_go(self):
+        data = [0xCA, 0, 0]
+        self._out_q.put(data)
+
+    def speed_stop(self):
+        data = [0xCB, 0, 0]
         self._out_q.put(data)
