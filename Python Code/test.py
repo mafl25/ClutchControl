@@ -1,3 +1,7 @@
+import serial
+import pylab
+import time
+
 __author__ = 'Manuel'
 
 """import pic18f13k22 as mcu
@@ -15,8 +19,7 @@ port.send_data([0xAA, 0x04])
 port.close()
 """
 
-import serial
-import time
+
 
 port = serial.Serial(port="COM3", baudrate=2000000, timeout=2, rtscts=True)
 sentence = """It’s been one semester since I came to National Tsing Hua University and it’s been a wonderful experience.
@@ -60,7 +63,7 @@ else:
 
 port.close()
 
-import pylab
+
 
 list_of_files = [("""C:\Users\Manuel\Documents\ForPlotting.csv""", "Torque vs Magnet Engagement")]
 

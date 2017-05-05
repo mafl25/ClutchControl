@@ -1,9 +1,8 @@
-__author__ = 'Manuel'
-
-
 import pic18f13k22 as mcu
 import gui
 import sys
+
+__author__ = 'Manuel'
 
 
 def main():
