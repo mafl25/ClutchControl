@@ -1,25 +1,24 @@
-__author__ = 'Manuel'
-
 import tkinter as tk
 from tkinter import ttk
 import serial.tools.list_ports as ports
-from pic18f13k22 import ErrorConnection
+from projectFonts import LARGE_FONT, SMALL_FONT
 
-LARGE_FONT = ("Verdana", 12)
-SMALL_FONT = ("Verdana", 8)
+__author__ = 'Manuel'
 
 
 class CommWidget(tk.Frame):
 
-    def __init__(self, parent, controller):
+    def __init__(self, parent, controller, pic, pic_comm_exception, status_update_time=500):
 
         tk.Frame.__init__(self, parent)
         self.config(borderwidth=1, relief=tk.RIDGE)
 
-        self.pic = controller.pic
+        self.pic = pic
+        self.pic_comm_exception = pic_comm_exception
+        self.status_update_time = status_update_time
 
         label1 = tk.Label(self, text="PIC Connection", font=LARGE_FONT)
-        label1.grid(row=0, columnspan=3, sticky=(tk.W + tk.E), pady=10, padx=10)  # Check columnspan
+        label1.grid(row=0, columnspan=3, sticky=(tk.W + tk.E), pady=10, padx=10)  # Check column span
 
         # COM port menu
         self.com = tk.StringVar()
@@ -52,7 +51,7 @@ class CommWidget(tk.Frame):
         on_off_label = tk.Label(self, font=SMALL_FONT, textvariable=self.on_off_line, width=30,
                                 height=2, justify=tk.LEFT)
         on_off_label.grid(row=2, column=2, sticky=tk.W, pady=10, padx=10)
-        on_off_label.after(20, update_on_off, on_off_label, self)  # Runs this function every 20 ms
+        on_off_label.after(0, update_on_off, on_off_label, self)  # Runs this function every 20 ms
         # What's the point of it being a method? Couldn't I have done this from other widget?
 
         # Open/Close Button
@@ -68,7 +67,7 @@ class CommWidget(tk.Frame):
             if port_sel.startswith("COM"):
                 try:
                     self.pic.open_connection(port=port_sel, baudrate=self.rate.get(), disconnect=500)
-                except ErrorConnection as error:
+                except self.pic_comm_exception as error:
                     print(error)
                     return -1
                 self.open_close.set("Close Port")
@@ -99,4 +98,4 @@ def update_on_off(label, parent):  # Analyze more this function later
         parent.on_off_line.set("PIC Online")
     else:
         parent.on_off_line.set("PIC Offline")
-    label.after(300, update_on_off, label, parent)  # Have to call it again to kee it running
+    label.after(parent.status_update_time, update_on_off, label, parent)  # Have to call it again to keep it running

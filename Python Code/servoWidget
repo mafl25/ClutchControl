@@ -1,0 +1,26 @@
+import tkinter as tk
+from projectFonts import LARGE_FONT, SMALL_FONT
+
+__author__ = 'Manuel'
+
+
+class ServoWidget(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.config(borderwidth=1, relief=tk.RIDGE)
+
+        self.pic = controller.pic
+
+        label1 = tk.Label(self, text="Servo Control", font=LARGE_FONT)
+        label1.grid(row=0, columnspan=5, sticky=(tk.W + tk.E), pady=10, padx=10)
+
+        self.set_point = tk.IntVar()
+        self.set_point.set(0)
+
+        label2 = tk.Label(self, text="Set Point", font=SMALL_FONT)
+        label2.grid(row=1, columnspan=5, sticky=(tk.W + tk.E), pady=10, padx=10)
+
+        set_point_scale = ttk.Scale(self, from_=1, to=1023, orient=tk.HORIZONTAL, length=200,
+                                    variable=self.set_point)
+        set_point_scale.grid(row=2, columnspan=5, pady=0, padx=0)
