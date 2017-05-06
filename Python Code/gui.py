@@ -20,7 +20,7 @@ class WindowGUI(tk.Tk):  # This is the base that will help use add frames easily
         container.grid_rowconfigure(0)
         container.grid_columnconfigure(0)
 
-        frame_c = CommWidget(container, self, self.pic, ErrorConnection)
+        frame_c = CommWidget(container, self, self.pic, ErrorConnection, 100)
         frame_c.grid(row=0, column=0, sticky="nw")
 
 
