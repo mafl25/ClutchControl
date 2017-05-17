@@ -8,10 +8,11 @@ __author__ = 'Manuel'
 
 class CommWidget(tk.Frame):
 
-    def __init__(self, parent, controller, pic, pic_comm_exception, status_update_time=500):
+    def __init__(self, parent, controller, row, column, sticky, pic, pic_comm_exception, status_update_time=500):
 
         tk.Frame.__init__(self, parent)
         self.config(borderwidth=1, relief=tk.RIDGE)
+        self.grid(row=row, column=column, sticky=sticky)
 
         self.pic = pic
         self.pic_comm_exception = pic_comm_exception

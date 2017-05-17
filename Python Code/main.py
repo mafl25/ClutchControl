@@ -1,4 +1,4 @@
-import pic18f13k22 as mcu
+import dspic33fj64gp802 as mcu
 import gui
 import sys
 
@@ -7,7 +7,7 @@ __author__ = 'Manuel'
 
 def main():
 
-    pic = mcu.PIC18F13K22(6)
+    pic = mcu.dsPIC33FJ64GP802(6)
     app = gui.WindowGUI(pic=pic)
     app.mainloop()
 
